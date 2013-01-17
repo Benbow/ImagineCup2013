@@ -1,0 +1,10 @@
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Balle.xnb
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Barre.xnb
+C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
