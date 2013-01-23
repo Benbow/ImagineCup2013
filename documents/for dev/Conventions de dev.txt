@@ -1,0 +1,42 @@
+/************** Conventions de Dev **************/
+
+Variables :
+	- variable privé/protected de classe : _maVariable
+	- variable de classe : maVariable
+	- variable en parametre: maVariable
+	_ variable public : MaVariable
+	_ variable static : s_maVariable
+
+Classes :
+	- nom de classe : MaClasse
+
+Methodes :
+	- nom de methodes : MaMethode
+
+Getters/Setters
+	- nom de la func : MaVariable
+
+	exemples : 
+		/**** DECLARATION ****/
+		private Rectangle _hitbox;
+
+		public Rectangle Hitbox
+        	{
+            		get
+            		{
+                		return _hitbox;
+            		}
+            		set
+           		{
+               			_hitbox = value;
+            		}
+        	}
+		
+		/**** UTILISATION ****/
+		
+		// get
+		Rectangle myGet = myPlayer.Hitbox();
+		// set 
+		Rectangle mySet = new Rectangle();
+		myPlayer.Hitbox(mySet);
+	
