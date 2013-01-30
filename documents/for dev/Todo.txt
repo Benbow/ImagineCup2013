@@ -18,6 +18,7 @@ Système des ennemis (animations, ia, etc ...)
 Système de mort et de reload
 Retravailler sur les sauts (selon les 3 modes)
 Sprites et premiers décors
+
 Conceptuel :
 Evolution du personnage
 GUI
