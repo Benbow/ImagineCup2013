@@ -172,6 +172,12 @@ namespace WindowsGame1
             }
         }
 
+        public void InitChangePosition(int x, int y)
+        {
+            this._hitBox.X = x;
+            this._hitBox.Y = y;
+        }
+
         //getter setter
         public bool IsJumping
         {

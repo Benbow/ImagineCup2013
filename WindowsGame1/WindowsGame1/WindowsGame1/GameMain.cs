@@ -19,6 +19,7 @@ namespace WindowsGame1
 
         int statut_player;
         Jekyll LocalJekyll;
+        Hide LocalHide;
 
 
         public GameMain()
@@ -29,14 +30,30 @@ namespace WindowsGame1
             MyMap = new Map(1200, 480);
             statut_player = 0;
             LocalJekyll = new Jekyll(50, 100);
+            LocalHide = new Hide(50, 100);
         }
 
         public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime)
         {
             //LocalPlayer.Update(keyboard, mouse);
-            MyMap.Update(keyboard, mouse, gameTime, LocalJekyll);
-            LocalJekyll.Update(mouse, keyboard);
+            int prec_statut = statut_player;
             statut_player = LocalJekyll.Switch(keyboard, statut_player);
+            if (statut_player == 0)
+            {
+                if(prec_statut != statut_player)
+                    LocalJekyll.InitChangePosition(LocalHide.HitBox.X, LocalHide.HitBox.Y);
+                MyMap.Update(keyboard, mouse, gameTime, LocalJekyll);
+                LocalJekyll.Update(mouse, keyboard);
+            }
+            else if (statut_player == 1)
+            {
+                if (prec_statut != statut_player)
+                    LocalHide.InitChangePosition(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y);
+                MyMap.Update(keyboard, mouse, gameTime, LocalHide);
+                LocalHide.Update(mouse, keyboard);
+            }
+
+            
 
         }
 
@@ -46,6 +63,8 @@ namespace WindowsGame1
             MyMap.Draw(spriteBatch);
             if (statut_player == 0)
                 LocalJekyll.Draw(spriteBatch);
+            else if (statut_player == 1)
+                LocalHide.Draw(spriteBatch);
         }
 
         public void LoadMap()

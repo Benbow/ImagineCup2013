@@ -8,12 +8,12 @@ Animation du joueur
 Colisions au plafond
 verifier colisions au mur
 Vérifier le déplacement de la map
-
+Système pour switcher de personnage (avec conservation des positions)
 Todo :
 
 changement d'animation collision plafond
 Définir la carte, au moins une premiere de test
-Système pour switcher de personnage (avec caractéristique propre)
+Définir les caractéristiques propre a chaque personnage
 Système des ennemis (animations, ia, etc ...)
 Système de mort et de reload
 Retravailler sur les sauts (selon les 3 modes)
