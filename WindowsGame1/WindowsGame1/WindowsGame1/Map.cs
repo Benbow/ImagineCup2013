@@ -138,9 +138,12 @@ namespace WindowsGame1
                 {
                     if (block.HitBox.Intersects(futurePos))
                     {
-                        if(player.FallingSpeed < 0)
+                        if(player.FallingSpeed < 0 && player.AccelMode != 1)
                             player.FallingSpeed = 0;
                         blockMove = false;
+                        player.AccelMode = 1;
+                        accelTimer = 0;
+                        
                         break;
                     }
                 }
@@ -149,6 +152,14 @@ namespace WindowsGame1
             {
                 i = 0;
                 playerMove = false;
+                float sp;
+                if (player.IsJumping)
+                {
+                    sp = player.SpeedInAir;
+                }
+                else {
+                    sp = player.Speed;
+                }
                 foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
                 {
                     i++;
@@ -156,7 +167,7 @@ namespace WindowsGame1
                     {
                         if(key == Keys.Left)
                         {
-                            if ((i == 4 && player.HitBox.X - (FirstGame.W / 2) - player.Speed < block.HitBox.X) || (i == 2 && (player.HitBox.X + (FirstGame.W / 2) - player.Speed - block.HitBox.Width > block.HitBox.X)))
+                            if ((i == 4 && player.HitBox.X - (FirstGame.W / 2) - sp < block.HitBox.X) || (i == 2 && (player.HitBox.X + (FirstGame.W / 2) - sp - block.HitBox.Width > block.HitBox.X)))
                             {
                                playerMove = true;
                             }

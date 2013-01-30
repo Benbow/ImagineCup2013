@@ -56,7 +56,10 @@ namespace WindowsGame1
                 if (futurPos.Intersects(block.HitBox))
                 {
                     colide = true;
-                    this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
+                    if (this._fallingSpeed > 0)
+                    {
+                        this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
+                    }
                     break;
                 }
             }
@@ -67,6 +70,11 @@ namespace WindowsGame1
                     this._fallingSpeed += 0.15f * (this._poids / 4);
                 else
                     this._fallingSpeed += 0.10f * (this._poids / 4);
+                if(this._isJumping)
+                {
+                    this.FrameColumn = 0;
+                    this.FrameLine = 1;
+                }
                 this._isFalling = true;
                 int diff = this._hitBox.Y - futurPos.Y;
                 this._hitBox.Y -= diff;
@@ -79,7 +87,8 @@ namespace WindowsGame1
                     this.FrameColumn = 4;
                     this.FrameLine = 0;
                 }
-                this._isJumping = false;
+                if (this._fallingSpeed >= 0)
+                    this._isJumping = false;
                 this._fallingSpeed = 0;
             }
         }

@@ -155,7 +155,7 @@ namespace WindowsGame1
                 case 1:
                     this._speed = 2f;
                     this._speedInAir = 1f;
-                    this._impulsion = 10f;
+                    this._impulsion = 10.5f;
                     break;
 
                 case 2:
@@ -167,7 +167,7 @@ namespace WindowsGame1
                 case 3:
                     this._speed = 8f;
                     this._speedInAir = 10f;
-                    this._impulsion = 8f;
+                    this._impulsion = 7.5f;
                     break;
             }
         }
