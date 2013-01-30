@@ -1,0 +1,24 @@
+Done :
+Gestion de la map (basique, bloc murs et sols) en fichier externe
+gestion du personnage (sous jekyll pour le moment). Hybride jekyll/hyde, 
+deplacement, saut, acceleration ( a redefinir).
+Colisions sur les cotés et au sol.
+Déplacement de la map en fonction des déplacement du joueur, et de sa position
+Animation du joueur
+
+Todo :
+Colisions au plafond, verifier colisions au mur
+Définir la carte, au moins une premiere de test
+Système pour switcher de personnage (avec caractéristique propre)
+Système des ennemis (animations, ia, etc ...)
+Système de mort et de reload
+Vérifier le déplacement de la map
+Retravailler sur les sauts (selon les 3 modes)
+Sprites et premiers décors
+
+Conceptuel :
+Evolution du personnage
+GUI
+Système d'adrénaline
+Documentation
+Mentor

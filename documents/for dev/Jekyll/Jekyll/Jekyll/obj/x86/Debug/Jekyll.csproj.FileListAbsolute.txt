@@ -1,8 +1,0 @@
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\Jekyll\Jekyll\Jekyll\bin\x86\Debug\Jekyll.exe
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\Jekyll\Jekyll\Jekyll\bin\x86\Debug\Jekyll.pdb
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\Jekyll\Jekyll\Jekyll\obj\x86\Debug\Jekyll.csprojResolveAssemblyReference.cache
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\Jekyll\Jekyll\Jekyll\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\Jekyll\Jekyll\Jekyll\obj\x86\Debug\Jekyll.exe
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\Jekyll\Jekyll\Jekyll\obj\x86\Debug\Jekyll.pdb
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\Jekyll\Jekyll\Jekyll\bin\x86\Debug\Content\guys.xnb
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\Jekyll\Jekyll\Jekyll\bin\x86\Debug\Content\hide.xnb
