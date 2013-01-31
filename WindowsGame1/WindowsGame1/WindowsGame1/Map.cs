@@ -94,11 +94,11 @@ namespace WindowsGame1
             {
                 player.AccelMode = 1;
             }
-            else if (accelTimer > 600 && accelTimer <= 3500)
+            else if (accelTimer > 600 && accelTimer <= 2000)
             {
                 player.AccelMode = 2;
             }
-            else if(accelTimer > 3500)
+            else if(accelTimer > 2000)
             {
                 player.AccelMode = 3;
             }
