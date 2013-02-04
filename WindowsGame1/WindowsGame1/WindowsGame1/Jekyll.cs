@@ -82,13 +82,15 @@ namespace WindowsGame1
             else
             {
                 this._isFalling = false;
-                if (this._isJumping)
+
+                if (this._isJumping && this._fallingSpeed >= 0)
                 {
                     this.FrameColumn = 4;
                     this.FrameLine = 0;
                 }
                 if (this._fallingSpeed >= 0)
                     this._isJumping = false;
+                
                 this._fallingSpeed = 0;
             }
         }
