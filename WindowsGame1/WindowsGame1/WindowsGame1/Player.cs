@@ -107,12 +107,10 @@ namespace WindowsGame1
 
         public void BlockPLayer()
         {
-            Console.WriteLine("tst");
             this.FrameColumn = 4;
             this.FrameLine = 0;
             this._dir = Vector2.Zero;
-            
-            this.AccelMode = 1;
+            this.Timer = 0;
         }
 
         public void CheckGravity()

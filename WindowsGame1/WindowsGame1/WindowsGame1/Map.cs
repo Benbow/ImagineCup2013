@@ -47,6 +47,7 @@ namespace WindowsGame1
             {
                 player.AccelMode = 1;
                 accelTimer = 0;
+                player.SetAccelSpeed();
                 player.BlockPLayer();
             }
             else if (keyboard.IsKeyDown(Keys.Left))
@@ -59,8 +60,6 @@ namespace WindowsGame1
                 this.SetPlayerAccelMode(gameTime, player);
                 this.Move(Keys.Right, player);
             }
-
-            
 
             if (keyboard.IsKeyDown(Keys.Space) && oldKeyboard.IsKeyUp(Keys.Space) && !player.IsJumping)
             { 
