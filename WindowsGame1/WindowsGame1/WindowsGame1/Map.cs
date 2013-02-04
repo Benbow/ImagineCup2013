@@ -19,6 +19,9 @@ namespace WindowsGame1
         int i;
         KeyboardState oldKeyboard;
         Keys jumpInitKey;
+        int showMax = 200;
+        int showCount = 0;
+        int showTimer = 0;
 
         int accelTimer;
 
@@ -60,6 +63,15 @@ namespace WindowsGame1
                 this.SetPlayerAccelMode(gameTime, player);
                 this.Move(Keys.Right, player);
             }
+            
+            if (keyboard.IsKeyDown(Keys.Up))
+            {
+                this.LookUp(true, gameTime, player);
+            }
+            else if (keyboard.IsKeyUp(Keys.Up) && showCount > 0)
+            {
+                this.LookUp(false, gameTime, player);
+            }
 
             if (keyboard.IsKeyDown(Keys.Space) && oldKeyboard.IsKeyUp(Keys.Space) && !player.IsJumping)
             { 
@@ -100,6 +112,43 @@ namespace WindowsGame1
             else if(accelTimer > 2000)
             {
                 player.AccelMode = 3;
+            }
+        }
+
+        public void LookUp(bool active, GameTime gameTime, Player player)
+        {
+            if (active)
+            {
+                showTimer += gameTime.ElapsedGameTime.Milliseconds;
+                if (showTimer > 1000)
+                {
+                    if (showCount < showMax)
+                    {
+                        showCount++;
+                        foreach (Blocks block in Blocks.BlockList)
+                        {
+                            block.IncreaseCoordBlockY(1);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                showTimer = 0;
+                int speedShow = 3;
+                showCount -= speedShow;
+                if (showCount < 0)
+                {
+                    speedShow = 1;
+                }
+                if (showCount >= 0)
+                {
+                    foreach (Blocks block in Blocks.BlockList)
+                    {
+                        block.DecreaseCoordBlockY(speedShow);
+                    }
+                    player.CheckGravity();
+                }
             }
         }
 

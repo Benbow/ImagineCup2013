@@ -178,6 +178,15 @@ namespace WindowsGame1
             this._hitBox.Y = y;
         }
 
+        /*public void IncreaseCoordY(int speed)
+        {
+            this._hitBox.Y += speed;
+        }
+        public void DecreaseCoordY(int speed)
+        {
+            this._hitBox.Y += speed;
+        }*/
+
         //getter setter
         public bool IsJumping
         {
