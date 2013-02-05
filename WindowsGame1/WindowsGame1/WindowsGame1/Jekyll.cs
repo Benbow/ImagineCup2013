@@ -73,7 +73,7 @@ namespace WindowsGame1
                     i++;
                     if (i <= 3)
                     {
-                        if ((i == 3 && this._hitBox.Y + (FirstGame.H / 2) - block.HitBox.Height > block.HitBox.Y))
+                        if ((i == 3 && this._hitBox.Y + (FirstGame.H / 2) + (this._hitBox.Height/2) - (block.HitBox.Height*2) > block.HitBox.Y))
                         {
                             playerMove = true;
                         }
@@ -117,7 +117,7 @@ namespace WindowsGame1
                     this._isFalling = true;
                     foreach (Blocks block in Blocks.BlockList)
                     {
-                        block.DecreaseCoordBlockY((int)this._fallingSpeed);
+                        block.DecreaseCoordBlockY(1+(int)this._fallingSpeed);
                     }
                 }
             }
