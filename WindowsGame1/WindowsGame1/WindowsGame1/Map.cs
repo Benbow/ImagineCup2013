@@ -125,6 +125,7 @@ namespace WindowsGame1
                     if (showCount < showMax)
                     {
                         showCount++;
+                        Console.WriteLine(showCount);
                         foreach (Blocks block in Blocks.BlockList)
                         {
                             block.IncreaseCoordBlockY(1);
@@ -135,11 +136,13 @@ namespace WindowsGame1
             else
             {
                 showTimer = 0;
-                int speedShow = 3;
+                int speedShow = 5;
                 showCount -= speedShow;
                 if (showCount < 0)
                 {
+                    showCount += speedShow;
                     speedShow = 1;
+                    showCount -= speedShow;
                 }
                 if (showCount >= 0)
                 {
