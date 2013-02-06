@@ -36,6 +36,7 @@ namespace WindowsGame1
         protected float _impulsion;
         protected float _speedInAir;
         protected int _accelMode;
+        protected bool _statut = false;
 
         protected KeyboardState oldKeyboard;
 
@@ -53,6 +54,16 @@ namespace WindowsGame1
                     this.FrameColumn = 0;
                 }
             }
+        }
+
+        public bool Switch(KeyboardState keyboard)
+        {
+            if (keyboard.IsKeyDown(Keys.B) && oldKeyboard.IsKeyUp(Keys.B))
+                _statut = !_statut;
+
+            oldKeyboard = keyboard;
+
+            return _statut;
         }
 
         public void MovePlayerLeft(bool player)
@@ -123,27 +134,83 @@ namespace WindowsGame1
                 if (futurPos.Intersects(block.HitBox))
                 {
                     colide = true;
-                    this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
+                    if (this._fallingSpeed > 0)
+                    {
+                        this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
+                    }
                     break;
                 }
             }
 
             if (!colide)
             {
-                this._fallingSpeed += 0.10f * (this._poids / 4);
-                this._isFalling = true;
-                int diff = this._hitBox.Y - futurPos.Y;
-                this._hitBox.Y -= diff;
+                int i = 0;
+                bool playerMove = false;
+                foreach (Blocks block in Blocks.BlockList)
+                {
+                    i++;
+                    if (i <= 3)
+                    {
+                        if ((i == 3 && this._hitBox.Y + (FirstGame.H / 2) + (this._hitBox.Height / 2) - (block.HitBox.Height * 2) > block.HitBox.Y))
+                        {
+                            playerMove = true;
+                        }
+                        else if ((i == 1 && this._hitBox.Y - (FirstGame.H / 2) + block.HitBox.Height < block.HitBox.Y))
+                        {
+                            playerMove = true;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                if (playerMove)
+                {
+                    if (this._fallingSpeed >= 0)
+                        this._fallingSpeed += 0.15f * (this._poids / 4);
+                    else
+                        this._fallingSpeed += 0.10f * (this._poids / 4);
+                    if (this._isJumping)
+                    {
+                        this.FrameColumn = 0;
+                        this.FrameLine = 1;
+                    }
+                    this._isFalling = true;
+                    int diff = this._hitBox.Y - futurPos.Y;
+                    this._hitBox.Y -= diff;
+                }
+                else
+                {
+                    if (this._fallingSpeed >= 0)
+                        this._fallingSpeed += 0.15f * (this._poids / 4);
+                    else
+                        this._fallingSpeed += 0.10f * (this._poids / 4);
+                    if (this._isJumping)
+                    {
+                        this.FrameColumn = 0;
+                        this.FrameLine = 1;
+                    }
+                    this._isFalling = true;
+                    foreach (Blocks block in Blocks.BlockList)
+                    {
+                        block.DecreaseCoordBlockY(1 + (int)this._fallingSpeed);
+                    }
+                }
             }
             else
             {
                 this._isFalling = false;
-                if (this._isJumping)
+
+                if (this._isJumping && this._fallingSpeed >= 0)
                 {
                     this.FrameColumn = 4;
                     this.FrameLine = 0;
                 }
-                this._isJumping = false;
+                if (this._fallingSpeed >= 0)
+                    this._isJumping = false;
+
                 this._fallingSpeed = 0;
             }
         }
@@ -172,10 +239,11 @@ namespace WindowsGame1
             }
         }
 
-        public void InitChangePosition(int x, int y)
+        public void InitChange(int x, int y, Direction dir)
         {
             this._hitBox.X = x;
             this._hitBox.Y = y;
+            this.Direction = dir;
         }
 
         /*public void IncreaseCoordY(int speed)
@@ -257,6 +325,18 @@ namespace WindowsGame1
             set
             {
                 this._accelMode = value;
+            }
+        }
+
+        public Direction DirectionPlayer
+        {
+            get
+            {
+                return this.Direction;
+            }
+            set
+            {
+                this.Direction = value;
             }
         }
         

@@ -17,7 +17,7 @@ namespace WindowsGame1
     {
         Map MyMap;
 
-        int statut_player;
+        bool statut_player;
         Jekyll LocalJekyll;
         Hide LocalHide;
 
@@ -28,7 +28,7 @@ namespace WindowsGame1
             
             //// Création Joueur + Carte
             MyMap = new Map(1200, 480);
-            statut_player = 0;
+            statut_player = false;
             LocalJekyll = new Jekyll(50, 100);
             LocalHide = new Hide(50, 100);
         }
@@ -36,19 +36,19 @@ namespace WindowsGame1
         public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime)
         {
             //LocalPlayer.Update(keyboard, mouse);
-            int prec_statut = statut_player;
-            statut_player = LocalJekyll.Switch(keyboard, statut_player);
-            if (statut_player == 0)
+            bool prec_statut = statut_player;
+            statut_player = LocalJekyll.Switch(keyboard);
+            if (!statut_player)
             {
                 if(prec_statut != statut_player)
-                    LocalJekyll.InitChangePosition(LocalHide.HitBox.X, LocalHide.HitBox.Y);
+                    LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
                 MyMap.Update(keyboard, mouse, gameTime, LocalJekyll);
                 LocalJekyll.Update(mouse, keyboard);
             }
-            else if (statut_player == 1)
+            else if (statut_player)
             {
                 if (prec_statut != statut_player)
-                    LocalHide.InitChangePosition(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y);
+                    LocalHide.InitChange(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y, LocalJekyll.DirectionPlayer);
                 MyMap.Update(keyboard, mouse, gameTime, LocalHide);
                 LocalHide.Update(mouse, keyboard);
             }
@@ -61,9 +61,9 @@ namespace WindowsGame1
         {
             //LocalPlayer.Draw(spriteBatch);
             MyMap.Draw(spriteBatch);
-            if (statut_player == 0)
+            if (!statut_player)
                 LocalJekyll.Draw(spriteBatch);
-            else if (statut_player == 1)
+            else
                 LocalHide.Draw(spriteBatch);
         }
 

@@ -46,110 +46,100 @@ namespace WindowsGame1
             
         }
 
-        public void CheckGravity()
-        {
-            bool colide = false;
-            Rectangle futurPos = this._hitBox;
-            futurPos.Y += 1 + (int)this._fallingSpeed;
-            foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
-            {
-                if (futurPos.Intersects(block.HitBox))
-                {
-                    colide = true;
-                    if (this._fallingSpeed > 0)
-                    {
-                        this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
-                    }
-                    break;
-                }
-            }
+        //public void CheckGravity()
+        //{
+        //    bool colide = false;
+        //    Rectangle futurPos = this._hitBox;
+        //    futurPos.Y += 1 + (int)this._fallingSpeed;
+        //    foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
+        //    {
+        //        if (futurPos.Intersects(block.HitBox))
+        //        {
+        //            colide = true;
+        //            if (this._fallingSpeed > 0)
+        //            {
+        //                this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
+        //            }
+        //            break;
+        //        }
+        //    }
 
-            if (!colide)
-            {
-                int i = 0;
-                bool playerMove = false;
-                foreach (Blocks block in Blocks.BlockList)
-                {
-                    i++;
-                    if (i <= 3)
-                    {
-                        if ((i == 3 && this._hitBox.Y + (FirstGame.H / 2) + (this._hitBox.Height/2) - (block.HitBox.Height*2) > block.HitBox.Y))
-                        {
-                            playerMove = true;
-                        }
-                        else if ((i == 1 && this._hitBox.Y - (FirstGame.H / 2) + block.HitBox.Height < block.HitBox.Y))
-                        {
-                            playerMove = true;
-                        }
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+        //    if (!colide)
+        //    {
+        //        int i = 0;
+        //        bool playerMove = false;
+        //        foreach (Blocks block in Blocks.BlockList)
+        //        {
+        //            i++;
+        //            if (i <= 3)
+        //            {
+        //                if ((i == 3 && this._hitBox.Y + (FirstGame.H / 2) + (this._hitBox.Height/2) - (block.HitBox.Height*2) > block.HitBox.Y))
+        //                {
+        //                    playerMove = true;
+        //                }
+        //                else if ((i == 1 && this._hitBox.Y - (FirstGame.H / 2) + block.HitBox.Height < block.HitBox.Y))
+        //                {
+        //                    playerMove = true;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                break;
+        //            }
+        //        }
 
-                if (playerMove)
-                {
-                    if (this._fallingSpeed >= 0)
-                        this._fallingSpeed += 0.15f * (this._poids / 4);
-                    else
-                        this._fallingSpeed += 0.10f * (this._poids / 4);
-                    if (this._isJumping)
-                    {
-                        this.FrameColumn = 0;
-                        this.FrameLine = 1;
-                    }
-                    this._isFalling = true;
-                    int diff = this._hitBox.Y - futurPos.Y;
-                    this._hitBox.Y -= diff;
-                }
-                else
-                {
-                    if (this._fallingSpeed >= 0)
-                        this._fallingSpeed += 0.15f * (this._poids / 4);
-                    else
-                        this._fallingSpeed += 0.10f * (this._poids / 4);
-                    if (this._isJumping)
-                    {
-                        this.FrameColumn = 0;
-                        this.FrameLine = 1;
-                    }
-                    this._isFalling = true;
-                    foreach (Blocks block in Blocks.BlockList)
-                    {
-                        block.DecreaseCoordBlockY(1+(int)this._fallingSpeed);
-                    }
-                }
-            }
-            else
-            {
-                this._isFalling = false;
+        //        if (playerMove)
+        //        {
+        //            if (this._fallingSpeed >= 0)
+        //                this._fallingSpeed += 0.15f * (this._poids / 4);
+        //            else
+        //                this._fallingSpeed += 0.10f * (this._poids / 4);
+        //            if (this._isJumping)
+        //            {
+        //                this.FrameColumn = 0;
+        //                this.FrameLine = 1;
+        //            }
+        //            this._isFalling = true;
+        //            int diff = this._hitBox.Y - futurPos.Y;
+        //            this._hitBox.Y -= diff;
+        //        }
+        //        else
+        //        {
+        //            if (this._fallingSpeed >= 0)
+        //                this._fallingSpeed += 0.15f * (this._poids / 4);
+        //            else
+        //                this._fallingSpeed += 0.10f * (this._poids / 4);
+        //            if (this._isJumping)
+        //            {
+        //                this.FrameColumn = 0;
+        //                this.FrameLine = 1;
+        //            }
+        //            this._isFalling = true;
+        //            foreach (Blocks block in Blocks.BlockList)
+        //            {
+        //                block.DecreaseCoordBlockY(1+(int)this._fallingSpeed);
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        this._isFalling = false;
 
-                if (this._isJumping && this._fallingSpeed >= 0)
-                {
-                    this.FrameColumn = 4;
-                    this.FrameLine = 0;
-                }
-                if (this._fallingSpeed >= 0)
-                    this._isJumping = false;
+        //        if (this._isJumping && this._fallingSpeed >= 0)
+        //        {
+        //            this.FrameColumn = 4;
+        //            this.FrameLine = 0;
+        //        }
+        //        if (this._fallingSpeed >= 0)
+        //            this._isJumping = false;
                 
-                this._fallingSpeed = 0;
-            }
-        }
+        //        this._fallingSpeed = 0;
+        //    }
+        //}
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this._text, this._hitBox, new Rectangle((this.FrameColumn * 55), (this.FrameLine * 87), 55, 87), Color.White, 0f, new Vector2(0, 0), this.Effect, 0f);
-        }
-
-        public int Switch(KeyboardState keyboard, int statut)
-        {
-            if (keyboard.IsKeyDown(Keys.B))
-                statut = 1;
-            else
-                statut = 0;
-
-            return statut;
         }
     }
 }

@@ -38,7 +38,6 @@ namespace WindowsGame1
             //LocalPlayer.Update(keyboard, mouse);
             bool prec_statut = statut_player;
             statut_player = LocalJekyll.Switch(keyboard);
-            Console.WriteLine(LocalJekyll._statut);
             if (!statut_player)
             {
                 if(prec_statut != statut_player)
