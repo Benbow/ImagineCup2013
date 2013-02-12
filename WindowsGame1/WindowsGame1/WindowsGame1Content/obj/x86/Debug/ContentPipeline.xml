@@ -91,6 +91,24 @@
       <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb</Output>
       <Time>2013-01-16T19:55:12.5765015-05:00</Time>
     </Item>
+    <Item>
+      <Source>invisible.png</Source>
+      <Name>invisible</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb</Output>
+      <Time>2013-02-12T11:03:42.5664457-05:00</Time>
+    </Item>
+    <Item>
+      <Source>leftright.png</Source>
+      <Name>leftright</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb</Output>
+      <Time>2013-02-12T12:25:06.2917788-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

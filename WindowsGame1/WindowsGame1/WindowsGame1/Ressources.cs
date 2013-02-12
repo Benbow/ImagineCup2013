@@ -25,10 +25,13 @@ namespace WindowsGame1
         public static Texture2D Ennemy;
         public static Texture2D Jekyll;
         public static Texture2D Hide;
+        public static Texture2D invisible;
 
         //Load Content
         public static void LoadContent(ContentManager Content)
         {
+            invisible = Content.Load<Texture2D>("invisible");
+
             Player = Content.Load<Texture2D>("tile"); // 0
             TextureList.Add(Player);
             Sol = Content.Load<Texture2D>("sol"); // 1

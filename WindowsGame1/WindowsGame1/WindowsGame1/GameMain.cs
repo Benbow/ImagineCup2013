@@ -29,8 +29,8 @@ namespace WindowsGame1
             //// Création Joueur + Carte
             MyMap = new Map(1200, 480);
             statut_player = false;
-            LocalJekyll = new Jekyll(50, 100);
-            LocalHide = new Hide(50, 100);
+            LocalJekyll = new Jekyll(15, 100);
+            LocalHide = new Hide(15, 100);
         }
 
         public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime)

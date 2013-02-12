@@ -216,6 +216,11 @@ namespace WindowsGame1
             }
         }
 
+        public void PlaceOnMiddleScreen()
+        {
+            this._hitBox.X = (FirstGame.W / 2) - (this._hitBox.Width);
+        }
+
         public void SetAccelSpeed()
         {
             switch (this._accelMode)

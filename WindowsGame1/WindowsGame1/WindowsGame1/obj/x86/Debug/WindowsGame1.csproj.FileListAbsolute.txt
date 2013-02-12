@@ -66,3 +66,5 @@ C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\Window
 C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
 C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb
+C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb

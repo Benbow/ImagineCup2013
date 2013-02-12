@@ -27,7 +27,7 @@ namespace WindowsGame1
         public FirstGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 795;
+            graphics.PreferredBackBufferWidth = 796;
             graphics.PreferredBackBufferHeight = 480;
             //this.graphics.IsFullScreen = true;
             W = graphics.PreferredBackBufferWidth;

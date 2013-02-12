@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="BlockOld.cs" />
     <Compile Include="Blocks.cs" />
+    <Compile Include="DelimiterZone.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="Hide.cs" />
     <Compile Include="Jekyll.cs" />

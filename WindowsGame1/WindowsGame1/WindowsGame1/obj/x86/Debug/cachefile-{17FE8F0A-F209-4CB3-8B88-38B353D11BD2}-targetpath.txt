@@ -8,3 +8,5 @@ Content\ennemy.xnb
 Content\guys.xnb
 Content\hide.xnb
 Content\FontScore.xnb
+Content\invisible.xnb
+Content\leftright.xnb

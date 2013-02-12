@@ -12,6 +12,10 @@ namespace WindowsGame1
     {
         private int _width;
         private int _height;
+        private DelimiterZone _leftSide;
+        private DelimiterZone _rightSide;
+        private DelimiterZone _upSide;
+        private DelimiterZone _downSide;
 
         bool blockMove = true;
         bool playerMove;
@@ -22,6 +26,7 @@ namespace WindowsGame1
         int showMax = 200;
         int showCount = 0;
         int showTimer = 0;
+        
 
         int accelTimer;
 
@@ -29,6 +34,10 @@ namespace WindowsGame1
         {
             _width = x;
             _height = y;
+            _leftSide = new DelimiterZone(0, 0, FirstGame.W / 2, _height );
+            _rightSide = new DelimiterZone(_width - FirstGame.W / 2, 0, FirstGame.W / 2, _height);
+            _upSide = new DelimiterZone(0, 0, _width , FirstGame.H/2);
+            _downSide = new DelimiterZone(0, _height-FirstGame.H, _width, FirstGame.H / 2);
         }
 
         public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime, Player player)
@@ -207,29 +216,32 @@ namespace WindowsGame1
             {
                 i = 0;
                 playerMove = false;
-                float sp;
-                if (player.IsJumping)
-                {
-                    sp = player.SpeedInAir;
-                }
-                else {
-                    sp = player.Speed;
-                }
-                foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
+                float sp = player.Speed;
+                Rectangle LeftCut = new Rectangle(player.HitBox.X + (player.HitBox.Width / 2) - (int)sp, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
+                Rectangle RightCut = new Rectangle(player.HitBox.X + (int)sp, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
+              
+                    if (LeftCut.Intersects(this._leftSide.HitBox) || RightCut.Intersects(this._rightSide.HitBox))
+                    {
+                        playerMove = true;
+                    }
+                    
+
+                 
+                /*foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
                 {
                     i++;
                     if (i <= 4)
                     {
                         if(key == Keys.Left)
                         {
-                            if ((i == 4 && player.HitBox.X - (FirstGame.W / 2) - sp < block.HitBox.X) || (i == 2 && (player.HitBox.X + (FirstGame.W / 2) - sp - block.HitBox.Width > block.HitBox.X)))
+                            if ((i == 4 && player.HitBox.X - (FirstGame.W / 2) < block.HitBox.X) || (i == 2 && (player.HitBox.X + (FirstGame.W / 2) + sp - block.HitBox.Width > block.HitBox.X)))
                             {
-                               playerMove = true;
+                                playerMove = true;
                             }
                         }
                         else if (key == Keys.Right)
                         {
-                            if ((i == 2 && player.HitBox.X + ((FirstGame.W / 2)) - block.HitBox.Width > block.HitBox.X) || (i == 4 && player.HitBox.X - (FirstGame.W / 2) < block.HitBox.X))
+                            if ((i == 2 && player.HitBox.X + ((FirstGame.W / 2)) - block.HitBox.Width + sp > block.HitBox.X) || (i == 4 && player.HitBox.X - (FirstGame.W / 2) < block.HitBox.X))
                             {
                                 playerMove = true;
                             }
@@ -239,7 +251,7 @@ namespace WindowsGame1
                     {
                         break;
                     }
-                }
+                }*/
                 if (playerMove)
                 {
                     if (key == Keys.Left)
