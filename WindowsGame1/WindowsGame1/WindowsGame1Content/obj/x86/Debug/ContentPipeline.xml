@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb</Output>
-      <Time>2013-02-12T11:03:42.5664457-05:00</Time>
+      <Time>2013-02-12T15:57:22.1842302-05:00</Time>
     </Item>
     <Item>
       <Source>leftright.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb</Output>
-      <Time>2013-02-12T12:25:06.2917788-05:00</Time>
+      <Time>2013-02-12T15:57:22.1852303-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
