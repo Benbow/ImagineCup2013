@@ -29,11 +29,10 @@ namespace WindowsGame1
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 795;
             graphics.PreferredBackBufferHeight = 480;
+            //this.graphics.IsFullScreen = true;
             W = graphics.PreferredBackBufferWidth;
             H = graphics.PreferredBackBufferHeight;
             Content.RootDirectory = "Content";
-
-
         }
 
 
@@ -73,8 +72,6 @@ namespace WindowsGame1
             spriteBatch.End();
 
             base.Draw(gameTime);
-
-            
         }
     }
 }

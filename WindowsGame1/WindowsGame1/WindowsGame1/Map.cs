@@ -64,13 +64,18 @@ namespace WindowsGame1
                 this.Move(Keys.Right, player);
             }
             
-            if (keyboard.IsKeyDown(Keys.Up))
+            if (keyboard.IsKeyDown(Keys.Up) && player.FallingSpeed == 0)
             {
                 this.LookUp(true, gameTime, player);
             }
             else if (keyboard.IsKeyUp(Keys.Up) && showCount > 0)
             {
                 this.LookUp(false, gameTime, player);
+                player.LookUpDownPhase = true;
+            }
+            else
+            {
+                player.LookUpDownPhase = false;
             }
 
             if (keyboard.IsKeyDown(Keys.Space) && oldKeyboard.IsKeyUp(Keys.Space) && !player.IsJumping)
@@ -125,7 +130,6 @@ namespace WindowsGame1
                     if (showCount < showMax)
                     {
                         showCount++;
-                        Console.WriteLine(showCount);
                         foreach (Blocks block in Blocks.BlockList)
                         {
                             block.IncreaseCoordBlockY(1);

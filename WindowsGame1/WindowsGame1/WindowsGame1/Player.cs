@@ -37,6 +37,7 @@ namespace WindowsGame1
         protected float _speedInAir;
         protected int _accelMode;
         protected bool _statut = false;
+        protected bool _lookUpDownPhase;
 
         protected KeyboardState oldKeyboard;
 
@@ -134,7 +135,7 @@ namespace WindowsGame1
                 if (futurPos.Intersects(block.HitBox))
                 {
                     colide = true;
-                    if (this._fallingSpeed > 0)
+                    if (this._fallingSpeed > 0 || this._lookUpDownPhase)
                     {
                         this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
                     }
@@ -325,6 +326,18 @@ namespace WindowsGame1
             set
             {
                 this._accelMode = value;
+            }
+        }
+
+        public bool LookUpDownPhase
+        {
+            get
+            {
+                return this._lookUpDownPhase;
+            }
+            set
+            {
+                this._lookUpDownPhase = value;
             }
         }
 
