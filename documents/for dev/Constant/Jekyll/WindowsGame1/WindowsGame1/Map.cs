@@ -91,6 +91,8 @@ namespace WindowsGame1
             if(!player.IsJumping && player.Speed <= 6)
                 player.Speed += 0.01f;
 
+            Console.WriteLine(player.Speed);
+
             if (accelTimer <= 2)
             {
                 player.AccelMode = 1;

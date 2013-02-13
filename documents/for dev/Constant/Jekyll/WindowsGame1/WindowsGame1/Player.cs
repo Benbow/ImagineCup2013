@@ -166,21 +166,18 @@ namespace WindowsGame1
                 switch (this._accelMode)
                 {
                     case 1:
-                        this._speed = 2f;
                         this._speedInAir = 1f;
                         this._impulsion = 10.5f;
                         this.TimerMax = 6;
                         break;
 
                     case 2:
-                        this._speed = 4f;
                         this._speedInAir = 4f;
                         this._impulsion = 9f;
                         this.TimerMax = 4;
                         break;
 
                     case 3:
-                        this._speed = 6f;
                         this._speedInAir = 8f;
                         this._impulsion = 7.5f;
                         this.TimerMax = 4;
@@ -192,21 +189,18 @@ namespace WindowsGame1
                 switch (this._accelMode)
                 {
                     case 1:
-                        this._speed = 2f;
                         this._speedInAir = 0f;
                         this._impulsion = 0f;
                         this.TimerMax = 6;
                         break;
 
                     case 2:
-                        this._speed = 4f;
                         this._speedInAir = 0f;
                         this._impulsion = 0f;
                         this.TimerMax = 4;
                         break;
 
                     case 3:
-                        this._speed = 6f;
                         this._speedInAir = 0f;
                         this._impulsion = 0f;
                         this.TimerMax = 4;
