@@ -20,7 +20,7 @@ namespace WindowsGame1
             this._dir = Vector2.Zero;
             this._health = 100;
             this._poids = 9;
-            this._speed = 2;
+            this._speed = 1.5f;
             this._accelMode = 1;
             this._adrenaline = 0;
 

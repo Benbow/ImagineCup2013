@@ -46,6 +46,7 @@ namespace WindowsGame1
             if (keyboard.IsKeyUp(Keys.Right) && keyboard.IsKeyUp(Keys.Left) && !player.IsJumping)
             {
                 player.AccelMode = 1;
+                player.Speed = 1f;
                 accelTimer = 0;
                 player.BlockPLayer();
             }
@@ -93,15 +94,15 @@ namespace WindowsGame1
 
             Console.WriteLine(player.Speed);
 
-            if (accelTimer <= 2)
+            if (player.Speed <= 2)
             {
                 player.AccelMode = 1;
             }
-            else if (accelTimer > 2 && accelTimer <= 4)
+            else if (player.Speed > 2 && player.Speed <= 4)
             {
                 player.AccelMode = 2;
             }
-            else if(accelTimer > 4)
+            else if (player.Speed > 4)
             {
                 player.AccelMode = 3;
             }
