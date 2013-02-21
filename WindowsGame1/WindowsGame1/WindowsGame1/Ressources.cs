@@ -26,11 +26,15 @@ namespace WindowsGame1
         public static Texture2D Jekyll;
         public static Texture2D Hide;
         public static Texture2D invisible;
+        public static Texture2D alignement_barre;
+        public static Texture2D alignement_value;
 
         //Load Content
         public static void LoadContent(ContentManager Content)
         {
             invisible = Content.Load<Texture2D>("invisible");
+            alignement_barre = Content.Load<Texture2D>("alignement_barre");
+            alignement_value = Content.Load<Texture2D>("alignement_value");
 
             Player = Content.Load<Texture2D>("tile"); // 0
             TextureList.Add(Player);
@@ -46,6 +50,7 @@ namespace WindowsGame1
             TextureList.Add(Jekyll);
             Hide = Content.Load<Texture2D>("hide"); // 6
             TextureList.Add(Hide);
+           
         }
            
     }

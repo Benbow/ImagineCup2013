@@ -72,10 +72,12 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlignementGUI.cs" />
     <Compile Include="BlockOld.cs" />
     <Compile Include="Blocks.cs" />
     <Compile Include="DelimiterZone.cs" />
     <Compile Include="GameMain.cs" />
+    <Compile Include="GUI.cs" />
     <Compile Include="Hide.cs" />
     <Compile Include="Jekyll.cs" />
     <Compile Include="Map.cs" />

@@ -46,6 +46,13 @@ namespace WindowsGame1
 
         }
 
+        public void UpdateBias(AlignementGUI align)
+        {
+            if (this.Speed != 0)
+            {
+                align.Value += 1;
+            }
+        }
         
 
         public void Draw(SpriteBatch spriteBatch)

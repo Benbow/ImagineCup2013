@@ -109,6 +109,24 @@
       <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb</Output>
       <Time>2013-02-12T15:57:22.1852303-05:00</Time>
     </Item>
+    <Item>
+      <Source>alignement_barre.png</Source>
+      <Name>alignement_barre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_barre.xnb</Output>
+      <Time>2013-02-20T18:42:10.2938723-05:00</Time>
+    </Item>
+    <Item>
+      <Source>alignement_value.png</Source>
+      <Name>alignement_value</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_value.xnb</Output>
+      <Time>2013-02-20T18:49:57.8218233-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -10,3 +10,5 @@ Content\hide.xnb
 Content\FontScore.xnb
 Content\invisible.xnb
 Content\leftright.xnb
+Content\alignement_barre.xnb
+Content\alignement_value.xnb

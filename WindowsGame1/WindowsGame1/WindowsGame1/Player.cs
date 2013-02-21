@@ -123,6 +123,7 @@ namespace WindowsGame1
             this.FrameLine = 0;
             this._dir = Vector2.Zero;
             this.Timer = 0;
+            this._isMoving = false;
         }
 
         public void CheckGravity()
