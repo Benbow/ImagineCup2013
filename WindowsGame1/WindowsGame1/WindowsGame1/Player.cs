@@ -38,7 +38,6 @@ namespace WindowsGame1
         protected int _accelMode;
         protected bool _statut = false;
         protected bool _lookUpDownPhase;
-
         protected KeyboardState oldKeyboard;
 
         
@@ -123,7 +122,6 @@ namespace WindowsGame1
             this.FrameLine = 0;
             this._dir = Vector2.Zero;
             this.Timer = 0;
-            this._isMoving = false;
         }
 
         public void CheckGravity()
@@ -252,6 +250,7 @@ namespace WindowsGame1
             this._hitBox.Y = y;
             this.Direction = dir;
         }
+
 
         /*public void IncreaseCoordY(int speed)
         {

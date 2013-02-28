@@ -11,6 +11,7 @@ namespace WindowsGame1
     class Jekyll : Player
     {
         private int _adrenaline;
+        private double _jekyllBias;
 
         public Jekyll(int x, int y)
         {
@@ -22,6 +23,7 @@ namespace WindowsGame1
             this._poids = 9;
             this._accelMode = 1;
             this._adrenaline = 0;
+            this._jekyllBias = 0;
 
             this.FrameColumn = 4;
             this.FrameLine = 0;
@@ -35,7 +37,7 @@ namespace WindowsGame1
         public void Update(MouseState mouse, KeyboardState keyboard)
         {
             this.CheckGravity();
-
+            this.UpdateBias();
             switch (this.Direction)
             {
                 case Direction.Left: this.Effect = SpriteEffects.FlipHorizontally;
@@ -46,12 +48,9 @@ namespace WindowsGame1
             
         }
 
-        public void UpdateBias(AlignementGUI align)
+        public void UpdateBias()
         {
-            if (this.Speed != 0)
-            {
-                align.Value -= 1;
-            }
+            this._jekyllBias++;
         }
 
         //public void CheckGravity()
@@ -148,6 +147,18 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this._text, this._hitBox, new Rectangle((this.FrameColumn * 55), (this.FrameLine * 87), 55, 87), Color.White, 0f, new Vector2(0, 0), this.Effect, 0f);
+        }
+
+        public double JekyllBias
+        {
+            get
+            {
+                return this._jekyllBias;
+            }
+            set
+            {
+                this._jekyllBias = value;
+            }
         }
     }
 }

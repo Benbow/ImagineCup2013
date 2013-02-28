@@ -46,7 +46,6 @@ namespace WindowsGame1
                     LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
                 MyMap.Update(keyboard, mouse, gameTime, LocalJekyll);
                 LocalJekyll.Update(mouse, keyboard);
-                LocalJekyll.UpdateBias(alignement);
             }
             else if (statut_player)
             {
@@ -54,10 +53,9 @@ namespace WindowsGame1
                     LocalHide.InitChange(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y, LocalJekyll.DirectionPlayer);
                 MyMap.Update(keyboard, mouse, gameTime, LocalHide);
                 LocalHide.Update(mouse, keyboard);
-                LocalHide.UpdateBias(alignement);
             }
 
-            alignement.Update();
+            alignement.Update(LocalJekyll.JekyllBias, LocalHide.HideBias);
 
             
 
