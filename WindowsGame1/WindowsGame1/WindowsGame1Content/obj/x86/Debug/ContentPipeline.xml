@@ -127,6 +127,33 @@
       <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_value.xnb</Output>
       <Time>2013-02-20T18:49:57.8218233-05:00</Time>
     </Item>
+    <Item>
+      <Source>InteractZone.png</Source>
+      <Name>InteractZone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\InteractZone.xnb</Output>
+      <Time>2013-03-04T08:52:26.2527269-05:00</Time>
+    </Item>
+    <Item>
+      <Source>enigmes_fond.png</Source>
+      <Name>enigmes_fond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb</Output>
+      <Time>2013-03-04T10:13:31.0739787-05:00</Time>
+    </Item>
+    <Item>
+      <Source>enigmes_fond1.png</Source>
+      <Name>enigmes_fond1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb</Output>
+      <Time>2013-03-04T11:16:59.6368161-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

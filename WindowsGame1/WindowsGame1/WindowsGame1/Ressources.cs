@@ -28,6 +28,9 @@ namespace WindowsGame1
         public static Texture2D invisible;
         public static Texture2D alignement_barre;
         public static Texture2D alignement_value;
+        public static Texture2D interactZone;
+        public static Texture2D enigmes_fond;
+        public static Texture2D enigmes_fond1;
 
         //Load Content
         public static void LoadContent(ContentManager Content)
@@ -35,6 +38,9 @@ namespace WindowsGame1
             invisible = Content.Load<Texture2D>("invisible");
             alignement_barre = Content.Load<Texture2D>("alignement_barre");
             alignement_value = Content.Load<Texture2D>("alignement_value");
+            interactZone = Content.Load<Texture2D>("InteractZone");
+            enigmes_fond = Content.Load<Texture2D>("enigmes_fond");
+            enigmes_fond1 = Content.Load<Texture2D>("enigmes_fond1");
 
             Player = Content.Load<Texture2D>("tile"); // 0
             TextureList.Add(Player);

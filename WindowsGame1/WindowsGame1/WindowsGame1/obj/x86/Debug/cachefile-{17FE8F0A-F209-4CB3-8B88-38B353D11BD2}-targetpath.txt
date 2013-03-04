@@ -12,3 +12,6 @@ Content\invisible.xnb
 Content\leftright.xnb
 Content\alignement_barre.xnb
 Content\alignement_value.xnb
+Content\InteractZone.xnb
+Content\enigmes_fond.xnb
+Content\enigmes_fond1.xnb

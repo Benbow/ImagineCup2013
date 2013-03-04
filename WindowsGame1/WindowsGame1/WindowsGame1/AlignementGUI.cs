@@ -27,9 +27,8 @@ namespace WindowsGame1
 
         public void Update(double j, double h)
         {
-            double jekyll_pourcent = (j / (j + h)) * 100;
+            //double jekyll_pourcent = (j / (j + h)) * 100;
             double hide_pourcent = (h / (j + h)) * 100;
-            Console.WriteLine(jekyll_pourcent);
             this._value = hide_pourcent * 4;
             this._jauge.X = (int) this._value;
             this._jauge.X += 50 - (text_jauge.Width / 2);

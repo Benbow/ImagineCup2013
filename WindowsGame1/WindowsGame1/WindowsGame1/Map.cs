@@ -26,7 +26,7 @@ namespace WindowsGame1
         int showMax = 200;
         int showCount = 0;
         int showTimer = 0;
-        
+        Puzzle puzzle = null;
 
         int accelTimer;
 
@@ -42,64 +42,94 @@ namespace WindowsGame1
 
         public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime, Player player)
         {
-            futurePos = player.HitBox;
-            // Animation des blocs mouvants
-            foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
+            foreach (InteractZoneBlock interBlock in InteractZoneBlock.InteractZoneBlockList)
             {
-                block.Update(gameTime);
-            }
-            foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
-            {
-                block.Update(gameTime, player, keyboard);
+                if (player.HitBox.Intersects(interBlock.HitBox))
+                {
+                    if (interBlock.IsActivate)
+                    {
+                        puzzle = Puzzle.PuzzleList[interBlock.Id];
+                        if (keyboard.IsKeyDown(Keys.C) && !oldKeyboard.IsKeyDown(Keys.C))
+                        {
+                            interBlock.IsActivate = false;
+                            puzzle = null;
+                            GameMain.Status = "on";
+                        }
+                    }
+                    else
+                    {
+                        if (keyboard.IsKeyDown(Keys.C) && !oldKeyboard.IsKeyDown(Keys.C))
+                        {
+                            interBlock.IsActivate = true;
+                            GameMain.Status = "pause";
+                        }
+                    }
+
+                }
             }
 
-            //Déplacements joueurs/cartes
-            
-            if (keyboard.IsKeyUp(Keys.Right) && keyboard.IsKeyUp(Keys.Left) && !player.IsJumping)
-            {
-                player.AccelMode = 1;
-                accelTimer = 0;
-                player.SetAccelSpeed();
-                player.BlockPLayer();
-            }
-            else if (keyboard.IsKeyDown(Keys.Left))
-            {
-                this.SetPlayerAccelMode(gameTime, player);
-                this.Move(Keys.Left, player);
-            }
-            else if (keyboard.IsKeyDown(Keys.Right))
-            {
-                this.SetPlayerAccelMode(gameTime, player);
-                this.Move(Keys.Right, player);
-            }
-            
-            if (keyboard.IsKeyDown(Keys.Up) && player.FallingSpeed == 0)
-            {
-                this.LookUp(true, gameTime, player);
-            }
-            else if (keyboard.IsKeyUp(Keys.Up) && showCount > 0)
-            {
-                this.LookUp(false, gameTime, player);
-                player.LookUpDownPhase = true;
-            }
-            else
-            {
-                player.LookUpDownPhase = false;
-            }
 
-            if (keyboard.IsKeyDown(Keys.Space) && oldKeyboard.IsKeyUp(Keys.Space) && !player.IsJumping)
-            { 
-                if(keyboard.IsKeyDown(Keys.Left))
-                    jumpInitKey = Keys.Left;
-                else if(keyboard.IsKeyDown(Keys.Right))
-                    jumpInitKey = Keys.Right;
-                else if (keyboard.IsKeyDown(Keys.Right) && keyboard.IsKeyDown(Keys.Left))
-                    jumpInitKey = 0;
+            if (GameMain.Status == "on")
+            {
+
+                futurePos = player.HitBox;
+                // Animation des blocs mouvants
+                foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
+                {
+                    block.Update(gameTime);
+                }
+                foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+                {
+                    block.Update(gameTime, player, keyboard);
+                }
+
+                //Déplacements joueurs/cartes
+
+                if (keyboard.IsKeyUp(Keys.Right) && keyboard.IsKeyUp(Keys.Left) && !player.IsJumping)
+                {
+                    player.AccelMode = 1;
+                    accelTimer = 0;
+                    player.SetAccelSpeed();
+                    player.BlockPLayer();
+                }
+                else if (keyboard.IsKeyDown(Keys.Left))
+                {
+                    this.SetPlayerAccelMode(gameTime, player);
+                    this.Move(Keys.Left, player);
+                }
+                else if (keyboard.IsKeyDown(Keys.Right))
+                {
+                    this.SetPlayerAccelMode(gameTime, player);
+                    this.Move(Keys.Right, player);
+                }
+
+                if (keyboard.IsKeyDown(Keys.Up) && player.FallingSpeed == 0)
+                {
+                    this.LookUp(true, gameTime, player);
+                }
+                else if (keyboard.IsKeyUp(Keys.Up) && showCount > 0)
+                {
+                    this.LookUp(false, gameTime, player);
+                    player.LookUpDownPhase = true;
+                }
                 else
-                    jumpInitKey = 0;
-                player.JumpPlayer();
-            }
+                {
+                    player.LookUpDownPhase = false;
+                }
 
+                if (keyboard.IsKeyDown(Keys.Space) && oldKeyboard.IsKeyUp(Keys.Space) && !player.IsJumping)
+                {
+                    if (keyboard.IsKeyDown(Keys.Left))
+                        jumpInitKey = Keys.Left;
+                    else if (keyboard.IsKeyDown(Keys.Right))
+                        jumpInitKey = Keys.Right;
+                    else if (keyboard.IsKeyDown(Keys.Right) && keyboard.IsKeyDown(Keys.Left))
+                        jumpInitKey = 0;
+                    else
+                        jumpInitKey = 0;
+                    player.JumpPlayer();
+                } 
+            }
             oldKeyboard = keyboard;
         }
 
@@ -108,6 +138,10 @@ namespace WindowsGame1
             foreach (Blocks block in Blocks.BlockList)
             {
                 spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
+            }
+            if (puzzle != null)
+            {
+                puzzle.Draw(spriteBatch);
             }
         }
 
@@ -225,33 +259,6 @@ namespace WindowsGame1
                         playerMove = true;
                     }
                     
-
-                 
-                /*foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
-                {
-                    i++;
-                    if (i <= 4)
-                    {
-                        if(key == Keys.Left)
-                        {
-                            if ((i == 4 && player.HitBox.X - (FirstGame.W / 2) < block.HitBox.X) || (i == 2 && (player.HitBox.X + (FirstGame.W / 2) + sp - block.HitBox.Width > block.HitBox.X)))
-                            {
-                                playerMove = true;
-                            }
-                        }
-                        else if (key == Keys.Right)
-                        {
-                            if ((i == 2 && player.HitBox.X + ((FirstGame.W / 2)) - block.HitBox.Width + sp > block.HitBox.X) || (i == 4 && player.HitBox.X - (FirstGame.W / 2) < block.HitBox.X))
-                            {
-                                playerMove = true;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }*/
                 if (playerMove)
                 {
                     if (key == Keys.Left)

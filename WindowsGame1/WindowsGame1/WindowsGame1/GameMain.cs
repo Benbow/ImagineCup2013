@@ -21,7 +21,12 @@ namespace WindowsGame1
         Jekyll LocalJekyll;
         Hide LocalHide;
         AlignementGUI alignement = new AlignementGUI(50, 30);
+        InteractZoneBlock interact = new InteractZoneBlock(300, 365, 100, 100, 0);
+        InteractZoneBlock interact1 = new InteractZoneBlock(450, 365, 100, 100, 1);
+        Puzzle0 puzzle = new Puzzle0();
+        Puzzle1 puzzle1 = new Puzzle1();
 
+        public static string Status;
 
         public GameMain()
         {
@@ -32,6 +37,7 @@ namespace WindowsGame1
             statut_player = false;
             LocalJekyll = new Jekyll(15, 100);
             LocalHide = new Hide(15, 100);
+            Status = "on";
 
         }
 
@@ -42,17 +48,25 @@ namespace WindowsGame1
             statut_player = LocalJekyll.Switch(keyboard);
             if (!statut_player)
             {
-                if(prec_statut != statut_player)
-                    LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
+                if (GameMain.Status == "on")
+                {
+                    if (prec_statut != statut_player)
+                        LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
+                    LocalJekyll.Update(mouse, keyboard);
+                }
                 MyMap.Update(keyboard, mouse, gameTime, LocalJekyll);
-                LocalJekyll.Update(mouse, keyboard);
+                
             }
             else if (statut_player)
             {
-                if (prec_statut != statut_player)
-                    LocalHide.InitChange(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y, LocalJekyll.DirectionPlayer);
+                if (GameMain.Status == "on")
+                {
+                    if (prec_statut != statut_player)
+                        LocalHide.InitChange(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y, LocalJekyll.DirectionPlayer);
+                    LocalHide.Update(mouse, keyboard);
+                }
                 MyMap.Update(keyboard, mouse, gameTime, LocalHide);
-                LocalHide.Update(mouse, keyboard);
+                
             }
 
             alignement.Update(LocalJekyll.JekyllBias, LocalHide.HideBias);

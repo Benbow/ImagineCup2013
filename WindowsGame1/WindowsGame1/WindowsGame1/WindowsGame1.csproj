@@ -79,6 +79,7 @@
     <Compile Include="GameMain.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Hide.cs" />
+    <Compile Include="InteractZoneBlock.cs" />
     <Compile Include="Jekyll.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapOld.cs" />
@@ -89,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="FirstGame.cs" />
+    <Compile Include="Puzzle.cs" />
+    <Compile Include="Puzzle0.cs" />
+    <Compile Include="Puzzle1.cs" />
     <Compile Include="Ressources.cs" />
     <Compile Include="StaticEnnemyBlock.cs" />
     <Compile Include="StaticNeutralBlock.cs" />
