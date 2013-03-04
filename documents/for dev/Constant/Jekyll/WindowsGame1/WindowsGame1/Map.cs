@@ -28,7 +28,7 @@ namespace WindowsGame1
             _height = y;
         }
 
-        public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime, Player player)
+        public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
         {
             futurePos = player.HitBox;
             // Animation des blocs mouvants
@@ -42,7 +42,7 @@ namespace WindowsGame1
             }
 
             //Déplacements joueurs/cartes
-            
+            /*
             if (keyboard.IsKeyUp(Keys.Right) && keyboard.IsKeyUp(Keys.Left) && !player.IsJumping)
             {
                 player.AccelMode = 1;
@@ -56,6 +56,24 @@ namespace WindowsGame1
                 this.Move(Keys.Left, player);
             }
             else if (keyboard.IsKeyDown(Keys.Right))
+            {
+                this.SetPlayerAccelMode(gameTime, player);
+                this.Move(Keys.Right, player);
+            }*/
+
+            if (pad.IsButtonUp(Buttons.LeftThumbstickRight) && pad.IsButtonUp(Buttons.LeftThumbstickLeft) && !player.IsJumping)
+            {
+                player.AccelMode = 1;
+                player.Speed = 1f;
+                accelTimer = 0;
+                player.BlockPLayer();
+            }
+            else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+            {
+                this.SetPlayerAccelMode(gameTime, player);
+                this.Move(Keys.Left, player);
+            }
+            else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
             {
                 this.SetPlayerAccelMode(gameTime, player);
                 this.Move(Keys.Right, player);
@@ -89,7 +107,7 @@ namespace WindowsGame1
 
         public void SetPlayerAccelMode(GameTime gameTime, Player player)
         {
-            if(!player.IsJumping && player.Speed <= 6)
+            if(!player.IsJumping && player.Speed <= 5)
                 player.Speed += 0.01f;
 
             Console.WriteLine(player.Speed);

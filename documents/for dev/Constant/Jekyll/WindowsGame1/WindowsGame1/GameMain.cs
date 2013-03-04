@@ -20,6 +20,7 @@ namespace WindowsGame1
         bool statut_player;
         Jekyll LocalJekyll;
         Hide LocalHide;
+        float vibrationAmount = 0.0f;
 
 
         public GameMain()
@@ -33,8 +34,9 @@ namespace WindowsGame1
             LocalHide = new Hide(50, 100);
         }
 
-        public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime)
+        public void Update(KeyboardState keyboard, MouseState mouse, GamePadState pad, GameTime gameTime)
         {
+            pad = GamePad.GetState(PlayerIndex.One);
             bool prec_statut = statut_player;
             statut_player = LocalJekyll.Switch(keyboard);
             LocalJekyll._statut = statut_player;
@@ -43,14 +45,14 @@ namespace WindowsGame1
             {
                 if(prec_statut != statut_player)
                     LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
-                MyMap.Update(keyboard, mouse, gameTime, LocalJekyll);
+                MyMap.Update(keyboard, pad, mouse, gameTime, LocalJekyll);
                 LocalJekyll.Update(mouse, keyboard);
             }
             else if (statut_player)
             {
                 if (prec_statut != statut_player)
                     LocalHide.InitChange(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y, LocalHide.DirectionPlayer);
-                MyMap.Update(keyboard, mouse, gameTime, LocalHide);
+                MyMap.Update(keyboard, pad, mouse, gameTime, LocalHide);
                 LocalHide.Update(mouse, keyboard);
             }
 

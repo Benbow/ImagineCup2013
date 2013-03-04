@@ -61,7 +61,7 @@ namespace WindowsGame1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            Main.Update(Keyboard.GetState(), Mouse.GetState(), gameTime);
+            Main.Update(Keyboard.GetState(), Mouse.GetState(), GamePad.GetState(PlayerIndex.One), gameTime);
             base.Update(gameTime);
         }
 
