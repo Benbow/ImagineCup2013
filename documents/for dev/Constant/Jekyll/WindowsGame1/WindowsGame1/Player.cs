@@ -168,19 +168,19 @@ namespace WindowsGame1
                     case 1:
                         this._speedInAir = 1f;
                         this._impulsion = 10.5f;
-                        this.TimerMax = 6;
+                        this.TimerMax = 7;
                         break;
 
                     case 2:
                         this._speedInAir = 4f;
                         this._impulsion = 9f;
-                        this.TimerMax = 4;
+                        this.TimerMax = 6;
                         break;
 
                     case 3:
                         this._speedInAir = 8f;
                         this._impulsion = 7.5f;
-                        this.TimerMax = 4;
+                        this.TimerMax = 5;
                         break;
                 }
             }
@@ -191,19 +191,19 @@ namespace WindowsGame1
                     case 1:
                         this._speedInAir = 0f;
                         this._impulsion = 0f;
-                        this.TimerMax = 6;
+                        this.TimerMax = 7;
                         break;
 
                     case 2:
                         this._speedInAir = 0f;
                         this._impulsion = 0f;
-                        this.TimerMax = 4;
+                        this.TimerMax = 6;
                         break;
 
                     case 3:
                         this._speedInAir = 0f;
                         this._impulsion = 0f;
-                        this.TimerMax = 4;
+                        this.TimerMax = 5;
                         break;
                 }
             }

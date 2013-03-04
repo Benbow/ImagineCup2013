@@ -39,7 +39,7 @@ namespace WindowsGame1
             TextureList.Add(Int);
             Ennemy = Content.Load<Texture2D>("ennemy"); // 4
             TextureList.Add(Ennemy);
-            Jekyll = Content.Load<Texture2D>("guys"); // 5
+            Jekyll = Content.Load<Texture2D>("jekyll"); // 5
             TextureList.Add(Jekyll);
             Hide = Content.Load<Texture2D>("hide"); // 6
             TextureList.Add(Hide);
