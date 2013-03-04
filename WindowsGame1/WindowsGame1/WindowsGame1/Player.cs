@@ -144,59 +144,76 @@ namespace WindowsGame1
 
             if (!colide)
             {
-                int i = 0;
-                bool playerMove = false;
-                foreach (Blocks block in Blocks.BlockList)
+                bool lad = false;
+                foreach (Ladder ladder in Ladder.LadderList)
                 {
-                    i++;
-                    if (i <= 3)
+                    if (this._hitBox.Intersects(ladder.HitBox) && this.GetType() == typeof(Jekyll))
                     {
-                        if ((i == 3 && this._hitBox.Y + (FirstGame.H / 2) + (this._hitBox.Height / 2) - (block.HitBox.Height * 2) > block.HitBox.Y))
-                        {
-                            playerMove = true;
-                        }
-                        else if ((i == 1 && this._hitBox.Y - (FirstGame.H / 2) + block.HitBox.Height < block.HitBox.Y))
-                        {
-                            playerMove = true;
-                        }
-                    }
-                    else
-                    {
-                        break;
+                        lad = true;
                     }
                 }
-
-                if (playerMove)
+                if (!lad)
                 {
-                    if (this._fallingSpeed >= 0)
-                        this._fallingSpeed += 0.15f * (this._poids / 4);
-                    else
-                        this._fallingSpeed += 0.10f * (this._poids / 4);
-                    if (this._isJumping)
+                    int i = 0;
+                    bool playerMove = false;
+                    foreach (Blocks block in Blocks.BlockList)
                     {
-                        this.FrameColumn = 0;
-                        this.FrameLine = 1;
+                        i++;
+                        if (i <= 3)
+                        {
+                            if ((i == 3 &&
+                                 this._hitBox.Y + (FirstGame.H/2) + (this._hitBox.Height/2) - (block.HitBox.Height*2) >
+                                 block.HitBox.Y))
+                            {
+                                playerMove = true;
+                            }
+                            else if ((i == 1 && this._hitBox.Y - (FirstGame.H/2) + block.HitBox.Height < block.HitBox.Y))
+                            {
+                                playerMove = true;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
-                    this._isFalling = true;
-                    int diff = this._hitBox.Y - futurPos.Y;
-                    this._hitBox.Y -= diff;
+
+                    if (playerMove)
+                    {
+                        if (this._fallingSpeed >= 0)
+                            this._fallingSpeed += 0.15f*(this._poids/4);
+                        else
+                            this._fallingSpeed += 0.10f*(this._poids/4);
+                        if (this._isJumping)
+                        {
+                            this.FrameColumn = 0;
+                            this.FrameLine = 1;
+                        }
+                        this._isFalling = true;
+                        int diff = this._hitBox.Y - futurPos.Y;
+                        this._hitBox.Y -= diff;
+                    }
+                    else
+                    {
+                        if (this._fallingSpeed >= 0)
+                            this._fallingSpeed += 0.15f*(this._poids/4);
+                        else
+                            this._fallingSpeed += 0.10f*(this._poids/4);
+                        if (this._isJumping)
+                        {
+                            this.FrameColumn = 0;
+                            this.FrameLine = 1;
+                        }
+                        this._isFalling = true;
+                        foreach (Blocks block in Blocks.BlockList)
+                        {
+                            block.DecreaseCoordBlockY(1 + (int) this._fallingSpeed);
+                        }
+                    }
                 }
                 else
                 {
-                    if (this._fallingSpeed >= 0)
-                        this._fallingSpeed += 0.15f * (this._poids / 4);
-                    else
-                        this._fallingSpeed += 0.10f * (this._poids / 4);
-                    if (this._isJumping)
-                    {
-                        this.FrameColumn = 0;
-                        this.FrameLine = 1;
-                    }
-                    this._isFalling = true;
-                    foreach (Blocks block in Blocks.BlockList)
-                    {
-                        block.DecreaseCoordBlockY(1 + (int)this._fallingSpeed);
-                    }
+                    
                 }
             }
             else
@@ -252,14 +269,14 @@ namespace WindowsGame1
         }
 
 
-        /*public void IncreaseCoordY(int speed)
+        public void IncreaseCoordY(int speed)
         {
             this._hitBox.Y += speed;
         }
         public void DecreaseCoordY(int speed)
         {
-            this._hitBox.Y += speed;
-        }*/
+            this._hitBox.Y -= speed;
+        }
 
         //getter setter
         public bool IsJumping

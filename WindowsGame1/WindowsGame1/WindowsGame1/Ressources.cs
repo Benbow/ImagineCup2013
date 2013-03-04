@@ -31,6 +31,7 @@ namespace WindowsGame1
         public static Texture2D interactZone;
         public static Texture2D enigmes_fond;
         public static Texture2D enigmes_fond1;
+        public static Texture2D ladder;
 
         //Load Content
         public static void LoadContent(ContentManager Content)
@@ -41,6 +42,7 @@ namespace WindowsGame1
             interactZone = Content.Load<Texture2D>("InteractZone");
             enigmes_fond = Content.Load<Texture2D>("enigmes_fond");
             enigmes_fond1 = Content.Load<Texture2D>("enigmes_fond1");
+            ladder = Content.Load<Texture2D>("ladder");
 
             Player = Content.Load<Texture2D>("tile"); // 0
             TextureList.Add(Player);
@@ -58,6 +60,5 @@ namespace WindowsGame1
             TextureList.Add(Hide);
            
         }
-           
     }
 }

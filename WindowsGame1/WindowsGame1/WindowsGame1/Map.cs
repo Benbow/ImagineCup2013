@@ -42,32 +42,33 @@ namespace WindowsGame1
 
         public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime, Player player)
         {
-            foreach (InteractZoneBlock interBlock in InteractZoneBlock.InteractZoneBlockList)
+            if (player.GetType() == typeof (Jekyll))
             {
-                if (player.HitBox.Intersects(interBlock.HitBox))
+                foreach (InteractZoneBlock interBlock in InteractZoneBlock.InteractZoneBlockList)
                 {
-                    if (interBlock.IsActivate)
+                    if (player.HitBox.Intersects(interBlock.HitBox))
                     {
-                        puzzle = Puzzle.PuzzleList[interBlock.Id];
-                        if (keyboard.IsKeyDown(Keys.C) && !oldKeyboard.IsKeyDown(Keys.C))
+                        if (interBlock.IsActivate)
                         {
-                            interBlock.IsActivate = false;
-                            puzzle = null;
-                            GameMain.Status = "on";
+                            puzzle = Puzzle.PuzzleList[interBlock.Id];
+                            if (keyboard.IsKeyDown(Keys.C) && !oldKeyboard.IsKeyDown(Keys.C))
+                            {
+                                interBlock.IsActivate = false;
+                                puzzle = null;
+                                GameMain.Status = "on";
+                            }
+                        }
+                        else
+                        {
+                            if (keyboard.IsKeyDown(Keys.C) && !oldKeyboard.IsKeyDown(Keys.C))
+                            {
+                                interBlock.IsActivate = true;
+                                GameMain.Status = "pause";
+                            }
                         }
                     }
-                    else
-                    {
-                        if (keyboard.IsKeyDown(Keys.C) && !oldKeyboard.IsKeyDown(Keys.C))
-                        {
-                            interBlock.IsActivate = true;
-                            GameMain.Status = "pause";
-                        }
-                    }
-
                 }
             }
-
 
             if (GameMain.Status == "on")
             {
@@ -105,12 +106,37 @@ namespace WindowsGame1
 
                 if (keyboard.IsKeyDown(Keys.Up) && player.FallingSpeed == 0)
                 {
-                    this.LookUp(true, gameTime, player);
+                    bool lad = false;
+                    Console.WriteLine(player.GetType());
+                    foreach (Ladder ladder in Ladder.LadderList)
+                    {
+                        if (player.GetType() == typeof (Jekyll)){
+                            if (player.HitBox.Intersects(ladder.HitBox))
+                            {
+                                lad = true;
+                                player.DecreaseCoordY(1);
+                            }
+                        }
+                    }
+                    if (!lad)
+                    {
+                        this.LookUp(true, gameTime, player);
+                    }
                 }
                 else if (keyboard.IsKeyUp(Keys.Up) && showCount > 0)
                 {
                     this.LookUp(false, gameTime, player);
                     player.LookUpDownPhase = true;
+                }
+                else if (keyboard.IsKeyDown(Keys.Up))
+                {
+                    foreach (Ladder ladder in Ladder.LadderList)
+                    {
+                        if (player.HitBox.Intersects(ladder.HitBox))
+                        {
+                            player.DecreaseCoordY(1);
+                        }
+                    }
                 }
                 else
                 {

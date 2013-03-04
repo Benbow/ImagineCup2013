@@ -154,6 +154,15 @@
       <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb</Output>
       <Time>2013-03-04T12:59:36.2499542-05:00</Time>
     </Item>
+    <Item>
+      <Source>ladder.png</Source>
+      <Name>ladder</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb</Output>
+      <Time>2013-03-04T15:53:44.0243092-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

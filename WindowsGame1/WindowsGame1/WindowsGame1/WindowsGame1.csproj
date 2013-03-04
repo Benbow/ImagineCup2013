@@ -81,6 +81,7 @@
     <Compile Include="Hide.cs" />
     <Compile Include="InteractZoneBlock.cs" />
     <Compile Include="Jekyll.cs" />
+    <Compile Include="Ladder.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapOld.cs" />
     <Compile Include="MovableEnnemyBlock.cs" />
