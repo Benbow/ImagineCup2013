@@ -3,3 +3,4 @@ C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsG
 C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
 C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
 C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
+C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
