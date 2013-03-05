@@ -162,7 +162,6 @@ namespace WindowsGame1
         {
             if (this._statut)
             {
-
                 switch (this._accelMode)
                 {
                     case 1:

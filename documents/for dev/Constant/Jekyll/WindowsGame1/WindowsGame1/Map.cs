@@ -17,7 +17,7 @@ namespace WindowsGame1
         bool playerMove;
         Rectangle futurePos;
         int i;
-        KeyboardState oldKeyboard;
+        GamePadState oldPad;
         Keys jumpInitKey;
 
         int accelTimer;
@@ -79,9 +79,9 @@ namespace WindowsGame1
                 this.Move(Keys.Right, player);
             }
 
-            
 
-            if (keyboard.IsKeyDown(Keys.Space) && oldKeyboard.IsKeyUp(Keys.Space) && !player.IsJumping)
+
+            if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A) && !player.IsJumping)
             { 
                 if(keyboard.IsKeyDown(Keys.Left))
                     jumpInitKey = Keys.Left;
@@ -94,7 +94,7 @@ namespace WindowsGame1
                 player.JumpPlayer();
             }
 
-            oldKeyboard = keyboard;
+            oldPad = pad;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -109,8 +109,6 @@ namespace WindowsGame1
         {
             if(!player.IsJumping && player.Speed <= 5)
                 player.Speed += 0.01f;
-
-            Console.WriteLine(player.Speed);
 
             if (player.Speed <= 2)
             {
