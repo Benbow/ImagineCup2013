@@ -156,27 +156,21 @@ namespace WindowsGame1
                 {
                     int i = 0;
                     bool playerMove = false;
-                    foreach (Blocks block in Blocks.BlockList)
+                    
+                    
+                    Rectangle UpCut = new Rectangle(this._hitBox.X, this._hitBox.Y, this._hitBox.Width, this._hitBox.Height/2);
+                    Rectangle DownCut = new Rectangle(this._hitBox.X, this._hitBox.Y+(this.HitBox.Height/2), this._hitBox.Width, this._hitBox.Height/2);
+                    Rectangle UpSide = Map._upSide.HitBox;
+                    Rectangle DownSide = Map._downSide.HitBox;
+                    /*DownSide.Y -= (int)sp;
+                    DownSide.Height -= (int)sp;
+                    UpSide.Height -= (int)sp;*/
+
+                    if (UpCut.Intersects(DownSide) || DownCut.Intersects(UpSide))
                     {
-                        i++;
-                        if (i <= 3)
-                        {
-                            if ((i == 3 &&
-                                 this._hitBox.Y + (FirstGame.H/2) + (this._hitBox.Height/2) - (block.HitBox.Height*2) >
-                                 block.HitBox.Y))
-                            {
-                                playerMove = true;
-                            }
-                            else if ((i == 1 && this._hitBox.Y - (FirstGame.H/2) + block.HitBox.Height < block.HitBox.Y))
-                            {
-                                playerMove = true;
-                            }
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        playerMove = true;
                     }
+                   
 
                     if (playerMove)
                     {

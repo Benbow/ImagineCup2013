@@ -10,12 +10,14 @@ namespace WindowsGame1
 {
     class Map
     {
+        public static DelimiterZone _leftSide;
+        public static DelimiterZone _rightSide;
+        public static DelimiterZone _upSide;
+        public static DelimiterZone _downSide;
+
         private int _width;
         private int _height;
-        private DelimiterZone _leftSide;
-        private DelimiterZone _rightSide;
-        private DelimiterZone _upSide;
-        private DelimiterZone _downSide;
+        
 
         bool blockMove = true;
         bool playerMove;
@@ -34,10 +36,10 @@ namespace WindowsGame1
         {
             _width = x;
             _height = y;
-            _leftSide = new DelimiterZone(0, 0, FirstGame.W / 2, _height );
-            _rightSide = new DelimiterZone(_width - FirstGame.W / 2, 0, FirstGame.W / 2, _height);
-            _upSide = new DelimiterZone(0, 0, _width , FirstGame.H/2);
-            _downSide = new DelimiterZone(0, _height-FirstGame.H, _width, FirstGame.H / 2);
+            _leftSide = new DelimiterZone(0, 0, FirstGame.W / 2, _height, Ressources.invisible);
+            _rightSide = new DelimiterZone(_width - FirstGame.W / 2, 0, FirstGame.W / 2, _height, Ressources.invisible);
+            _upSide = new DelimiterZone(0, 0, _width , FirstGame.H/2, Ressources.invisible);
+            _downSide = new DelimiterZone(0, _height-FirstGame.H/2, _width, FirstGame.H / 2, Ressources.invisible);
         }
 
         public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime, Player player)
@@ -107,7 +109,6 @@ namespace WindowsGame1
                 if (keyboard.IsKeyDown(Keys.Up) && player.FallingSpeed == 0)
                 {
                     bool lad = false;
-                    Console.WriteLine(player.GetType());
                     foreach (Ladder ladder in Ladder.LadderList)
                     {
                         if (player.GetType() == typeof (Jekyll)){
@@ -141,6 +142,20 @@ namespace WindowsGame1
                 else
                 {
                     player.LookUpDownPhase = false;
+                }
+
+                if (keyboard.IsKeyDown(Keys.Down) && player.FallingSpeed == 0)
+                {
+                    foreach (Ladder ladder in Ladder.LadderList)
+                    {
+                        if (player.GetType() == typeof(Jekyll))
+                        {
+                            if (player.HitBox.Intersects(ladder.HitBox))
+                            {
+                                player.IncreaseCoordY(1);
+                            }
+                        }
+                    }
                 }
 
                 if (keyboard.IsKeyDown(Keys.Space) && oldKeyboard.IsKeyUp(Keys.Space) && !player.IsJumping)
@@ -277,13 +292,18 @@ namespace WindowsGame1
                 i = 0;
                 playerMove = false;
                 float sp = player.Speed;
-                Rectangle LeftCut = new Rectangle(player.HitBox.X + (player.HitBox.Width / 2) - (int)sp, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
-                Rectangle RightCut = new Rectangle(player.HitBox.X + (int)sp, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
-              
-                    if (LeftCut.Intersects(this._leftSide.HitBox) || RightCut.Intersects(this._rightSide.HitBox))
-                    {
-                        playerMove = true;
-                    }
+                Rectangle RightCut = new Rectangle(player.HitBox.X + (player.HitBox.Width / 2), player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
+                Rectangle LeftCut = new Rectangle(player.HitBox.X, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
+                Rectangle RightSide = Map._rightSide.HitBox;
+                Rectangle LeftSide = Map._leftSide.HitBox;
+                RightSide.X += (int) sp;
+                RightSide.Width -= (int) sp;
+                LeftSide.Width -= (int) sp;
+
+                if (RightCut.Intersects(LeftSide) || LeftCut.Intersects(RightSide))
+                {
+                    playerMove = true;
+                }
                     
                 if (playerMove)
                 {

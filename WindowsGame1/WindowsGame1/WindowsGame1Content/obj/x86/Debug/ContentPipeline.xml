@@ -151,6 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb</Output>
       <Time>2013-03-04T17:26:15.4811218-05:00</Time>
     </Item>
@@ -162,6 +163,19 @@
       <Options>None</Options>
       <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb</Output>
       <Time>2013-02-20T17:55:05.8548978-05:00</Time>
+=======
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb</Output>
+      <Time>2013-03-04T17:15:15.4773445-05:00</Time>
+    </Item>
+    <Item>
+      <Source>updown.png</Source>
+      <Name>updown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\updown.xnb</Output>
+      <Time>2013-03-05T15:48:04.4125848-05:00</Time>
+>>>>>>> echelles up down plus reglage verticales
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -25,7 +25,7 @@ namespace WindowsGame1
         InteractZoneBlock interact1 = new InteractZoneBlock(450, 365, 100, 100, 1);
         Puzzle0 puzzle = new Puzzle0();
         Puzzle1 puzzle1 = new Puzzle1();
-        Ladder ladder = new Ladder(700, 300);
+        Ladder ladder = new Ladder(700, 299);
 
         public static string Status;
 

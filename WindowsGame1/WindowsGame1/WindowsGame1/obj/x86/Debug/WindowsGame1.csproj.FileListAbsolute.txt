@@ -74,6 +74,7 @@ C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\
 C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb
 C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb
 C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb
+<<<<<<< HEAD
 C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
 C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb
 C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb
@@ -98,3 +99,6 @@ C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsG
 C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
 C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+=======
+C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\updown.xnb
+>>>>>>> echelles up down plus reglage verticales

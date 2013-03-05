@@ -12,9 +12,9 @@ namespace WindowsGame1
         public static List<DelimiterZone> DelimiterZoneList = new List<DelimiterZone>();
 
         //constructeur structure basique (indestructible & colidable)
-        public DelimiterZone(int x, int y, int w, int h)
+        public DelimiterZone(int x, int y, int w, int h, Texture2D text)
         {
-            this._texture = Ressources.invisible;
+            this._texture = text;
             this._hitBox = new Rectangle(x, y, w, h);
             this._isBreakable = false;
             this._isCollidable = false;
