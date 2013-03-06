@@ -26,6 +26,7 @@ namespace WindowsGame1
         protected int Timer;
         protected int TimerMax;
         protected bool _isJumping = false;
+        protected bool _isActiveVision = false;
 
         protected float _speed;
         protected float _poids;
@@ -59,10 +60,10 @@ namespace WindowsGame1
         public bool Switch(KeyboardState keyboard)
         {
             if (keyboard.IsKeyDown(Keys.B) && oldKeyboard.IsKeyUp(Keys.B))
-                _statut = !_statut;
-
+            {
+                this._statut = !this._statut;
+            }    
             oldKeyboard = keyboard;
-
             return _statut;
         }
 
@@ -260,6 +261,7 @@ namespace WindowsGame1
             this._hitBox.X = x;
             this._hitBox.Y = y;
             this.Direction = dir;
+            this._isActiveVision = false;
         }
 
 
@@ -369,5 +371,10 @@ namespace WindowsGame1
             }
         }
         
+        public bool IsActiveVision
+        {
+            get { return this._isActiveVision; }
+            set { this._isActiveVision = value; }
+        }
     }
 }

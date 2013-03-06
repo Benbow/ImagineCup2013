@@ -13,13 +13,15 @@ namespace WindowsGame1
         private int _id;
         public static List<InteractZoneBlockWithPuzzle> InteractZoneBlockList = new List<InteractZoneBlockWithPuzzle>();
 
-        public InteractZoneBlockWithPuzzle(int x, int y, int w, int h, int id, Texture2D text)
+        public InteractZoneBlockWithPuzzle(int x, int y, int w, int h, int id, bool hidevision, bool jekyllvision,  Texture2D text)
         {
             this._isBreakable = false;
             this._isCollidable = false;
             this._hitBox = new Rectangle(x, y, w, h);
             this._texture = text;
             this._id = id;
+            this._isHideVisible = hidevision;
+            this._isJekyllVisible = jekyllvision;
             InteractZoneBlockList.Add(this);
             BlockList.Add(this);
         }

@@ -42,9 +42,10 @@ namespace WindowsGame1
 
         public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime)
         {
-            //LocalPlayer.Update(keyboard, mouse);
             bool prec_statut = statut_player;
+            
             statut_player = LocalJekyll.Switch(keyboard);
+          
             if (!statut_player)
             {
                 if (GameMain.Status == "on")
@@ -76,11 +77,16 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            MyMap.Draw(spriteBatch);
             if (!statut_player)
+            {
+                MyMap.Draw(spriteBatch, LocalJekyll);
                 LocalJekyll.Draw(spriteBatch);
+            }
             else
+            {
+                MyMap.Draw(spriteBatch, LocalHide);
                 LocalHide.Draw(spriteBatch);
+            }
 
             alignement.Draw(spriteBatch);
         }
@@ -216,29 +222,33 @@ namespace WindowsGame1
                 }
                 else if (words[0] == "4") // Ladder
                 {
-                    if (words.Length == 4) //basic
+                    if (words.Length == 6) //basic
                     {
                         int x = Convert.ToInt32(words[1]);
                         int y = Convert.ToInt32(words[2]);
-                        int param = Convert.ToInt32(words[3]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        int param = Convert.ToInt32(words[5]);
                         Texture2D text = Ressources.TextureList[param];
 
-                        new Ladder(x, y, text);
+                        new Ladder(x, y, hv, jv, text);
                     }
                 }
                 else if (words[0] == "5") // Interact Zone with Puzzle
                 {
-                    if (words.Length == 7)
+                    if (words.Length == 9)
                     {
                         int x = Convert.ToInt32(words[1]);
                         int y = Convert.ToInt32(words[2]);
                         int w = Convert.ToInt32(words[3]);
                         int h = Convert.ToInt32(words[4]);
                         int id = Convert.ToInt32(words[5]);
-                        int param = Convert.ToInt32(words[6]);
+                        bool hv = Convert.ToBoolean(words[6]);
+                        bool jv = Convert.ToBoolean(words[7]);
+                        int param = Convert.ToInt32(words[8]);
                         Texture2D text = Ressources.TextureList[param];
 
-                        new InteractZoneBlockWithPuzzle(x, y, w, h, id, text);
+                        new InteractZoneBlockWithPuzzle(x, y, w, h, id, hv, jv, text);
                     }
                 }
                 else if (words[0] == "6")

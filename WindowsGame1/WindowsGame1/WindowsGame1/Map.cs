@@ -169,16 +169,42 @@ namespace WindowsGame1
                     else
                         jumpInitKey = 0;
                     player.JumpPlayer();
-                } 
+                }
+ 
+                if (keyboard.IsKeyDown(Keys.V) && oldKeyboard.IsKeyUp(Keys.V))
+                {
+                    if(player.IsActiveVision)
+                        player.IsActiveVision = false;
+                    else
+                        player.IsActiveVision = true;
+                }
             }
             oldKeyboard = keyboard;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Player player)
         {
             foreach (Blocks block in Blocks.BlockList)
             {
-                spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
+                if (player.GetType() == typeof (Jekyll) && player.IsActiveVision)
+                {
+                    if(block.IsJekyllVisible)
+                        spriteBatch.Draw(block.Texture, block.HitBox, Color.Yellow);
+                    else
+                        spriteBatch.Draw(block.Texture, block.HitBox, Color.Blue);
+                } 
+                else if (player.GetType() == typeof (Hide) && player.IsActiveVision)
+                {
+                    if(block.IsHideVisible)
+                        spriteBatch.Draw(block.Texture, block.HitBox, Color.Yellow);
+                    else
+                        spriteBatch.Draw(block.Texture, block.HitBox, Color.Red);
+                }
+                else
+                {
+                    spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
+                }
+                    
             }
             if (puzzle != null)
             {
