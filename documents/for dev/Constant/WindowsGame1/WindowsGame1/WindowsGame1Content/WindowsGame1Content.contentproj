@@ -79,11 +79,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="level1.txt">
-      <Name>level1</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="ennemy.png">
       <Name>ennemy</Name>
       <Importer>TextureImporter</Importer>

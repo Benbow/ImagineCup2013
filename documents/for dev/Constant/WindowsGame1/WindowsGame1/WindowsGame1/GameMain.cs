@@ -21,8 +21,7 @@ namespace WindowsGame1
         Jekyll LocalJekyll;
         Hide LocalHide;
         AlignementGUI alignement = new AlignementGUI(50, 30);
-        InteractZoneBlock interact = new InteractZoneBlock(300, 365, 100, 100, 0);
-        InteractZoneBlock interact1 = new InteractZoneBlock(450, 365, 100, 100, 1);
+        ClimbableBlock box1 = new ClimbableBlock(250, 435, 32, 32);
         Puzzle0 puzzle = new Puzzle0();
         Puzzle1 puzzle1 = new Puzzle1();
         Ladder ladder = new Ladder(700, 300);

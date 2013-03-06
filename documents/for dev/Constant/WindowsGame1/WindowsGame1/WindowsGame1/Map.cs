@@ -18,7 +18,6 @@ namespace WindowsGame1
         private DelimiterZone _downSide;
 
         bool blockMove = true;
-        bool playerMove;
         Rectangle futurePos;
         int i;
         KeyboardState oldKeyboard;
@@ -109,7 +108,6 @@ namespace WindowsGame1
                 if (pad.IsButtonDown(Buttons.LeftThumbstickUp) && player.FallingSpeed == 0)
                 {
                     bool lad = false;
-                    Console.WriteLine(player.GetType());
                     foreach (Ladder ladder in Ladder.LadderList)
                     {
                         if (player.GetType() == typeof(Jekyll))
@@ -121,7 +119,7 @@ namespace WindowsGame1
                             }
                         }
                     }
-                    if (!lad)
+                    if (!lad && !player.PlayerMove)
                     {
                         this.LookUp(true, gameTime, player);
                     }
@@ -148,15 +146,44 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A) && !player.IsJumping)
                 {
-                    if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
-                        jumpInitKey = Keys.Left;
-                    else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
-                        jumpInitKey = Keys.Right;
-                    else if (pad.IsButtonDown(Buttons.LeftThumbstickRight) && pad.IsButtonDown(Buttons.LeftThumbstickLeft))
-                        jumpInitKey = 0;
+                    if (player.Statut)
+                    {
+                        if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+                            jumpInitKey = Keys.Left;
+                        else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
+                            jumpInitKey = Keys.Right;
+                        else if (pad.IsButtonDown(Buttons.LeftThumbstickRight) && pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+                            jumpInitKey = 0;
+                        else
+                            jumpInitKey = 0;
+
+                        player.JumpPlayer();
+                    }
                     else
-                        jumpInitKey = 0;
-                    player.JumpPlayer();
+                    {
+                        if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
+                        {
+                            futurePos.X += (int)player.Speed;
+                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
+                                {
+                                    player.ClimbBox(block, 0);
+                                }
+                            }
+                        }
+                        else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+                        {
+                            futurePos.X -= (int)player.Speed;
+                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
+                                {
+                                    player.ClimbBox(block, 1);
+                                }
+                            }
+                        }
+                    }
                 }
             }
             oldKeyboard = keyboard;
@@ -277,20 +304,38 @@ namespace WindowsGame1
                     }
                 }
             }
+
+            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+            {
+                if (block.IsCollidable)
+                {
+                    if (block.HitBox.Intersects(futurePos))
+                    {
+                        if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                            player.FallingSpeed = 0;
+                        blockMove = false;
+                        player.AccelMode = 1;
+                        accelTimer = 0;
+
+                        break;
+                    }
+                }
+            }
+
             if (blockMove)
             {
                 i = 0;
-                playerMove = false;
+                player.PlayerMove = false;
                 float sp = player.Speed;
                 Rectangle LeftCut = new Rectangle(player.HitBox.X + (player.HitBox.Width / 2) - (int)sp, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
                 Rectangle RightCut = new Rectangle(player.HitBox.X + (int)sp, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
 
                 if (LeftCut.Intersects(this._leftSide.HitBox) || RightCut.Intersects(this._rightSide.HitBox))
                 {
-                    playerMove = true;
+                    player.PlayerMove = true;
                 }
 
-                if (playerMove)
+                if (player.PlayerMove)
                 {
                     if (key == Keys.Left)
                         player.MovePlayerLeft(true);

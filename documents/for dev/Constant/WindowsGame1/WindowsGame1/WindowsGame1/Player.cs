@@ -26,6 +26,7 @@ namespace WindowsGame1
         protected int Timer;
         protected int TimerMax;
         protected bool _isJumping = false;
+        protected bool playerMove;
 
         protected float _speed;
         protected float _poids;
@@ -69,6 +70,7 @@ namespace WindowsGame1
 
         public void MovePlayerLeft(bool player)
         {
+            this.playerMove = true;
             this.Direction = Direction.Left;
             if(player)
             {
@@ -89,6 +91,7 @@ namespace WindowsGame1
 
         public void MovePlayerRight(bool player)
         {
+            this.playerMove = true;
             this.Direction = Direction.Right;
             if (player)
             {
@@ -123,6 +126,7 @@ namespace WindowsGame1
             this.FrameLine = 0;
             this._dir = Vector2.Zero;
             this.Timer = 0;
+            this.playerMove = false;
         }
 
         public void CheckGravity()
@@ -131,6 +135,19 @@ namespace WindowsGame1
             Rectangle futurPos = this._hitBox;
             futurPos.Y += 1 + (int)this._fallingSpeed;
             foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
+            {
+                if (futurPos.Intersects(block.HitBox))
+                {
+                    colide = true;
+                    if (this._fallingSpeed > 0 || this._lookUpDownPhase)
+                    {
+                        this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
+                    }
+                    break;
+                }
+            }
+
+            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
             {
                 if (futurPos.Intersects(block.HitBox))
                 {
@@ -156,7 +173,7 @@ namespace WindowsGame1
                 if (!lad)
                 {
                     int i = 0;
-                    bool playerMove = false;
+                    this.playerMove = false;
                     foreach (Blocks block in Blocks.BlockList)
                     {
                         i++;
@@ -166,11 +183,11 @@ namespace WindowsGame1
                                  this._hitBox.Y + (FirstGame.H/2) + (this._hitBox.Height/2) - (block.HitBox.Height*2) >
                                  block.HitBox.Y))
                             {
-                                playerMove = true;
+                                this.playerMove = true;
                             }
                             else if ((i == 1 && this._hitBox.Y - (FirstGame.H/2) + block.HitBox.Height < block.HitBox.Y))
                             {
-                                playerMove = true;
+                                this.playerMove = true;
                             }
                         }
                         else
@@ -179,7 +196,7 @@ namespace WindowsGame1
                         }
                     }
 
-                    if (playerMove)
+                    if (this.playerMove)
                     {
                         if (this._fallingSpeed >= 0)
                             this._fallingSpeed += 0.15f*(this._poids/4);
@@ -240,7 +257,6 @@ namespace WindowsGame1
 
         public void SetAccelSpeed()
         {
-            Console.WriteLine(this._speed);
             if (this._statut)
             {
                 switch (this._accelMode)
@@ -304,6 +320,23 @@ namespace WindowsGame1
         public void DecreaseCoordY(int speed)
         {
             this._hitBox.Y -= speed;
+        }
+
+        /*
+         * Fonction pour grimper sur un caisse
+         */
+        public void ClimbBox(Blocks block, int dir)
+        {
+            if (dir == 1)
+            {
+                this._hitBox.X -= block.HitBox.Width;
+                this._hitBox.Y -= block.HitBox.Height;
+            }
+            else if (dir == 0)
+            {
+                this._hitBox.X += block.HitBox.Width;
+                this._hitBox.Y -= block.HitBox.Height;
+            }
         }
 
         //getter setter
@@ -412,6 +445,18 @@ namespace WindowsGame1
             set
             {
                 this._statut = value;
+            }
+        }
+
+        public Boolean PlayerMove
+        {
+            get
+            {
+                return this.playerMove;
+            }
+            set
+            {
+                this.playerMove = value;
             }
         }
         

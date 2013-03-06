@@ -16,5 +16,5 @@ Content\enigmes_fond.xnb
 Content\enigmes_fond1.xnb
 Content\ladder.xnb
 Content\box.xnb
-Content\FontScore.xnb
 Content\updown.xnb
+Content\FontScore.xnb

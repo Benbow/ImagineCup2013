@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb</Output>
-      <Time>2013-03-05T23:37:13.5417452-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb</Output>
+      <Time>2013-03-06T09:31:18.3164571-05:00</Time>
     </Item>
     <Item>
       <Source>player.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb</Output>
-      <Time>2013-03-05T23:37:13.537745-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb</Output>
+      <Time>2013-03-06T09:31:18.3144553-05:00</Time>
     </Item>
     <Item>
       <Source>tile.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb</Output>
-      <Time>2013-03-05T23:37:13.5387451-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb</Output>
+      <Time>2013-03-06T09:31:18.3154564-05:00</Time>
     </Item>
     <Item>
       <Source>wall.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb</Output>
-      <Time>2013-03-05T23:37:13.5397451-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb</Output>
+      <Time>2013-03-06T09:31:18.3164571-05:00</Time>
     </Item>
     <Item>
       <Source>sol.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sol.xnb</Output>
-      <Time>2013-03-05T23:37:13.5387451-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sol.xnb</Output>
+      <Time>2013-03-06T09:31:18.3144553-05:00</Time>
     </Item>
     <Item>
       <Source>int.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb</Output>
-      <Time>2013-03-05T23:37:13.5307446-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb</Output>
+      <Time>2013-03-06T09:31:18.3084509-05:00</Time>
     </Item>
     <Item>
       <Source>ennemy.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ennemy.xnb</Output>
-      <Time>2013-03-05T23:37:13.5267444-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ennemy.xnb</Output>
+      <Time>2013-03-06T09:31:18.3074494-05:00</Time>
     </Item>
     <Item>
       <Source>guys.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\guys.xnb</Output>
-      <Time>2013-03-05T23:37:13.5277444-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\guys.xnb</Output>
+      <Time>2013-03-06T09:31:18.3074494-05:00</Time>
     </Item>
     <Item>
       <Source>hide.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb</Output>
-      <Time>2013-03-05T23:37:13.5297446-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb</Output>
+      <Time>2013-03-06T09:31:18.3084509-05:00</Time>
     </Item>
     <Item>
       <Source>invisible.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb</Output>
-      <Time>2013-03-05T23:37:13.5317447-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb</Output>
+      <Time>2013-03-06T09:31:18.3094511-05:00</Time>
     </Item>
     <Item>
       <Source>leftright.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb</Output>
-      <Time>2013-03-05T23:37:13.5347448-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb</Output>
+      <Time>2013-03-06T09:31:18.3104518-05:00</Time>
     </Item>
     <Item>
       <Source>alignement_barre.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_barre.xnb</Output>
-      <Time>2013-03-05T23:37:13.5187439-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_barre.xnb</Output>
+      <Time>2013-03-06T09:31:18.3054485-05:00</Time>
     </Item>
     <Item>
       <Source>alignement_value.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_value.xnb</Output>
-      <Time>2013-03-05T23:37:13.520744-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_value.xnb</Output>
+      <Time>2013-03-06T09:31:18.3054485-05:00</Time>
     </Item>
     <Item>
       <Source>InteractZone.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\InteractZone.xnb</Output>
-      <Time>2013-03-05T23:37:13.5127436-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\InteractZone.xnb</Output>
+      <Time>2013-03-06T09:31:18.2834346-05:00</Time>
     </Item>
     <Item>
       <Source>enigmes_fond.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb</Output>
-      <Time>2013-03-05T23:37:13.5247443-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb</Output>
+      <Time>2013-03-06T09:31:18.30645-05:00</Time>
     </Item>
     <Item>
       <Source>enigmes_fond1.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb</Output>
-      <Time>2013-03-05T23:37:13.5257443-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb</Output>
+      <Time>2013-03-06T09:31:18.30645-05:00</Time>
     </Item>
     <Item>
       <Source>ladder.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb</Output>
-      <Time>2013-03-05T23:37:13.5337448-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb</Output>
+      <Time>2013-03-06T09:31:18.3094511-05:00</Time>
     </Item>
     <Item>
       <Source>box.png</Source>
@@ -160,17 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\box.xnb</Output>
-      <Time>2013-03-05T23:37:13.5217441-05:00</Time>
-    </Item>
-    <Item>
-      <Source>FontScore.spritefont</Source>
-      <Name>FontScore</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb</Output>
-      <Time>2013-03-05T23:37:13.5117435-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\box.xnb</Output>
+      <Time>2013-03-06T09:31:18.30645-05:00</Time>
     </Item>
     <Item>
       <Source>updown.png</Source>
@@ -178,8 +169,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\updown.xnb</Output>
-      <Time>2013-03-05T23:54:53.9693511-05:00</Time>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\updown.xnb</Output>
+      <Time>2013-03-06T09:31:18.3154564-05:00</Time>
+    </Item>
+    <Item>
+      <Source>FontScore.spritefont</Source>
+      <Name>FontScore</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb</Output>
+      <Time>2013-03-06T09:31:18.2824344-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -187,39 +187,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T07:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T07:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T07:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T07:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T07:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T07:41:18-04:00</Value>
+        <Value>2010-08-23T13:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-01-12T14:50:33.6973274-05:00</Value>
+        <Value>2013-03-04T10:26:17.5614649-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
