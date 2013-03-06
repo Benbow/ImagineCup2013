@@ -1,104 +1,49 @@
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Balle.xnb
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Barre.xnb
-C:\Users\PereKastor\Documents\Visual Studio 2012\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Balle.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Barre.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\documents\for dev\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sol.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ennemy.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\guys.xnb
-C:\Users\Benbow\Desktop\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sol.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ennemy.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\guys.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sol.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ennemy.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\guys.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
-C:\Users\PereKastor\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_barre.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_value.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\InteractZone.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb
-<<<<<<< HEAD
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sol.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ennemy.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\guys.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_barre.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_value.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\InteractZone.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
-C:\Users\Constant\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
-=======
-C:\Users\Benbow\Documents\GitHub\Microsoft\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\updown.xnb
->>>>>>> echelles up down plus reglage verticales
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sol.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ennemy.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\guys.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_barre.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_value.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\InteractZone.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\box.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\documents\for dev\Constant\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\zozo.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\tile.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sol.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ennemy.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\guys.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\invisible.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\leftright.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_barre.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\alignement_value.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\InteractZone.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond1.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\box.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\updown.xnb
