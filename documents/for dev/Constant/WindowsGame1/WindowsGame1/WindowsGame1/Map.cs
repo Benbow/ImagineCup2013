@@ -185,6 +185,11 @@ namespace WindowsGame1
                         }
                     }
                 }
+
+                if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
+                {
+                    //On fait l'attaque ici
+                }
             }
             oldKeyboard = keyboard;
             oldPad = pad;
