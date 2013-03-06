@@ -26,6 +26,7 @@ namespace WindowsGame1
         protected int Timer;
         protected int TimerMax;
         protected bool _isJumping = false;
+        protected bool playerMove;
         protected bool _isActiveVision = false;
 
         protected float _speed;
@@ -40,6 +41,7 @@ namespace WindowsGame1
         protected bool _statut = false;
         protected bool _lookUpDownPhase;
         protected KeyboardState oldKeyboard;
+        protected GamePadState oldPad;
 
         
 
@@ -57,18 +59,20 @@ namespace WindowsGame1
             }
         }
 
-        public bool Switch(KeyboardState keyboard)
+        public bool Switch(GamePadState pad)
         {
-            if (keyboard.IsKeyDown(Keys.B) && oldKeyboard.IsKeyUp(Keys.B))
+            if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
             {
-                this._statut = !this._statut;
-            }    
-            oldKeyboard = keyboard;
+                _statut = !_statut;
+            }
+               
+            oldPad = pad;
             return _statut;
         }
 
         public void MovePlayerLeft(bool player)
         {
+            this.playerMove = true;
             this.Direction = Direction.Left;
             if(player)
             {
@@ -89,6 +93,7 @@ namespace WindowsGame1
 
         public void MovePlayerRight(bool player)
         {
+            this.playerMove = true;
             this.Direction = Direction.Right;
             if (player)
             {
@@ -108,7 +113,7 @@ namespace WindowsGame1
 
         public void JumpPlayer()
         {
-            if(!this._isFalling)
+            if(!this._isFalling && this._statut)
             {
                 this._isJumping = true;
                 this.FrameColumn = 0;
@@ -123,6 +128,7 @@ namespace WindowsGame1
             this.FrameLine = 0;
             this._dir = Vector2.Zero;
             this.Timer = 0;
+            this.playerMove = false;
         }
 
         public void CheckGravity()
@@ -131,6 +137,19 @@ namespace WindowsGame1
             Rectangle futurPos = this._hitBox;
             futurPos.Y += 1 + (int)this._fallingSpeed;
             foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
+            {
+                if (futurPos.Intersects(block.HitBox))
+                {
+                    colide = true;
+                    if (this._fallingSpeed > 0 || this._lookUpDownPhase)
+                    {
+                        this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
+                    }
+                    break;
+                }
+            }
+
+            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
             {
                 if (futurPos.Intersects(block.HitBox))
                 {
@@ -234,25 +253,51 @@ namespace WindowsGame1
 
         public void SetAccelSpeed()
         {
-            switch (this._accelMode)
+            if (this._statut)
             {
-                case 1:
-                    this._speed = 2f;
-                    this._speedInAir = 1f;
-                    this._impulsion = 10.5f;
-                    break;
+                switch (this._accelMode)
+                {
+                    case 1:
+                        this._speedInAir = 1f;
+                        this._impulsion = 10.5f;
+                        this.TimerMax = 7;
+                        break;
 
-                case 2:
-                    this._speed = 4f;
-                    this._speedInAir = 4f;
-                    this._impulsion = 9f;
-                    break;
+                    case 2:
+                        this._speedInAir = 4f;
+                        this._impulsion = 9f;
+                        this.TimerMax = 6;
+                        break;
 
-                case 3:
-                    this._speed = 8f;
-                    this._speedInAir = 10f;
-                    this._impulsion = 7.5f;
-                    break;
+                    case 3:
+                        this._speedInAir = 8f;
+                        this._impulsion = 7.5f;
+                        this.TimerMax = 5;
+                        break;
+                }
+            }
+            else
+            {
+                switch (this._accelMode)
+                {
+                    case 1:
+                        this._speedInAir = 0f;
+                        this._impulsion = 0f;
+                        this.TimerMax = 7;
+                        break;
+
+                    case 2:
+                        this._speedInAir = 0f;
+                        this._impulsion = 0f;
+                        this.TimerMax = 6;
+                        break;
+
+                    case 3:
+                        this._speedInAir = 0f;
+                        this._impulsion = 0f;
+                        this.TimerMax = 5;
+                        break;
+                }
             }
         }
 
@@ -273,6 +318,24 @@ namespace WindowsGame1
         {
             this._hitBox.Y -= speed;
         }
+
+        /*
+        * Fonction pour grimper sur un caisse
+        */
+        public void ClimbBox(Blocks block, int dir)
+        {
+            if (dir == 1)
+            {
+                this._hitBox.X -= block.HitBox.Width;
+                this._hitBox.Y -= block.HitBox.Height;
+            }
+            else if (dir == 0)
+            {
+                this._hitBox.X += block.HitBox.Width;
+                this._hitBox.Y -= block.HitBox.Height;
+            }
+        }
+
 
         //getter setter
         public bool IsJumping
@@ -375,6 +438,29 @@ namespace WindowsGame1
         {
             get { return this._isActiveVision; }
             set { this._isActiveVision = value; }
+        }
+        public Boolean Statut
+        {
+            get
+            {
+                return this._statut;
+            }
+            set
+            {
+                this._statut = value;
+            }
+        }
+
+        public Boolean PlayerMove
+        {
+            get
+            {
+                return this.playerMove;
+            }
+            set
+            {
+                this.playerMove = value;
+            }
         }
     }
 }

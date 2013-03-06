@@ -75,6 +75,7 @@
     <Compile Include="AlignementGUI.cs" />
     <Compile Include="BlockOld.cs" />
     <Compile Include="Blocks.cs" />
+    <Compile Include="ClimbableBlock.cs" />
     <Compile Include="DelimiterZone.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GUI.cs" />

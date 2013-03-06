@@ -21,6 +21,7 @@ namespace WindowsGame1
         Jekyll LocalJekyll;
         Hide LocalHide;
         AlignementGUI alignement = new AlignementGUI(50, 30);
+        ClimbableBlock box1 = new ClimbableBlock(250, 435, 32, 32);
         Puzzle0 puzzle = new Puzzle0();
         Puzzle1 puzzle1 = new Puzzle1();
         
@@ -40,11 +41,13 @@ namespace WindowsGame1
 
         }
 
-        public void Update(KeyboardState keyboard, MouseState mouse, GameTime gameTime)
+        public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime)
         {
             bool prec_statut = statut_player;
             
-            statut_player = LocalJekyll.Switch(keyboard);
+            statut_player = LocalJekyll.Switch(pad);
+            LocalJekyll.Statut = statut_player;
+            LocalHide.Statut = statut_player;
           
             if (!statut_player)
             {
@@ -54,7 +57,7 @@ namespace WindowsGame1
                         LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
                     LocalJekyll.Update(mouse, keyboard);
                 }
-                MyMap.Update(keyboard, mouse, gameTime, LocalJekyll);
+                MyMap.Update(keyboard, pad, mouse, gameTime, LocalJekyll);
                 
             }
             else if (statut_player)
@@ -65,7 +68,7 @@ namespace WindowsGame1
                         LocalHide.InitChange(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y, LocalJekyll.DirectionPlayer);
                     LocalHide.Update(mouse, keyboard);
                 }
-                MyMap.Update(keyboard, mouse, gameTime, LocalHide);
+                MyMap.Update(keyboard, pad, mouse, gameTime, LocalHide);
                 
             }
 

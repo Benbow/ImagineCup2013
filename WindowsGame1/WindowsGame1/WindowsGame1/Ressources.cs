@@ -32,6 +32,7 @@ namespace WindowsGame1
         public static Texture2D enigmes_fond;
         public static Texture2D enigmes_fond1;
         public static Texture2D LadderTest;
+        public static Texture2D box;
 
         public static Texture2D delimiterleftright;
         public static Texture2D delimiterupdown;
@@ -42,6 +43,7 @@ namespace WindowsGame1
             invisible = Content.Load<Texture2D>("invisible");
             alignement_barre = Content.Load<Texture2D>("alignement_barre");
             alignement_value = Content.Load<Texture2D>("alignement_value");
+            box = Content.Load<Texture2D>("box");
            
             enigmes_fond = Content.Load<Texture2D>("enigmes_fond");
             enigmes_fond1 = Content.Load<Texture2D>("enigmes_fond1");
