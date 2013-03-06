@@ -21,7 +21,6 @@ namespace WindowsGame1
         Jekyll LocalJekyll;
         Hide LocalHide;
         AlignementGUI alignement = new AlignementGUI(50, 30);
-        ClimbableBlock box1 = new ClimbableBlock(250, 435, 32, 32);
         Puzzle0 puzzle = new Puzzle0();
         Puzzle1 puzzle1 = new Puzzle1();
         
@@ -256,7 +255,17 @@ namespace WindowsGame1
                 }
                 else if (words[0] == "6")
                 {
-                    //if(words.Length ==)
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        int param = Convert.ToInt32(words[5]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new ClimbableBlock(x, y, hv, jv, text);
+                    }
                 }
             }
         }

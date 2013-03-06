@@ -28,8 +28,9 @@ namespace WindowsGame1
         protected bool _isJumping = false;
         protected bool playerMove;
         protected bool _isActiveVision = false;
+        protected bool _canMove = true;
 
-        protected float _speed;
+        protected float _speed = 1.5f;
         protected float _poids;
         protected int _health;
         protected Texture2D _text;
@@ -246,11 +247,6 @@ namespace WindowsGame1
             }
         }
 
-        public void PlaceOnMiddleScreen()
-        {
-            this._hitBox.X = (FirstGame.W / 2) - (this._hitBox.Width);
-        }
-
         public void SetAccelSpeed()
         {
             if (this._statut)
@@ -334,6 +330,32 @@ namespace WindowsGame1
                 this._hitBox.X += block.HitBox.Width;
                 this._hitBox.Y -= block.HitBox.Height;
             }
+        }
+
+        public bool CheckMove()
+        {
+            bool value = true;
+            if (this.GetType() == typeof(Jekyll))
+            {
+                foreach (Ladder lad in Ladder.LadderList)
+                {
+                    Rectangle feet = new Rectangle(this.HitBox.X, this.HitBox.Y + this.HitBox.Height - 1, this.HitBox.Width, 1);
+                    Rectangle feetplus = feet;
+                    Rectangle feetmoins = feet;
+                    feetmoins.Y--;
+                    feetplus.Y++;
+                    if (lad.HitBox.Intersects(feet) && lad.HitBox.Intersects(feetplus))
+                    {
+                        value = false;
+                    }
+                    if (lad.HitBox.Intersects(feet) && !lad.HitBox.Intersects(feetmoins))
+                    {
+                        value = true;
+                    }
+                }
+            }
+            this._canMove = value;
+            return value;
         }
 
 
@@ -461,6 +483,12 @@ namespace WindowsGame1
             {
                 this.playerMove = value;
             }
+        }
+
+        public Boolean CanMove
+        {
+            get { return this._canMove; }
+            set { this._canMove = value; }
         }
     }
 }

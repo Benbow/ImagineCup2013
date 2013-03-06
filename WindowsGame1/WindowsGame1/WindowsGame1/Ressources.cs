@@ -43,7 +43,7 @@ namespace WindowsGame1
             invisible = Content.Load<Texture2D>("invisible");
             alignement_barre = Content.Load<Texture2D>("alignement_barre");
             alignement_value = Content.Load<Texture2D>("alignement_value");
-            box = Content.Load<Texture2D>("box");
+            
            
             enigmes_fond = Content.Load<Texture2D>("enigmes_fond");
             enigmes_fond1 = Content.Load<Texture2D>("enigmes_fond1");
@@ -69,6 +69,8 @@ namespace WindowsGame1
             TextureList.Add(LadderTest);
             interactZoneTest = Content.Load<Texture2D>("InteractZone"); // 8
             TextureList.Add(interactZoneTest);
+            box = Content.Load<Texture2D>("box"); //9
+            TextureList.Add(box);
            
         }
     }

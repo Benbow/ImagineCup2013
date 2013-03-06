@@ -75,6 +75,8 @@ namespace WindowsGame1
             {
 
                 futurePos = player.HitBox;
+
+                player.CheckMove();
                 // Animation des blocs mouvants
                 foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
                 {
@@ -97,13 +99,19 @@ namespace WindowsGame1
                 }
                 else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
                 {
-                    this.SetPlayerAccelMode(gameTime, player);
-                    this.Move(Keys.Left, player);
+                    if (player.CanMove)
+                    {
+                        this.SetPlayerAccelMode(gameTime, player);
+                        this.Move(Keys.Left, player);
+                    }
                 }
                 else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                 {
-                    this.SetPlayerAccelMode(gameTime, player);
-                    this.Move(Keys.Right, player);
+                    if (player.CanMove)
+                    {
+                        this.SetPlayerAccelMode(gameTime, player);
+                        this.Move(Keys.Right, player);
+                    }
                 }
 
                 if (pad.IsButtonDown(Buttons.LeftThumbstickUp) && player.FallingSpeed == 0)
@@ -153,7 +161,13 @@ namespace WindowsGame1
                         {
                             if (player.HitBox.Intersects(ladder.HitBox))
                             {
-                                player.IncreaseCoordY(1);
+                                Rectangle feet = new Rectangle(player.HitBox.X, player.HitBox.Y + player.HitBox.Height -1, player.HitBox.Width, 1);
+                                Rectangle feetplus = feet;
+                                feetplus.Y++;
+                                if (feet.Intersects(ladder.HitBox) || feetplus.Intersects(ladder.HitBox))
+                                {
+                                    player.IncreaseCoordY(1);
+                                }
                             }
                         }
                     }
@@ -214,10 +228,7 @@ namespace WindowsGame1
                     {
                         //On fait l'attaque ici
                     }
-                    else
-                    {
-                        
-                    }
+                    else{}
                 }
             }
             oldKeyboard = keyboard;
@@ -356,19 +367,22 @@ namespace WindowsGame1
                     }
                 }
             }
-            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+            if (blockMove)
             {
-                if (block.IsCollidable)
+                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                 {
-                    if (block.HitBox.Intersects(futurePos))
+                    if (block.IsCollidable)
                     {
-                        if (player.FallingSpeed < 0 && player.AccelMode != 1)
-                            player.FallingSpeed = 0;
-                        blockMove = false;
-                        player.AccelMode = 1;
-                        accelTimer = 0;
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                                player.FallingSpeed = 0;
+                            blockMove = false;
+                            player.AccelMode = 1;
+                            accelTimer = 0;
 
-                        break;
+                            break;
+                        }
                     }
                 }
             }
