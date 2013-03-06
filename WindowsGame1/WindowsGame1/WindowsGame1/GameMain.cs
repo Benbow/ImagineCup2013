@@ -21,11 +21,9 @@ namespace WindowsGame1
         Jekyll LocalJekyll;
         Hide LocalHide;
         AlignementGUI alignement = new AlignementGUI(50, 30);
-        InteractZoneBlock interact = new InteractZoneBlock(300, 365, 100, 100, 0);
-        InteractZoneBlock interact1 = new InteractZoneBlock(450, 365, 100, 100, 1);
         Puzzle0 puzzle = new Puzzle0();
         Puzzle1 puzzle1 = new Puzzle1();
-        Ladder ladder = new Ladder(700, 299);
+        
 
         public static string Status;
 
@@ -115,7 +113,7 @@ namespace WindowsGame1
                         int y = Convert.ToInt32(words[2]);
                         int param = Convert.ToInt32(words[3]);
                         Texture2D text = Ressources.TextureList[param];
-                        StaticNeutralBlock snblock = new StaticNeutralBlock(x, y, text);
+                        new StaticNeutralBlock(x, y, text);
                     }
                     else if (words.Length == 7) // complet
                     {
@@ -126,7 +124,7 @@ namespace WindowsGame1
                         bool breakable = Convert.ToBoolean(words[4]);
                         bool colidable = Convert.ToBoolean(words[5]);
                         int health = Convert.ToInt32(words[6]);
-                        StaticNeutralBlock snblock = new StaticNeutralBlock(x, y, text, breakable, colidable, health);
+                        new StaticNeutralBlock(x, y, text, breakable, colidable, health);
                     }
                 }
                 else if (words[0] == "1") // Movable Neutral Block
@@ -147,7 +145,7 @@ namespace WindowsGame1
                         bool reverse = Convert.ToBoolean(words[10]);
                         bool gravity = Convert.ToBoolean(words[11]);
 
-                        MovableNeutralBlock mnblock = new MovableNeutralBlock(x, y, text, vec, speed, animT, waitT, anim, reverse, gravity);
+                        new MovableNeutralBlock(x, y, text, vec, speed, animT, waitT, anim, reverse, gravity);
                     }
                     else if (words.Length == 15) // complet
                     {
@@ -168,7 +166,7 @@ namespace WindowsGame1
                         bool reverse = Convert.ToBoolean(words[13]);
                         bool gravity = Convert.ToBoolean(words[14]);
 
-                        MovableNeutralBlock mnblock = new MovableNeutralBlock(x, y, text, breakable, colidable, health, vec, speed, animT, waitT, anim, reverse, gravity);
+                        new MovableNeutralBlock(x, y, text, breakable, colidable, health, vec, speed, animT, waitT, anim, reverse, gravity);
                     }
 
                 }
@@ -186,7 +184,7 @@ namespace WindowsGame1
                         bool haveSpotted = Convert.ToBoolean(words[7]);
                         int strength = Convert.ToInt32(words[8]);
 
-                        StaticEnnemyBlock seblock = new StaticEnnemyBlock(x, y, text, breakable, colidable, health, haveSpotted, strength);
+                        new StaticEnnemyBlock(x, y, text, breakable, colidable, health, haveSpotted, strength);
                     }
                 }
                 else if (words[0] == "3") // Movable Ennemy Block
@@ -213,8 +211,39 @@ namespace WindowsGame1
                         bool gravity = Convert.ToBoolean(words[16]);
                         float poids = Convert.ToSingle(words[17]);
 
-                        MovableEnnemyBlock meblock = new MovableEnnemyBlock(x, y, text, breakable, colidable, health, vec, speed, strength, haveSpotted, animT, waitT, anim, reverse, gravity, poids);
+                        new MovableEnnemyBlock(x, y, text, breakable, colidable, health, vec, speed, strength, haveSpotted, animT, waitT, anim, reverse, gravity, poids);
                     }
+                }
+                else if (words[0] == "4") // Ladder
+                {
+                    if (words.Length == 4) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new Ladder(x, y, text);
+                    }
+                }
+                else if (words[0] == "5") // Interact Zone with Puzzle
+                {
+                    if (words.Length == 7)
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int w = Convert.ToInt32(words[3]);
+                        int h = Convert.ToInt32(words[4]);
+                        int id = Convert.ToInt32(words[5]);
+                        int param = Convert.ToInt32(words[6]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new InteractZoneBlockWithPuzzle(x, y, w, h, id, text);
+                    }
+                }
+                else if (words[0] == "6")
+                {
+                    //if(words.Length ==)
                 }
             }
         }

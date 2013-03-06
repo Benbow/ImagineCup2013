@@ -28,10 +28,10 @@ namespace WindowsGame1
         public static Texture2D invisible;
         public static Texture2D alignement_barre;
         public static Texture2D alignement_value;
-        public static Texture2D interactZone;
+        public static Texture2D interactZoneTest;
         public static Texture2D enigmes_fond;
         public static Texture2D enigmes_fond1;
-        public static Texture2D ladder;
+        public static Texture2D LadderTest;
 
         public static Texture2D delimiterleftright;
         public static Texture2D delimiterupdown;
@@ -42,10 +42,10 @@ namespace WindowsGame1
             invisible = Content.Load<Texture2D>("invisible");
             alignement_barre = Content.Load<Texture2D>("alignement_barre");
             alignement_value = Content.Load<Texture2D>("alignement_value");
-            interactZone = Content.Load<Texture2D>("InteractZone");
+           
             enigmes_fond = Content.Load<Texture2D>("enigmes_fond");
             enigmes_fond1 = Content.Load<Texture2D>("enigmes_fond1");
-            ladder = Content.Load<Texture2D>("ladder");
+            
             delimiterleftright = Content.Load<Texture2D>("leftright");
             delimiterupdown = Content.Load<Texture2D>("updown");
 
@@ -63,6 +63,10 @@ namespace WindowsGame1
             TextureList.Add(Jekyll);
             Hide = Content.Load<Texture2D>("hide"); // 6
             TextureList.Add(Hide);
+            LadderTest = Content.Load<Texture2D>("ladder"); // 7
+            TextureList.Add(LadderTest);
+            interactZoneTest = Content.Load<Texture2D>("InteractZone"); // 8
+            TextureList.Add(interactZoneTest);
            
         }
     }

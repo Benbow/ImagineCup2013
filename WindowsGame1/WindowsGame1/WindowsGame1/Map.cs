@@ -46,7 +46,7 @@ namespace WindowsGame1
         {
             if (player.GetType() == typeof (Jekyll))
             {
-                foreach (InteractZoneBlock interBlock in InteractZoneBlock.InteractZoneBlockList)
+                foreach (InteractZoneBlockWithPuzzle interBlock in InteractZoneBlockWithPuzzle.InteractZoneBlockList)
                 {
                     if (player.HitBox.Intersects(interBlock.HitBox))
                     {
