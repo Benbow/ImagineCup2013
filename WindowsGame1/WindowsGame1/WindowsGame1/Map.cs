@@ -17,8 +17,8 @@ namespace WindowsGame1
 
         private int _width;
         private int _height;
-        
 
+        bool playerMove;
         bool blockMove = true;
         Rectangle futurePos;
         KeyboardState oldKeyboard;
@@ -90,6 +90,7 @@ namespace WindowsGame1
                 if (pad.IsButtonUp(Buttons.LeftThumbstickLeft) && pad.IsButtonUp(Buttons.LeftThumbstickRight) && !player.IsJumping)
                 {
                     player.AccelMode = 1;
+                    player.Speed = 1.5f;
                     accelTimer = 0;
                     player.SetAccelSpeed();
                     player.BlockPLayer();
@@ -199,8 +200,8 @@ namespace WindowsGame1
                         }
                     }
                 }
- 
-                if (keyboard.IsKeyDown(Keys.V) && oldKeyboard.IsKeyUp(Keys.V))
+
+                if (pad.IsButtonDown(Buttons.RightShoulder) && oldPad.IsButtonUp(Buttons.RightShoulder))
                 {
                     if(player.IsActiveVision)
                         player.IsActiveVision = false;
@@ -362,7 +363,7 @@ namespace WindowsGame1
             }
             if (blockMove)
             {
-                player.PlayerMove = false;
+                playerMove = false;
                 float sp = player.Speed;
                 Rectangle RightCut = new Rectangle(player.HitBox.X + (player.HitBox.Width / 2), player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
                 Rectangle LeftCut = new Rectangle(player.HitBox.X, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
@@ -374,10 +375,10 @@ namespace WindowsGame1
 
                 if (RightCut.Intersects(LeftSide) || LeftCut.Intersects(RightSide))
                 {
-                    player.PlayerMove = true;
+                    playerMove = true;
                 }
 
-                if (player.PlayerMove)
+                if (playerMove)
                 {
                     if (key == Keys.Left)
                         player.MovePlayerLeft(true);
