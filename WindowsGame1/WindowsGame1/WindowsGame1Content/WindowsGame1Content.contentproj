@@ -159,6 +159,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="box.png">
+      <Name>box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="updown.png">
       <Name>updown</Name>
       <Importer>TextureImporter</Importer>
