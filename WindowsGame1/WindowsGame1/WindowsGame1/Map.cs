@@ -208,6 +208,17 @@ namespace WindowsGame1
                     else
                         player.IsActiveVision = true;
                 }
+                if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
+                {
+                    if (player.Statut)
+                    {
+                        //On fait l'attaque ici
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             }
             oldKeyboard = keyboard;
             oldPad = pad;
