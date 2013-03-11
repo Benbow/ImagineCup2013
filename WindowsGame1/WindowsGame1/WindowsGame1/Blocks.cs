@@ -11,6 +11,7 @@ namespace WindowsGame1
     {
         protected bool _isBreakable = false;
         protected bool _isCollidable = true;
+        protected bool _isActive = true;
         protected bool _isHideVisible = false;
         protected bool _isJekyllVisible = false;
         protected int _health;
@@ -52,6 +53,18 @@ namespace WindowsGame1
             get
             {
                 return _isCollidable;
+            }
+        }
+
+        public bool IsActive
+        {
+            get
+            {
+                return _isActive;
+            }
+            set
+            {
+                _isActive = value;
             }
         }
 

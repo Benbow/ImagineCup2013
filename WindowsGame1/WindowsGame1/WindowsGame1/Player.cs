@@ -139,7 +139,7 @@ namespace WindowsGame1
             futurPos.Y += 1 + (int)this._fallingSpeed;
             foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
             {
-                if (futurPos.Intersects(block.HitBox))
+                if (futurPos.Intersects(block.HitBox) && block.IsActive)
                 {
                     colide = true;
                     if (this._fallingSpeed > 0 || this._lookUpDownPhase)
@@ -152,7 +152,7 @@ namespace WindowsGame1
 
             foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
             {
-                if (futurPos.Intersects(block.HitBox))
+                if (futurPos.Intersects(block.HitBox) && block.IsActive)
                 {
                     colide = true;
                     if (this._fallingSpeed > 0 || this._lookUpDownPhase)
