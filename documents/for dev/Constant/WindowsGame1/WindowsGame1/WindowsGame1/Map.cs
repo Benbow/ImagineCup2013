@@ -168,9 +168,11 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    player.ClimbBox(block, 0);
+                                    if(block.IsActive)
+                                        player.ClimbBox(block, 0);
                                 }
                             }
+
                         }
                         else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
                         {
@@ -179,7 +181,8 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    player.ClimbBox(block, 1);
+                                    if (block.IsActive)
+                                        player.ClimbBox(block, 1);
                                 }
                             }
                         }
@@ -188,7 +191,45 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
                 {
-                    //On fait l'attaque ici
+                    if (player.Statut)
+                    {
+                        if (player.DirectionPlayer == Direction.Left)
+                        {
+                            futurePos.X -= (int)player.Speed;
+
+                            /*
+                             * Test de collision quand on attaque sur les box
+                             */
+                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
+                                {
+                                    if (block.IsBreakable)
+                                    {
+                                        block.IsActive = false;
+                                    }
+                                }
+                            }
+                        }
+                        else if (player.DirectionPlayer == Direction.Right)
+                        {
+                            futurePos.X += (int)player.Speed;
+
+                            /*
+                             * Test de collision quand on attaque sur les box
+                             */
+                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
+                                {
+                                    if (block.IsBreakable)
+                                    {
+                                        block.IsActive = false;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
             oldKeyboard = keyboard;
@@ -199,7 +240,8 @@ namespace WindowsGame1
         {
             foreach (Blocks block in Blocks.BlockList)
             {
-                spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
+                if(block.IsActive)
+                    spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
             }
             if (puzzle != null)
             {
@@ -309,10 +351,9 @@ namespace WindowsGame1
                     }
                 }
             }
-
             foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
             {
-                if (block.IsCollidable)
+                if (block.IsCollidable && block.IsActive)
                 {
                     if (block.HitBox.Intersects(futurePos))
                     {

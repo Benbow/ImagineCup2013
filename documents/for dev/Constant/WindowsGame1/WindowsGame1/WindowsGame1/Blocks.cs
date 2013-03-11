@@ -11,6 +11,7 @@ namespace WindowsGame1
     {
         protected bool _isBreakable = false;
         protected bool _isCollidable = true;
+        protected bool _isActive = true;
         protected int _health;
         protected Rectangle _hitBox;
         protected Texture2D _texture;
@@ -50,6 +51,18 @@ namespace WindowsGame1
             get
             {
                 return _isCollidable;
+            }
+        }
+
+        public bool IsActive
+        {
+            get
+            {
+                return _isActive;
+            }
+            set
+            {
+                _isActive = value;
             }
         }
 
