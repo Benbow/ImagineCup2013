@@ -49,7 +49,7 @@ namespace WindowsGame1
             LocalJekyll.Statut = statut_player;
             LocalHide.Statut = statut_player;
 
-            menu.Update(pad);
+            menu.Update(pad, LocalJekyll, LocalHide);
            
             if (GameMain.Status != "menu")
             {

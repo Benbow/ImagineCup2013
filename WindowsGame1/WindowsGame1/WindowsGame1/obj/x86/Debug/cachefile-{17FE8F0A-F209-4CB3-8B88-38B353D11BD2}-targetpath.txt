@@ -23,3 +23,15 @@ Content\bouton1.xnb
 Content\bouton2.xnb
 Content\bouton3.xnb
 Content\current.xnb
+Content\comp_bg.xnb
+Content\cmp_bg.xnb
+Content\h_cmp1.xnb
+Content\h_cmp2.xnb
+Content\h_cmp3.xnb
+Content\j_cmp1.xnb
+Content\j_cmp2.xnb
+Content\j_cmp3.xnb
+Content\current2.xnb
+Content\SpriteFont1.xnb
+Content\CmpTitle.xnb
+Content\cmpContent.xnb
