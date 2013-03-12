@@ -80,11 +80,12 @@
     <Compile Include="GameMain.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Hide.cs" />
-    <Compile Include="InteractZoneBlock.cs" />
+    <Compile Include="InteractZoneBlockWithPuzzle.cs" />
     <Compile Include="Jekyll.cs" />
     <Compile Include="Ladder.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapOld.cs" />
+    <Compile Include="MenuGUI.cs" />
     <Compile Include="MovableEnnemyBlock.cs" />
     <Compile Include="MovableNeutralBlock.cs" />
     <Compile Include="Player.cs" />

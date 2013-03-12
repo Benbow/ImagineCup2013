@@ -10,16 +10,17 @@ namespace WindowsGame1
 {
     class Map
     {
+        public static DelimiterZone _leftSide;
+        public static DelimiterZone _rightSide;
+        public static DelimiterZone _upSide;
+        public static DelimiterZone _downSide;
+
         private int _width;
         private int _height;
-        private DelimiterZone _leftSide;
-        private DelimiterZone _rightSide;
-        private DelimiterZone _upSide;
-        private DelimiterZone _downSide;
 
+        bool playerMove;
         bool blockMove = true;
         Rectangle futurePos;
-        int i;
         KeyboardState oldKeyboard;
         GamePadState oldPad;
         Keys jumpInitKey;
@@ -34,17 +35,17 @@ namespace WindowsGame1
         {
             _width = x;
             _height = y;
-            _leftSide = new DelimiterZone(0, 0, FirstGame.W / 2, _height);
-            _rightSide = new DelimiterZone(_width - FirstGame.W / 2, 0, FirstGame.W / 2, _height);
-            _upSide = new DelimiterZone(0, 0, _width, FirstGame.H / 2);
-            _downSide = new DelimiterZone(0, _height - FirstGame.H, _width, FirstGame.H / 2);
+            _leftSide = new DelimiterZone(0, 0, FirstGame.W / 2, _height, Ressources.invisible);
+            _rightSide = new DelimiterZone(_width - FirstGame.W / 2, 0, FirstGame.W / 2, _height, Ressources.invisible);
+            _upSide = new DelimiterZone(0, 0, _width , FirstGame.H/2, Ressources.invisible);
+            _downSide = new DelimiterZone(0, _height-FirstGame.H/2, _width, FirstGame.H / 2, Ressources.invisible);
         }
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
         {
-            if (player.GetType() == typeof(Jekyll))
+            if (player.GetType() == typeof (Jekyll))
             {
-                foreach (InteractZoneBlock interBlock in InteractZoneBlock.InteractZoneBlockList)
+                foreach (InteractZoneBlockWithPuzzle interBlock in InteractZoneBlockWithPuzzle.InteractZoneBlockList)
                 {
                     if (player.HitBox.Intersects(interBlock.HitBox))
                     {
@@ -74,6 +75,8 @@ namespace WindowsGame1
             {
 
                 futurePos = player.HitBox;
+
+                player.CheckMove();
                 // Animation des blocs mouvants
                 foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
                 {
@@ -96,13 +99,19 @@ namespace WindowsGame1
                 }
                 else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
                 {
-                    this.SetPlayerAccelMode(gameTime, player);
-                    this.Move(Keys.Left, player);
+                    if (player.CanMove)
+                    {
+                        this.SetPlayerAccelMode(gameTime, player);
+                        this.Move(Keys.Left, player);
+                    }
                 }
                 else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                 {
-                    this.SetPlayerAccelMode(gameTime, player);
-                    this.Move(Keys.Right, player);
+                    if (player.CanMove)
+                    {
+                        this.SetPlayerAccelMode(gameTime, player);
+                        this.Move(Keys.Right, player);
+                    }
                 }
 
                 if (pad.IsButtonDown(Buttons.LeftThumbstickUp) && player.FallingSpeed == 0)
@@ -110,7 +119,7 @@ namespace WindowsGame1
                     bool lad = false;
                     foreach (Ladder ladder in Ladder.LadderList)
                     {
-                        if (player.GetType() == typeof(Jekyll))
+                        if (player.GetType() == typeof (Jekyll))
                         {
                             if (player.HitBox.Intersects(ladder.HitBox))
                             {
@@ -144,6 +153,60 @@ namespace WindowsGame1
                     player.LookUpDownPhase = false;
                 }
 
+                if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && player.FallingSpeed == 0)
+                {
+                    foreach (Ladder ladder in Ladder.LadderList)
+                    {
+                        if (player.GetType() == typeof(Jekyll))
+                        {
+                            if (player.HitBox.Intersects(ladder.HitBox))
+                            {
+                                Rectangle feet = new Rectangle(player.HitBox.X, player.HitBox.Y + player.HitBox.Height -1, player.HitBox.Width, 1);
+                                Rectangle feetplus = feet;
+                                feetplus.Y++;
+                                if (feet.Intersects(ladder.HitBox) || feetplus.Intersects(ladder.HitBox))
+                                {
+                                    player.IncreaseCoordY(1);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && player.FallingSpeed == 0 &&
+                    oldPad.IsButtonUp(Buttons.LeftThumbstickDown))
+                {
+                    var lad = false;
+                    foreach (Ladder ladder in Ladder.LadderList)
+                    {
+                        if (player.GetType() == typeof(Jekyll))
+                        {
+                            if (player.HitBox.Intersects(ladder.HitBox))
+                            {
+                                lad = true;
+                            }
+                        }
+                    }
+                    if (!player.Statut && !lad)
+                        player.stoop(1);
+                }
+                else if (pad.IsButtonUp(Buttons.LeftThumbstickDown) && oldPad.IsButtonDown(Buttons.LeftThumbstickDown))
+                {
+                    var lad = false;
+                    foreach (Ladder ladder in Ladder.LadderList)
+                    {
+                        if (player.GetType() == typeof(Jekyll))
+                        {
+                            if (player.HitBox.Intersects(ladder.HitBox))
+                            {
+                                lad = true;
+                            }
+                        }
+                    }
+                    if (!player.Statut && !lad)
+                        player.stoop(0);
+                }
+
                 if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A) && !player.IsJumping)
                 {
                     if (player.Statut)
@@ -172,7 +235,6 @@ namespace WindowsGame1
                                         player.ClimbBox(block, 0);
                                 }
                             }
-
                         }
                         else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
                         {
@@ -181,7 +243,7 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if (block.IsActive)
+                                    if(block.IsActive)
                                         player.ClimbBox(block, 1);
                                 }
                             }
@@ -189,59 +251,89 @@ namespace WindowsGame1
                     }
                 }
 
+                if (pad.IsButtonDown(Buttons.RightShoulder) && oldPad.IsButtonUp(Buttons.RightShoulder))
+                {
+                    if(player.IsActiveVision)
+                        player.IsActiveVision = false;
+                    else
+                        player.IsActiveVision = true;
+                }
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
                 {
                     if (player.Statut)
                     {
-                        if (player.DirectionPlayer == Direction.Left)
+                        if (player.Statut)
                         {
-                            futurePos.X -= (int)player.Speed;
-
-                            /*
-                             * Test de collision quand on attaque sur les box
-                             */
-                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            if (player.DirectionPlayer == Direction.Left)
                             {
-                                if (block.HitBox.Intersects(futurePos))
+                                futurePos.X -= (int)player.Speed;
+
+                                /*
+                                 * Test de collision quand on attaque sur les box
+                                 */
+                                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                                 {
-                                    if (block.IsBreakable)
+                                    if (block.HitBox.Intersects(futurePos))
                                     {
-                                        block.IsActive = false;
+                                        if (block.IsBreakable)
+                                        {
+                                            block.IsActive = false;
+                                        }
                                     }
                                 }
                             }
-                        }
-                        else if (player.DirectionPlayer == Direction.Right)
-                        {
-                            futurePos.X += (int)player.Speed;
-
-                            /*
-                             * Test de collision quand on attaque sur les box
-                             */
-                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            else if (player.DirectionPlayer == Direction.Right)
                             {
-                                if (block.HitBox.Intersects(futurePos))
+                                futurePos.X += (int)player.Speed;
+
+                                /*
+                                 * Test de collision quand on attaque sur les box
+                                 */
+                                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                                 {
-                                    if (block.IsBreakable)
+                                    if (block.HitBox.Intersects(futurePos))
                                     {
-                                        block.IsActive = false;
+                                        if (block.IsBreakable)
+                                        {
+                                            block.IsActive = false;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+                    else{}
                 }
             }
             oldKeyboard = keyboard;
             oldPad = pad;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Player player)
         {
             foreach (Blocks block in Blocks.BlockList)
             {
-                if(block.IsActive)
-                    spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
+                if (block.IsActive)
+                {
+                    if (player.GetType() == typeof (Jekyll) && player.IsActiveVision)
+                    {
+                        if (block.IsJekyllVisible)
+                            spriteBatch.Draw(block.Texture, block.HitBox, Color.Yellow);
+                        else
+                            spriteBatch.Draw(block.Texture, block.HitBox, Color.Blue);
+                    }
+                    else if (player.GetType() == typeof (Hide) && player.IsActiveVision)
+                    {
+                        if (block.IsHideVisible)
+                            spriteBatch.Draw(block.Texture, block.HitBox, Color.Yellow);
+                        else
+                            spriteBatch.Draw(block.Texture, block.HitBox, Color.Red);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
+                    }
+                }
             }
             if (puzzle != null)
             {
@@ -333,61 +425,67 @@ namespace WindowsGame1
                     futurePos.X += (int)player.Speed;
                 }
             }
-
+            
             blockMove = true;
             foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
             {
-                if (block.IsCollidable)
+                if(block.IsCollidable && block.IsActive)
                 {
                     if (block.HitBox.Intersects(futurePos))
                     {
-                        if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                        if(player.FallingSpeed < 0 && player.AccelMode != 1)
                             player.FallingSpeed = 0;
                         blockMove = false;
                         player.AccelMode = 1;
                         accelTimer = 0;
-
+                        
                         break;
                     }
                 }
             }
-            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
-            {
-                if (block.IsCollidable && block.IsActive)
-                {
-                    if (block.HitBox.Intersects(futurePos))
-                    {
-                        if (player.FallingSpeed < 0 && player.AccelMode != 1)
-                            player.FallingSpeed = 0;
-                        blockMove = false;
-                        player.AccelMode = 1;
-                        accelTimer = 0;
-
-                        break;
-                    }
-                }
-            }
-
             if (blockMove)
             {
-                i = 0;
-                player.PlayerMove = false;
-                float sp = player.Speed;
-                Rectangle LeftCut = new Rectangle(player.HitBox.X + (player.HitBox.Width / 2) - (int)sp, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
-                Rectangle RightCut = new Rectangle(player.HitBox.X + (int)sp, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
-
-                if (LeftCut.Intersects(this._leftSide.HitBox) || RightCut.Intersects(this._rightSide.HitBox))
+                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                 {
-                    player.PlayerMove = true;
+                    if (block.IsCollidable && block.IsActive)
+                    {
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                                player.FallingSpeed = 0;
+                            blockMove = false;
+                            player.AccelMode = 1;
+                            accelTimer = 0;
+
+                            break;
+                        }
+                    }
+                }
+            }
+            if (blockMove)
+            {
+                playerMove = false;
+                float sp = player.Speed;
+                Rectangle RightCut = new Rectangle(player.HitBox.X + (player.HitBox.Width / 2), player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
+                Rectangle LeftCut = new Rectangle(player.HitBox.X, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
+                Rectangle RightSide = Map._rightSide.HitBox;
+                Rectangle LeftSide = Map._leftSide.HitBox;
+                RightSide.X += (int) sp;
+                RightSide.Width -= (int) sp;
+                LeftSide.Width -= (int) sp;
+
+                if (RightCut.Intersects(LeftSide) || LeftCut.Intersects(RightSide))
+                {
+                    playerMove = true;
                 }
 
-                if (player.PlayerMove)
+                if (playerMove)
                 {
                     if (key == Keys.Left)
                         player.MovePlayerLeft(true);
                     else if (key == Keys.Right)
                         player.MovePlayerRight(true);
-                }
+                }     
                 else
                 {
                     if (key == Keys.Left)
@@ -395,7 +493,7 @@ namespace WindowsGame1
                         player.MovePlayerLeft(false);
                         foreach (Blocks block in Blocks.BlockList)
                         {
-                            if (player.IsJumping)
+                            if(player.IsJumping)
                                 block.IncreaseCoordBlockX((int)player.SpeedInAir);
                             else
                                 block.IncreaseCoordBlockX((int)player.Speed);

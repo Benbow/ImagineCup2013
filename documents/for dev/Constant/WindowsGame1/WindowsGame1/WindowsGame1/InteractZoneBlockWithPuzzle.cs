@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    class InteractZoneBlock : Blocks
+    class InteractZoneBlockWithPuzzle : Blocks
     {
         private bool _isActivate = false;
         private int _id;
-        public static List<InteractZoneBlock> InteractZoneBlockList = new List<InteractZoneBlock>();
+        public static List<InteractZoneBlockWithPuzzle> InteractZoneBlockList = new List<InteractZoneBlockWithPuzzle>();
 
-        public InteractZoneBlock(int x, int y, int w, int h, int id)
+        public InteractZoneBlockWithPuzzle(int x, int y, int w, int h, int id, bool hidevision, bool jekyllvision,  Texture2D text)
         {
             this._isBreakable = false;
             this._isCollidable = false;
             this._hitBox = new Rectangle(x, y, w, h);
-            this._texture = Ressources.interactZone;
+            this._texture = text;
             this._id = id;
+            this._isHideVisible = hidevision;
+            this._isJekyllVisible = jekyllvision;
             InteractZoneBlockList.Add(this);
             BlockList.Add(this);
         }

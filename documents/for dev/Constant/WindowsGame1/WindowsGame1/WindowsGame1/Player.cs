@@ -27,8 +27,10 @@ namespace WindowsGame1
         protected int TimerMax;
         protected bool _isJumping = false;
         protected bool playerMove;
+        protected bool _isActiveVision = false;
+        protected bool _canMove = true;
 
-        protected float _speed;
+        protected float _speed = 1.5f;
         protected float _poids;
         protected int _health;
         protected Texture2D _text;
@@ -60,11 +62,14 @@ namespace WindowsGame1
 
         public bool Switch(GamePadState pad)
         {
-            if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
-                _statut = !_statut;
+            if (GameMain.Status == "on"){
+                if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
+                {
+                    _statut = !_statut;
+                }
 
             oldPad = pad;
-
+            }
             return _statut;
         }
 
@@ -111,7 +116,7 @@ namespace WindowsGame1
 
         public void JumpPlayer()
         {
-            if(!this._isFalling && _statut)
+            if(!this._isFalling && this._statut)
             {
                 this._isJumping = true;
                 this.FrameColumn = 0;
@@ -136,7 +141,7 @@ namespace WindowsGame1
             futurPos.Y += 1 + (int)this._fallingSpeed;
             foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
             {
-                if (futurPos.Intersects(block.HitBox))
+                if (futurPos.Intersects(block.HitBox) && block.IsActive)
                 {
                     colide = true;
                     if (this._fallingSpeed > 0 || this._lookUpDownPhase)
@@ -149,7 +154,7 @@ namespace WindowsGame1
 
             foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
             {
-                if (futurPos.Intersects(block.HitBox))
+                if (futurPos.Intersects(block.HitBox) && block.IsActive)
                 {
                     colide = true;
                     if (this._fallingSpeed > 0 || this._lookUpDownPhase)
@@ -173,30 +178,24 @@ namespace WindowsGame1
                 if (!lad)
                 {
                     int i = 0;
-                    this.playerMove = false;
-                    foreach (Blocks block in Blocks.BlockList)
-                    {
-                        i++;
-                        if (i <= 3)
-                        {
-                            if ((i == 3 &&
-                                 this._hitBox.Y + (FirstGame.H/2) + (this._hitBox.Height/2) - (block.HitBox.Height*2) >
-                                 block.HitBox.Y))
-                            {
-                                this.playerMove = true;
-                            }
-                            else if ((i == 1 && this._hitBox.Y - (FirstGame.H/2) + block.HitBox.Height < block.HitBox.Y))
-                            {
-                                this.playerMove = true;
-                            }
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
+                    bool playerMove = false;
+                    
+                    
+                    Rectangle UpCut = new Rectangle(this._hitBox.X, this._hitBox.Y, this._hitBox.Width, this._hitBox.Height/2);
+                    Rectangle DownCut = new Rectangle(this._hitBox.X, this._hitBox.Y+(this.HitBox.Height/2), this._hitBox.Width, this._hitBox.Height/2);
+                    Rectangle UpSide = Map._upSide.HitBox;
+                    Rectangle DownSide = Map._downSide.HitBox;
+                    /*DownSide.Y -= (int)sp;
+                    DownSide.Height -= (int)sp;
+                    UpSide.Height -= (int)sp;*/
 
-                    if (this.playerMove)
+                    if (UpCut.Intersects(DownSide) || DownCut.Intersects(UpSide))
+                    {
+                        playerMove = true;
+                    }
+                   
+
+                    if (playerMove)
                     {
                         if (this._fallingSpeed >= 0)
                             this._fallingSpeed += 0.15f*(this._poids/4);
@@ -248,11 +247,6 @@ namespace WindowsGame1
 
                 this._fallingSpeed = 0;
             }
-        }
-
-        public void PlaceOnMiddleScreen()
-        {
-            this._hitBox.X = (FirstGame.W / 2) - (this._hitBox.Width);
         }
 
         public void SetAccelSpeed()
@@ -310,6 +304,7 @@ namespace WindowsGame1
             this._hitBox.X = x;
             this._hitBox.Y = y;
             this.Direction = dir;
+            this._isActiveVision = false;
         }
 
 
@@ -323,8 +318,8 @@ namespace WindowsGame1
         }
 
         /*
-         * Fonction pour grimper sur un caisse
-         */
+        * Fonction pour grimper sur un caisse
+        */
         public void ClimbBox(Blocks block, int dir)
         {
             if (dir == 1)
@@ -338,6 +333,50 @@ namespace WindowsGame1
                 this._hitBox.Y -= block.HitBox.Height;
             }
         }
+
+        /**
+         * Fonction pour se baisser
+         */
+        public void stoop(int step)
+        {
+            if (step == 1)
+            {
+                this._hitBox.Y += this._hitBox.Height / 2;
+                this._hitBox.Height /= 2;
+            }
+            else if (step == 0)
+            {
+                this._hitBox.Y -= this._hitBox.Height + 1;
+                this._hitBox.Height = Ressources.Jekyll.Height / 2;
+            }
+        }
+
+        public bool CheckMove()
+        {
+            bool value = true;
+            if (this.GetType() == typeof(Jekyll))
+            {
+                foreach (Ladder lad in Ladder.LadderList)
+                {
+                    Rectangle feet = new Rectangle(this.HitBox.X, this.HitBox.Y + this.HitBox.Height - 1, this.HitBox.Width, 1);
+                    Rectangle feetplus = feet;
+                    Rectangle feetmoins = feet;
+                    feetmoins.Y--;
+                    feetplus.Y++;
+                    if (lad.HitBox.Intersects(feet) && lad.HitBox.Intersects(feetplus))
+                    {
+                        value = false;
+                    }
+                    if (lad.HitBox.Intersects(feet) && !lad.HitBox.Intersects(feetmoins))
+                    {
+                        value = true;
+                    }
+                }
+            }
+            this._canMove = value;
+            return value;
+        }
+
 
         //getter setter
         public bool IsJumping
@@ -435,7 +474,12 @@ namespace WindowsGame1
                 this.Direction = value;
             }
         }
-
+        
+        public bool IsActiveVision
+        {
+            get { return this._isActiveVision; }
+            set { this._isActiveVision = value; }
+        }
         public Boolean Statut
         {
             get
@@ -459,6 +503,11 @@ namespace WindowsGame1
                 this.playerMove = value;
             }
         }
-        
+
+        public Boolean CanMove
+        {
+            get { return this._canMove; }
+            set { this._canMove = value; }
+        }
     }
 }

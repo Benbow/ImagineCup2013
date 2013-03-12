@@ -12,6 +12,8 @@ namespace WindowsGame1
         protected bool _isBreakable = false;
         protected bool _isCollidable = true;
         protected bool _isActive = true;
+        protected bool _isHideVisible = false;
+        protected bool _isJekyllVisible = false;
         protected int _health;
         protected Rectangle _hitBox;
         protected Texture2D _texture;
@@ -127,6 +129,16 @@ namespace WindowsGame1
             {
                 _texture = value;
             }
+        }
+        public bool IsHideVisible
+        {
+            get { return this._isHideVisible; }
+            set { this._isHideVisible = value; }
+        }
+        public bool IsJekyllVisible
+        {
+            get { return this._isJekyllVisible; }
+            set { this._isJekyllVisible = value; }
         }
     }
 }

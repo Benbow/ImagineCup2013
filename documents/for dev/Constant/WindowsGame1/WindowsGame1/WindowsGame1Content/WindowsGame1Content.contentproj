@@ -79,6 +79,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="level1.txt">
+      <Name>level1</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="ennemy.png">
       <Name>ennemy</Name>
       <Importer>TextureImporter</Importer>
@@ -156,6 +161,48 @@
   <ItemGroup>
     <Compile Include="box.png">
       <Name>box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="updown.png">
+      <Name>updown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="menu_bg.png">
+      <Name>menu_bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bouton1.png">
+      <Name>bouton1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bouton2.png">
+      <Name>bouton2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bouton3.png">
+      <Name>bouton3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="current.png">
+      <Name>current</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
