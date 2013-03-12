@@ -85,6 +85,7 @@
     <Compile Include="Ladder.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapOld.cs" />
+    <Compile Include="MenuGUI.cs" />
     <Compile Include="MovableEnnemyBlock.cs" />
     <Compile Include="MovableNeutralBlock.cs" />
     <Compile Include="Player.cs" />

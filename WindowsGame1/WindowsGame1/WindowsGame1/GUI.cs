@@ -9,6 +9,5 @@ namespace WindowsGame1
     class GUI
     {
         public static List<GUI> GUIList = new List<GUI>();
-
     }
 }

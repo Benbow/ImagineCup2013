@@ -62,12 +62,14 @@ namespace WindowsGame1
 
         public bool Switch(GamePadState pad)
         {
-            if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
-            {
-                _statut = !_statut;
-            }
-               
+            if (GameMain.Status == "on"){
+                if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
+                {
+                    _statut = !_statut;
+                }
+
             oldPad = pad;
+            }
             return _statut;
         }
 

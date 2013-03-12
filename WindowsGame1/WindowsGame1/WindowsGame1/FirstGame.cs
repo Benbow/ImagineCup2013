@@ -57,8 +57,8 @@ namespace WindowsGame1
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            //    this.Exit();
 
             Main.Update(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One), Mouse.GetState(), gameTime);
             base.Update(gameTime);

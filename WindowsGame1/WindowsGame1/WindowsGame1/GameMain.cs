@@ -23,6 +23,7 @@ namespace WindowsGame1
         AlignementGUI alignement = new AlignementGUI(50, 30);
         Puzzle0 puzzle = new Puzzle0();
         Puzzle1 puzzle1 = new Puzzle1();
+        MenuGUI menu = new MenuGUI();
         
 
         public static string Status;
@@ -47,50 +48,62 @@ namespace WindowsGame1
             statut_player = LocalJekyll.Switch(pad);
             LocalJekyll.Statut = statut_player;
             LocalHide.Statut = statut_player;
-          
-            if (!statut_player)
+
+            menu.Update(pad);
+           
+            if (GameMain.Status != "menu")
             {
-                if (GameMain.Status == "on")
+                if (!statut_player)
                 {
-                    if (prec_statut != statut_player)
-                        LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
-                    LocalJekyll.Update(mouse, keyboard);
+                    if (GameMain.Status == "on")
+                    {
+                        if (prec_statut != statut_player)
+                            LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
+                        LocalJekyll.Update(mouse, keyboard);
+                    }
+                    MyMap.Update(keyboard, pad, mouse, gameTime, LocalJekyll);
+
                 }
-                MyMap.Update(keyboard, pad, mouse, gameTime, LocalJekyll);
-                
-            }
-            else if (statut_player)
-            {
-                if (GameMain.Status == "on")
+                else if (statut_player)
                 {
-                    if (prec_statut != statut_player)
-                        LocalHide.InitChange(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y, LocalJekyll.DirectionPlayer);
-                    LocalHide.Update(mouse, keyboard);
+
+                    if (GameMain.Status == "on")
+                    {
+                        if (prec_statut != statut_player)
+                            LocalHide.InitChange(LocalJekyll.HitBox.X, LocalJekyll.HitBox.Y, LocalJekyll.DirectionPlayer);
+                        LocalHide.Update(mouse, keyboard);
+                    }
+                    MyMap.Update(keyboard, pad, mouse, gameTime, LocalHide);
+
                 }
-                MyMap.Update(keyboard, pad, mouse, gameTime, LocalHide);
-                
+
+                alignement.Update(LocalJekyll.JekyllBias, LocalHide.HideBias);
             }
 
-            alignement.Update(LocalJekyll.JekyllBias, LocalHide.HideBias);
-
-            
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!statut_player)
+            if (GameMain.Status == "menu")
             {
-                MyMap.Draw(spriteBatch, LocalJekyll);
-                LocalJekyll.Draw(spriteBatch);
+                menu.Draw(spriteBatch);
             }
             else
             {
-                MyMap.Draw(spriteBatch, LocalHide);
-                LocalHide.Draw(spriteBatch);
-            }
+                if (!statut_player)
+                {
+                    MyMap.Draw(spriteBatch, LocalJekyll);
+                    LocalJekyll.Draw(spriteBatch);
+                }
+                else
+                {
+                    MyMap.Draw(spriteBatch, LocalHide);
+                    LocalHide.Draw(spriteBatch);
+                }
 
-            alignement.Draw(spriteBatch);
+                alignement.Draw(spriteBatch);
+            }
         }
 
         public void LoadMap()

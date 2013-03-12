@@ -181,6 +181,51 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb</Output>
       <Time>2013-03-05T23:37:13.5117435-05:00</Time>
     </Item>
+    <Item>
+      <Source>menu_bg.png</Source>
+      <Name>menu_bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\menu_bg.xnb</Output>
+      <Time>2013-03-12T11:34:06.9303975-04:00</Time>
+    </Item>
+    <Item>
+      <Source>bouton1.png</Source>
+      <Name>bouton1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton1.xnb</Output>
+      <Time>2013-03-12T12:09:02.1312361-04:00</Time>
+    </Item>
+    <Item>
+      <Source>bouton2.png</Source>
+      <Name>bouton2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton2.xnb</Output>
+      <Time>2013-03-12T12:09:04.3733643-04:00</Time>
+    </Item>
+    <Item>
+      <Source>bouton3.png</Source>
+      <Name>bouton3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton3.xnb</Output>
+      <Time>2013-03-12T12:09:06.5574893-04:00</Time>
+    </Item>
+    <Item>
+      <Source>current.png</Source>
+      <Name>current</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\current.xnb</Output>
+      <Time>2013-03-12T12:30:42.4686111-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
