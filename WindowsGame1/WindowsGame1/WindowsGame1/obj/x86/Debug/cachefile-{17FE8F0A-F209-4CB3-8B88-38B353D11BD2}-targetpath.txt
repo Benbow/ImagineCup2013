@@ -35,3 +35,7 @@ Content\current2.xnb
 Content\SpriteFont1.xnb
 Content\CmpTitle.xnb
 Content\cmpContent.xnb
+Content\h_cmp4.xnb
+Content\j_cmp4.xnb
+Content\j_cmp5.xnb
+Content\h_cmp5.xnb

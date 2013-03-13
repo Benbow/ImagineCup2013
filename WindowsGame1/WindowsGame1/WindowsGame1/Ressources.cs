@@ -49,9 +49,13 @@ namespace WindowsGame1
         public static Texture2D j_cmp1;
         public static Texture2D j_cmp2;
         public static Texture2D j_cmp3;
+        public static Texture2D j_cmp4;
+        public static Texture2D j_cmp5;
         public static Texture2D h_cmp1;
         public static Texture2D h_cmp2;
         public static Texture2D h_cmp3;
+        public static Texture2D h_cmp4;
+        public static Texture2D h_cmp5;
         public static Texture2D current2;
 
 
@@ -82,9 +86,13 @@ namespace WindowsGame1
             j_cmp1 = Content.Load<Texture2D>("j_cmp1");
             j_cmp2 = Content.Load<Texture2D>("j_cmp2");
             j_cmp3 = Content.Load<Texture2D>("j_cmp3");
+            j_cmp4 = Content.Load<Texture2D>("j_cmp4");
+            j_cmp5 = Content.Load<Texture2D>("j_cmp5");
             h_cmp1 = Content.Load<Texture2D>("h_cmp1");
             h_cmp2 = Content.Load<Texture2D>("h_cmp2");
             h_cmp3 = Content.Load<Texture2D>("h_cmp3");
+            h_cmp4 = Content.Load<Texture2D>("h_cmp4");
+            h_cmp5 = Content.Load<Texture2D>("h_cmp5");
             current2 = Content.Load<Texture2D>("current2");
 
             

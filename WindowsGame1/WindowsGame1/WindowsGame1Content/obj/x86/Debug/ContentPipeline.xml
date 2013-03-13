@@ -269,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\h_cmp3.xnb</Output>
-      <Time>2013-03-12T17:28:59.0252356-04:00</Time>
+      <Time>2013-03-13T01:07:16.9569263-04:00</Time>
     </Item>
     <Item>
       <Source>j_cmp1.png</Source>
@@ -296,7 +296,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\j_cmp3.xnb</Output>
-      <Time>2013-03-12T17:28:59.0292359-04:00</Time>
+      <Time>2013-03-13T00:10:33.1909735-04:00</Time>
     </Item>
     <Item>
       <Source>current2.png</Source>
@@ -333,6 +333,42 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cmpContent.xnb</Output>
       <Time>2013-03-12T17:28:59.014235-04:00</Time>
+    </Item>
+    <Item>
+      <Source>h_cmp4.png</Source>
+      <Name>h_cmp4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\h_cmp4.xnb</Output>
+      <Time>2013-03-12T23:45:20.1141901-04:00</Time>
+    </Item>
+    <Item>
+      <Source>j_cmp4.png</Source>
+      <Name>j_cmp4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\j_cmp4.xnb</Output>
+      <Time>2013-03-12T23:45:20.1171903-04:00</Time>
+    </Item>
+    <Item>
+      <Source>j_cmp5.png</Source>
+      <Name>j_cmp5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\j_cmp5.xnb</Output>
+      <Time>2013-03-13T00:53:32.7937869-04:00</Time>
+    </Item>
+    <Item>
+      <Source>h_cmp5.png</Source>
+      <Name>h_cmp5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\h_cmp5.xnb</Output>
+      <Time>2013-03-13T01:13:30.8973145-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

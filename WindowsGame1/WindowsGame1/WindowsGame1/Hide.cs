@@ -12,7 +12,7 @@ namespace WindowsGame1
     {
         private int _adrenaline;
         private double _hideBias;
-        private double _hskillPoints = 50;
+        private double _hskillPoints = 110;
 
         public Hide(int x, int y)
         {

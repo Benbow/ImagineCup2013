@@ -29,7 +29,7 @@ namespace WindowsGame1
 
         //competences
         private Texture2D cmp_bg = Ressources.cmp_bg;
-        private Rectangle cmp_rec = new Rectangle(0,0,796, 480);
+        private Rectangle cmp_rec = new Rectangle(0, 0, 796, 480);
 
         private Texture2D current2_text = Ressources.current2;
         private Rectangle current2_rec = new Rectangle(0, 61, 398, 100);
@@ -50,7 +50,7 @@ namespace WindowsGame1
         private Texture2D j_cmp2_img = Ressources.j_cmp2;
         private bool j_cmp2_status = false;
         private string j_cmp2_desc;
-        private int j_cmp2_price = 40;
+        private int j_cmp2_price = 20;
 
         private Rectangle j_cmp3 = new Rectangle(0, 261, 398, 100);
         private Texture2D j_cmp3_text = Ressources.comp_bg;
@@ -58,7 +58,23 @@ namespace WindowsGame1
         private Texture2D j_cmp3_img = Ressources.j_cmp3;
         private bool j_cmp3_status = false;
         private string j_cmp3_desc;
-        private int j_cmp3_price = 120;
+        private int j_cmp3_price = 10;
+
+        private Rectangle j_cmp4 = new Rectangle(0, 361, 398, 100);
+        private Texture2D j_cmp4_text = Ressources.comp_bg;
+        private Rectangle j_cmp4_img_rec = new Rectangle(10, 371, 91, 80);
+        private Texture2D j_cmp4_img = Ressources.j_cmp4;
+        private bool j_cmp4_status = false;
+        private string j_cmp4_desc;
+        private int j_cmp4_price = 25;
+
+        private Rectangle j_cmp5 = new Rectangle(0, 361, 398, 100);
+        private Texture2D j_cmp5_text = Ressources.comp_bg;
+        private Rectangle j_cmp5_img_rec = new Rectangle(10, 371, 91, 80);
+        private Texture2D j_cmp5_img = Ressources.j_cmp5;
+        private bool j_cmp5_status = false;
+        private string j_cmp5_desc;
+        private int j_cmp5_price = 50;
 
 
         private Rectangle h_cmp1 = new Rectangle(398, 61, 398, 100);
@@ -81,9 +97,25 @@ namespace WindowsGame1
         private Texture2D h_cmp3_text = Ressources.comp_bg;
         private Rectangle h_cmp3_img_rec = new Rectangle(408, 271, 91, 80);
         private Texture2D h_cmp3_img = Ressources.h_cmp3;
-        private bool h_cmp3_status = false;
+        private bool h_cmp3_status = true;
         private string h_cmp3_desc;
-        private int h_cmp3_price = 120;
+        private int h_cmp3_price = 20;
+
+        private Rectangle h_cmp4 = new Rectangle(398, 361, 398, 100);
+        private Texture2D h_cmp4_text = Ressources.comp_bg;
+        private Rectangle h_cmp4_img_rec = new Rectangle(408, 371, 91, 80);
+        private Texture2D h_cmp4_img = Ressources.h_cmp4;
+        private bool h_cmp4_status = false;
+        private string h_cmp4_desc;
+        private int h_cmp4_price = 50;
+
+        private Rectangle h_cmp5 = new Rectangle(398, 361, 398, 100);
+        private Texture2D h_cmp5_text = Ressources.comp_bg;
+        private Rectangle h_cmp5_img_rec = new Rectangle(408, 371, 91, 80);
+        private Texture2D h_cmp5_img = Ressources.h_cmp5;
+        private bool h_cmp5_status = false;
+        private string h_cmp5_desc;
+        private int h_cmp5_price = 120;
 
         private string status;
 
@@ -127,6 +159,7 @@ namespace WindowsGame1
                         current_rec = new Rectangle(bouton3.X - 10, bouton3.Y - 10, 370, 100);
                         spriteBatch.Draw(this.current_text, this.current_rec, Color.White);
                         break;
+
                 }
             }
             else if (this.status == "competences")
@@ -163,22 +196,69 @@ namespace WindowsGame1
                 spriteBatch.Draw(this.j_cmp2_img, this.j_cmp2_img_rec, Color.White);
                 spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(120, 195), Color.White);
                 spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(120, 175), Color.White);
-                spriteBatch.DrawString(Ressources.cmpContent, j_cmp2_price.ToString(), new Vector2(170, 177), Color.White);
+                spriteBatch.DrawString(Ressources.cmpContent, j_cmp2_price.ToString(), new Vector2(170, 177),
+                                       Color.White);
 
-                if (j_cmp3_status)
+                if (!j_cmp4_status)
                 {
-                    spriteBatch.Draw(this.j_cmp3_text, this.j_cmp3, Color.Green);
+                    if (j_cmp3_status)
+                    {
+                        spriteBatch.Draw(this.j_cmp3_text, this.j_cmp3, Color.Green);
+                        spriteBatch.DrawString(Ressources.cmpContent, "Owned", new Vector2(180, 297), Color.White);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(this.j_cmp3_text, this.j_cmp3, Color.Gray);
+                        spriteBatch.DrawString(Ressources.cmpContent, "Not Owned", new Vector2(180, 297), Color.White);
+                    }
+                    spriteBatch.Draw(this.j_cmp3_img, this.j_cmp3_img_rec, Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(120, 275), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(120, 295), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, j_cmp3_price.ToString(), new Vector2(170, 277),
+                                           Color.White);
+                }
+
+                if (j_cmp3_status && !j_cmp4_status)
+                {
+                    if (j_cmp4_status)
+                    {
+                        spriteBatch.Draw(this.j_cmp4_text, this.j_cmp4, Color.Green);
+                        spriteBatch.DrawString(Ressources.cmpContent, "Owned", new Vector2(180, 397), Color.White);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(this.j_cmp4_text, this.j_cmp4, Color.Goldenrod);
+                        spriteBatch.DrawString(Ressources.cmpContent, "Improvable, Owned Hiding I",
+                                               new Vector2(180, 397), Color.White);
+                    }
+                    spriteBatch.Draw(this.j_cmp4_img, this.j_cmp4_img_rec, Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(120, 375), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(120, 395), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, j_cmp4_price.ToString(), new Vector2(170, 377),
+                                           Color.White);
+                }
+
+                if (j_cmp4_status)
+                {
+                    j_cmp4 = new Rectangle(0, 261, 398, 100);
+                    j_cmp4_img_rec = new Rectangle(10, 271, 91, 80);
+                    spriteBatch.Draw(this.j_cmp4_text, this.j_cmp4, Color.Green);
                     spriteBatch.DrawString(Ressources.cmpContent, "Owned", new Vector2(180, 297), Color.White);
+                    spriteBatch.Draw(this.j_cmp4_img, this.j_cmp4_img_rec, Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(120, 275), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(120, 295), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, j_cmp4_price.ToString(), new Vector2(170, 277),
+                                           Color.White);
+
+                    spriteBatch.Draw(this.j_cmp5_text, this.j_cmp5, Color.Goldenrod);
+                    spriteBatch.DrawString(Ressources.cmpContent, "Improvable, Owned Hiding II", new Vector2(180, 397),
+                                           Color.White);
+                    spriteBatch.Draw(this.j_cmp5_img, this.j_cmp5_img_rec, Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(120, 375), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(120, 395), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, j_cmp5_price.ToString(), new Vector2(170, 377),
+                                           Color.White);
                 }
-                else
-                {
-                    spriteBatch.Draw(this.j_cmp3_text, this.j_cmp3, Color.Gray);
-                    spriteBatch.DrawString(Ressources.cmpContent, "Not Owned", new Vector2(180, 297), Color.White);
-                }
-                spriteBatch.Draw(this.j_cmp3_img, this.j_cmp3_img_rec, Color.White);
-                spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(120, 275), Color.White);
-                spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(120, 295), Color.White);
-                spriteBatch.DrawString(Ressources.cmpContent, j_cmp3_price.ToString(), new Vector2(170, 277), Color.White);
 
                 if (h_cmp1_status)
                 {
@@ -208,22 +288,67 @@ namespace WindowsGame1
                 spriteBatch.Draw(this.h_cmp2_img, this.h_cmp2_img_rec, Color.White);
                 spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(518, 195), Color.White);
                 spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(518, 175), Color.White);
-                spriteBatch.DrawString(Ressources.cmpContent, h_cmp2_price.ToString(), new Vector2(568, 177), Color.White);
+                spriteBatch.DrawString(Ressources.cmpContent, h_cmp2_price.ToString(), new Vector2(568, 177),
+                                       Color.White);
 
-                if (h_cmp3_status)
+                if (!h_cmp4_status)
                 {
-                    spriteBatch.Draw(this.h_cmp3_text, this.h_cmp3, Color.Green);
-                    spriteBatch.DrawString(Ressources.cmpContent, "Owned", new Vector2(570, 297), Color.White);
+                    if (h_cmp3_status)
+                    {
+                        spriteBatch.Draw(this.h_cmp3_text, this.h_cmp3, Color.Green);
+                        spriteBatch.DrawString(Ressources.cmpContent, "Owned", new Vector2(570, 297), Color.White);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(this.h_cmp3_text, this.h_cmp3, Color.Gray);
+                        spriteBatch.DrawString(Ressources.cmpContent, "Not Owned", new Vector2(570, 297), Color.White);
+                    }
+                    spriteBatch.Draw(this.h_cmp3_img, this.h_cmp3_img_rec, Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(518, 295), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(518, 275), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, h_cmp3_price.ToString(), new Vector2(568, 277),
+                                           Color.White);
                 }
-                else
+
+                if (h_cmp3_status && !h_cmp4_status)
                 {
-                    spriteBatch.Draw(this.h_cmp3_text, this.h_cmp3, Color.Gray);
-                    spriteBatch.DrawString(Ressources.cmpContent, "Not Owned", new Vector2(570, 297), Color.White);
+                    if (h_cmp4_status)
+                    {
+                        spriteBatch.Draw(this.h_cmp4_text, this.h_cmp4, Color.Green);
+                        spriteBatch.DrawString(Ressources.cmpContent, "Owned", new Vector2(570, 397), Color.White);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(this.h_cmp4_text, this.h_cmp4, Color.Goldenrod);
+                        spriteBatch.DrawString(Ressources.cmpContent, "Improvable, Owned Health II",
+                                               new Vector2(570, 397), Color.White);
+                    }
+                    spriteBatch.Draw(this.h_cmp4_img, this.h_cmp4_img_rec, Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(518, 395), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(518, 375), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, h_cmp4_price.ToString(), new Vector2(568, 377),
+                                           Color.White);
                 }
-                spriteBatch.Draw(this.h_cmp3_img, this.h_cmp3_img_rec, Color.White);
-                spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(518, 295), Color.White);
-                spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(518, 275), Color.White);
-                spriteBatch.DrawString(Ressources.cmpContent, h_cmp3_price.ToString(), new Vector2(568, 277), Color.White);
+
+                if (h_cmp4_status)
+                {
+                    h_cmp4 = new Rectangle(398, 261, 398, 100);
+                    h_cmp4_img_rec = new Rectangle(408, 271, 91, 80);
+                    spriteBatch.Draw(this.h_cmp4_text, this.h_cmp4, Color.Green);
+                    spriteBatch.DrawString(Ressources.cmpContent, "Owned", new Vector2(578, 297), Color.White);
+                    spriteBatch.Draw(this.h_cmp4_img, this.h_cmp4_img_rec, Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(518, 275), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(518, 295), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, h_cmp4_price.ToString(), new Vector2(568, 277),Color.White);
+
+                    spriteBatch.Draw(this.h_cmp5_text, this.h_cmp5, Color.Goldenrod);
+                    spriteBatch.DrawString(Ressources.cmpContent, "Improvable, Owned Hiding II", new Vector2(578, 397),Color.White);
+                    spriteBatch.Draw(this.h_cmp5_img, this.h_cmp5_img_rec, Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(518, 375), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(518, 395), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, h_cmp5_price.ToString(), new Vector2(568, 377), Color.White);
+                }
+
 
                 if (this.side == 0)
                 {
@@ -241,6 +366,17 @@ namespace WindowsGame1
                             current2_rec = new Rectangle(0, 261, 398, 100);
                             spriteBatch.Draw(this.current2_text, this.current2_rec, Color.White);
                             break;
+                        case 4:
+                            if (j_cmp4_status)
+                            {
+                                current2_rec = new Rectangle(0, 361, 398, 100);
+                                spriteBatch.Draw(this.current2_text, this.current2_rec, Color.White);
+                            }
+                            else
+                            {
+                                current = 3;
+                            }
+                            break;
                     }
                 }
                 else
@@ -257,6 +393,10 @@ namespace WindowsGame1
                             break;
                         case 3:
                             current2_rec = new Rectangle(398, 261, 398, 100);
+                            spriteBatch.Draw(this.current2_text, this.current2_rec, Color.White);
+                            break;
+                        case 4:
+                            current2_rec = new Rectangle(398, 361, 398, 100);
                             spriteBatch.Draw(this.current2_text, this.current2_rec, Color.White);
                             break;
                     }
@@ -306,7 +446,7 @@ namespace WindowsGame1
                 {
                     if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && !oldPad.IsButtonDown(Buttons.LeftThumbstickDown))
                     {
-                        if (current < 3)
+                        if (current < 4)
                         {
                             current++;
                         }
@@ -359,6 +499,13 @@ namespace WindowsGame1
                                         j_cmp3_status = true;
                                     }
                                     break;
+                                case 4:
+                                    if (!j_cmp4_status && (_jbias - j_cmp4_price >= 0))
+                                    {
+                                        jekyll.JSkillPoints -= j_cmp4_price;
+                                        j_cmp4_status = true;
+                                    }
+                                    break;
                             }
                         }
                         else
@@ -368,7 +515,7 @@ namespace WindowsGame1
                                 case 1:
                                     if (!h_cmp1_status && (_hbias - h_cmp1_price >= 0))
                                     {
-                                        hide.HSkillPoints -= j_cmp1_price;
+                                        hide.HSkillPoints -= h_cmp1_price;
                                         h_cmp1_status = true;
                                     }
                                     break;
@@ -384,6 +531,13 @@ namespace WindowsGame1
                                     {
                                         hide.HSkillPoints -= h_cmp3_price;
                                         h_cmp3_status = true;
+                                    }
+                                    break;
+                                case 4:
+                                    if (!h_cmp4_status && (_hbias - h_cmp4_price >= 0))
+                                    {
+                                        hide.HSkillPoints -= h_cmp4_price;
+                                        h_cmp4_status = true;
                                     }
                                     break;
                             }
