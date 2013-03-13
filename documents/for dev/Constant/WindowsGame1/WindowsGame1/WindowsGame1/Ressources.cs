@@ -25,6 +25,8 @@ namespace WindowsGame1
         public static Texture2D Ennemy;
         public static Texture2D Jekyll;
         public static Texture2D Hide;
+        public static Texture2D Jekyll_Dissi;
+        public static Texture2D Hide_Dissi;
         public static Texture2D invisible;
         public static Texture2D alignement_barre;
         public static Texture2D alignement_value;
@@ -33,6 +35,7 @@ namespace WindowsGame1
         public static Texture2D enigmes_fond1;
         public static Texture2D LadderTest;
         public static Texture2D box;
+        public static Texture2D boxH;
         public static Texture2D menu_bg;
         public static Texture2D menu_bouton1;
         public static Texture2D menu_bouton2;
@@ -61,26 +64,32 @@ namespace WindowsGame1
             delimiterleftright = Content.Load<Texture2D>("leftright");
             delimiterupdown = Content.Load<Texture2D>("updown");
 
-            Player = Content.Load<Texture2D>("tile"); // 0
-            TextureList.Add(Player);
-            Sol = Content.Load<Texture2D>("sol"); // 1
-            TextureList.Add(Sol);
-            Wall = Content.Load<Texture2D>("wall"); // 2
-            TextureList.Add(Wall);
-            Int = Content.Load<Texture2D>("int"); // 3
-            TextureList.Add(Int);
-            Ennemy = Content.Load<Texture2D>("ennemy"); // 4
-            TextureList.Add(Ennemy);
-            Jekyll = Content.Load<Texture2D>("guys"); // 5
-            TextureList.Add(Jekyll);
-            Hide = Content.Load<Texture2D>("hide"); // 6
-            TextureList.Add(Hide);
-            LadderTest = Content.Load<Texture2D>("ladder"); // 7
-            TextureList.Add(LadderTest);
+            Jekyll_Dissi = Content.Load<Texture2D>("jekyll_dissi");
+            Hide_Dissi = Content.Load<Texture2D>("hide_dissi");
+
+            Player = Content.Load<Texture2D>("tile");                   // 0
+            Sol = Content.Load<Texture2D>("sol");                       // 1
+            Wall = Content.Load<Texture2D>("wall");                     // 2
+            Int = Content.Load<Texture2D>("int");                       // 3
+            Ennemy = Content.Load<Texture2D>("ennemy");                 // 4
+            Jekyll = Content.Load<Texture2D>("jekyll");                 // 5
+            Hide = Content.Load<Texture2D>("hide");                     // 6
+            LadderTest = Content.Load<Texture2D>("ladder");             // 7
             interactZoneTest = Content.Load<Texture2D>("InteractZone"); // 8
+            box = Content.Load<Texture2D>("box");                       // 9
+            boxH = Content.Load<Texture2D>("box_h");                    // 10
+
+            TextureList.Add(Player);
+            TextureList.Add(Sol);
+            TextureList.Add(Wall);
+            TextureList.Add(Int);
+            TextureList.Add(Ennemy);
+            TextureList.Add(Jekyll);
+            TextureList.Add(Hide);
+            TextureList.Add(LadderTest);
             TextureList.Add(interactZoneTest);
-            box = Content.Load<Texture2D>("box"); //9
             TextureList.Add(box);
+            TextureList.Add(boxH);
            
         }
     }

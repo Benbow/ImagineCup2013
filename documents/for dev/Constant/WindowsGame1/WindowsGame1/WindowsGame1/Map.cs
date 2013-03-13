@@ -231,7 +231,7 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if(block.IsActive)
+                                    if(block.IsActive && block.IsClimbable)
                                         player.ClimbBox(block, 0);
                                 }
                             }
@@ -243,7 +243,7 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if(block.IsActive)
+                                    if (block.IsActive && block.IsClimbable)
                                         player.ClimbBox(block, 1);
                                 }
                             }
@@ -258,51 +258,76 @@ namespace WindowsGame1
                     else
                         player.IsActiveVision = true;
                 }
+
+
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
                 {
                     if (player.Statut)
                     {
-                        if (player.Statut)
+                        if (player.DirectionPlayer == Direction.Left)
                         {
-                            if (player.DirectionPlayer == Direction.Left)
-                            {
-                                futurePos.X -= (int)player.Speed;
+                            futurePos.X -= (int) player.Speed;
 
-                                /*
-                                 * Test de collision quand on attaque sur les box
-                                 */
-                                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            /*
+                             * Test de collision quand on attaque sur les box
+                             */
+                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if (block.HitBox.Intersects(futurePos))
+                                    if (block.IsBreakable)
                                     {
-                                        if (block.IsBreakable)
-                                        {
-                                            block.IsActive = false;
-                                        }
+                                        block.IsActive = false;
                                     }
                                 }
                             }
-                            else if (player.DirectionPlayer == Direction.Right)
-                            {
-                                futurePos.X += (int)player.Speed;
+                        }
+                        else if (player.DirectionPlayer == Direction.Right)
+                        {
+                            futurePos.X += (int) player.Speed;
 
-                                /*
-                                 * Test de collision quand on attaque sur les box
-                                 */
-                                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            /*
+                             * Test de collision quand on attaque sur les box
+                             */
+                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if (block.HitBox.Intersects(futurePos))
+                                    if (block.IsBreakable)
                                     {
-                                        if (block.IsBreakable)
-                                        {
-                                            block.IsActive = false;
-                                        }
+                                        block.IsActive = false;
                                     }
                                 }
                             }
                         }
                     }
-                    else{}
+                    else
+                    {
+                        foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                        {
+                            if (block.HitBox.Intersects(futurePos))
+                            {
+                                if (!block.IsClimbable)
+                                {
+                                    player.hide(block, 0);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (pad.IsButtonUp(Buttons.B))
+                {
+                    foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                    {
+                        if (!block.HitBox.Intersects(futurePos))
+                        {
+                            if (!block.IsClimbable)
+                            {
+                                player.hide(block, 1);
+                            }
+                        }
+                    }
                 }
             }
             oldKeyboard = keyboard;

@@ -15,7 +15,7 @@ namespace WindowsGame1
 
         public Hide(int x, int y)
         {
-            this._hitBox = new Rectangle(x, y, 55, 87);
+            this._hitBox = new Rectangle(x, y, 42, 84);
             this._text = Ressources.Hide;
             this._pos = new Vector2(this._hitBox.X, this._hitBox.Y);
             this._dir = Vector2.Zero;
@@ -56,7 +56,7 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this._text, this._hitBox, new Rectangle((this.FrameColumn * 55), (this.FrameLine * 87), 55, 87), Color.White, 0f, new Vector2(0, 0), this.Effect, 0f);
+            spriteBatch.Draw(this._text, this._hitBox, new Rectangle((this.FrameColumn * 42), (this.FrameLine * 84), 42, 84), Color.White, 0f, new Vector2(0, 0), this.Effect, 0f);
         }
 
         public double HideBias

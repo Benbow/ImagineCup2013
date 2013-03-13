@@ -11,17 +11,26 @@ namespace WindowsGame1
     {
         public static List<ClimbableBlock> ClimbableBlockList = new List<ClimbableBlock>();
 
-        public ClimbableBlock(int x, int y, bool hv, bool jv, Texture2D text)
+        private bool _isClimbable = false;
+
+        public ClimbableBlock(int x, int y, bool hv, bool jv, bool cl, Texture2D text)
         {
             this._isBreakable = true;
             this._isCollidable = true;
             this._isActive = true;
             this.IsHideVisible = hv;
             this.IsJekyllVisible = jv;
+            this._isClimbable = cl;
             this._texture = text;
             this._hitBox = new Rectangle(x, y, text.Width, text.Height);
             ClimbableBlockList.Add(this);
             BlockList.Add(this);
+        }
+
+        public bool IsClimbable
+        {
+            get { return this._isClimbable; }
+            set { this._isClimbable = value; }
         }
     }
 }

@@ -54,6 +54,10 @@ namespace WindowsGame1
             {
                 return _isCollidable;
             }
+            set
+            {
+                _isCollidable = value;
+            }
         }
 
         public bool IsActive
