@@ -449,7 +449,16 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\masque.xnb</Output>
-      <Time>2013-03-13T12:51:35.8158137-04:00</Time>
+      <Time>2013-03-13T13:43:16.5330946-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masque_big.png</Source>
+      <Name>masque_big</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\masque_big.xnb</Output>
+      <Time>2013-03-13T14:58:07.7865248-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

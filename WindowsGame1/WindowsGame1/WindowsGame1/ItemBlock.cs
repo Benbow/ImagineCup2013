@@ -22,7 +22,6 @@ namespace WindowsGame1
             this._isJekyllVisible = false;
             this._hitBox = rec;
             this._texture = text;
-
             BlockList.Add(this);
             ItemBlockList.Add(this);
         }

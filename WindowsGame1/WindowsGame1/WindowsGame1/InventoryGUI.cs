@@ -30,12 +30,9 @@ namespace WindowsGame1
                 for (int j = 0; j < 6; j++)
                 {
                     count++;
-                    new InventoryCase(new Rectangle(this._bg.X + 15 + 90*j + 15*j, this._bg.Y + 15 + 90*i + 15*i, 90, 90), false, true,"Item" + count.ToString());
+                    new InventoryCase(new Rectangle(this._bg.X + 15 + 90*j + 15*j, this._bg.Y + 15 + 90*i + 15*i, 90, 90), false, true,"Item" + count.ToString(), new Rectangle(this._bg.X + 15 + 90*j + 15*j + 8, this._bg.Y + 15 + 90*i + 15*i +8, 75, 75), Ressources.inventory_masque);
                 }
             }
-
-            //InventoryCase.InventoryCaseList[0].IsEmpty = false;
-            //InventoryCase.InventoryCaseList[1].IsEmpty = false;
 
             this._current_rec = new Rectangle(this._bg.X +15, this._bg.Y+15, 90, 90);
             this._current_text = Ressources.inventory_current;
@@ -55,8 +52,12 @@ namespace WindowsGame1
                     spriteBatch.Draw(Ressources.inventory_case, cas.Bg, Color.Chartreuse);
                 else
                     spriteBatch.Draw(Ressources.inventory_case, cas.Bg, Color.Silver);
+
+                if(!cas.IsEmpty)
+                    spriteBatch.Draw(cas.Img_text, cas.Img_rec, Color.White);
             }
             spriteBatch.Draw(this._current_text, this._current_rec, Color.White);
+            
         }
 
         public void Update(GamePadState pad)
