@@ -26,8 +26,10 @@ namespace WindowsGame1
         protected int Timer;
         protected int TimerMax;
         protected bool _isJumping = false;
+        protected bool _isCrouch = false;
         protected bool playerMove;
         protected bool _isActiveVision = false;
+        protected bool _isActiveObject = false;
         protected bool _canMove = true;
 
         protected float _speed = 1.5f;
@@ -44,7 +46,7 @@ namespace WindowsGame1
         protected KeyboardState oldKeyboard;
         protected GamePadState oldPad;
 
-        
+
 
         public void Animate()
         {
@@ -62,9 +64,12 @@ namespace WindowsGame1
 
         public bool Switch(GamePadState pad)
         {
-            if (GameMain.Status == "on"){
+            if (GameMain.Status == "on" && !this._isJumping)
+            {
                 if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
                 {
+                    if(this._isCrouch)
+                        this.stoop(0);
                     if (_statut)
                         this._hitBox.Y += 20;
                     else
@@ -80,7 +85,7 @@ namespace WindowsGame1
         {
             this.playerMove = true;
             this.Direction = Direction.Left;
-            if(player)
+            if (player)
             {
                 if (this._isJumping)
                 {
@@ -111,7 +116,7 @@ namespace WindowsGame1
                 {
                     this._hitBox.X += (int)this._speed;
                 }
-                   
+
             }
             if (!this._isJumping)
                 this.Animate();
@@ -119,7 +124,7 @@ namespace WindowsGame1
 
         public void JumpPlayer()
         {
-            if(!this._isFalling && this._statut)
+            if (!this._isFalling && this._statut)
             {
                 this._isJumping = true;
                 this.FrameColumn = 0;
@@ -182,10 +187,10 @@ namespace WindowsGame1
                 {
                     int i = 0;
                     bool playerMove = false;
-                    
-                    
-                    Rectangle UpCut = new Rectangle(this._hitBox.X, this._hitBox.Y, this._hitBox.Width, this._hitBox.Height/2);
-                    Rectangle DownCut = new Rectangle(this._hitBox.X, this._hitBox.Y+(this.HitBox.Height/2), this._hitBox.Width, this._hitBox.Height/2);
+
+
+                    Rectangle UpCut = new Rectangle(this._hitBox.X, this._hitBox.Y, this._hitBox.Width, this._hitBox.Height / 2);
+                    Rectangle DownCut = new Rectangle(this._hitBox.X, this._hitBox.Y + (this.HitBox.Height / 2), this._hitBox.Width, this._hitBox.Height / 2);
                     Rectangle UpSide = Map._upSide.HitBox;
                     Rectangle DownSide = Map._downSide.HitBox;
                     /*DownSide.Y -= (int)sp;
@@ -196,14 +201,14 @@ namespace WindowsGame1
                     {
                         playerMove = true;
                     }
-                   
+
 
                     if (playerMove)
                     {
                         if (this._fallingSpeed >= 0)
-                            this._fallingSpeed += 0.15f*(this._poids/4);
+                            this._fallingSpeed += 0.15f * (this._poids / 4);
                         else
-                            this._fallingSpeed += 0.10f*(this._poids/4);
+                            this._fallingSpeed += 0.10f * (this._poids / 4);
                         if (this._isJumping)
                         {
                             this.FrameColumn = 0;
@@ -216,9 +221,9 @@ namespace WindowsGame1
                     else
                     {
                         if (this._fallingSpeed >= 0)
-                            this._fallingSpeed += 0.15f*(this._poids/4);
+                            this._fallingSpeed += 0.15f * (this._poids / 4);
                         else
-                            this._fallingSpeed += 0.10f*(this._poids/4);
+                            this._fallingSpeed += 0.10f * (this._poids / 4);
                         if (this._isJumping)
                         {
                             this.FrameColumn = 0;
@@ -227,13 +232,13 @@ namespace WindowsGame1
                         this._isFalling = true;
                         foreach (Blocks block in Blocks.BlockList)
                         {
-                            block.DecreaseCoordBlockY(1 + (int) this._fallingSpeed);
+                            block.DecreaseCoordBlockY(1 + (int)this._fallingSpeed);
                         }
                     }
                 }
                 else
                 {
-                    
+
                 }
             }
             else
@@ -344,13 +349,21 @@ namespace WindowsGame1
         {
             if (step == 1)
             {
-                this._hitBox.Y += this._hitBox.Height / 2;
-                this._hitBox.Height /= 2;
+                if (!this._isCrouch)
+                {
+                    this._hitBox.Y += this._hitBox.Height / 2;
+                    this._hitBox.Height /= 2;
+                    this._isCrouch = true;
+                }
             }
             else if (step == 0)
             {
-                this._hitBox.Y -= this._hitBox.Height + 1;
-                this._hitBox.Height = Ressources.Jekyll.Height;
+                if (this._isCrouch)
+                {
+                    this._hitBox.Y -= this._hitBox.Height + 1;
+                    this._hitBox.Height = Ressources.Jekyll.Height;
+                    this._isCrouch = false;
+                }
             }
         }
 
@@ -487,7 +500,7 @@ namespace WindowsGame1
                 this.Direction = value;
             }
         }
-        
+
         public bool IsActiveVision
         {
             get { return this._isActiveVision; }
@@ -521,6 +534,12 @@ namespace WindowsGame1
         {
             get { return this._canMove; }
             set { this._canMove = value; }
+        }
+
+        public bool IsActiveObject
+        {
+            get { return this._isActiveObject; }
+            set { this._isActiveObject = value; }
         }
     }
 }

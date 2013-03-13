@@ -37,13 +37,13 @@ namespace WindowsGame1
             _height = y;
             _leftSide = new DelimiterZone(0, 0, FirstGame.W / 2, _height, Ressources.invisible);
             _rightSide = new DelimiterZone(_width - FirstGame.W / 2, 0, FirstGame.W / 2, _height, Ressources.invisible);
-            _upSide = new DelimiterZone(0, 0, _width , FirstGame.H/2, Ressources.invisible);
-            _downSide = new DelimiterZone(0, _height-FirstGame.H/2, _width, FirstGame.H / 2, Ressources.invisible);
+            _upSide = new DelimiterZone(0, 0, _width, FirstGame.H / 2, Ressources.invisible);
+            _downSide = new DelimiterZone(0, _height - FirstGame.H / 2, _width, FirstGame.H / 2, Ressources.invisible);
         }
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
         {
-            if (player.GetType() == typeof (Jekyll))
+            if (player.GetType() == typeof(Jekyll))
             {
                 foreach (InteractZoneBlockWithPuzzle interBlock in InteractZoneBlockWithPuzzle.InteractZoneBlockList)
                 {
@@ -128,7 +128,7 @@ namespace WindowsGame1
                     bool lad = false;
                     foreach (Ladder ladder in Ladder.LadderList)
                     {
-                        if (player.GetType() == typeof (Jekyll))
+                        if (player.GetType() == typeof(Jekyll))
                         {
                             if (player.HitBox.Intersects(ladder.HitBox))
                             {
@@ -170,7 +170,7 @@ namespace WindowsGame1
                         {
                             if (player.HitBox.Intersects(ladder.HitBox))
                             {
-                                Rectangle feet = new Rectangle(player.HitBox.X, player.HitBox.Y + player.HitBox.Height -1, player.HitBox.Width, 1);
+                                Rectangle feet = new Rectangle(player.HitBox.X, player.HitBox.Y + player.HitBox.Height - 1, player.HitBox.Width, 1);
                                 Rectangle feetplus = feet;
                                 feetplus.Y++;
                                 if (feet.Intersects(ladder.HitBox) || feetplus.Intersects(ladder.HitBox))
@@ -241,7 +241,7 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if(block.IsActive && block.IsClimbable)
+                                    if (block.IsActive && block.IsClimbable)
                                         player.ClimbBox(block, 0);
                                 }
                             }
@@ -253,7 +253,7 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if(block.IsActive && block.IsClimbable)
+                                    if (block.IsActive && block.IsClimbable)
                                         player.ClimbBox(block, 1);
                                 }
                             }
@@ -263,7 +263,7 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.RightShoulder) && oldPad.IsButtonUp(Buttons.RightShoulder))
                 {
-                    if(player.IsActiveVision)
+                    if (player.IsActiveVision)
                         player.IsActiveVision = false;
                     else
                         player.IsActiveVision = true;
@@ -323,6 +323,14 @@ namespace WindowsGame1
                         }
                     }
                 }
+                if (pad.IsButtonDown(Buttons.Y) && oldPad.IsButtonUp(Buttons.Y))
+                {
+                    if (!player.Statut)
+                    {
+                        player.IsActiveObject = !player.IsActiveObject;
+                    }
+                }
+
             }
             oldKeyboard = keyboard;
             oldPad = pad;
@@ -334,20 +342,25 @@ namespace WindowsGame1
             {
                 if (block.IsActive)
                 {
-                    if (player.GetType() == typeof (Jekyll) && player.IsActiveVision)
+                    if (player.GetType() == typeof(Jekyll) && player.IsActiveVision)
                     {
                         if (block.IsJekyllVisible)
                             spriteBatch.Draw(block.Texture, block.HitBox, Color.Yellow);
                         else
                             spriteBatch.Draw(block.Texture, block.HitBox, Color.Blue);
                     }
-                    else if (player.GetType() == typeof (Hide) && player.IsActiveVision)
+                    else if (player.GetType() == typeof(Hide) && player.IsActiveVision)
                     {
                         if (block.IsHideVisible)
                             spriteBatch.Draw(block.Texture, block.HitBox, Color.Yellow);
                         else
                             spriteBatch.Draw(block.Texture, block.HitBox, Color.Red);
                     }
+                    else if (!player.Statut && player.IsActiveObject && InventoryCase.InventoryCaseList[0].Status)
+                    {
+                        spriteBatch.Draw(block.Texture, block.HitBox, Color.LightGreen);
+                    }
+
                     else
                     {
                         spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
@@ -444,20 +457,20 @@ namespace WindowsGame1
                     futurePos.X += (int)player.Speed;
                 }
             }
-            
+
             blockMove = true;
             foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
             {
-                if(block.IsCollidable && block.IsActive)
+                if (block.IsCollidable && block.IsActive)
                 {
                     if (block.HitBox.Intersects(futurePos))
                     {
-                        if(player.FallingSpeed < 0 && player.AccelMode != 1)
+                        if (player.FallingSpeed < 0 && player.AccelMode != 1)
                             player.FallingSpeed = 0;
                         blockMove = false;
                         player.AccelMode = 1;
                         accelTimer = 0;
-                        
+
                         break;
                     }
                 }
@@ -489,9 +502,9 @@ namespace WindowsGame1
                 Rectangle LeftCut = new Rectangle(player.HitBox.X, player.HitBox.Y, player.HitBox.Width / 2, player.HitBox.Height);
                 Rectangle RightSide = Map._rightSide.HitBox;
                 Rectangle LeftSide = Map._leftSide.HitBox;
-                RightSide.X += (int) sp;
-                RightSide.Width -= (int) sp;
-                LeftSide.Width -= (int) sp;
+                RightSide.X += (int)sp;
+                RightSide.Width -= (int)sp;
+                LeftSide.Width -= (int)sp;
 
                 if (RightCut.Intersects(LeftSide) || LeftCut.Intersects(RightSide))
                 {
@@ -504,7 +517,7 @@ namespace WindowsGame1
                         player.MovePlayerLeft(true);
                     else if (key == Keys.Right)
                         player.MovePlayerRight(true);
-                }     
+                }
                 else
                 {
                     if (key == Keys.Left)
@@ -512,7 +525,7 @@ namespace WindowsGame1
                         player.MovePlayerLeft(false);
                         foreach (Blocks block in Blocks.BlockList)
                         {
-                            if(player.IsJumping)
+                            if (player.IsJumping)
                                 block.IncreaseCoordBlockX((int)player.SpeedInAir);
                             else
                                 block.IncreaseCoordBlockX((int)player.Speed);
