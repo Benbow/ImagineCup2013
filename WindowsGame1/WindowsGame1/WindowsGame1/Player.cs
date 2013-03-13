@@ -75,8 +75,9 @@ namespace WindowsGame1
             {
                 if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
                 {
+                    this.IsActiveObject = false;
                     if(this._isCrouch)
-                        this.stoop(0);
+                        this.stoop(0);                   
                     if (_statut)
                         this._hitBox.Y += 20;
                     else

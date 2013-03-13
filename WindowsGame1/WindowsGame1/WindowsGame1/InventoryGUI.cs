@@ -65,7 +65,7 @@ namespace WindowsGame1
             this._current_rec.X = this._bg.X + 15 * this._x + 90 * this._x + 15;
             this._current_rec.Y = this._bg.Y + 15 * this._y + 90 * this._y + 15;
 
-            if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A))
+            if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A) && GameMain.Status == "inventory")
             {
                 int nb = this._y*6 + this._x;
                 if (!InventoryCase.InventoryCaseList[nb].IsEmpty)
@@ -90,7 +90,12 @@ namespace WindowsGame1
                 }
             }
 
-            if (pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldPad.IsButtonUp(Buttons.LeftThumbstickLeft))
+            if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B) && GameMain.Status == "inventory")
+            {
+                    GameMain.Status = "on";
+            }
+
+            if (pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldPad.IsButtonUp(Buttons.LeftThumbstickLeft) && GameMain.Status == "inventory")
             {
                 if (this._x > 0)
                 {
@@ -98,7 +103,7 @@ namespace WindowsGame1
                 }
             }
 
-            if (pad.IsButtonDown(Buttons.LeftThumbstickRight) && oldPad.IsButtonUp(Buttons.LeftThumbstickRight))
+            if (pad.IsButtonDown(Buttons.LeftThumbstickRight) && oldPad.IsButtonUp(Buttons.LeftThumbstickRight) && GameMain.Status == "inventory")
             {
                 if (this._x +1 < 6)
                 {
@@ -106,7 +111,7 @@ namespace WindowsGame1
                 }
             }
 
-            if (pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldPad.IsButtonUp(Buttons.LeftThumbstickUp))
+            if (pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldPad.IsButtonUp(Buttons.LeftThumbstickUp) && GameMain.Status == "inventory")
             {
                 if (this._y > 0)
                 {
@@ -114,7 +119,7 @@ namespace WindowsGame1
                 }
             }
 
-            if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldPad.IsButtonUp(Buttons.LeftThumbstickDown))
+            if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldPad.IsButtonUp(Buttons.LeftThumbstickDown) && GameMain.Status == "inventory")
             {
                 if (this._y+1 < 3)
                 {
