@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb</Output>
-      <Time>2013-03-13T10:12:34.3420726-04:00</Time>
+      <Time>2013-03-13T10:27:53.2156292-04:00</Time>
     </Item>
     <Item>
       <Source>invisible.png</Source>
@@ -377,7 +377,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\box_h.xnb</Output>
-      <Time>2013-03-13T10:12:31.0548846-04:00</Time>
+      <Time>2013-03-13T10:27:53.2136291-04:00</Time>
     </Item>
     <Item>
       <Source>hide_dissi.png</Source>
@@ -386,7 +386,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide_dissi.xnb</Output>
-      <Time>2013-03-13T10:12:31.0518845-04:00</Time>
+      <Time>2013-03-13T10:27:53.2176293-04:00</Time>
     </Item>
     <Item>
       <Source>jekyll.png</Source>
@@ -395,7 +395,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\jekyll.xnb</Output>
-      <Time>2013-03-13T10:12:31.0458841-04:00</Time>
+      <Time>2013-03-13T10:27:53.2636319-04:00</Time>
     </Item>
     <Item>
       <Source>jekyll_dissi.png</Source>
@@ -404,7 +404,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\jekyll_dissi.xnb</Output>
-      <Time>2013-03-13T10:12:31.0478842-04:00</Time>
+      <Time>2013-03-13T10:27:53.2856332-04:00</Time>
     </Item>
     <Item>
       <Source>old_hide.png</Source>
@@ -413,7 +413,34 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\old_hide.xnb</Output>
-      <Time>2013-03-13T10:12:31.0568847-04:00</Time>
+      <Time>2013-03-13T10:27:53.3246354-04:00</Time>
+    </Item>
+    <Item>
+      <Source>inventory_bg.png</Source>
+      <Name>inventory_bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\inventory_bg.xnb</Output>
+      <Time>2013-03-13T11:19:57.1223064-04:00</Time>
+    </Item>
+    <Item>
+      <Source>inventory_case.png</Source>
+      <Name>inventory_case</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\inventory_case.xnb</Output>
+      <Time>2013-03-13T11:39:07.9481299-04:00</Time>
+    </Item>
+    <Item>
+      <Source>inventory_current.png</Source>
+      <Name>inventory_current</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\inventory_current.xnb</Output>
+      <Time>2013-03-13T11:56:38.0541925-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

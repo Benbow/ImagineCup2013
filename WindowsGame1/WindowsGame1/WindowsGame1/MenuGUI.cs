@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace WindowsGame1
 {
-    class MenuGUI
+    class MenuGUI : GUI
     {
         private Rectangle _bg;
         private Texture2D _text;

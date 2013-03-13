@@ -24,6 +24,7 @@ namespace WindowsGame1
         Puzzle0 puzzle = new Puzzle0();
         Puzzle1 puzzle1 = new Puzzle1();
         MenuGUI menu = new MenuGUI();
+        InventoryGUI inventory = new InventoryGUI();
         
 
         public static string Status;
@@ -50,6 +51,7 @@ namespace WindowsGame1
             LocalHide.Statut = statut_player;
 
             menu.Update(pad, LocalJekyll, LocalHide);
+            
            
             if (GameMain.Status != "menu")
             {
@@ -61,6 +63,7 @@ namespace WindowsGame1
                             LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
                         LocalJekyll.Update(mouse, keyboard);
                     }
+                    inventory.Update(pad);
                     MyMap.Update(keyboard, pad, mouse, gameTime, LocalJekyll);
 
                 }
@@ -95,6 +98,10 @@ namespace WindowsGame1
                 {
                     MyMap.Draw(spriteBatch, LocalJekyll);
                     LocalJekyll.Draw(spriteBatch);
+                    if (GameMain.Status == "inventory")
+                    {
+                        inventory.Draw(spriteBatch);
+                    }
                 }
                 else
                 {

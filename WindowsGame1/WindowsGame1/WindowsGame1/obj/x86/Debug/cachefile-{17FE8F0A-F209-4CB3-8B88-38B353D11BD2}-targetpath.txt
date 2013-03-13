@@ -44,3 +44,6 @@ Content\hide_dissi.xnb
 Content\jekyll.xnb
 Content\jekyll_dissi.xnb
 Content\old_hide.xnb
+Content\inventory_bg.xnb
+Content\inventory_case.xnb
+Content\inventory_current.xnb
