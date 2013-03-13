@@ -12,11 +12,12 @@ namespace WindowsGame1
     {
         private int _adrenaline;
         private double _jekyllBias;
+        private double _jskillsPoints = 70;
 
         public Jekyll(int x, int y)
         {
-            this._text = Ressources.Jekyll;
             this._hitBox = new Rectangle(x, y, 32, 64);
+            this._text = Ressources.Jekyll;
             this._pos = new Vector2(this._hitBox.X, this._hitBox.Y);
             this._dir = Vector2.Zero;
             this._health = 100;
@@ -158,6 +159,18 @@ namespace WindowsGame1
             set
             {
                 this._jekyllBias = value;
+            }
+        }
+
+        public double JSkillPoints
+        {
+            get
+            {
+                return this._jskillsPoints;
+            }
+            set
+            {
+                this._jskillsPoints = value;
             }
         }
     }

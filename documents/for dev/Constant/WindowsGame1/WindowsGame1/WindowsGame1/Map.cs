@@ -173,8 +173,7 @@ namespace WindowsGame1
                     }
                 }
 
-                if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && player.FallingSpeed == 0 &&
-                    oldPad.IsButtonUp(Buttons.LeftThumbstickDown))
+                if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && player.FallingSpeed == 0 && oldPad.IsButtonUp(Buttons.LeftThumbstickDown))
                 {
                     var lad = false;
                     foreach (Ladder ladder in Ladder.LadderList)
@@ -184,10 +183,11 @@ namespace WindowsGame1
                             if (player.HitBox.Intersects(ladder.HitBox))
                             {
                                 lad = true;
+                                break;
                             }
                         }
                     }
-                    if (!player.Statut && !lad)
+                    if (!player.Statut && !lad && !player.IsJumping)
                         player.stoop(1);
                 }
                 else if (pad.IsButtonUp(Buttons.LeftThumbstickDown) && oldPad.IsButtonDown(Buttons.LeftThumbstickDown))
@@ -200,12 +200,17 @@ namespace WindowsGame1
                             if (player.HitBox.Intersects(ladder.HitBox))
                             {
                                 lad = true;
+                                break;
                             }
                         }
                     }
                     if (!player.Statut && !lad)
                         player.stoop(0);
                 }
+
+                /**
+                 * Actions avec les boutons
+                 */
 
                 if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A) && !player.IsJumping)
                 {
@@ -243,7 +248,7 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if (block.IsActive && block.IsClimbable)
+                                    if(block.IsActive && block.IsClimbable)
                                         player.ClimbBox(block, 1);
                                 }
                             }
@@ -251,12 +256,10 @@ namespace WindowsGame1
                     }
                 }
 
+
                 if (pad.IsButtonDown(Buttons.RightShoulder) && oldPad.IsButtonUp(Buttons.RightShoulder))
                 {
-                    if(player.IsActiveVision)
-                        player.IsActiveVision = false;
-                    else
-                        player.IsActiveVision = true;
+                    player.IsActiveVision = !player.IsActiveVision;
                 }
 
 
@@ -266,7 +269,7 @@ namespace WindowsGame1
                     {
                         if (player.DirectionPlayer == Direction.Left)
                         {
-                            futurePos.X -= (int) player.Speed;
+                            futurePos.X -= (int)player.Speed;
 
                             /*
                              * Test de collision quand on attaque sur les box
@@ -284,7 +287,7 @@ namespace WindowsGame1
                         }
                         else if (player.DirectionPlayer == Direction.Right)
                         {
-                            futurePos.X += (int) player.Speed;
+                            futurePos.X += (int)player.Speed;
 
                             /*
                              * Test de collision quand on attaque sur les box
@@ -329,6 +332,15 @@ namespace WindowsGame1
                         }
                     }
                 }
+
+                if (pad.IsButtonDown(Buttons.Y) && oldPad.IsButtonUp(Buttons.Y))
+                {
+                    if (!player.Statut)
+                    {
+                        player.IsActiveObject = !player.IsActiveObject;
+                    }
+                }
+
             }
             oldKeyboard = keyboard;
             oldPad = pad;
@@ -340,19 +352,23 @@ namespace WindowsGame1
             {
                 if (block.IsActive)
                 {
-                    if (player.GetType() == typeof (Jekyll) && player.IsActiveVision)
+                    if (!player.Statut && player.IsActiveVision)
                     {
                         if (block.IsJekyllVisible)
                             spriteBatch.Draw(block.Texture, block.HitBox, Color.Yellow);
                         else
                             spriteBatch.Draw(block.Texture, block.HitBox, Color.Blue);
                     }
-                    else if (player.GetType() == typeof (Hide) && player.IsActiveVision)
+                    else if (player.Statut && player.IsActiveVision)
                     {
                         if (block.IsHideVisible)
                             spriteBatch.Draw(block.Texture, block.HitBox, Color.Yellow);
                         else
                             spriteBatch.Draw(block.Texture, block.HitBox, Color.Red);
+                    }
+                    else if (!player.Statut && player.IsActiveObject)
+                    {
+                        spriteBatch.Draw(block.Texture, block.HitBox, Color.LightGreen);
                     }
                     else
                     {

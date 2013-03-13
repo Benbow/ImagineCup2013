@@ -26,8 +26,10 @@ namespace WindowsGame1
         protected int Timer;
         protected int TimerMax;
         protected bool _isJumping = false;
+        protected bool _isCrouch = false;
         protected bool playerMove;
         protected bool _isActiveVision = false;
+        protected bool _isActiveObject = false;
         protected bool _canMove = true;
 
         protected float _speed = 1.5f;
@@ -62,9 +64,12 @@ namespace WindowsGame1
 
         public bool Switch(GamePadState pad)
         {
-            if (GameMain.Status == "on"){
+            if (GameMain.Status == "on" && !this._isJumping){
                 if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
                 {
+                    if (this._isCrouch == true)
+                        this.stoop(0);
+
                     if (_statut)
                         this._hitBox.Y += 20;
                     else
@@ -72,7 +77,6 @@ namespace WindowsGame1
 
                     _statut = !_statut;
                 }
-
                 oldPad = pad;
             }
             return _statut;
@@ -346,13 +350,21 @@ namespace WindowsGame1
         {
             if (step == 1)
             {
-                this._hitBox.Y += this._hitBox.Height / 2;
-                this._hitBox.Height /= 2;
+                if (!this._isCrouch)
+                {
+                    this._hitBox.Y += this._hitBox.Height / 2;
+                    this._hitBox.Height /= 2;
+                    this._isCrouch = true;
+                }
             }
             else if (step == 0)
             {
-                this._hitBox.Y -= this._hitBox.Height + 1;
-                this._hitBox.Height = Ressources.Jekyll.Height;
+                if (this._isCrouch)
+                {
+                    this._hitBox.Y -= this._hitBox.Height + 1;
+                    this._hitBox.Height = Ressources.Jekyll.Height;
+                    this._isCrouch = false;
+                }
             }
         }
 
@@ -363,7 +375,7 @@ namespace WindowsGame1
         {
             this._text = sens == 0 ? Ressources.Jekyll_Dissi : (this._statut == true ? Ressources.Hide : Ressources.Jekyll);
             block.IsCollidable = sens != 0;
-            
+
         }
 
         public bool CheckMove()
@@ -489,12 +501,19 @@ namespace WindowsGame1
                 this.Direction = value;
             }
         }
-        
+
         public bool IsActiveVision
         {
             get { return this._isActiveVision; }
             set { this._isActiveVision = value; }
         }
+
+        public bool IsActiveObject
+        {
+            get { return this._isActiveObject; }
+            set { this._isActiveObject = value; }
+        }
+
         public Boolean Statut
         {
             get
