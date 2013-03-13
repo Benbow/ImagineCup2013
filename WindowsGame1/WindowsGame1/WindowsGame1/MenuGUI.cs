@@ -367,7 +367,7 @@ namespace WindowsGame1
                             spriteBatch.Draw(this.current2_text, this.current2_rec, Color.White);
                             break;
                         case 4:
-                            if (j_cmp4_status)
+                            if (j_cmp3_status)
                             {
                                 current2_rec = new Rectangle(0, 361, 398, 100);
                                 spriteBatch.Draw(this.current2_text, this.current2_rec, Color.White);
@@ -413,11 +413,27 @@ namespace WindowsGame1
             {
                 if (GameMain.Status == "on")
                 {
+                    current = 1;
                     this.status = "home";
                     GameMain.Status = "menu";
                 }
                 else
                     GameMain.Status = "on";
+            }
+            if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
+            {
+                if (GameMain.Status == "menu")
+                {
+                    if (this.status == "home")
+                    {
+                        GameMain.Status = "on";
+                    }
+                    else if(this.status == "competences")
+                    {
+                        current = 1;
+                        this.status = "home";
+                    }
+                }
             }
             if (GameMain.Status == "menu")
             {
