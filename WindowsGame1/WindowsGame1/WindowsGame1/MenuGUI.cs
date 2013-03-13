@@ -339,21 +339,21 @@ namespace WindowsGame1
                             switch (current)
                             {
                                 case 1:
-                                    if (!j_cmp1_status && (_jbias - j_cmp1_price > 0))
+                                    if (!j_cmp1_status && (_jbias - j_cmp1_price >= 0))
                                     {
                                         jekyll.JSkillPoints -= j_cmp1_price;
                                         j_cmp1_status = true;
                                     }
                                     break;
                                 case 2:
-                                    if (!j_cmp2_status && (_jbias - j_cmp2_price > 0))
+                                    if (!j_cmp2_status && (_jbias - j_cmp2_price >= 0))
                                     {
                                         jekyll.JSkillPoints -= j_cmp2_price;
                                         j_cmp2_status = true;
                                     }
                                     break;
                                 case 3:
-                                    if (!j_cmp3_status && (_jbias - j_cmp3_price > 0))
+                                    if (!j_cmp3_status && (_jbias - j_cmp3_price >= 0))
                                     {
                                         jekyll.JSkillPoints -= j_cmp3_price;
                                         j_cmp3_status = true;
@@ -366,21 +366,21 @@ namespace WindowsGame1
                             switch (current)
                             {
                                 case 1:
-                                    if (!h_cmp1_status && (_hbias - h_cmp1_price > 0))
+                                    if (!h_cmp1_status && (_hbias - h_cmp1_price >= 0))
                                     {
                                         hide.HSkillPoints -= j_cmp1_price;
                                         h_cmp1_status = true;
                                     }
                                     break;
                                 case 2:
-                                    if (!h_cmp2_status && (_hbias - h_cmp2_price > 0))
+                                    if (!h_cmp2_status && (_hbias - h_cmp2_price >= 0))
                                     {
                                         hide.HSkillPoints -= h_cmp2_price;
                                         h_cmp2_status = true;
                                     }
                                     break;
                                 case 3:
-                                    if (!h_cmp3_status && (_hbias - h_cmp3_price > 0))
+                                    if (!h_cmp3_status && (_hbias - h_cmp3_price >= 0))
                                     {
                                         hide.HSkillPoints -= h_cmp3_price;
                                         h_cmp3_status = true;
