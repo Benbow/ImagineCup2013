@@ -87,6 +87,15 @@ namespace WindowsGame1
                     block.Update(gameTime, player, keyboard);
                 }
 
+                foreach (ItemBlock item in ItemBlock.ItemBlockList)
+                {
+                    if (item.HitBox.Intersects(player.HitBox) && item.IsActive)
+                    {
+                        item.IsActive = false;
+                        InventoryCase.InventoryCaseList[item.Id].IsEmpty = false;
+                    }
+                }
+
                 //Déplacements joueurs/cartes
 
                 if (pad.IsButtonUp(Buttons.LeftThumbstickLeft) && pad.IsButtonUp(Buttons.LeftThumbstickRight) && !player.IsJumping)

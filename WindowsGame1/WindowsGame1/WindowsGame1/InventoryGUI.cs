@@ -34,8 +34,8 @@ namespace WindowsGame1
                 }
             }
 
-            InventoryCase.InventoryCaseList[0].IsEmpty = false;
-            InventoryCase.InventoryCaseList[1].IsEmpty = false;
+            //InventoryCase.InventoryCaseList[0].IsEmpty = false;
+            //InventoryCase.InventoryCaseList[1].IsEmpty = false;
 
             this._current_rec = new Rectangle(this._bg.X +15, this._bg.Y+15, 90, 90);
             this._current_text = Ressources.inventory_current;

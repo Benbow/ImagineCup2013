@@ -83,6 +83,7 @@
     <Compile Include="InteractZoneBlockWithPuzzle.cs" />
     <Compile Include="InventoryGUI.cs" />
     <Compile Include="InventoryCase.cs" />
+    <Compile Include="ItemBlock.cs" />
     <Compile Include="Jekyll.cs" />
     <Compile Include="Ladder.cs" />
     <Compile Include="Map.cs" />

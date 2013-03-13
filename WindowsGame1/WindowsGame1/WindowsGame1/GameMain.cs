@@ -273,7 +273,7 @@ namespace WindowsGame1
                         new InteractZoneBlockWithPuzzle(x, y, w, h, id, hv, jv, text);
                     }
                 }
-                else if (words[0] == "6")
+                else if (words[0] == "6") // Cimbable Blocks
                 {
                     if (words.Length == 7) //basic
                     {
@@ -284,8 +284,22 @@ namespace WindowsGame1
                         bool cl = Convert.ToBoolean(words[5]);
                         int param = Convert.ToInt32(words[6]);
                         Texture2D text = Ressources.TextureList[param];
-
+                        
                         new ClimbableBlock(x, y, hv, jv, cl, text);
+                    }
+                }
+                else if (words[0] == "7") // Item
+                {
+                    
+                    if (words.Length == 5) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int id = Convert.ToInt32(words[3]);
+                        int param = Convert.ToInt32(words[4]);
+                        Texture2D text = Ressources.TextureList[param];
+                        new ItemBlock(id, new Rectangle(x, y, text.Width, text.Height), text);
+                        
                     }
                 }
             }

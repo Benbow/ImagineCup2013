@@ -65,6 +65,7 @@ namespace WindowsGame1
         public static Texture2D inventory_bg;
         public static Texture2D inventory_case;
         public static Texture2D inventory_current;
+        public static Texture2D inventory_masque;
 
         public static Texture2D delimiterleftright;
         public static Texture2D delimiterupdown;
@@ -108,6 +109,7 @@ namespace WindowsGame1
             inventory_bg = Content.Load<Texture2D>("inventory_bg");
             inventory_case = Content.Load<Texture2D>("inventory_case");
             inventory_current = Content.Load<Texture2D>("inventory_current");
+            
 
             
             delimiterleftright = Content.Load<Texture2D>("leftright");
@@ -135,6 +137,8 @@ namespace WindowsGame1
             TextureList.Add(box);
             boxH = Content.Load<Texture2D>("box_h"); //10
             TextureList.Add(boxH);
+            inventory_masque = Content.Load<Texture2D>("masque"); //11
+            TextureList.Add(inventory_masque);
            
         }
     }
