@@ -499,6 +499,7 @@ namespace WindowsGame1
                                     {
                                         jekyll.JSkillPoints -= j_cmp1_price;
                                         j_cmp1_status = true;
+                                        jekyll.CanClimb = true;
                                     }
                                     break;
                                 case 2:
@@ -506,6 +507,7 @@ namespace WindowsGame1
                                     {
                                         jekyll.JSkillPoints -= j_cmp2_price;
                                         j_cmp2_status = true;
+                                        jekyll.CanJVision = true;
                                     }
                                     break;
                                 case 3:
@@ -513,6 +515,7 @@ namespace WindowsGame1
                                     {
                                         jekyll.JSkillPoints -= j_cmp3_price;
                                         j_cmp3_status = true;
+                                        jekyll.CanHide = true;
                                     }
                                     break;
                                 case 4:
@@ -533,6 +536,7 @@ namespace WindowsGame1
                                     {
                                         hide.HSkillPoints -= h_cmp1_price;
                                         h_cmp1_status = true;
+                                        hide.CanJump = true;
                                     }
                                     break;
                                 case 2:
@@ -540,6 +544,7 @@ namespace WindowsGame1
                                     {
                                         hide.HSkillPoints -= h_cmp2_price;
                                         h_cmp2_status = true;
+                                        hide.CanHVision = true;
                                     }
                                     break;
                                 case 3:
@@ -554,6 +559,7 @@ namespace WindowsGame1
                                     {
                                         hide.HSkillPoints -= h_cmp4_price;
                                         h_cmp4_status = true;
+                                        hide.Health = 120;
                                     }
                                     break;
                             }

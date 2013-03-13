@@ -32,6 +32,13 @@ namespace WindowsGame1
         protected bool _isActiveObject = false;
         protected bool _canMove = true;
 
+        //link competences
+        protected bool _canClimb = false;
+        protected bool _canJVision = false;
+        protected bool _canHVision = false;
+        protected bool _canHide = false;
+        protected bool _canJump = false;
+
         protected float _speed = 1.5f;
         protected float _poids;
         protected int _health;
@@ -540,6 +547,42 @@ namespace WindowsGame1
         {
             get { return this._isActiveObject; }
             set { this._isActiveObject = value; }
+        }
+
+        public int  Health
+        {
+            get { return this._health; }
+            set { this._health = value; }
+        }
+
+        public bool CanClimb
+        {
+            get { return this._canClimb; }
+            set { this._canClimb = value; }
+        }
+
+        public bool CanHide
+        {
+            get { return this._canHide; }
+            set { this._canHide = value; }
+        }
+
+        public bool CanJump
+        {
+            get { return this._canJump; }
+            set { this._canJump = value; }
+        }
+
+        public bool CanJVision
+        {
+            get { return this._canJVision; }
+            set { this._canJVision = value; }
+        }
+
+        public bool CanHVision
+        {
+            get { return this._canHVision; }
+            set { this._canHVision = value; }
         }
     }
 }

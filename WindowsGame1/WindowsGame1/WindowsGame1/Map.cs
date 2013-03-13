@@ -89,7 +89,7 @@ namespace WindowsGame1
 
                 foreach (ItemBlock item in ItemBlock.ItemBlockList)
                 {
-                    if (item.HitBox.Intersects(player.HitBox) && item.IsActive)
+                    if (item.HitBox.Intersects(player.HitBox) && item.IsActive && !player.Statut)
                     {
                         item.IsActive = false;
                         InventoryCase.InventoryCaseList[item.Id].IsEmpty = false;
@@ -219,9 +219,9 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A) && !player.IsJumping)
                 {
-                    if (player.Statut)
+                    if (player.Statut && player.CanJump)
                     {
-                        if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+                        if (pad.IsButtonDown(Buttons.LeftThumbstickLeft) )
                             jumpInitKey = Keys.Left;
                         else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                             jumpInitKey = Keys.Right;
@@ -232,7 +232,7 @@ namespace WindowsGame1
 
                         player.JumpPlayer();
                     }
-                    else
+                    else if(!player.Statut && player.CanClimb)
                     {
                         if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                         {
@@ -263,10 +263,26 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.RightShoulder) && oldPad.IsButtonUp(Buttons.RightShoulder))
                 {
-                    if (player.IsActiveVision)
-                        player.IsActiveVision = false;
+                    if (player.Statut)
+                    {
+                        if (player.CanHVision)
+                        {
+                            if (player.IsActiveVision)
+                                player.IsActiveVision = false;
+                            else
+                                player.IsActiveVision = true;
+                        }
+                    }
                     else
-                        player.IsActiveVision = true;
+                    {
+                        if (player.CanJVision)
+                        {
+                            if (player.IsActiveVision)
+                                player.IsActiveVision = false;
+                            else
+                                player.IsActiveVision = true;
+                        }
+                    }
                 }
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
                 {
@@ -309,7 +325,7 @@ namespace WindowsGame1
                             }
                         }
                     }
-                    else
+                    else if (!player.Statut && player.CanHide)
                     {
                         foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                         {
