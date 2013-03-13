@@ -65,10 +65,13 @@ namespace WindowsGame1
             if (GameMain.Status == "on"){
                 if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
                 {
+                    if (_statut)
+                        this._hitBox.Y += 20;
+                    else
+                        this._hitBox.Y -= 20;
                     _statut = !_statut;
                 }
-
-            oldPad = pad;
+                oldPad = pad;
             }
             return _statut;
         }
@@ -332,6 +335,33 @@ namespace WindowsGame1
                 this._hitBox.X += block.HitBox.Width;
                 this._hitBox.Y -= block.HitBox.Height;
             }
+        }
+
+        /**
+         * Fonction pour se baisser
+         */
+        public void stoop(int step)
+        {
+            if (step == 1)
+            {
+                this._hitBox.Y += this._hitBox.Height / 2;
+                this._hitBox.Height /= 2;
+            }
+            else if (step == 0)
+            {
+                this._hitBox.Y -= this._hitBox.Height + 1;
+                this._hitBox.Height = Ressources.Jekyll.Height;
+            }
+        }
+
+        /**
+         * Fonction pour se dissimuler derriere une caisse
+         */
+        public void hide(ClimbableBlock block, int sens)
+        {
+            this._text = sens == 0 ? Ressources.Jekyll_Dissi : (this._statut == true ? Ressources.Hide : Ressources.Jekyll);
+            block.IsCollidable = sens != 0;
+
         }
 
         public bool CheckMove()

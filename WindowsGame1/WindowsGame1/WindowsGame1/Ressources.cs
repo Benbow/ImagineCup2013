@@ -29,6 +29,8 @@ namespace WindowsGame1
         public static Texture2D Ennemy;
         public static Texture2D Jekyll;
         public static Texture2D Hide;
+        public static Texture2D Jekyll_Dissi;
+        public static Texture2D Hide_Dissi;
         public static Texture2D invisible;
         public static Texture2D alignement_barre;
         public static Texture2D alignement_value;
@@ -37,6 +39,7 @@ namespace WindowsGame1
         public static Texture2D enigmes_fond1;
         public static Texture2D LadderTest;
         public static Texture2D box;
+        public static Texture2D boxH;
         public static Texture2D menu_bg;
         //home
         public static Texture2D menu_bouton1;
@@ -72,6 +75,9 @@ namespace WindowsGame1
             invisible = Content.Load<Texture2D>("invisible");
             alignement_barre = Content.Load<Texture2D>("alignement_barre");
             alignement_value = Content.Load<Texture2D>("alignement_value");
+
+            Jekyll_Dissi = Content.Load<Texture2D>("jekyll_dissi");
+            Hide_Dissi = Content.Load<Texture2D>("hide_dissi");
             
            
             enigmes_fond = Content.Load<Texture2D>("enigmes_fond");
@@ -109,7 +115,7 @@ namespace WindowsGame1
             TextureList.Add(Int);
             Ennemy = Content.Load<Texture2D>("ennemy"); // 4
             TextureList.Add(Ennemy);
-            Jekyll = Content.Load<Texture2D>("guys"); // 5
+            Jekyll = Content.Load<Texture2D>("jekyll"); // 5
             TextureList.Add(Jekyll);
             Hide = Content.Load<Texture2D>("hide"); // 6
             TextureList.Add(Hide);
@@ -119,6 +125,8 @@ namespace WindowsGame1
             TextureList.Add(interactZoneTest);
             box = Content.Load<Texture2D>("box"); //9
             TextureList.Add(box);
+            boxH = Content.Load<Texture2D>("box_h"); //10
+            TextureList.Add(boxH);
            
         }
     }

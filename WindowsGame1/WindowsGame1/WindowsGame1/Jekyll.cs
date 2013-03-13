@@ -16,7 +16,7 @@ namespace WindowsGame1
 
         public Jekyll(int x, int y)
         {
-            this._hitBox = new Rectangle(x, y, 55, 87);
+            this._hitBox = new Rectangle(x, y, 32, 64);
             this._text = Ressources.Jekyll;
             this._pos = new Vector2(this._hitBox.X, this._hitBox.Y);
             this._dir = Vector2.Zero;
@@ -147,7 +147,7 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this._text, this._hitBox, new Rectangle((this.FrameColumn * 55), (this.FrameLine * 87), 55, 87), Color.White, 0f, new Vector2(0, 0), this.Effect, 0f);
+            spriteBatch.Draw(this._text, this._hitBox, new Rectangle((this.FrameColumn * 32), (this.FrameLine * 64), 32, 64), Color.White, 0f, new Vector2(0, 0), this.Effect, 0f);
         }
 
         public double JekyllBias

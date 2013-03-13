@@ -173,6 +173,41 @@ namespace WindowsGame1
                     }
                 }
 
+                if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && player.FallingSpeed == 0 && oldPad.IsButtonUp(Buttons.LeftThumbstickDown))
+                {
+                    var lad = false;
+                    foreach (Ladder ladder in Ladder.LadderList)
+                    {
+                        if (player.GetType() == typeof(Jekyll))
+                        {
+                            if (player.HitBox.Intersects(ladder.HitBox))
+                            {
+                                lad = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!player.Statut && !lad)
+                        player.stoop(1);
+                }
+                else if (pad.IsButtonUp(Buttons.LeftThumbstickDown) && oldPad.IsButtonDown(Buttons.LeftThumbstickDown))
+                {
+                    var lad = false;
+                    foreach (Ladder ladder in Ladder.LadderList)
+                    {
+                        if (player.GetType() == typeof(Jekyll))
+                        {
+                            if (player.HitBox.Intersects(ladder.HitBox))
+                            {
+                                lad = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!player.Statut && !lad)
+                        player.stoop(0);
+                }
+
                 if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A) && !player.IsJumping)
                 {
                     if (player.Statut)
@@ -197,7 +232,7 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if(block.IsActive)
+                                    if(block.IsActive && block.IsClimbable)
                                         player.ClimbBox(block, 0);
                                 }
                             }
@@ -209,7 +244,7 @@ namespace WindowsGame1
                             {
                                 if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if(block.IsActive)
+                                    if(block.IsActive && block.IsClimbable)
                                         player.ClimbBox(block, 1);
                                 }
                             }
@@ -228,47 +263,56 @@ namespace WindowsGame1
                 {
                     if (player.Statut)
                     {
-                        if (player.Statut)
+                        if (player.DirectionPlayer == Direction.Left)
                         {
-                            if (player.DirectionPlayer == Direction.Left)
-                            {
-                                futurePos.X -= (int)player.Speed;
+                            futurePos.X -= (int)player.Speed;
 
-                                /*
-                                 * Test de collision quand on attaque sur les box
-                                 */
-                                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            /*
+                             * Test de collision quand on attaque sur les box
+                             */
+                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if (block.HitBox.Intersects(futurePos))
+                                    if (block.IsBreakable)
                                     {
-                                        if (block.IsBreakable)
-                                        {
-                                            block.IsActive = false;
-                                        }
+                                        block.IsActive = false;
                                     }
                                 }
                             }
-                            else if (player.DirectionPlayer == Direction.Right)
-                            {
-                                futurePos.X += (int)player.Speed;
+                        }
+                        else if (player.DirectionPlayer == Direction.Right)
+                        {
+                            futurePos.X += (int)player.Speed;
 
-                                /*
-                                 * Test de collision quand on attaque sur les box
-                                 */
-                                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            /*
+                             * Test de collision quand on attaque sur les box
+                             */
+                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
                                 {
-                                    if (block.HitBox.Intersects(futurePos))
+                                    if (block.IsBreakable)
                                     {
-                                        if (block.IsBreakable)
-                                        {
-                                            block.IsActive = false;
-                                        }
+                                        block.IsActive = false;
                                     }
                                 }
                             }
                         }
                     }
-                    else{}
+                    else
+                    {
+                        foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                        {
+                            if (block.HitBox.Intersects(futurePos))
+                            {
+                                if (!block.IsClimbable)
+                                {
+                                    player.hide(block, 0);
+                                }
+                            }
+                        }
+                    }
                 }
             }
             oldKeyboard = keyboard;

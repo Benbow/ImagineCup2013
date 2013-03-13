@@ -342,7 +342,7 @@ namespace WindowsGame1
                     spriteBatch.DrawString(Ressources.cmpContent, h_cmp4_price.ToString(), new Vector2(568, 277),Color.White);
 
                     spriteBatch.Draw(this.h_cmp5_text, this.h_cmp5, Color.Goldenrod);
-                    spriteBatch.DrawString(Ressources.cmpContent, "Improvable, Owned Hiding II", new Vector2(578, 397),Color.White);
+                    spriteBatch.DrawString(Ressources.cmpContent, "Improvable, Owned Health III", new Vector2(578, 397),Color.White);
                     spriteBatch.Draw(this.h_cmp5_img, this.h_cmp5_img_rec, Color.White);
                     spriteBatch.DrawString(Ressources.cmpTitle, "Price :", new Vector2(518, 375), Color.White);
                     spriteBatch.DrawString(Ressources.cmpTitle, "Status :", new Vector2(518, 395), Color.White);

@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb</Output>
-      <Time>2013-03-05T23:37:13.5297446-05:00</Time>
+      <Time>2013-03-13T10:12:34.3420726-04:00</Time>
     </Item>
     <Item>
       <Source>invisible.png</Source>
@@ -369,6 +369,51 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\h_cmp5.xnb</Output>
       <Time>2013-03-13T01:13:30.8973145-04:00</Time>
+    </Item>
+    <Item>
+      <Source>box_h.png</Source>
+      <Name>box_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\box_h.xnb</Output>
+      <Time>2013-03-13T10:12:31.0548846-04:00</Time>
+    </Item>
+    <Item>
+      <Source>hide_dissi.png</Source>
+      <Name>hide_dissi</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide_dissi.xnb</Output>
+      <Time>2013-03-13T10:12:31.0518845-04:00</Time>
+    </Item>
+    <Item>
+      <Source>jekyll.png</Source>
+      <Name>jekyll</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\jekyll.xnb</Output>
+      <Time>2013-03-13T10:12:31.0458841-04:00</Time>
+    </Item>
+    <Item>
+      <Source>jekyll_dissi.png</Source>
+      <Name>jekyll_dissi</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\jekyll_dissi.xnb</Output>
+      <Time>2013-03-13T10:12:31.0478842-04:00</Time>
+    </Item>
+    <Item>
+      <Source>old_hide.png</Source>
+      <Name>old_hide</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\old_hide.xnb</Output>
+      <Time>2013-03-13T10:12:31.0568847-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
