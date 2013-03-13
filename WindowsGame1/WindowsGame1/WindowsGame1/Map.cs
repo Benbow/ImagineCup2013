@@ -323,6 +323,20 @@ namespace WindowsGame1
                         }
                     }
                 }
+                if (pad.IsButtonUp(Buttons.B))
+                {
+                    foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                    {
+                        if (!block.HitBox.Intersects(futurePos))
+                        {
+                            if (!block.IsClimbable)
+                            {
+                                player.hide(block, 1);
+                            }
+                        }
+                    }
+                }
+
                 if (pad.IsButtonDown(Buttons.Y) && oldPad.IsButtonUp(Buttons.Y))
                 {
                     if (!player.Statut)
