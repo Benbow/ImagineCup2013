@@ -27,8 +27,6 @@ namespace WindowsGame1
         public FirstGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 796;
-            graphics.PreferredBackBufferHeight = 480;
             //this.graphics.IsFullScreen = true;
             W = graphics.PreferredBackBufferWidth;
             H = graphics.PreferredBackBufferHeight;
@@ -56,9 +54,8 @@ namespace WindowsGame1
 
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            //    this.Exit();
+            if (GamePad.GetState(PlayerIndex.One).IsButtonDown(Buttons.Back))
+                this.Exit();
 
             Main.Update(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One), Mouse.GetState(), gameTime);
             base.Update(gameTime);

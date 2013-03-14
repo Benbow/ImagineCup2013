@@ -262,6 +262,34 @@ namespace WindowsGame1
                     player.IsActiveVision = !player.IsActiveVision;
                 }
 
+                if (player.IsAttacking)
+                {
+                    player.Attack();
+
+                    if (player.DirectionPlayer == Direction.Left)
+                    {
+                        futurePos.X -= 14;
+                    }
+                    else if (player.DirectionPlayer == Direction.Right)
+                    {
+                        futurePos.X += 14;
+                    }
+
+                    /*
+                     * Test de collision quand on attaque sur les box
+                     */
+                    foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                    {
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            Console.WriteLine(player.HitAttack);
+                            if (block.IsBreakable && player.HitAttack)
+                            {
+                                player.destroy(block);
+                            }
+                        }
+                    }
+                }
 
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
                 {
@@ -269,39 +297,13 @@ namespace WindowsGame1
                     {
                         if (player.DirectionPlayer == Direction.Left)
                         {
-                            futurePos.X -= (int)player.Speed;
-
-                            /*
-                             * Test de collision quand on attaque sur les box
-                             */
-                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
-                            {
-                                if (block.HitBox.Intersects(futurePos))
-                                {
-                                    if (block.IsBreakable)
-                                    {
-                                        block.IsActive = false;
-                                    }
-                                }
-                            }
+                            player.IsAttacking = true;
+                            player.BeginAttack = true;
                         }
                         else if (player.DirectionPlayer == Direction.Right)
                         {
-                            futurePos.X += (int)player.Speed;
-
-                            /*
-                             * Test de collision quand on attaque sur les box
-                             */
-                            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
-                            {
-                                if (block.HitBox.Intersects(futurePos))
-                                {
-                                    if (block.IsBreakable)
-                                    {
-                                        block.IsActive = false;
-                                    }
-                                }
-                            }
+                            player.IsAttacking = true;
+                            player.BeginAttack = true;
                         }
                     }
                     else

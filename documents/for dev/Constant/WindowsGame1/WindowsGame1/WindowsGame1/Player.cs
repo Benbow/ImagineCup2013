@@ -20,13 +20,22 @@ namespace WindowsGame1
         protected Vector2 _dir;
 
         protected Direction Direction;
+        protected bool FrameAttackSens = true;
+        protected int FrameColumnAttack;
         protected int FrameColumn;
         protected int FrameLine;
+        protected int WidthSprite;
+        protected int HeightSprite;
         protected SpriteEffects Effect;
         protected int Timer;
+        protected int TimerAttack;
         protected int TimerMax;
         protected bool _isJumping = false;
         protected bool _isCrouch = false;
+        protected bool _isAttacking = false;
+        protected bool _beginAttack = false;
+        protected bool _hitAttack = false;
+        protected bool _endAttack = false;
         protected bool playerMove;
         protected bool _isActiveVision = false;
         protected bool _isActiveObject = false;
@@ -34,6 +43,7 @@ namespace WindowsGame1
 
         protected float _speed = 1.5f;
         protected float _poids;
+        protected int _strength;
         protected int _health;
         protected Texture2D _text;
         protected bool _isFalling;
@@ -46,7 +56,7 @@ namespace WindowsGame1
         protected KeyboardState oldKeyboard;
         protected GamePadState oldPad;
 
-        
+
 
         public void Animate()
         {
@@ -58,6 +68,48 @@ namespace WindowsGame1
                 if (this.FrameColumn > 11)
                 {
                     this.FrameColumn = 0;
+                }
+            }
+        }
+
+        public void Attack()
+        {
+            if (this._isAttacking)
+            {
+                this._beginAttack = false;
+                this.FrameLine = 1;
+                this.WidthSprite = 70;
+                this._hitBox.Width = 70;
+
+                this.TimerAttack++;
+                if (this.TimerAttack == 3)
+                {
+                    this.TimerAttack = 0;
+                    if (this.FrameAttackSens)
+                    {
+                        this.FrameColumn++;
+                        if (this.FrameColumn > 4)
+                        {
+                            this.FrameColumn = 4;
+                            this.FrameAttackSens = false;
+                            this._hitAttack = true;
+                        }
+                    }
+                    else
+                    {
+                        this.FrameColumn--;
+                        this._hitAttack = false;
+                        if (this.FrameColumn < 1)
+                        {
+                            this.FrameColumn = 0;
+                            this.FrameAttackSens = true;
+                            this._isAttacking = false;
+                            this.FrameLine = 0;
+                            this.WidthSprite = 42;
+                            this._hitBox.Width = 42;
+                            this._hitBox.X += 14;
+                        }
+                    }
                 }
             }
         }
@@ -128,16 +180,25 @@ namespace WindowsGame1
             if(!this._isFalling && this._statut)
             {
                 this._isJumping = true;
-                this.FrameColumn = 0;
-                this.FrameLine = 1;
+                this.FrameColumn = 2;
+                this.FrameLine = 2;
                 this._fallingSpeed -= this._impulsion;
             }
         }
 
         public void BlockPLayer()
         {
-            this.FrameColumn = 4;
-            this.FrameLine = 0;
+            if (!this._isAttacking)
+            {
+                this.FrameColumn = 4;
+                this.FrameLine = 0;
+            }
+            if (this._beginAttack)
+            {
+                this.FrameColumn = 0;
+                this._hitBox.X -= 14;
+            }
+
             this._dir = Vector2.Zero;
             this.Timer = 0;
             this.playerMove = false;
@@ -375,7 +436,15 @@ namespace WindowsGame1
         {
             this._text = sens == 0 ? Ressources.Jekyll_Dissi : (this._statut == true ? Ressources.Hide : Ressources.Jekyll);
             block.IsCollidable = sens != 0;
+        }
 
+        /**
+         * Fonctions pour detruire un bloc en fonction de la vie de celui ci
+         */
+
+        public void destroy(ClimbableBlock block)
+        {
+            block.IsActive = false;
         }
 
         public bool CheckMove()
@@ -420,86 +489,44 @@ namespace WindowsGame1
 
         public float Speed
         {
-            get
-            {
-                return this._speed;
-            }
-            set
-            {
-                this._speed = value;
-            }
+            get { return this._speed; }
+            set { this._speed = value; }
         }
 
         public float FallingSpeed
         {
-            get
-            {
-                return this._fallingSpeed;
-            }
-            set
-            {
-                this._fallingSpeed = value;
-            }
+            get { return this._fallingSpeed; }
+            set { this._fallingSpeed = value; }
         }
 
         public Rectangle HitBox
         {
-            get
-            {
-                return this._hitBox;
-            }
-            set
-            {
-                this._hitBox = value;
-            }
+            get { return this._hitBox; }
+            set { this._hitBox = value; }
         }
 
         public float SpeedInAir
         {
-            get
-            {
-                return this._speedInAir;
-            }
-            set
-            {
-                this._speedInAir = value;
-            }
+            get { return this._speedInAir; }
+            set { this._speedInAir = value; }
         }
 
         public int AccelMode
         {
-            get
-            {
-                return this._accelMode;
-            }
-            set
-            {
-                this._accelMode = value;
-            }
+            get { return this._accelMode; }
+            set { this._accelMode = value; }
         }
 
         public bool LookUpDownPhase
         {
-            get
-            {
-                return this._lookUpDownPhase;
-            }
-            set
-            {
-                this._lookUpDownPhase = value;
-            }
+            get { return this._lookUpDownPhase; }
+            set { this._lookUpDownPhase = value; }
         }
 
         public Direction DirectionPlayer
         {
-            get
-            {
-                return this.Direction;
-            }
-            set
-            {
-                this.Direction = value;
-            }
+            get { return this.Direction; }
+            set { this.Direction = value; }
         }
 
         public bool IsActiveVision
@@ -516,26 +543,14 @@ namespace WindowsGame1
 
         public Boolean Statut
         {
-            get
-            {
-                return this._statut;
-            }
-            set
-            {
-                this._statut = value;
-            }
+            get { return this._statut; }
+            set { this._statut = value; }
         }
 
         public Boolean PlayerMove
         {
-            get
-            {
-                return this.playerMove;
-            }
-            set
-            {
-                this.playerMove = value;
-            }
+            get { return this.playerMove; }
+            set { this.playerMove = value; }
         }
 
         public Boolean CanMove
@@ -543,5 +558,37 @@ namespace WindowsGame1
             get { return this._canMove; }
             set { this._canMove = value; }
         }
+
+        public Boolean IsAttacking
+        {
+            get { return this._isAttacking; }
+            set { this._isAttacking = value; }
+        }
+
+        public Boolean HitAttack
+        {
+            get { return this._hitAttack; }
+            set { this._hitAttack = value; }
+        }
+
+        public Boolean BeginAttack
+        {
+            get { return this._beginAttack; }
+            set { this._beginAttack = value; }
+        }
+
+        public Boolean EndAttack
+        {
+            get { return this._endAttack; }
+            set { this._endAttack = value; }
+        }
+
+        public int Strength
+        {
+            get { return this._strength; }
+            set { this._strength = value; }
+        }
+
+        
     }
 }
