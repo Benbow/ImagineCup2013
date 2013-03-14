@@ -18,20 +18,23 @@ namespace WindowsGame1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        public static bool start = false;
+        public static bool exit = false;
         public static int W;
         public static int H;
 
 
         GameMain Main;
+        AccueilGUI Accueil;
 
         public FirstGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 796;
-            graphics.PreferredBackBufferHeight = 480;
-            //this.graphics.IsFullScreen = true;
-            W = graphics.PreferredBackBufferWidth;
-            H = graphics.PreferredBackBufferHeight;
+            //graphics.PreferredBackBufferWidth = 796;
+            //graphics.PreferredBackBufferHeight = 480;
+            this.graphics.IsFullScreen = true;
+            W = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+            H = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
             Content.RootDirectory = "Content";
         }
 
@@ -45,6 +48,7 @@ namespace WindowsGame1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Ressources.LoadContent(Content);
+            Accueil = new AccueilGUI();
             Main = new GameMain();
             
         }
@@ -57,10 +61,14 @@ namespace WindowsGame1
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            //    this.Exit();
-
-            Main.Update(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One), Mouse.GetState(), gameTime);
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
+            if(exit)
+                this.Exit();
+            if(start)
+                Main.Update(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One), Mouse.GetState(), gameTime);
+            else
+                Accueil.Update(GamePad.GetState(PlayerIndex.One));
             base.Update(gameTime);
         }
 
@@ -68,7 +76,10 @@ namespace WindowsGame1
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-                Main.Draw(spriteBatch);
+                if(start)
+                    Main.Draw(spriteBatch);
+                else
+                    Accueil.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

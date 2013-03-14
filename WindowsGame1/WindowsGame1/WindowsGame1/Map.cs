@@ -43,28 +43,32 @@ namespace WindowsGame1
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
         {
-            if (player.GetType() == typeof(Jekyll))
+            if (GameMain.Status != "inventory")
             {
-                foreach (InteractZoneBlockWithPuzzle interBlock in InteractZoneBlockWithPuzzle.InteractZoneBlockList)
+                if (player.GetType() == typeof (Jekyll))
                 {
-                    if (player.HitBox.Intersects(interBlock.HitBox))
+                    foreach (InteractZoneBlockWithPuzzle interBlock in InteractZoneBlockWithPuzzle.InteractZoneBlockList
+                        )
                     {
-                        if (interBlock.IsActivate)
+                        if (player.HitBox.Intersects(interBlock.HitBox))
                         {
-                            puzzle = Puzzle.PuzzleList[interBlock.Id];
-                            if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A))
+                            if (interBlock.IsActivate)
                             {
-                                interBlock.IsActivate = false;
-                                puzzle = null;
-                                GameMain.Status = "on";
+                                puzzle = Puzzle.PuzzleList[interBlock.Id];
+                                if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A))
+                                {
+                                    interBlock.IsActivate = false;
+                                    puzzle = null;
+                                    GameMain.Status = "on";
+                                }
                             }
-                        }
-                        else
-                        {
-                            if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A))
+                            else
                             {
-                                interBlock.IsActivate = true;
-                                GameMain.Status = "pause";
+                                if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A))
+                                {
+                                    interBlock.IsActivate = true;
+                                    GameMain.Status = "pause";
+                                }
                             }
                         }
                     }

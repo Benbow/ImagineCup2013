@@ -41,6 +41,8 @@ namespace WindowsGame1
         public static Texture2D box;
         public static Texture2D boxH;
         public static Texture2D menu_bg;
+        public static Texture2D accueil_bg;
+
         //home
         public static Texture2D menu_bouton1;
         public static Texture2D menu_bouton2;
@@ -74,6 +76,8 @@ namespace WindowsGame1
         //Load Content
         public static void LoadContent(ContentManager Content)
         {
+            accueil_bg = Content.Load<Texture2D>("accueil");
+
             font1 = Content.Load<SpriteFont>("SpriteFont1");
             cmpTitle = Content.Load<SpriteFont>("cmpTitle");
             cmpContent = Content.Load<SpriteFont>("cmpContent");
@@ -110,7 +114,7 @@ namespace WindowsGame1
             inventory_bg = Content.Load<Texture2D>("inventory_bg");
             inventory_case = Content.Load<Texture2D>("inventory_case");
             inventory_current = Content.Load<Texture2D>("inventory_current");
-            inventory_masque = Content.Load<Texture2D>("masque_big");
+            inventory_masque = Content.Load<Texture2D>("Gas_Mask");
             
 
             

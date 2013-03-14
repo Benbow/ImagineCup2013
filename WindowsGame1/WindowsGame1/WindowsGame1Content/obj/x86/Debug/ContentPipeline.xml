@@ -173,15 +173,6 @@
       <Time>2013-03-05T23:54:53.9693511-05:00</Time>
     </Item>
     <Item>
-      <Source>FontScore.spritefont</Source>
-      <Name>FontScore</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb</Output>
-      <Time>2013-03-05T23:37:13.5117435-05:00</Time>
-    </Item>
-    <Item>
       <Source>menu_bg.png</Source>
       <Name>menu_bg</Name>
       <Importer>TextureImporter</Importer>
@@ -215,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton3.xnb</Output>
-      <Time>2013-03-12T12:09:06.5574893-04:00</Time>
+      <Time>2013-03-13T23:41:09.3200689-04:00</Time>
     </Item>
     <Item>
       <Source>current.png</Source>
@@ -306,33 +297,6 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\current2.xnb</Output>
       <Time>2013-03-12T17:28:59.0182352-04:00</Time>
-    </Item>
-    <Item>
-      <Source>SpriteFont1.spritefont</Source>
-      <Name>SpriteFont1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2013-03-12T17:28:59.0082347-04:00</Time>
-    </Item>
-    <Item>
-      <Source>CmpTitle.spritefont</Source>
-      <Name>CmpTitle</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\CmpTitle.xnb</Output>
-      <Time>2013-03-12T17:28:59.0042344-04:00</Time>
-    </Item>
-    <Item>
-      <Source>cmpContent.spritefont</Source>
-      <Name>cmpContent</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cmpContent.xnb</Output>
-      <Time>2013-03-12T17:28:59.014235-04:00</Time>
     </Item>
     <Item>
       <Source>h_cmp4.png</Source>
@@ -458,7 +422,61 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\masque_big.xnb</Output>
-      <Time>2013-03-13T14:58:07.7865248-04:00</Time>
+      <Time>2013-03-13T23:12:41.9254523-04:00</Time>
+    </Item>
+    <Item>
+      <Source>FontScore.spritefont</Source>
+      <Name>FontScore</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FontScore.xnb</Output>
+      <Time>2013-03-05T23:37:13.5117435-05:00</Time>
+    </Item>
+    <Item>
+      <Source>CmpTitle.spritefont</Source>
+      <Name>CmpTitle</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\CmpTitle.xnb</Output>
+      <Time>2013-03-12T17:28:59.0042344-04:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2013-03-12T17:28:59.0082347-04:00</Time>
+    </Item>
+    <Item>
+      <Source>cmpContent.spritefont</Source>
+      <Name>cmpContent</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cmpContent.xnb</Output>
+      <Time>2013-03-12T17:28:59.014235-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Gas_Mask.png</Source>
+      <Name>Gas_Mask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Gas_Mask.xnb</Output>
+      <Time>2013-03-13T23:16:17.1222763-04:00</Time>
+    </Item>
+    <Item>
+      <Source>accueil.png</Source>
+      <Name>accueil</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\accueil.xnb</Output>
+      <Time>2013-03-13T23:41:39.0851105-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -17,7 +17,6 @@ Content\enigmes_fond1.xnb
 Content\ladder.xnb
 Content\box.xnb
 Content\updown.xnb
-Content\FontScore.xnb
 Content\menu_bg.xnb
 Content\bouton1.xnb
 Content\bouton2.xnb
@@ -32,9 +31,6 @@ Content\j_cmp1.xnb
 Content\j_cmp2.xnb
 Content\j_cmp3.xnb
 Content\current2.xnb
-Content\SpriteFont1.xnb
-Content\CmpTitle.xnb
-Content\cmpContent.xnb
 Content\h_cmp4.xnb
 Content\j_cmp4.xnb
 Content\j_cmp5.xnb
@@ -49,3 +45,9 @@ Content\inventory_case.xnb
 Content\inventory_current.xnb
 Content\masque.xnb
 Content\masque_big.xnb
+Content\FontScore.xnb
+Content\CmpTitle.xnb
+Content\SpriteFont1.xnb
+Content\cmpContent.xnb
+Content\Gas_Mask.xnb
+Content\accueil.xnb

@@ -97,7 +97,7 @@ namespace WindowsGame1
                 if (!statut_player)
                 {
                     MyMap.Draw(spriteBatch, LocalJekyll);
-                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalJekyll.Health.ToString(), new Vector2(700, 20), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalJekyll.Health.ToString(), new Vector2(FirstGame.W-300, 30), Color.White);
                     LocalJekyll.Draw(spriteBatch);
                     if (GameMain.Status == "inventory")
                     {
@@ -107,7 +107,7 @@ namespace WindowsGame1
                 else
                 {
                     MyMap.Draw(spriteBatch, LocalHide);
-                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalHide.Health.ToString(), new Vector2(700, 20), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalHide.Health.ToString(), new Vector2(FirstGame.W - 300, 30), Color.White);
                     LocalHide.Draw(spriteBatch);
                 }
 
