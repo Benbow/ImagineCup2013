@@ -22,6 +22,7 @@ namespace WindowsGame1
             this.IsJekyllVisible = jv;
             this._texture = text;
             this._hitBox = new Rectangle(x, y, text.Width, text.Height);
+            this._health = 50;
             ClimbableBlockList.Add(this);
             BlockList.Add(this);
         }

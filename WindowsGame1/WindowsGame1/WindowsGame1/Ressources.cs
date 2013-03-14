@@ -31,6 +31,7 @@ namespace WindowsGame1
         public static Texture2D Hide;
         public static Texture2D Jekyll_Dissi;
         public static Texture2D Hide_Dissi;
+        public static Texture2D Hide_Punch;
         public static Texture2D invisible;
         public static Texture2D alignement_barre;
         public static Texture2D alignement_value;
@@ -62,6 +63,7 @@ namespace WindowsGame1
         public static Texture2D h_cmp4;
         public static Texture2D h_cmp5;
         public static Texture2D current2;
+        
 
         //Inventory Jekyll
         public static Texture2D inventory_bg;
@@ -88,6 +90,7 @@ namespace WindowsGame1
 
             Jekyll_Dissi = Content.Load<Texture2D>("jekyll_dissi");
             Hide_Dissi = Content.Load<Texture2D>("hide_dissi");
+            Hide_Punch = Content.Load<Texture2D>("hide_punch");
             
            
             enigmes_fond = Content.Load<Texture2D>("enigmes_fond");

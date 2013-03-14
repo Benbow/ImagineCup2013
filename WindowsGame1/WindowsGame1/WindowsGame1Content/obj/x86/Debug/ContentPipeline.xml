@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb</Output>
-      <Time>2013-03-13T10:27:53.2156292-04:00</Time>
+      <Time>2013-03-14T19:01:41.5818897-04:00</Time>
     </Item>
     <Item>
       <Source>invisible.png</Source>
@@ -206,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton3.xnb</Output>
-      <Time>2013-03-13T23:41:09.3200689-04:00</Time>
+      <Time>2013-03-14T00:00:22.0008102-04:00</Time>
     </Item>
     <Item>
       <Source>current.png</Source>
@@ -422,7 +422,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\masque_big.xnb</Output>
-      <Time>2013-03-13T23:12:41.9254523-04:00</Time>
+      <Time>2013-03-14T00:00:22.0028103-04:00</Time>
     </Item>
     <Item>
       <Source>FontScore.spritefont</Source>
@@ -467,7 +467,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Gas_Mask.xnb</Output>
-      <Time>2013-03-13T23:16:17.1222763-04:00</Time>
+      <Time>2013-03-14T00:00:21.9948098-04:00</Time>
     </Item>
     <Item>
       <Source>accueil.png</Source>
@@ -476,7 +476,16 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\accueil.xnb</Output>
-      <Time>2013-03-13T23:41:39.0851105-04:00</Time>
+      <Time>2013-03-14T00:00:21.9998101-04:00</Time>
+    </Item>
+    <Item>
+      <Source>hide_punch.png</Source>
+      <Name>hide_punch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide_punch.xnb</Output>
+      <Time>2013-03-14T19:01:31.031875-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

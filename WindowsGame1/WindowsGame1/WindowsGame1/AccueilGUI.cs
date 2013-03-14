@@ -90,6 +90,8 @@ namespace WindowsGame1
                     FirstGame.exit = true;
                 }
             }
+
+            oldPad = pad;
         }
     }
 }
