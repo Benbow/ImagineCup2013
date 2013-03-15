@@ -28,6 +28,8 @@ namespace WindowsGame1
         int showCount = 0;
         int showTimer = 0;
         Puzzle puzzle = null;
+        Puzzle0 puzzle0 = null;
+        Puzzle1 puzzle1 = null;
 
         int accelTimer;
 
@@ -45,7 +47,7 @@ namespace WindowsGame1
         {
             if (GameMain.Status != "inventory")
             {
-                if (player.GetType() == typeof (Jekyll))
+                if (player.GetType() == typeof(Jekyll))
                 {
                     foreach (InteractZoneBlockWithPuzzle interBlock in InteractZoneBlockWithPuzzle.InteractZoneBlockList
                         )
@@ -54,13 +56,29 @@ namespace WindowsGame1
                         {
                             if (interBlock.IsActivate)
                             {
-                                puzzle = Puzzle.PuzzleList[interBlock.Id];
-                                if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A))
+                                if (interBlock.Id == 0)
+                                {
+                                    if (puzzle0 == null)
+                                        puzzle0 = new Puzzle0();
+                                    else
+                                        puzzle0.Update(pad, gameTime);
+                                }
+                                else if (interBlock.Id == 1)
+                                {
+                                    if (puzzle1 == null)
+                                        puzzle1 = new Puzzle1();
+                                    else
+                                        puzzle1.Update(pad, gameTime);
+                                }
+
+                                if (puzzle0 != null && !puzzle0.Status)
                                 {
                                     interBlock.IsActivate = false;
-                                    puzzle = null;
+                                    puzzle0 = null;
+                                    puzzle1 = null;
                                     GameMain.Status = "on";
                                 }
+
                             }
                             else
                             {
@@ -225,7 +243,7 @@ namespace WindowsGame1
                 {
                     if (player.Statut && player.CanJump)
                     {
-                        if (pad.IsButtonDown(Buttons.LeftThumbstickLeft) )
+                        if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
                             jumpInitKey = Keys.Left;
                         else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                             jumpInitKey = Keys.Right;
@@ -236,7 +254,7 @@ namespace WindowsGame1
 
                         player.JumpPlayer();
                     }
-                    else if(!player.Statut && player.CanClimb)
+                    else if (!player.Statut && player.CanClimb)
                     {
                         if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                         {
@@ -309,7 +327,6 @@ namespace WindowsGame1
                     {
                         if (block.HitBox.Intersects(futurePos))
                         {
-                            Console.WriteLine(player.HitAttack);
                             if (block.IsBreakable && player.HitAttack)
                             {
                                 player.destroy(block);
@@ -398,10 +415,10 @@ namespace WindowsGame1
                     }
                 }
             }
-            if (puzzle != null)
-            {
-                puzzle.Draw(spriteBatch);
-            }
+            if (puzzle0 != null)
+                puzzle0.Draw(spriteBatch);
+            else if (puzzle1 != null)
+                puzzle1.Draw(spriteBatch);
         }
 
         public void SetPlayerAccelMode(GameTime gameTime, Player player)

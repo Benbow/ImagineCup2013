@@ -34,10 +34,10 @@ namespace WindowsGame1
             this.LoadMap();
             
             //// Création Joueur + Carte
-            MyMap = new Map(1200, 480);
+            MyMap = new Map(2000, 480);
             statut_player = false;
-            LocalJekyll = new Jekyll(15, 100);
-            LocalHide = new Hide(15, 100);
+            LocalJekyll = new Jekyll(115, 100);
+            LocalHide = new Hide(115, 100);
             Status = "on";
 
         }

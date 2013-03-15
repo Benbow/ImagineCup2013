@@ -64,6 +64,18 @@ namespace WindowsGame1
         public static Texture2D h_cmp5;
         public static Texture2D current2;
         
+        //enigmes 1
+        public static Texture2D imgA;
+        public static Texture2D imgB;
+        public static Texture2D imgX;
+        public static Texture2D imgY;
+        public static Texture2D imgUp;
+        public static Texture2D imgRight;
+        public static Texture2D imgDown;
+        public static Texture2D imgLeft;
+        public static Texture2D ready;
+        public static Texture2D go;
+        public static Texture2D reload;
 
         //Inventory Jekyll
         public static Texture2D inventory_bg;
@@ -95,6 +107,19 @@ namespace WindowsGame1
            
             enigmes_fond = Content.Load<Texture2D>("enigmes_fond");
             enigmes_fond1 = Content.Load<Texture2D>("enigmes_fond1");
+            imgA = Content.Load<Texture2D>("imgA");
+            imgB = Content.Load<Texture2D>("imgB");
+            imgY = Content.Load<Texture2D>("imgY");
+            imgX = Content.Load<Texture2D>("imgX");
+            imgLeft = Content.Load<Texture2D>("imgLEFT");
+            imgRight = Content.Load<Texture2D>("imgRIGHT");
+            imgUp = Content.Load<Texture2D>("imgUP");
+            imgDown = Content.Load<Texture2D>("imgDOWN");
+            ready = Content.Load<Texture2D>("ready");
+            go = Content.Load<Texture2D>("go");
+            reload = Content.Load<Texture2D>("reload");
+
+
             menu_bg = Content.Load<Texture2D>("menu_bg");
             menu_bouton1 = Content.Load<Texture2D>("bouton1");
             menu_bouton2 = Content.Load<Texture2D>("bouton2");
@@ -119,6 +144,8 @@ namespace WindowsGame1
             inventory_current = Content.Load<Texture2D>("inventory_current");
             inventory_masque = Content.Load<Texture2D>("Gas_Mask");
             
+            
+
 
             
             delimiterleftright = Content.Load<Texture2D>("leftright");
