@@ -171,6 +171,234 @@ namespace WindowsGame1
                             spriteBatch.Draw(this.go, this.ImgRec, Color.White);
                         }
                     }
+                    if (level == 3)
+                    {
+
+                        if (this._time <= this._readyTime)
+                        {
+                            spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer)
+                        {
+                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
+                        {
+                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
+                        {
+                            spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
+                        {
+                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
+                        {
+                            spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
+                        {
+                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
+                        {
+                            spriteBatch.Draw(this.go, this.ImgRec, Color.White);
+                        }
+                    }
+                    if (level == 4)
+                    {
+
+                        if (this._time <= this._readyTime)
+                        {
+                            spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer)
+                        {
+                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
+                        {
+                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
+                        {
+                            spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
+                        {
+                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
+                        {
+                            spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
+                        {
+                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
+                        {
+                            spriteBatch.Draw(this.imgB, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 7)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 7)
+                        {
+                            spriteBatch.Draw(this.imgRIGHT, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 8)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 7)
+                        {
+                            spriteBatch.Draw(this.go, this.ImgRec, Color.White);
+                        }
+                    }
+                    if (level == 5)
+                    {
+
+                        if (this._time <= this._readyTime)
+                        {
+                            spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer)
+                        {
+                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
+                        {
+                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
+                        {
+                            spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
+                        {
+                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
+                        {
+                            spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
+                        {
+                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
+                        {
+                            spriteBatch.Draw(this.imgB, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 7)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 7)
+                        {
+                            spriteBatch.Draw(this.imgRIGHT, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 8)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 8)
+                        {
+                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 9)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 10 + this._interTimer * 9)
+                        {
+                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 10 + this._interTimer * 10)
+                        {
+
+                        }
+                        else if (this._time <= this._readyTime + this._showTimer * 11 + this._interTimer * 10)
+                        {
+                            spriteBatch.Draw(this.go, this.ImgRec, Color.White);
+                        }
+                    }
                 }
             
         }
@@ -189,6 +417,21 @@ namespace WindowsGame1
                 play = true;
                 
             }
+            if ((this._time > this._readyTime + this._showTimer * 7 + this._interTimer * 6) && play == false && level == 3)
+            {
+                this._time = 0;
+                play = true;
+            }
+            if ((this._time > this._readyTime + this._showTimer * 9 + this._interTimer * 8) && play == false && level == 4)
+            {
+                this._time = 0;
+                play = true;
+            }
+            if ((this._time > this._readyTime + this._showTimer * 11 + this._interTimer * 10) && play == false && level == 5)
+            {
+                this._time = 0;
+                play = true;
+            }
 
             if (success)
             {
@@ -199,7 +442,7 @@ namespace WindowsGame1
                 next = false;
                 level++;
                 changeLevel(level);
-                if (level == 3)
+                if (level == 6)
                     success = true;
             }
             if (this.play)
@@ -396,6 +639,222 @@ namespace WindowsGame1
                                 }
                             }
                         }
+                        else if (level == 3)
+                        {
+
+                            if (tempCount > 0)
+                            {
+
+                                if (tempCount == 1 && pad.IsButtonDown(Buttons.A) && oldpaPadState.IsButtonUp(Buttons.A))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 1 && (pressB || pressX || pressY || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 2 && pad.IsButtonDown(Buttons.X) && oldpaPadState.IsButtonUp(Buttons.X))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 2 && (pressB || pressA || pressY || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 3 && pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 3 && (pressB || pressA || pressY || pressDown || pressX || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 4 && pad.IsButtonDown(Buttons.Y) && oldpaPadState.IsButtonUp(Buttons.Y))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 4 && (pressB || pressA || pressX || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 5 && pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickLeft))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 5 && (pressB || pressA || pressX || pressDown || pressUp || pressY || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 6 && pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 6 && (pressB || pressA || pressX || pressY || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                            }
+                        }
+                        else if (level == 4)
+                        {
+
+                            if (tempCount > 0)
+                            {
+
+                                if (tempCount == 1 && pad.IsButtonDown(Buttons.A) && oldpaPadState.IsButtonUp(Buttons.A))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 1 && (pressB || pressX || pressY || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 2 && pad.IsButtonDown(Buttons.X) && oldpaPadState.IsButtonUp(Buttons.X))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 2 && (pressB || pressA || pressY || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 3 && pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 3 && (pressB || pressA || pressY || pressDown || pressX || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 4 && pad.IsButtonDown(Buttons.Y) && oldpaPadState.IsButtonUp(Buttons.Y))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 4 && (pressB || pressA || pressX || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 5 && pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickLeft))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 5 && (pressB || pressA || pressX || pressDown || pressUp || pressY || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 6 && pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 6 && (pressB || pressA || pressX || pressY || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 7 && pad.IsButtonDown(Buttons.B) && oldpaPadState.IsButtonUp(Buttons.B))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 7 && (pressDown || pressA || pressX || pressY || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 8 && pad.IsButtonDown(Buttons.LeftThumbstickRight) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickRight))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 8 && (pressDown || pressA || pressX || pressY || pressUp || pressLeft || pressB))
+                                {
+                                    reload = true;
+                                }
+                            }
+                        }
+                        else if (level == 5)
+                        {
+
+                            if (tempCount > 0)
+                            {
+
+                                if (tempCount == 1 && pad.IsButtonDown(Buttons.A) && oldpaPadState.IsButtonUp(Buttons.A))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 1 && (pressB || pressX || pressY || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 2 && pad.IsButtonDown(Buttons.X) && oldpaPadState.IsButtonUp(Buttons.X))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 2 && (pressB || pressA || pressY || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 3 && pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 3 && (pressB || pressA || pressY || pressDown || pressX || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 4 && pad.IsButtonDown(Buttons.Y) && oldpaPadState.IsButtonUp(Buttons.Y))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 4 && (pressB || pressA || pressX || pressDown || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 5 && pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickLeft))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 5 && (pressB || pressA || pressX || pressDown || pressUp || pressY || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 6 && pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 6 && (pressB || pressA || pressX || pressY || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 7 && pad.IsButtonDown(Buttons.B) && oldpaPadState.IsButtonUp(Buttons.B))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 7 && (pressDown || pressA || pressX || pressY || pressUp || pressLeft || pressRight))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 8 && pad.IsButtonDown(Buttons.LeftThumbstickRight) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickRight))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 8 && (pressDown || pressA || pressX || pressY || pressUp || pressLeft || pressB))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 9 && pad.IsButtonDown(Buttons.Y) && oldpaPadState.IsButtonUp(Buttons.Y))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 9 && (pressDown || pressA || pressX || pressRight || pressUp || pressLeft || pressB))
+                                {
+                                    reload = true;
+                                }
+                                if (tempCount == 10 && pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                                {
+                                    count++;
+                                }
+                                else if (tempCount == 10 && (pressRight || pressA || pressX || pressY || pressUp || pressLeft || pressB))
+                                {
+                                    reload = true;
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -429,24 +888,24 @@ namespace WindowsGame1
                 this._interTimer = 500;
                 this._showTimer = 1000;
                 this._readyTime = 1500;
-                this._spentTime = 2000;
-                this.winCount = 2;
+                this._spentTime = 6000;
+                this.winCount = 6;
             }
             else if (level == 4)
             {
                 this._interTimer = 500;
                 this._showTimer = 1000;
                 this._readyTime = 1500;
-                this._spentTime = 4000;
-                this.winCount = 2;
+                this._spentTime = 8000;
+                this.winCount = 8;
             }
             else if (level == 5)
             {
                 this._interTimer = 500;
                 this._showTimer = 1000;
                 this._readyTime = 1500;
-                this._spentTime = 2000;
-                this.winCount = 2;
+                this._spentTime = 10000;
+                this.winCount = 10;
             }
         }
 
