@@ -49,8 +49,16 @@ namespace WindowsGame1
             statut_player = LocalJekyll.Switch(pad);
             LocalJekyll.Statut = statut_player;
             LocalHide.Statut = statut_player;
+            bool canopen = true;
 
-            menu.Update(pad, LocalJekyll, LocalHide);
+            foreach (InteractZoneBlockWithPuzzle intblock in InteractZoneBlockWithPuzzle.InteractZoneBlockList)
+            {
+                if (intblock.IsActivate)
+                    canopen = false;
+
+            }
+            if(canopen)
+                menu.Update(pad, LocalJekyll, LocalHide);
             
            
             if (GameMain.Status != "menu")
@@ -63,7 +71,8 @@ namespace WindowsGame1
                             LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
                         LocalJekyll.Update(mouse, keyboard);
                     }
-                    inventory.Update(pad);
+                    if(canopen)
+                        inventory.Update(pad);
                     MyMap.Update(keyboard, pad, mouse, gameTime, LocalJekyll);
 
                 }

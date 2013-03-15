@@ -165,8 +165,8 @@ namespace WindowsGame1
             else if (this.status == "competences")
             {
                 spriteBatch.Draw(this.cmp_bg, this.cmp_rec, Color.White);
-                spriteBatch.DrawString(Ressources.font1, _jbias.ToString(), new Vector2((FirstGame.W / 2) - (796 / 2) + 220, (FirstGame.H / 2) - (480 / 2) + 13), Color.White);
-                spriteBatch.DrawString(Ressources.font1, _hbias.ToString(), new Vector2((FirstGame.W / 2) - (796 / 2) + 627, (FirstGame.H / 2) - (480 / 2) + 13), Color.White);
+                spriteBatch.DrawString(Ressources.font1, _jbias.ToString(), new Vector2((FirstGame.W / 2) - (796 / 2) + 340, (FirstGame.H / 2) - (480 / 2) + 15), Color.White);
+                spriteBatch.DrawString(Ressources.font1, _hbias.ToString(), new Vector2((FirstGame.W / 2) - (796 / 2) + 727, (FirstGame.H / 2) - (480 / 2) + 15), Color.White);
 
                 if (j_cmp1_status)
                 {
