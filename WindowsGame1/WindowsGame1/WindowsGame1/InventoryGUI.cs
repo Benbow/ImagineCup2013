@@ -33,7 +33,6 @@ namespace WindowsGame1
                     new InventoryCase(new Rectangle(this._bg.X + 15 + 90*j + 15*j, this._bg.Y + 15 + 90*i + 15*i, 90, 90), false, true,"Item" + count.ToString(), new Rectangle(this._bg.X + 15 + 90*j + 15*j + 8, this._bg.Y + 15 + 90*i + 15*i + 8, 75, 75), Ressources.inventory_masque);
                 }
             }
-            Console.WriteLine(_bg_text.Width);
             this._current_rec = new Rectangle(this._bg.X +15, this._bg.Y+15, 90, 90);
             this._current_text = Ressources.inventory_current;
             this._x = 0;
