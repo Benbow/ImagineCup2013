@@ -71,6 +71,11 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this._text, this._hitBox, Color.White);
+            if (!this.reload)
+            {
+                spriteBatch.DrawString(Ressources.cmpTitle, "Level : "+level.ToString()+"/5", new Vector2(this._hitBox.X + 100, this._hitBox.Y + 100), Color.Black);
+               
+            }
             
                 if (play == true)
                 {
@@ -81,6 +86,7 @@ namespace WindowsGame1
                     }
                     else
                     {
+                        spriteBatch.DrawString(Ressources.cmpTitle, "Time : " + (2*this.level - (this._time/1000)).ToString(), new Vector2(this._hitBox.X + 500, this._hitBox.Y + 100), Color.Black);
                         if (this.pressA)
                             spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
                         else if (this.pressB)
