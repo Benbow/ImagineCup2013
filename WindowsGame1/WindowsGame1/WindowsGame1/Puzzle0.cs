@@ -77,6 +77,7 @@ namespace WindowsGame1
                     if (this.reload)
                     {
                         spriteBatch.Draw(this.reloadImg, this.ReloadRec, Color.White);
+                        spriteBatch.DrawString(Ressources.puzzle0Lose, "You Lose", new Vector2(this._hitBox.X + 580/2 - 150, this._hitBox.Y + 50), Color.Black );
                     }
                     else
                     {

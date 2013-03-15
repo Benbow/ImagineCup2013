@@ -21,6 +21,7 @@ namespace WindowsGame1
         public static SpriteFont font1;
         public static SpriteFont cmpTitle;
         public static SpriteFont cmpContent;
+        public static SpriteFont puzzle0Lose;
 
         public static Texture2D Player;
         public static Texture2D Wall;
@@ -95,6 +96,7 @@ namespace WindowsGame1
             font1 = Content.Load<SpriteFont>("SpriteFont1");
             cmpTitle = Content.Load<SpriteFont>("cmpTitle");
             cmpContent = Content.Load<SpriteFont>("cmpContent");
+            puzzle0Lose = Content.Load<SpriteFont>("puzzle0");
 
             invisible = Content.Load<Texture2D>("invisible");
             alignement_barre = Content.Load<Texture2D>("alignement_barre");
