@@ -23,6 +23,7 @@ namespace WindowsGame1
             this._pos = new Vector2(this._hitBox.X, this._hitBox.Y);
             this._dir = Vector2.Zero;
             this._health = 100;
+            this._strength = 20;
             this._poids = 9;
             this._accelMode = 1;
             this._adrenaline = 0;

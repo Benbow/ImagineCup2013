@@ -268,17 +268,34 @@ namespace WindowsGame1
                 }
                 else if (words[0] == "6")
                 {
-                    if (words.Length == 7) //basic
+                    if (words.Length == 9) //basic
                     {
                         int x = Convert.ToInt32(words[1]);
                         int y = Convert.ToInt32(words[2]);
                         bool hv = Convert.ToBoolean(words[3]);
                         bool jv = Convert.ToBoolean(words[4]);
                         bool cl = Convert.ToBoolean(words[5]);
+                        bool co = Convert.ToBoolean(words[6]);
+                        int he = Convert.ToInt32(words[7]);
+                        int param = Convert.ToInt32(words[8]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new ClimbableBlock(x, y, hv, jv, cl, co, he, text);
+                    }
+                }
+                else if (words[0] == "7")
+                {
+                    if (words.Length == 7) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        bool hi = Convert.ToBoolean(words[5]);
                         int param = Convert.ToInt32(words[6]);
                         Texture2D text = Ressources.TextureList[param];
 
-                        new ClimbableBlock(x, y, hv, jv, cl, text);
+                        new HidingBlock(x, y, hv, jv, hi, text);
                     }
                 }
             }
