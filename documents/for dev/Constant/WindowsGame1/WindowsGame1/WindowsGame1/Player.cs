@@ -36,7 +36,7 @@ namespace WindowsGame1
         protected bool _isHiding = false;
         protected bool _beginAttack = false;
         protected bool _hitAttack = false;
-        protected bool _endAttack = false;
+        protected bool _endAttack = true;
         protected bool playerMove;
         protected bool _isActiveVision = false;
         protected bool _isActiveObject = false;
@@ -105,6 +105,7 @@ namespace WindowsGame1
                             this.FrameColumn = 0;
                             this.FrameAttackSens = true;
                             this._isAttacking = false;
+                            this._endAttack = true;
                             this.FrameLine = 0;
                             this.WidthSprite = 42;
                             this._hitBox.Width = 42;
@@ -117,10 +118,10 @@ namespace WindowsGame1
 
         public bool Switch(GamePadState pad)
         {
-            if (GameMain.Status == "on" && !this._isJumping){
+            if (GameMain.Status == "on"){
                 if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
                 {
-                    if (this._isCrouch == true)
+                    if (this._isCrouch)
                         this.stoop(0);
 
                     if (_statut)

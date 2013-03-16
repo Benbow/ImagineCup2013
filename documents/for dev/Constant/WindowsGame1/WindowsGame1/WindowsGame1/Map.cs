@@ -281,18 +281,11 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
                 {
-                    if (player.Statut)
+                    if (player.Statut && player.EndAttack)
                     {
-                        if (player.DirectionPlayer == Direction.Left)
-                        {
-                            player.IsAttacking = true;
-                            player.BeginAttack = true;
-                        }
-                        else if (player.DirectionPlayer == Direction.Right)
-                        {
-                            player.IsAttacking = true;
-                            player.BeginAttack = true;
-                        }
+                        player.IsAttacking = true;
+                        player.BeginAttack = true;
+                        player.EndAttack = false;
                     }
                     else
                     {
