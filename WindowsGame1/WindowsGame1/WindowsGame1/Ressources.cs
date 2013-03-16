@@ -86,6 +86,10 @@ namespace WindowsGame1
         public static Texture2D item_masque;
         public static Texture2D inventory_masque;
 
+        // Camera
+        public static Texture2D spot;
+        public static Texture2D camera;
+
         public static Texture2D delimiterleftright;
         public static Texture2D delimiterupdown;
 
@@ -147,8 +151,8 @@ namespace WindowsGame1
             inventory_case = Content.Load<Texture2D>("inventory_case");
             inventory_current = Content.Load<Texture2D>("inventory_current");
             inventory_masque = Content.Load<Texture2D>("Gas_Mask");
-            
-            
+
+            spot = Content.Load<Texture2D>("spot");
 
 
             
@@ -179,6 +183,8 @@ namespace WindowsGame1
             TextureList.Add(boxH);
             item_masque = Content.Load<Texture2D>("masque"); //11
             TextureList.Add(item_masque);
+            camera = Content.Load<Texture2D>("camera"); // 12
+            TextureList.Add(camera);
         }
     }
 }

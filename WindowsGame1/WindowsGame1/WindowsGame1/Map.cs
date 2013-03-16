@@ -118,6 +118,10 @@ namespace WindowsGame1
                     }
                 }
 
+                foreach (Camera cam in Camera.CamerasBlockList)
+                {
+                    cam.Update(gameTime);
+                }
                 //Déplacements joueurs/cartes
 
                 if (pad.IsButtonUp(Buttons.LeftThumbstickLeft) && pad.IsButtonUp(Buttons.LeftThumbstickRight) && !player.IsJumping)
@@ -152,7 +156,7 @@ namespace WindowsGame1
                     {
                         if (player.GetType() == typeof(Jekyll))
                         {
-                            if (player.HitBox.Intersects(ladder.HitBox) && player.IsCrouch)
+                            if (player.HitBox.Intersects(ladder.HitBox) && !player.IsCrouch)
                             {
                                 Rectangle left = new Rectangle(player.HitBox.X, player.HitBox.Y, 5, player.HitBox.Height);
                                 Rectangle right = new Rectangle(player.HitBox.X + player.HitBox.Width - 5, player.HitBox.Y, 5, player.HitBox.Height);
@@ -221,11 +225,6 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && player.FallingSpeed == 0 && oldPad.IsButtonUp(Buttons.LeftThumbstickDown))
                 {
-                    if (!player.Statut)
-                        player.stoop(1);
-                }
-                else if (pad.IsButtonUp(Buttons.LeftThumbstickDown) && oldPad.IsButtonDown(Buttons.LeftThumbstickDown))
-                {
                     var lad = false;
                     foreach (Ladder ladder in Ladder.LadderList)
                     {
@@ -238,7 +237,12 @@ namespace WindowsGame1
                             }
                         }
                     }
-                    if (!player.Statut && !lad)
+                    if (!player.Statut && !lad && !player.IsJumping)
+                        player.stoop(1);
+                }
+                else if (pad.IsButtonUp(Buttons.LeftThumbstickDown) && oldPad.IsButtonDown(Buttons.LeftThumbstickDown))
+                {
+                    if (!player.Statut)
                         player.stoop(0);
                 }
 
@@ -388,6 +392,8 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
+            
+
             foreach (Blocks block in Blocks.BlockList)
             {
                 if (block.IsActive)
@@ -416,6 +422,12 @@ namespace WindowsGame1
                         spriteBatch.Draw(block.Texture, block.HitBox, Color.White);
                     }
                 }
+
+                
+            }
+            foreach (Camera cam in Camera.CamerasBlockList)
+            {
+                cam.Draw(spriteBatch);
             }
             if (puzzle0 != null)
                 puzzle0.Draw(spriteBatch);
@@ -456,6 +468,10 @@ namespace WindowsGame1
                         {
                             block.IncreaseCoordBlockY(1);
                         }
+                        foreach (Camera cam in Camera.CamerasBlockList)
+                        {
+                            cam.IncreaseSpotCoordBlockY(1);
+                        }
                     }
                 }
             }
@@ -475,6 +491,10 @@ namespace WindowsGame1
                     foreach (Blocks block in Blocks.BlockList)
                     {
                         block.DecreaseCoordBlockY(speedShow);
+                    }
+                    foreach (Camera cam in Camera.CamerasBlockList)
+                    {
+                        cam.DecreaseSpotCoordBlockY(speedShow);
                     }
                     player.CheckGravity();
                 }
@@ -580,6 +600,14 @@ namespace WindowsGame1
                             else
                                 block.IncreaseCoordBlockX((int)player.Speed);
                         }
+                        foreach (Camera cam in Camera.CamerasBlockList)
+                        {
+                            if (player.IsJumping)
+                                cam.IncreaseSpotCoordBlockX((int)player.SpeedInAir);
+                            else
+                                cam.IncreaseSpotCoordBlockX((int)player.Speed);
+                        }
+
                     }
                     else if (key == Keys.Right)
                     {
@@ -590,6 +618,13 @@ namespace WindowsGame1
                                 block.DecreaseCoordBlockX((int)player.SpeedInAir);
                             else
                                 block.DecreaseCoordBlockX((int)player.Speed);
+                        }
+                        foreach (Camera cam in Camera.CamerasBlockList)
+                        {
+                            if (player.IsJumping)
+                                cam.DecreaseSpotCoordBlockX((int)player.SpeedInAir);
+                            else
+                                cam.DecreaseSpotCoordBlockX((int)player.Speed);
                         }
                     }
                 }

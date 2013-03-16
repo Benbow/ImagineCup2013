@@ -65,3 +65,5 @@ Content\SpriteFont1.xnb
 Content\cmpContent.xnb
 Content\puzzle0.xnb
 Content\win.xnb
+Content\spot.xnb
+Content\camera.xnb

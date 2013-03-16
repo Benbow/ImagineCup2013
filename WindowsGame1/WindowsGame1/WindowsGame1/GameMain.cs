@@ -333,6 +333,24 @@ namespace WindowsGame1
                         new HidingBlock(x, y, hv, jv, hi, text);
                     }
                 }
+                else if (words[0] == "9") // Camera
+                {
+                    if (words.Length == 10) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        int speed = Convert.ToInt32(words[5]);
+                        int waitTime = Convert.ToInt32(words[6]);
+                        int animTime = Convert.ToInt32(words[7]);
+                        int health = Convert.ToInt32(words[8]);
+                        int param = Convert.ToInt32(words[9]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new Camera(x, y, hv, jv, speed, waitTime, animTime, health, text);
+                    }
+                }
             }
         }
     }

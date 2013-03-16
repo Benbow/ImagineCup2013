@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\hide.xnb</Output>
-      <Time>2013-03-16T10:58:42.807696-04:00</Time>
+      <Time>2013-03-16T11:54:15.7388389-04:00</Time>
     </Item>
     <Item>
       <Source>invisible.png</Source>
@@ -603,6 +603,24 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\win.xnb</Output>
       <Time>2013-03-15T23:56:22.9996089-04:00</Time>
+    </Item>
+    <Item>
+      <Source>spot.png</Source>
+      <Name>spot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\spot.xnb</Output>
+      <Time>2013-03-16T12:41:04.7551864-04:00</Time>
+    </Item>
+    <Item>
+      <Source>camera.png</Source>
+      <Name>camera</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\camera.xnb</Output>
+      <Time>2013-03-16T12:48:38.6218436-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
