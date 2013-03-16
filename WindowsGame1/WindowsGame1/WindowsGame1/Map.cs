@@ -154,8 +154,13 @@ namespace WindowsGame1
                         {
                             if (player.HitBox.Intersects(ladder.HitBox))
                             {
-                                lad = true;
-                                player.DecreaseCoordY(1);
+                                Rectangle left = new Rectangle(player.HitBox.X, player.HitBox.Y, 5, player.HitBox.Height);
+                                Rectangle right = new Rectangle(player.HitBox.X + player.HitBox.Width - 5, player.HitBox.Y, 5, player.HitBox.Height);
+                                if (ladder.HitBox.Intersects(left) && ladder.HitBox.Intersects(right))
+                                {
+                                    lad = true;
+                                    player.DecreaseCoordY(1);
+                                }
                             }
                         }
                     }
@@ -175,7 +180,12 @@ namespace WindowsGame1
                     {
                         if (player.HitBox.Intersects(ladder.HitBox))
                         {
-                            player.DecreaseCoordY(1);
+                            Rectangle left = new Rectangle(player.HitBox.X, player.HitBox.Y, 5, player.HitBox.Height);
+                            Rectangle right = new Rectangle(player.HitBox.X + player.HitBox.Width - 5, player.HitBox.Y, 5, player.HitBox.Height);
+                            if (ladder.HitBox.Intersects(left) && ladder.HitBox.Intersects(right))
+                            {
+                                player.DecreaseCoordY(1);
+                            }
                         }
                     }
                 }
@@ -197,7 +207,12 @@ namespace WindowsGame1
                                 feetplus.Y++;
                                 if (feet.Intersects(ladder.HitBox) || feetplus.Intersects(ladder.HitBox))
                                 {
-                                    player.IncreaseCoordY(1);
+                                    Rectangle left = new Rectangle(player.HitBox.X, player.HitBox.Y, 5, player.HitBox.Height);
+                                    Rectangle right = new Rectangle(player.HitBox.X + player.HitBox.Width - 5, player.HitBox.Y, 5, player.HitBox.Height);
+                                    if (ladder.HitBox.Intersects(left) && ladder.HitBox.Intersects(right))
+                                    {
+                                        player.IncreaseCoordY(1);
+                                    }
                                 }
                             }
                         }
