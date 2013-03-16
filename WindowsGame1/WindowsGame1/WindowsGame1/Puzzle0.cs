@@ -32,6 +32,7 @@ namespace WindowsGame1
         private int _readyTime;
         private int _time;
 
+        private bool home;
         private bool play = false;
         private bool success = false;
         private int count;
@@ -52,16 +53,19 @@ namespace WindowsGame1
 
         private int cheatCount = 0;
 
+        bool change = false;
+
         GamePadState oldpaPadState;
 
         public Puzzle0()
         {
+            this.home = true;
             this._text = Ressources.enigmes_fond;
             this._x = FirstGame.W / 2 - this._text.Width / 2;
             this._y = FirstGame.H / 2 - this._text.Height / 2;
             this._hitBox = new Rectangle(_x, _y, _text.Width, _text.Height);
             this.ImgRec = new Rectangle(FirstGame.W / 2 - 200 / 2, FirstGame.H / 2 - 200 / 2, 200, 200);
-            this.level = 1;
+            this.level = 0;
             this.initLevel();
             this._time = 0;
             this.tempCount = 0;
@@ -416,6 +420,10 @@ namespace WindowsGame1
                 {
                     spriteBatch.Draw(this.win, this.ImgRec, Color.White);
                 }
+                else if (home)
+                {
+                    spriteBatch.Draw(this.win, this.ImgRec, Color.White);
+                }
             }
 
 
@@ -479,6 +487,21 @@ namespace WindowsGame1
             {
                 if(pad.IsButtonDown(Buttons.A) && oldpaPadState.IsButtonUp(Buttons.A))
                     status = false;
+            }
+            if (home)
+            {
+                
+               
+                if (pad.IsButtonDown(Buttons.A) && oldpaPadState.IsButtonUp(Buttons.A) && change)
+                {
+                    home = false;
+                    level = 1;
+                    this.changeLevel(level);
+                }
+                if (pad.IsButtonDown(Buttons.A) && oldpaPadState.IsButtonUp(Buttons.A))
+                {
+                    change = true;
+                }
             }
 
             if (next)
