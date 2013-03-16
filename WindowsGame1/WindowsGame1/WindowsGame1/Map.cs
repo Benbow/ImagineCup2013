@@ -152,7 +152,7 @@ namespace WindowsGame1
                     {
                         if (player.GetType() == typeof(Jekyll))
                         {
-                            if (player.HitBox.Intersects(ladder.HitBox))
+                            if (player.HitBox.Intersects(ladder.HitBox) && player.IsCrouch)
                             {
                                 Rectangle left = new Rectangle(player.HitBox.X, player.HitBox.Y, 5, player.HitBox.Height);
                                 Rectangle right = new Rectangle(player.HitBox.X + player.HitBox.Width - 5, player.HitBox.Y, 5, player.HitBox.Height);
@@ -178,7 +178,7 @@ namespace WindowsGame1
                 {
                     foreach (Ladder ladder in Ladder.LadderList)
                     {
-                        if (player.HitBox.Intersects(ladder.HitBox))
+                        if (player.HitBox.Intersects(ladder.HitBox) && !player.IsCrouch)
                         {
                             Rectangle left = new Rectangle(player.HitBox.X, player.HitBox.Y, 5, player.HitBox.Height);
                             Rectangle right = new Rectangle(player.HitBox.X + player.HitBox.Width - 5, player.HitBox.Y, 5, player.HitBox.Height);
@@ -205,7 +205,7 @@ namespace WindowsGame1
                                 Rectangle feet = new Rectangle(player.HitBox.X, player.HitBox.Y + player.HitBox.Height - 1, player.HitBox.Width, 1);
                                 Rectangle feetplus = feet;
                                 feetplus.Y++;
-                                if (feet.Intersects(ladder.HitBox) || feetplus.Intersects(ladder.HitBox))
+                                if (feet.Intersects(ladder.HitBox) || feetplus.Intersects(ladder.HitBox) && !player.IsCrouch)
                                 {
                                     Rectangle left = new Rectangle(player.HitBox.X, player.HitBox.Y, 5, player.HitBox.Height);
                                     Rectangle right = new Rectangle(player.HitBox.X + player.HitBox.Width - 5, player.HitBox.Y, 5, player.HitBox.Height);
@@ -221,19 +221,7 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && player.FallingSpeed == 0 && oldPad.IsButtonUp(Buttons.LeftThumbstickDown))
                 {
-                    var lad = false;
-                    foreach (Ladder ladder in Ladder.LadderList)
-                    {
-                        if (player.GetType() == typeof(Jekyll))
-                        {
-                            if (player.HitBox.Intersects(ladder.HitBox))
-                            {
-                                lad = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (!player.Statut && !lad)
+                    if (!player.Statut)
                         player.stoop(1);
                 }
                 else if (pad.IsButtonUp(Buttons.LeftThumbstickDown) && oldPad.IsButtonDown(Buttons.LeftThumbstickDown))
@@ -325,6 +313,7 @@ namespace WindowsGame1
                 if (player.IsAttacking)
                 {
                     player.Attack();
+                    player.BlockPLayer();
 
                     if (player.DirectionPlayer == Direction.Left)
                     {
@@ -336,7 +325,7 @@ namespace WindowsGame1
                     }
 
                     /*
-                     * Test de collision quand on attaque sur les box
+                     * Test de collision quand on attaque sur les blocs grimpables
                      */
                     foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                     {
@@ -352,18 +341,19 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
                 {
-                    if (player.Statut)
+                    if (player.Statut && player.EndAttack)
                     {
                         player.IsAttacking = true;
                         player.BeginAttack = true;
+                        player.EndAttack = false;
                     }
                     else if (!player.Statut && player.CanHide)
                     {
-                        foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                        foreach (HidingBlock block in HidingBlock.HidingBlockList)
                         {
                             if (block.HitBox.Intersects(futurePos))
                             {
-                                if (!block.IsClimbable)
+                                if (!block.IsHide)
                                 {
                                     player.hide(block, 0);
                                 }
@@ -372,16 +362,13 @@ namespace WindowsGame1
                     }
                 }
 
-                if (pad.IsButtonUp(Buttons.B))
+                if (player.IsHiding)
                 {
-                    foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                    foreach (HidingBlock block in HidingBlock.HidingBlockList)
                     {
-                        if (!block.HitBox.Intersects(futurePos))
+                        if (!block.HitBox.Intersects(futurePos) && player.IsHiding)
                         {
-                            if (!block.IsClimbable)
-                            {
-                                player.hide(block, 1);
-                            }
+                            player.hide(block, 1);
                         }
                     }
                 }

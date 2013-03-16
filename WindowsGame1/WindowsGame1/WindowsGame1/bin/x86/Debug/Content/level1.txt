@@ -10,6 +10,10 @@
 5 300 365 100 100 0 false false 8
 5 450 365 100 100 1 false false 8
 
-6 150 395 true false false 10
+6 150 395 true false false true 10 10
+
+6 900 395 true false true true 10 10
 
 7 400 445 0 11
+
+8 800 400 false true false 10

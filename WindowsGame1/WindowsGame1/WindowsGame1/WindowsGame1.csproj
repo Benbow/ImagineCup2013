@@ -83,6 +83,7 @@
     <Compile Include="GameMain.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Hide.cs" />
+    <Compile Include="HidingBlock.cs" />
     <Compile Include="InteractZoneBlockWithPuzzle.cs" />
     <Compile Include="InventoryGUI.cs" />
     <Compile Include="InventoryCase.cs" />

@@ -45,8 +45,10 @@ namespace WindowsGame1
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime)
         {
             bool prec_statut = statut_player;
-            
-            statut_player = LocalJekyll.Switch(pad);
+
+            if (!LocalHide.IsJumping)
+                statut_player = LocalJekyll.Switch(pad);
+
             LocalJekyll.Statut = statut_player;
             LocalHide.Statut = statut_player;
             bool canopen = true;
@@ -285,19 +287,21 @@ namespace WindowsGame1
                         new InteractZoneBlockWithPuzzle(x, y, w, h, id, hv, jv, text);
                     }
                 }
-                else if (words[0] == "6") // Cimbable Blocks
+                else if (words[0] == "6") // climbable block
                 {
-                    if (words.Length == 7) //basic
+                    if (words.Length == 9) //basic
                     {
                         int x = Convert.ToInt32(words[1]);
                         int y = Convert.ToInt32(words[2]);
                         bool hv = Convert.ToBoolean(words[3]);
                         bool jv = Convert.ToBoolean(words[4]);
                         bool cl = Convert.ToBoolean(words[5]);
-                        int param = Convert.ToInt32(words[6]);
+                        bool co = Convert.ToBoolean(words[6]);
+                        int he = Convert.ToInt32(words[7]);
+                        int param = Convert.ToInt32(words[8]);
                         Texture2D text = Ressources.TextureList[param];
-                        
-                        new ClimbableBlock(x, y, hv, jv, cl, text);
+
+                        new ClimbableBlock(x, y, hv, jv, cl, co, he, text);
                     }
                 }
                 else if (words[0] == "7") // Item
@@ -312,6 +316,21 @@ namespace WindowsGame1
                         Texture2D text = Ressources.TextureList[param];
                         new ItemBlock(id, new Rectangle(x, y, text.Width, text.Height), text);
                         
+                    }
+                }
+                else if (words[0] == "8") // Hiding block
+                {
+                    if (words.Length == 7) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        bool hi = Convert.ToBoolean(words[5]);
+                        int param = Convert.ToInt32(words[6]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new HidingBlock(x, y, hv, jv, hi, text);
                     }
                 }
             }

@@ -33,9 +33,10 @@ namespace WindowsGame1
         protected bool _isJumping = false;
         protected bool _isCrouch = false;
         protected bool _isAttacking = false;
+        protected bool _isHiding = false;
         protected bool _beginAttack = false;
         protected bool _hitAttack = false;
-        protected bool _endAttack = false;
+        protected bool _endAttack = true;
         protected bool playerMove;
         protected bool _isActiveVision = false;
         protected bool _isActiveObject = false;
@@ -111,6 +112,7 @@ namespace WindowsGame1
                             this.FrameColumn = 0;
                             this.FrameAttackSens = true;
                             this._isAttacking = false;
+                            this._endAttack = true;
                             this.FrameLine = 0;
                             this.WidthSprite = 42;
                             this._hitBox.Width = 42;
@@ -123,7 +125,7 @@ namespace WindowsGame1
 
         public bool Switch(GamePadState pad)
         {
-            if (GameMain.Status == "on" && !this._isJumping)
+            if (GameMain.Status == "on")
             {
                 if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
                 {
@@ -439,19 +441,23 @@ namespace WindowsGame1
         /**
          * Fonction pour se dissimuler derriere une caisse
          */
-        public void hide(ClimbableBlock block, int sens)
+        public void hide(Blocks block, int sens)
         {
+            this._isHiding = sens == 0 ? true : false;
             this._text = sens == 0 ? Ressources.Jekyll_Dissi : (this._statut == true ? Ressources.Hide : Ressources.Jekyll);
-            block.IsCollidable = sens != 0;
-
         }
 
         /**
         * Fonctions pour detruire un bloc en fonction de la vie de celui ci
         */
-        public void destroy(ClimbableBlock block)
+        public void destroy(Blocks block)
         {
-            block.IsActive = false;
+            if (this.TimerAttack == 2)
+            {
+                block.Health -= this._strength;
+                if (block.Health <= 0)
+                    block.IsActive = false;
+            }
         }
 
         public bool CheckMove()
@@ -559,6 +565,12 @@ namespace WindowsGame1
             set { this._isActiveObject = value; }
         }
 
+        public bool IsCrouch
+        {
+            get { return this._isCrouch; }
+            set { this._isCrouch = value; }
+        }
+
         public int Health
         {
             get { return this._health; }
@@ -623,6 +635,12 @@ namespace WindowsGame1
         {
             get { return this._strength; }
             set { this._strength = value; }
+        }
+
+        public bool IsHiding
+        {
+            get { return this._isHiding; }
+            set { this._isHiding = value; }
         }
     }
 }
