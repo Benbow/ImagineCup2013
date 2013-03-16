@@ -31,9 +31,9 @@ namespace WindowsGame1
             bouton1_text = Ressources.invisible;
             bouton2_text = Ressources.invisible;
             bouton3_text = Ressources.invisible;
-            bouton1 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 542, (FirstGame.H / 2) - (80 / 2) - 53, bouton1_text.Width, bouton1_text.Height);
-            bouton2 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 395, (FirstGame.H / 2) - (80 / 2) + 67, bouton2_text.Width, bouton2_text.Height);
-            bouton3 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 593, (FirstGame.H / 2) - (80 / 2) + 187, bouton3_text.Width, bouton3_text.Height);
+            bouton1 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 472, (FirstGame.H / 2) - (80 / 2) - 53, bouton1_text.Width, bouton1_text.Height);
+            bouton2 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 325, (FirstGame.H / 2) - (80 / 2) + 67, bouton2_text.Width, bouton2_text.Height);
+            bouton3 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 523, (FirstGame.H / 2) - (80 / 2) + 187, bouton3_text.Width, bouton3_text.Height);
             current = 1;
             current_text = Ressources.menu_current;
             current_rec = new Rectangle(bouton1.X, bouton1.Y, bouton1_text.Width, bouton1_text.Height);
