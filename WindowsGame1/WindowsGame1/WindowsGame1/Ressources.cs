@@ -77,6 +77,7 @@ namespace WindowsGame1
         public static Texture2D ready;
         public static Texture2D go;
         public static Texture2D reload;
+        public static Texture2D win;
 
         //Inventory Jekyll
         public static Texture2D inventory_bg;
@@ -120,6 +121,7 @@ namespace WindowsGame1
             ready = Content.Load<Texture2D>("ready");
             go = Content.Load<Texture2D>("go");
             reload = Content.Load<Texture2D>("reload");
+            win = Content.Load<Texture2D>("win");
 
 
             menu_bg = Content.Load<Texture2D>("menu_bg");
