@@ -14,6 +14,7 @@ namespace WindowsGame1
         private Texture2D reloadImg = Ressources.reload;
         private Texture2D ready = Ressources.ready;
         private Texture2D go = Ressources.go;
+        private Texture2D win = Ressources.win;
         private Texture2D imgA = Ressources.imgA;
         private Texture2D imgB = Ressources.imgB;
         private Texture2D imgY = Ressources.imgY;
@@ -49,6 +50,8 @@ namespace WindowsGame1
         private bool pressRight = false;
         private bool reload = false;
 
+        private int cheatCount = 0;
+
         GamePadState oldpaPadState;
 
         public Puzzle0()
@@ -71,348 +74,380 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this._text, this._hitBox, Color.White);
-            if (!this.reload)
+            if (!this.reload && !this.success)
             {
-                spriteBatch.DrawString(Ressources.cmpTitle, "Level : "+level.ToString()+"/5", new Vector2(this._hitBox.X + 100, this._hitBox.Y + 100), Color.Black);
-               
+                spriteBatch.DrawString(Ressources.cmpTitle, "Level : " + level.ToString() + "/5", new Vector2(this._hitBox.X + 100, this._hitBox.Y + 100), Color.Black);
             }
-            
-                if (play == true)
+
+            if (play == true)
+            {
+                if (this.reload)
                 {
-                    if (this.reload)
-                    {
-                        spriteBatch.Draw(this.reloadImg, this.ReloadRec, Color.White);
-                        spriteBatch.DrawString(Ressources.puzzle0Lose, "You Lose", new Vector2(this._hitBox.X + 580/2 - 150, this._hitBox.Y + 50), Color.Black );
-                    }
-                    else
-                    {
-                        spriteBatch.DrawString(Ressources.cmpTitle, "Time : " + (2*this.level - (this._time/1000)).ToString(), new Vector2(this._hitBox.X + 500, this._hitBox.Y + 100), Color.Black);
-                        if (this.pressA)
-                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
-                        else if (this.pressB)
-                            spriteBatch.Draw(this.imgB, this.ImgRec, Color.White);
-                        else if (this.pressY)
-                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
-                        else if (this.pressX)
-                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
-                        else if (this.pressUp)
-                            spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
-                        else if (this.pressRight)
-                            spriteBatch.Draw(this.imgRIGHT, this.ImgRec, Color.White);
-                        else if (this.pressDown)
-                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
-                        else if (this.pressLeft)
-                            spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
-                    }
+                    spriteBatch.Draw(this.reloadImg, this.ReloadRec, Color.White);
+                    spriteBatch.DrawString(Ressources.puzzle0Lose, "You Lose", new Vector2(this._hitBox.X + 580 / 2 - 150, this._hitBox.Y + 50), Color.Black);
+                }
+                else if (success)
+                {
+                    spriteBatch.Draw(this.win, this.ImgRec, Color.White);
                 }
                 else
                 {
-                    if (level == 1)
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Time : " + (2 * this.level - (this._time / 1000)).ToString(), new Vector2(this._hitBox.X + 500, this._hitBox.Y + 100), Color.Black);
+                    if (this.pressA)
+                        spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
+                    else if (this.pressB)
+                        spriteBatch.Draw(this.imgB, this.ImgRec, Color.White);
+                    else if (this.pressY)
+                        spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                    else if (this.pressX)
+                        spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
+                    else if (this.pressUp)
+                        spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
+                    else if (this.pressRight)
+                        spriteBatch.Draw(this.imgRIGHT, this.ImgRec, Color.White);
+                    else if (this.pressDown)
+                        spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                    else if (this.pressLeft)
+                        spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
+                }
+            }
+            else
+            {
+                if (level == 1)
+                {
+                    if (this._time <= this._readyTime)
                     {
-                        if (this._time <= this._readyTime)
-                        {
-                            spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer)
-                        {
-                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
-                        {
-                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
-                        {
-                            spriteBatch.Draw(this.go, this.ImgRec, Color.White);
-                        }
+                        spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
                     }
-                    if (level == 2)
+                    else if (this._time <= this._readyTime + this._showTimer)
                     {
-                        
-                        if (this._time <= this._readyTime)
-                        {
-                            spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer)
-                        {
-                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
-                        {
-                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer*2)
-                        {
-                            spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
-                        {
-                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
-                        {
-                            spriteBatch.Draw(this.go, this.ImgRec, Color.White);
-                        }
+                        spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
                     }
-                    if (level == 3)
+                    else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
                     {
 
-                        if (this._time <= this._readyTime)
-                        {
-                            spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer)
-                        {
-                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
-                        {
-                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
-                        {
-                            spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
-                        {
-                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
-                        {
-                            spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
-                        {
-                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
-                        {
-                            spriteBatch.Draw(this.go, this.ImgRec, Color.White);
-                        }
                     }
-                    if (level == 4)
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
                     {
-
-                        if (this._time <= this._readyTime)
-                        {
-                            spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer)
-                        {
-                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
-                        {
-                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
-                        {
-                            spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
-                        {
-                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
-                        {
-                            spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
-                        {
-                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
-                        {
-                            spriteBatch.Draw(this.imgB, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 7)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 7)
-                        {
-                            spriteBatch.Draw(this.imgRIGHT, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 8)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 7)
-                        {
-                            spriteBatch.Draw(this.go, this.ImgRec, Color.White);
-                        }
+                        spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
                     }
-                    if (level == 5)
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
                     {
 
-                        if (this._time <= this._readyTime)
-                        {
-                            spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer)
-                        {
-                            spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
-                        {
-                            spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
-                        {
-                            spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
-                        {
-                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
-                        {
-                            spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
-                        {
-                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
-                        {
-                            spriteBatch.Draw(this.imgB, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 7)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 7)
-                        {
-                            spriteBatch.Draw(this.imgRIGHT, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 8)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 8)
-                        {
-                            spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 9)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 10 + this._interTimer * 9)
-                        {
-                            spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 10 + this._interTimer * 10)
-                        {
-
-                        }
-                        else if (this._time <= this._readyTime + this._showTimer * 11 + this._interTimer * 10)
-                        {
-                            spriteBatch.Draw(this.go, this.ImgRec, Color.White);
-                        }
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
+                    {
+                        spriteBatch.Draw(this.go, this.ImgRec, Color.White);
                     }
                 }
-            
+                else if (level == 2)
+                {
+
+                    if (this._time <= this._readyTime)
+                    {
+                        spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer)
+                    {
+                        spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
+                    {
+                        spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
+                    {
+                        spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
+                    {
+                        spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
+                    {
+                        spriteBatch.Draw(this.go, this.ImgRec, Color.White);
+                    }
+                }
+                else if (level == 3)
+                {
+
+                    if (this._time <= this._readyTime)
+                    {
+                        spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer)
+                    {
+                        spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
+                    {
+                        spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
+                    {
+                        spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
+                    {
+                        spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
+                    {
+                        spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
+                    {
+                        spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
+                    {
+                        spriteBatch.Draw(this.go, this.ImgRec, Color.White);
+                    }
+                }
+                else if (level == 4)
+                {
+
+                    if (this._time <= this._readyTime)
+                    {
+                        spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer)
+                    {
+                        spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
+                    {
+                        spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
+                    {
+                        spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
+                    {
+                        spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
+                    {
+                        spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
+                    {
+                        spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
+                    {
+                        spriteBatch.Draw(this.imgB, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 7)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 7)
+                    {
+                        spriteBatch.Draw(this.imgRIGHT, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 8)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 7)
+                    {
+                        spriteBatch.Draw(this.go, this.ImgRec, Color.White);
+                    }
+                }
+                else if (level == 5)
+                {
+
+                    if (this._time <= this._readyTime)
+                    {
+                        spriteBatch.Draw(this.ready, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer)
+                    {
+                        spriteBatch.Draw(this.imgA, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer + this._interTimer)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer)
+                    {
+                        spriteBatch.Draw(this.imgX, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 2 + this._interTimer * 2)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 2)
+                    {
+                        spriteBatch.Draw(this.imgUP, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 3 + this._interTimer * 3)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 3)
+                    {
+                        spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 4 + this._interTimer * 4)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 4)
+                    {
+                        spriteBatch.Draw(this.imgLEFT, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 5 + this._interTimer * 5)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 5)
+                    {
+                        spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 6 + this._interTimer * 6)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 6)
+                    {
+                        spriteBatch.Draw(this.imgB, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 7 + this._interTimer * 7)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 7)
+                    {
+                        spriteBatch.Draw(this.imgRIGHT, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 8 + this._interTimer * 8)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 8)
+                    {
+                        spriteBatch.Draw(this.imgY, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 9 + this._interTimer * 9)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 10 + this._interTimer * 9)
+                    {
+                        spriteBatch.Draw(this.imgDOWN, this.ImgRec, Color.White);
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 10 + this._interTimer * 10)
+                    {
+
+                    }
+                    else if (this._time <= this._readyTime + this._showTimer * 11 + this._interTimer * 10)
+                    {
+                        spriteBatch.Draw(this.go, this.ImgRec, Color.White);
+                    }
+                }
+                else if (success)
+                {
+                    spriteBatch.Draw(this.win, this.ImgRec, Color.White);
+                }
+            }
+
+
         }
 
         public void Update(GamePadState pad, GameTime time)
         {
+            if (pad.IsButtonDown(Buttons.LeftShoulder) && oldpaPadState.IsButtonUp(Buttons.LeftShoulder) && cheatCount == 0)
+            {
+                cheatCount = 1;
+            }
+            else if (pad.IsButtonDown(Buttons.RightShoulder) && oldpaPadState.IsButtonUp(Buttons.RightShoulder) && cheatCount == 1)
+            {
+                cheatCount = 2;
+            }
+            else if (pad.IsButtonDown(Buttons.RightShoulder) && oldpaPadState.IsButtonUp(Buttons.RightShoulder) && cheatCount == 2)
+            {
+                cheatCount = 3;
+            }
+            else if (pad.IsButtonDown(Buttons.LeftShoulder) && oldpaPadState.IsButtonUp(Buttons.LeftShoulder) && cheatCount == 3)
+            {
+                success = true;
+                play = true;
+                _time = -20000000;
+            }
+            else if (pad.IsButtonDown(Buttons.A) || pad.IsButtonDown(Buttons.B) || pad.IsButtonDown(Buttons.X) || pad.IsButtonDown(Buttons.Y) || pad.IsButtonDown(Buttons.LeftThumbstickDown) || pad.IsButtonDown(Buttons.LeftThumbstickUp) || pad.IsButtonDown(Buttons.LeftThumbstickRight) || pad.IsButtonDown(Buttons.LeftThumbstickLeft) || pad.IsButtonDown(Buttons.DPadUp) || pad.IsButtonDown(Buttons.DPadRight) || pad.IsButtonDown(Buttons.DPadLeft) || pad.IsButtonDown(Buttons.DPadDown))
+            {
+                cheatCount = 0;
+            }
+
             this._time += time.ElapsedGameTime.Milliseconds;
+
             if ((this._time > this._readyTime + this._showTimer * 3 + this._interTimer * 2) && play == false && level == 1)
             {
                 this._time = 0;
@@ -422,7 +457,7 @@ namespace WindowsGame1
             {
                 this._time = 0;
                 play = true;
-                
+
             }
             if ((this._time > this._readyTime + this._showTimer * 7 + this._interTimer * 6) && play == false && level == 3)
             {
@@ -442,8 +477,10 @@ namespace WindowsGame1
 
             if (success)
             {
-                status = false;
+                if(pad.IsButtonDown(Buttons.A) && oldpaPadState.IsButtonUp(Buttons.A))
+                    status = false;
             }
+
             if (next)
             {
                 next = false;
@@ -597,23 +634,21 @@ namespace WindowsGame1
                                 if (tempCount == 2 && pad.IsButtonDown(Buttons.X) && oldpaPadState.IsButtonUp(Buttons.X))
                                 {
                                     count++;
-                                    Console.WriteLine("TRUE");
                                 }
                                 else if (tempCount == 2 && (pressB || pressA || pressY || pressDown || pressUp || pressLeft || pressRight))
                                 {
                                     reload = true;
                                 }
                             }
-                        } 
+                        }
                         else if (level == 2)
                         {
-                            
+
                             if (tempCount > 0)
                             {
-                                
+
                                 if (tempCount == 1 && pad.IsButtonDown(Buttons.A) && oldpaPadState.IsButtonUp(Buttons.A))
                                 {
-                                    Console.WriteLine("TRUE2");
                                     count++;
                                 }
                                 else if (tempCount == 1 && (pressB || pressX || pressY || pressDown || pressUp || pressLeft || pressRight))
@@ -918,7 +953,7 @@ namespace WindowsGame1
 
         public void changeLevel(int i)
         {
-            
+
             this.pressA = false;
             this.pressB = false;
             this.pressX = false;
@@ -928,7 +963,7 @@ namespace WindowsGame1
             this.pressDown = false;
             this.pressLeft = false;
             this.level = i;
-            
+
             this.initLevel();
             this._time = 0;
             this.count = 0;
