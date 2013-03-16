@@ -533,7 +533,7 @@ namespace WindowsGame1
                             this.pressLeft = false;
                             tempCount++;
                         }
-                        else if (pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                        else if (pad.IsButtonDown(Buttons.DPadUp) && oldpaPadState.IsButtonUp(Buttons.DPadUp))
                         {
                             this.pressA = false;
                             this.pressB = false;
@@ -545,7 +545,7 @@ namespace WindowsGame1
                             this.pressLeft = false;
                             tempCount++;
                         }
-                        else if (pad.IsButtonDown(Buttons.LeftThumbstickRight) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickRight))
+                        else if (pad.IsButtonDown(Buttons.DPadRight) && oldpaPadState.IsButtonUp(Buttons.DPadRight))
                         {
                             this.pressA = false;
                             this.pressB = false;
@@ -557,7 +557,7 @@ namespace WindowsGame1
                             this.pressLeft = false;
                             tempCount++;
                         }
-                        else if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                        else if (pad.IsButtonDown(Buttons.DPadDown) && oldpaPadState.IsButtonUp(Buttons.DPadDown))
                         {
                             this.pressA = false;
                             this.pressB = false;
@@ -569,7 +569,7 @@ namespace WindowsGame1
                             this.pressLeft = false;
                             tempCount++;
                         }
-                        else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickLeft))
+                        else if (pad.IsButtonDown(Buttons.DPadLeft) && oldpaPadState.IsButtonUp(Buttons.DPadLeft))
                         {
                             this.pressA = false;
                             this.pressB = false;
@@ -628,7 +628,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 3 && pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                if (tempCount == 3 && pad.IsButtonDown(Buttons.DPadUp) && oldpaPadState.IsButtonUp(Buttons.DPadUp))
                                 {
                                     count++;
                                 }
@@ -668,7 +668,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 3 && pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                if (tempCount == 3 && pad.IsButtonDown(Buttons.DPadUp) && oldpaPadState.IsButtonUp(Buttons.DPadUp))
                                 {
                                     count++;
                                 }
@@ -684,7 +684,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 5 && pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickLeft))
+                                if (tempCount == 5 && pad.IsButtonDown(Buttons.DPadLeft) && oldpaPadState.IsButtonUp(Buttons.DPadLeft))
                                 {
                                     count++;
                                 }
@@ -692,7 +692,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 6 && pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                                if (tempCount == 6 && pad.IsButtonDown(Buttons.DPadDown) && oldpaPadState.IsButtonUp(Buttons.DPadDown))
                                 {
                                     count++;
                                 }
@@ -724,7 +724,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 3 && pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                if (tempCount == 3 && pad.IsButtonDown(Buttons.DPadUp) && oldpaPadState.IsButtonUp(Buttons.DPadUp))
                                 {
                                     count++;
                                 }
@@ -740,7 +740,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 5 && pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickLeft))
+                                if (tempCount == 5 && pad.IsButtonDown(Buttons.DPadLeft) && oldpaPadState.IsButtonUp(Buttons.DPadLeft))
                                 {
                                     count++;
                                 }
@@ -748,7 +748,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 6 && pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                                if (tempCount == 6 && pad.IsButtonDown(Buttons.DPadDown) && oldpaPadState.IsButtonUp(Buttons.DPadDown))
                                 {
                                     count++;
                                 }
@@ -764,7 +764,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 8 && pad.IsButtonDown(Buttons.LeftThumbstickRight) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickRight))
+                                if (tempCount == 8 && pad.IsButtonDown(Buttons.DPadRight) && oldpaPadState.IsButtonUp(Buttons.DPadRight))
                                 {
                                     count++;
                                 }
@@ -796,7 +796,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 3 && pad.IsButtonDown(Buttons.LeftThumbstickUp) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                if (tempCount == 3 && pad.IsButtonDown(Buttons.DPadUp) && oldpaPadState.IsButtonUp(Buttons.DPadUp))
                                 {
                                     count++;
                                 }
@@ -812,7 +812,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 5 && pad.IsButtonDown(Buttons.LeftThumbstickLeft) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickLeft))
+                                if (tempCount == 5 && pad.IsButtonDown(Buttons.DPadLeft) && oldpaPadState.IsButtonUp(Buttons.DPadLeft))
                                 {
                                     count++;
                                 }
@@ -820,7 +820,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 6 && pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                                if (tempCount == 6 && pad.IsButtonDown(Buttons.DPadDown) && oldpaPadState.IsButtonUp(Buttons.DPadDown))
                                 {
                                     count++;
                                 }
@@ -836,7 +836,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 8 && pad.IsButtonDown(Buttons.LeftThumbstickRight) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickRight))
+                                if (tempCount == 8 && pad.IsButtonDown(Buttons.DPadRight) && oldpaPadState.IsButtonUp(Buttons.DPadRight))
                                 {
                                     count++;
                                 }
@@ -852,7 +852,7 @@ namespace WindowsGame1
                                 {
                                     reload = true;
                                 }
-                                if (tempCount == 10 && pad.IsButtonDown(Buttons.LeftThumbstickDown) && oldpaPadState.IsButtonUp(Buttons.LeftThumbstickDown))
+                                if (tempCount == 10 && pad.IsButtonDown(Buttons.DPadDown) && oldpaPadState.IsButtonUp(Buttons.DPadDown))
                                 {
                                     count++;
                                 }
