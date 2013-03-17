@@ -255,14 +255,21 @@ namespace WindowsGame1
 
                 if ((pad.IsButtonDown(Buttons.RightTrigger) || pad.IsButtonDown(Buttons.LeftTrigger)) && oldPad.IsButtonUp(Buttons.RightTrigger) && oldPad.IsButtonUp(Buttons.LeftTrigger))
                 {
-                    player.Speed = 5;
-                    player.IsSpriting = true;
+                    if (player.Statut)
+                    {
+                        player.Speed = 5;
+                        player.IsSpriting = true;
+                    }
+                    
                 }
 
                 if (player.IsSpriting && pad.IsButtonUp(Buttons.RightTrigger) && pad.IsButtonUp(Buttons.LeftTrigger))
                 {
-                    player.Speed = 3;
-                    player.IsSpriting = false;
+                    if (player.Statut)
+                    {
+                        player.Speed = 3;
+                        player.IsSpriting = false;
+                    }
                 }
 
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
@@ -319,15 +326,22 @@ namespace WindowsGame1
                             if (cible.sens == Direction.Left)
                             {
                                 int distance = player.HitBox.X - cible.HitBox.X;
-                                Console.WriteLine(distance);
-                                if (distance <= 200)
+                                int ratio = 0;
+                                if (distance <= 100)
+                                {
                                     cible.Vitesse = 1;
-                                else
+                                    ratio = 3;
+                                }
+                                else if (distance > 100 && distance <= 300)
                                 {
                                     cible.Vitesse = 2;
+                                    ratio = 2;
                                 }
+                                else if (distance > 300 && distance <= 410)
+                                    cible.Vitesse = 3;
 
-                                cible.FSpeed = -5;
+
+                                cible.FSpeed = distance * 8f / 400 * -1 - ratio;
 
                             }
                             else if (cible.sens == Direction.Right)
@@ -349,8 +363,6 @@ namespace WindowsGame1
 
 
                                 cible.FSpeed = distance * 8f / 400 * -1 - ratio;
-                                Console.WriteLine(distance);
-                                Console.WriteLine(cible.FSpeed);
                             }
                             cible.IsItemThrow = true;
                         }
@@ -362,28 +374,14 @@ namespace WindowsGame1
                  */
                 if (player.IsHiding)
                 {
-                    foreach (HidingBlock block in HidingBlock.HidingBlockList)
-                    {
-                        if (!block.HitBox.Intersects(futurePos) && player.IsHiding)
-                        {
-                            player.hide(block, 1);
-                        }
-                    }
+                    if (!player.HideBlock.HitBox.Intersects(futurePos) && player.IsHiding)
+                        player.hide(player.HideBlock, 1);
                 }
 
                 if (player.IsAttacking)
                 {
                     player.AttackAnime();
                     player.Speed = 0;
-
-                    if (player.DirectionPlayer == Direction.Left)
-                    {
-                        futurePos.X -= 14;
-                    }
-                    else if (player.DirectionPlayer == Direction.Right)
-                    {
-                        futurePos.X += 14;
-                    }
 
                     /*
                      * Test de collision quand on attaque sur les blocs grimpable

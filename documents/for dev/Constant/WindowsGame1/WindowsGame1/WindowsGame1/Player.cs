@@ -64,6 +64,8 @@ namespace WindowsGame1
         protected KeyboardState oldKeyboard;
         protected GamePadState oldPad;
 
+        protected HidingBlock _hidingBlock;
+
 
         public void Animate()
         {
@@ -83,6 +85,8 @@ namespace WindowsGame1
         {
             if (this._isAttacking)
             {
+                if (this._beginAttack)
+                    this._hitBox.X -= 14;
                 this._beginAttack = false;
                 this.FrameLine = 1;
                 this.WidthSprite = 70;
@@ -492,9 +496,10 @@ namespace WindowsGame1
         /**
          * Fonction pour se dissimuler derriere une caisse
          */
-        public void hide(Blocks block, int sens)
+        public void hide(HidingBlock block, int sens)
         {
-            this._isHiding = sens == 0 ? true : false;
+            this._hidingBlock = sens == 0 ? block : null;
+            this._isHiding = sens == 0;
             this._text = sens == 0 ? Ressources.Jekyll_Dissi : (this._statut == true ? Ressources.Hide : Ressources.Jekyll);
         }
 
@@ -706,6 +711,12 @@ namespace WindowsGame1
         {
             get { return this._isThrowing; }
             set { this._isThrowing = value; }
+        }
+
+        public HidingBlock HideBlock
+        {
+            get { return this._hidingBlock; }
+            set { this._hidingBlock = value; }
         }
 
         

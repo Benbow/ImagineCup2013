@@ -44,7 +44,7 @@ namespace WindowsGame1
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime)
         {
             bool prec_statut = statut_player;
-            if(!LocalHide.IsJumping)
+            if(!LocalHide.IsJumping && !LocalJekyll.IsThrowing)
                 statut_player = LocalJekyll.Switch(pad);
 
             LocalJekyll.Statut = statut_player;

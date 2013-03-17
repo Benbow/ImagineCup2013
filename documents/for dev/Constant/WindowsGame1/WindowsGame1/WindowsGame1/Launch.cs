@@ -35,7 +35,7 @@ namespace WindowsGame1
                 this.x_ini = x - 50;
 
             this._cible = new Rectangle(x, y, _text.Width, _text.Height);
-            this.ob = new Rectangle(x - 45, y - 20, _text_ob.Width, _text_ob.Height);
+            this.ob = new Rectangle(x_ini, y - 20, _text_ob.Width, _text_ob.Height);
             this._fspeed -= 7;
         }
 
