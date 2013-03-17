@@ -43,6 +43,7 @@ namespace WindowsGame1
         int time;
         int time2;
         int time3;
+        int time4;
 
         //constructeur complet
         public MovableEnnemyBlock(int x, int y, Texture2D text, bool isBreakable, bool isCollidable, int health, Vector2 dir, int speed, int strength, bool haveSpotted, float animationTime, float waitTime, bool isAnimate, bool reverse, bool isOnGravity, float poids)
@@ -184,6 +185,22 @@ namespace WindowsGame1
                     time3 = 0;
                 }
             }
+
+            time4 += gameTime.ElapsedGameTime.Milliseconds;
+            if (time4 > 500)
+            {
+                time4 = 0;
+                if (this._reverse)
+                {
+                    new BulletBlock(this._hitBox.X, this.HitBox.Y + (this._hitBox.Height)/3, new Vector2(-1, 0), this._strength/5);
+                }
+                else
+                {
+                    new BulletBlock(this._hitBox.X + this._hitBox.Width, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(1, 0), this._strength / 5);
+                }
+            }
+
+
         }
 
         public void CheckGravity(GameTime gameTime)
@@ -240,7 +257,7 @@ namespace WindowsGame1
                 spritebatch.Draw(this._texture, this._hitBox, null, Color.White, 0f, new Vector2(0, 0), this.Effects, 0f);
             }
 
-                spritebatch.Draw(this.spotted_text, this.spotted_zone, Color.White);
+                //spritebatch.Draw(this.spotted_text, this.spotted_zone, Color.White);
         }
 
         public Rectangle SpotZone 
@@ -253,6 +270,11 @@ namespace WindowsGame1
         {
             get { return this._haveSpotted; }
             set { this._haveSpotted = value; }
+        }
+
+        public  int Strength
+        {
+            get { return this._strength; }
         }
     }
 }

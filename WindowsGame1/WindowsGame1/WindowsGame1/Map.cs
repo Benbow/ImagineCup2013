@@ -113,23 +113,43 @@ namespace WindowsGame1
                 // Animation des blocs mouvants
                 foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
                 {
-                    block.Update(gameTime);
+                    if (block.IsActive)
+                        block.Update(gameTime);
                 }
                 foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
                 {
-                    block.Update(gameTime, player, keyboard);
-                    if (player.HitBox.Intersects(block.SpotZone))
+                    if (block.IsActive)
                     {
-                        block.HaveSpotted = true;
+                        block.Update(gameTime, player, keyboard);
+                        if (player.HitBox.Intersects(block.SpotZone))
+                        {
+                            block.HaveSpotted = true;
+                        }
+                    }
+                }
+                foreach (BulletBlock bullet in BulletBlock.BulletBlockList)
+                {
+                    bullet.Update();
+                    if (bullet.HitBox.Intersects(player.HitBox) && bullet.IsActive)
+                    {
+                        bullet.IsActive = false;
+                        player.Health -= bullet.Strength + 1;
+                        if (player.Health <= 0)
+                        {
+                            FirstGame.reload = true;
+                        }
                     }
                 }
 
                 foreach (ItemBlock item in ItemBlock.ItemBlockList)
                 {
-                    if (item.HitBox.Intersects(player.HitBox) && item.IsActive && !player.Statut)
+                    if (item.IsActive)
                     {
-                        item.IsActive = false;
-                        InventoryCase.InventoryCaseList[item.Id].IsEmpty = false;
+                        if (item.HitBox.Intersects(player.HitBox) && item.IsActive && !player.Statut)
+                        {
+                            item.IsActive = false;
+                            InventoryCase.InventoryCaseList[item.Id].IsEmpty = false;
+                        }
                     }
                 }
 
@@ -145,10 +165,13 @@ namespace WindowsGame1
 
                 foreach (Camera cam in Camera.CamerasBlockList)
                 {
-                    cam.Update(gameTime);
-                    if (!player.Statut && !player.IsHiding && player.HitBox.Intersects(cam.Spot_rec))
+                    if (cam.IsActive)
                     {
-                        FirstGame.reload = true;
+                        cam.Update(gameTime);
+                        if (!player.Statut && !player.IsHiding && player.HitBox.Intersects(cam.Spot_rec))
+                        {
+                            FirstGame.reload = true;
+                        }
                     }
                 }
 
@@ -372,6 +395,17 @@ namespace WindowsGame1
                             }
                         }
                     }
+
+                    foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+                    {
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            if (block.IsBreakable && player.HitAttack)
+                            {
+                                player.destroy(block);
+                            }
+                        }
+                    }
                 }
 
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
@@ -458,11 +492,13 @@ namespace WindowsGame1
             }
             foreach (Camera cam in Camera.CamerasBlockList)
             {
-                cam.Draw(spriteBatch);
+                if(cam.IsActive)
+                    cam.Draw(spriteBatch);
             }
             foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
             {
-                block.Draw(spriteBatch);
+                if(block.IsActive)
+                    block.Draw(spriteBatch);
             }
 
             if (puzzle0 != null)
@@ -508,6 +544,10 @@ namespace WindowsGame1
                         {
                             cam.IncreaseSpotCoordBlockY(1);
                         }
+                        foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+                        {
+                            block.IncreaseCoordBlockX(1);
+                        }
                     }
                 }
             }
@@ -531,6 +571,10 @@ namespace WindowsGame1
                     foreach (Camera cam in Camera.CamerasBlockList)
                     {
                         cam.DecreaseSpotCoordBlockY(speedShow);
+                    }
+                    foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+                    {
+                        block.DecreaseCoordBlockX(1);
                     }
                     player.CheckGravity();
                 }
@@ -643,6 +687,13 @@ namespace WindowsGame1
                             else
                                 cam.IncreaseSpotCoordBlockX((int)player.Speed);
                         }
+                        foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+                        {
+                            if (player.IsJumping)
+                                block.IncreaseCoordBlockX((int)player.SpeedInAir);
+                            else
+                                block.IncreaseCoordBlockX((int)player.Speed);
+                        }
 
                     }
                     else if (key == Keys.Right)
@@ -661,6 +712,13 @@ namespace WindowsGame1
                                 cam.DecreaseSpotCoordBlockX((int)player.SpeedInAir);
                             else
                                 cam.DecreaseSpotCoordBlockX((int)player.Speed);
+                        }
+                        foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+                        {
+                            if (player.IsJumping)
+                                block.DecreaseCoordBlockX((int)player.SpeedInAir);
+                            else
+                                block.DecreaseCoordBlockX((int)player.Speed);
                         }
                     }
                 }
@@ -683,6 +741,13 @@ namespace WindowsGame1
                     cam.DecreaseSpotCoordBlockX(i);
                 else
                     cam.DecreaseSpotCoordBlockX(i);
+            }
+            foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+            {
+                if (player.IsJumping)
+                    block.DecreaseCoordBlockX(i);
+                else
+                    block.DecreaseCoordBlockX(i);
             }
         }
     }

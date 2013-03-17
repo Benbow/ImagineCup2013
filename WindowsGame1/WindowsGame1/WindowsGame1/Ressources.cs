@@ -100,6 +100,7 @@ namespace WindowsGame1
         //ennmy
         public static Texture2D ennemySimple;
         public static Texture2D ennemySprite;
+        public static Texture2D bullet;
 
         //Load Content
         public static void LoadContent(ContentManager Content)
@@ -170,6 +171,8 @@ namespace WindowsGame1
             
             delimiterleftright = Content.Load<Texture2D>("leftright");
             delimiterupdown = Content.Load<Texture2D>("updown");
+
+            bullet = Content.Load<Texture2D>("bullet");
 
             Player = Content.Load<Texture2D>("tile"); // 0
             TextureList.Add(Player);
