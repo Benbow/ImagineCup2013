@@ -125,5 +125,23 @@ namespace WindowsGame1
             get { return this._activate; }
             set { this._activate = value; }
         }
+
+        public float Speed
+        {
+            get { return this._speed; }
+            set { this._speed = value; }
+        }
+
+        public bool Reverse
+        {
+            get { return this._reverse; }
+            set { this._reverse = value; }
+        }
+
+        public bool IsAnimate
+        {
+            get { return this._isAnimate; }
+            set { this._isAnimate = value; }
+        }
     }
 }

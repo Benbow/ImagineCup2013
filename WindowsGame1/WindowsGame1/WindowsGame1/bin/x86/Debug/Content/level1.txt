@@ -1,28 +1,31 @@
 
-0 0 0 1
-0 1990 0 2
-0 0 465 1
+0 0 0 3
+0 2000 0 3
+0 4000 0 3
+0 6000 0 3
+0 8000 0 3
+0 0 2000 3
+0 2000 2000 3
+0 4000 2000 3
+0 6000 2000 3
+0 8000 2000 3
 0 0 0 2
+0 9850 0 2
 
-3 500 300 14 true true 100 1 0 2 12 false 3 2 true false true 13
+9 500 1785 false true 2 210 25 50 12
+9 900 1785 false true 2 150 25 50 12
 
-0 650 300 3
+8 300 1930 false true false 10
+8 500 1930 false true false 10
+8 700 1930 false true false 10
+8 900 1930 false true false 10
+8 1100 1930 false true false 10
 
-4 700 299 false true 7
+0 1300 0 15
 
-5 1300 365 100 100 0 false false 8
+5 1425 1900 100 100 0 false false 8
+1 1425 2000 17 0 1 2 6 2 true true false
 
-6 750 395 true false false true 10 10
+0 1600 100 16
 
-7 1000 445 0 11
-
-8 500 400 false true false 10
-
-8 470 400 false true false 10
-
-8 530 400 false true false 10
-
-1 1500 465 0 0 1 2 2 2 true true false
-
-9 500 250 false true 2 200 25 50 12
 

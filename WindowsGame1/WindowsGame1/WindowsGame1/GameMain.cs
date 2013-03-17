@@ -32,18 +32,19 @@ namespace WindowsGame1
             this.LoadMap();
             
             //// Création Joueur + Carte
-            MyMap = new Map(2000, 480);
+            MyMap = new Map(10000, 2000);
             statut_player = false;
             if (!FirstGame.checkpoint)
             {
-                LocalJekyll = new Jekyll(115, 100);
-                LocalHide = new Hide(115, 100);
+                LocalJekyll = new Jekyll(115, 500);
+                LocalHide = new Hide(115, 500);
             }
             else
             {
                 LocalJekyll = new Jekyll(FirstGame.W/2-72, 100);
                 LocalHide = new Hide(FirstGame.W-72 / 2, 100); 
             }
+            MyMap.SlideY(2000-FirstGame.H+72);
             Status = "on";
 
         }

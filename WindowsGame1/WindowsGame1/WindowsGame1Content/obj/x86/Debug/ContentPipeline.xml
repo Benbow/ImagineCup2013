@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb</Output>
-      <Time>2013-03-15T20:36:12.6689919-04:00</Time>
+      <Time>2013-03-17T15:26:15.7877531-04:00</Time>
     </Item>
     <Item>
       <Source>sol.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\int.xnb</Output>
-      <Time>2013-03-15T20:05:41.030517-04:00</Time>
+      <Time>2013-03-17T15:15:17.4841003-04:00</Time>
     </Item>
     <Item>
       <Source>ennemy.png</Source>
@@ -675,6 +675,33 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bullet.xnb</Output>
       <Time>2013-03-17T13:26:22.8423401-04:00</Time>
+    </Item>
+    <Item>
+      <Source>wallMaison1.png</Source>
+      <Name>wallMaison1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wallMaison1.xnb</Output>
+      <Time>2013-03-17T15:57:22.0364964-04:00</Time>
+    </Item>
+    <Item>
+      <Source>wallMaison2.png</Source>
+      <Name>wallMaison2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wallMaison2.xnb</Output>
+      <Time>2013-03-17T16:06:44.4356638-04:00</Time>
+    </Item>
+    <Item>
+      <Source>elevators.png</Source>
+      <Name>elevators</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\elevators.xnb</Output>
+      <Time>2013-03-17T16:13:51.929115-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

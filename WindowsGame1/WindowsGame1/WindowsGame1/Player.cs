@@ -473,9 +473,31 @@ namespace WindowsGame1
             }
         }
 
-        public void takeElevators(MovableNeutralBlock block)
+        public void takeElevators(MovableNeutralBlock blocks, DelimiterZone down, DelimiterZone up)
         {
-            this._hitBox.Y = block.HitBox.Y - 50 - block.HitBox.Height;
+            if (blocks.Activate)
+            {
+                if (!this._hitBox.Intersects(down.HitBox) || this._hitBox.Intersects(up.HitBox))
+                {
+                    if (blocks.Reverse)
+                    {
+                        int i = (int) -blocks.Speed;
+                        foreach (Blocks block in Blocks.BlockList)
+                        {
+                            block.DecreaseCoordBlockY(i);
+                        }
+                        foreach (Camera cam in Camera.CamerasBlockList)
+                        {
+                            cam.DecreaseSpotCoordBlockY(i);
+                        }
+                        foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+                        {
+                            block.DecreaseCoordBlockY(i);
+                        }
+                    }
+                }
+                this._hitBox.Y = blocks.HitBox.Y - this.HitBox.Height;
+            }
         }
 
         public bool CheckMove()

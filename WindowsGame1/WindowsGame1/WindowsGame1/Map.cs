@@ -153,15 +153,7 @@ namespace WindowsGame1
                     }
                 }
 
-                foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
-                {
-                    Rectangle futurPos = player.HitBox;
-                    futurPos.Y++;
-                    if (futurPos.Intersects(block.HitBox) && block.IsActive)
-                    {
-                        player.takeElevators(block);
-                    }
-                }
+                
 
                 foreach (Camera cam in Camera.CamerasBlockList)
                 {
@@ -450,6 +442,16 @@ namespace WindowsGame1
                     }
                 }
 
+                foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
+                {
+                    Rectangle futurPos = player.HitBox;
+                    futurPos.Y++;
+                    if (futurPos.Intersects(block.HitBox) && block.IsActive)
+                    {
+                        player.takeElevators(block, _downSide, _upSide);
+                    }
+                }
+
             }
             oldKeyboard = keyboard;
             oldPad = pad;
@@ -492,12 +494,12 @@ namespace WindowsGame1
             }
             foreach (Camera cam in Camera.CamerasBlockList)
             {
-                if(cam.IsActive)
+                if (cam.IsActive)
                     cam.Draw(spriteBatch);
             }
             foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
             {
-                if(block.IsActive)
+                if (block.IsActive)
                     block.Draw(spriteBatch);
             }
 
@@ -748,6 +750,26 @@ namespace WindowsGame1
                     block.DecreaseCoordBlockX(i);
                 else
                     block.DecreaseCoordBlockX(i);
+            }
+        }
+
+        public void SlideY(int i)
+        {
+            foreach (Blocks block in Blocks.BlockList)
+            {
+
+                block.DecreaseCoordBlockY(i);
+
+            }
+            foreach (Camera cam in Camera.CamerasBlockList)
+            {
+
+                cam.DecreaseSpotCoordBlockY(i);
+            }
+            foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+            {
+
+                block.DecreaseCoordBlockY(i);
             }
         }
     }

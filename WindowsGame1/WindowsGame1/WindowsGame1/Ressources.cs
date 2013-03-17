@@ -44,6 +44,10 @@ namespace WindowsGame1
         public static Texture2D boxH;
         public static Texture2D menu_bg;
 
+        public static Texture2D wallMaison1;
+        public static Texture2D wallMaison2;
+        public static Texture2D elevator;
+
         public static Texture2D accueil_bg;
         public static Texture2D a_bouton1;
         public static Texture2D a_bouton2;
@@ -204,6 +208,12 @@ namespace WindowsGame1
             TextureList.Add(ennemySimple);
             ennemySprite = Content.Load<Texture2D>("Ennemy Walk"); //14
             TextureList.Add(ennemySprite);
+            wallMaison1 = Content.Load<Texture2D>("wallMaison1"); //15
+            TextureList.Add(wallMaison1);
+            wallMaison2 = Content.Load<Texture2D>("wallMaison2"); //16
+            TextureList.Add(wallMaison2);
+            elevator = Content.Load<Texture2D>("elevators"); //17
+            TextureList.Add(elevator);
         }
     }
 }
