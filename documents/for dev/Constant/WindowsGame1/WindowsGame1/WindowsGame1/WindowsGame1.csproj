@@ -76,6 +76,7 @@
     <Compile Include="BlockOld.cs" />
     <Compile Include="Blocks.cs" />
     <Compile Include="ClimbableBlock.cs" />
+    <Compile Include="Launch.cs" />
     <Compile Include="DelimiterZone.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GUI.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="InteractZoneBlockWithPuzzle.cs" />
     <Compile Include="Jekyll.cs" />
     <Compile Include="Ladder.cs" />
+    <Compile Include="LaunchableBlock.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapOld.cs" />
     <Compile Include="MenuGUI.cs" />

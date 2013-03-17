@@ -29,18 +29,25 @@ namespace WindowsGame1
         protected SpriteEffects Effect;
         protected int Timer;
         protected int TimerAttack;
+        protected int TimerJump;
         protected int TimerMax;
         protected bool _isJumping = false;
+        protected bool _isSpriting = false;
         protected bool _isCrouch = false;
         protected bool _isAttacking = false;
         protected bool _isHiding = false;
         protected bool _beginAttack = false;
         protected bool _hitAttack = false;
         protected bool _endAttack = true;
+        protected bool _beginJump = false;
+        protected bool _Jump = false;
+        protected bool _endJump = true;
+        protected int _countJump = 0;
         protected bool playerMove;
         protected bool _isActiveVision = false;
         protected bool _isActiveObject = false;
         protected bool _canMove = true;
+        protected bool _isThrowing = false;
 
         protected float _speed = 1.5f;
         protected float _poids;
@@ -58,7 +65,6 @@ namespace WindowsGame1
         protected GamePadState oldPad;
 
 
-
         public void Animate()
         {
             this.Timer++;
@@ -73,7 +79,7 @@ namespace WindowsGame1
             }
         }
 
-        public void Attack()
+        public void AttackAnime()
         {
             if (this._isAttacking)
             {
@@ -81,6 +87,7 @@ namespace WindowsGame1
                 this.FrameLine = 1;
                 this.WidthSprite = 70;
                 this._hitBox.Width = 70;
+                this._canMove = false;
 
                 this.TimerAttack++;
                 if (this.TimerAttack == 3)
@@ -102,10 +109,11 @@ namespace WindowsGame1
                         this._hitAttack = false;
                         if (this.FrameColumn < 1)
                         {
-                            this.FrameColumn = 0;
+                            this.FrameColumn = 4;
                             this.FrameAttackSens = true;
                             this._isAttacking = false;
                             this._endAttack = true;
+                            this._canMove = true;
                             this.FrameLine = 0;
                             this.WidthSprite = 42;
                             this._hitBox.Width = 42;
@@ -113,6 +121,69 @@ namespace WindowsGame1
                         }
                     }
                 }
+            }
+        }
+
+        public void JumpAnime()
+        {
+            if (this._isJumping)
+            {
+                /*this._beginJump = false;
+                this._endJump = false;
+                this.FrameLine = 2;
+                this.WidthSprite = 48;
+                this._hitBox.Width = 48;
+
+                this.TimerJump++;
+                if (this.TimerJump == 3)
+                {
+                    this.TimerJump = 0;
+                    if (this.FrameColumn < 3)
+                    {
+                        this.FrameColumn++;
+                        this._Jump = true;
+                    }
+
+                    this._countJump++;
+                    int check = 0;
+
+                    switch (this._accelMode)
+                    {
+                        case 1:
+                            check = 22;
+                            break;
+                        case 2:
+                            check = 4;
+                            break;
+                        case 3:
+                            check = 2;
+                            break;
+                    }
+
+                    if (this._countJump >= check)
+                    {
+                        if(this.FrameColumn < 4)
+                            this.FrameColumn++;
+                        this._Jump = false;
+                    }
+
+                    if (this.FrameColumn == 4 && !this._Jump)
+                    {
+                        this._endJump = true;
+                        this._countJump = 0;
+                        this.FrameColumn = 0;
+                        this.FrameLine = 0;
+                        this.WidthSprite = 42;
+                        this._hitBox.Width = 42;
+                    }
+
+                }*/
+
+
+                this.WidthSprite = 48;
+                this._hitBox.Width = 48;
+                this.FrameColumn = 2;
+                this.FrameLine = 2;
             }
         }
 
@@ -182,18 +253,18 @@ namespace WindowsGame1
             if(!this._isFalling && this._statut)
             {
                 this._isJumping = true;
-                this.FrameColumn = 2;
-                this.FrameLine = 2;
                 this._fallingSpeed -= this._impulsion;
             }
         }
 
         public void BlockPLayer()
         {
-            if (!this._isAttacking)
+            if (!this._isAttacking && !this._isJumping && this._statut)
             {
                 this.FrameColumn = 4;
                 this.FrameLine = 0;
+                this._hitBox.Width = 42;
+                this.WidthSprite = 42;
             }
             if (this._beginAttack)
             {
@@ -204,6 +275,7 @@ namespace WindowsGame1
             this._dir = Vector2.Zero;
             this.Timer = 0;
             this.playerMove = false;
+            this._isSpriting = false;
         }
 
         public void CheckGravity()
@@ -273,11 +345,7 @@ namespace WindowsGame1
                             this._fallingSpeed += 0.15f*(this._poids/4);
                         else
                             this._fallingSpeed += 0.10f*(this._poids/4);
-                        if (this._isJumping)
-                        {
-                            this.FrameColumn = 0;
-                            this.FrameLine = 1;
-                        }
+
                         this._isFalling = true;
                         int diff = this._hitBox.Y - futurPos.Y;
                         this._hitBox.Y -= diff;
@@ -288,11 +356,7 @@ namespace WindowsGame1
                             this._fallingSpeed += 0.15f*(this._poids/4);
                         else
                             this._fallingSpeed += 0.10f*(this._poids/4);
-                        if (this._isJumping)
-                        {
-                            this.FrameColumn = 0;
-                            this.FrameLine = 1;
-                        }
+
                         this._isFalling = true;
                         foreach (Blocks block in Blocks.BlockList)
                         {
@@ -361,12 +425,6 @@ namespace WindowsGame1
                         this._impulsion = 0f;
                         this.TimerMax = 6;
                         break;
-
-                    case 3:
-                        this._speedInAir = 0f;
-                        this._impulsion = 0f;
-                        this.TimerMax = 5;
-                        break;
                 }
             }
         }
@@ -425,7 +483,7 @@ namespace WindowsGame1
                 if (this._isCrouch)
                 {
                     this._hitBox.Y -= this._hitBox.Height + 1;
-                    this._hitBox.Height = Ressources.Jekyll.Height;
+                    this._hitBox.Height = Ressources.Jekyll.Height /2;
                     this._isCrouch = false;
                 }
             }
@@ -451,6 +509,18 @@ namespace WindowsGame1
                 block.Health -= this._strength;
                 if (block.Health <= 0)
                     block.IsActive = false;
+            }
+        }
+
+        /**
+         * Fonctions pour lancer un objet pour Jekyll
+         */
+
+        public void throwItem(Launch cible, GamePadState pad)
+        {
+            if (this._isThrowing)
+            {
+                cible.CiblePos(this._hitBox.X, this._hitBox.Y, pad);
             }
         }
 
@@ -606,6 +676,36 @@ namespace WindowsGame1
         {
             get { return this._isHiding; }
             set { this._isHiding = value; }
+        }
+
+        public bool IsSpriting
+        {
+            get { return this._isSpriting; }
+            set { this._isSpriting = value; }
+        }
+
+        public bool BeginJump
+        {
+            get { return this._beginJump; }
+            set { this._beginJump = value; }
+        }
+
+        public bool Jump
+        {
+            get { return this._Jump; }
+            set { this._Jump = value; }
+        }
+
+        public bool EndJump
+        {
+            get { return this._endJump; }
+            set { this._endJump = value; }
+        }
+
+        public bool IsThrowing
+        {
+            get { return this._isThrowing; }
+            set { this._isThrowing = value; }
         }
 
         

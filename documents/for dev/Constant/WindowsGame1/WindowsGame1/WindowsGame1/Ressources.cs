@@ -61,6 +61,7 @@ namespace WindowsGame1
         public static Texture2D h_cmp4;
         public static Texture2D h_cmp5;
         public static Texture2D current2;
+        public static Texture2D cible;
 
 
         public static Texture2D delimiterleftright;
@@ -102,6 +103,7 @@ namespace WindowsGame1
             h_cmp4 = Content.Load<Texture2D>("h_cmp4");
             h_cmp5 = Content.Load<Texture2D>("h_cmp5");
             current2 = Content.Load<Texture2D>("current2");
+            cible = Content.Load<Texture2D>("cible");
 
             
             delimiterleftright = Content.Load<Texture2D>("leftright");

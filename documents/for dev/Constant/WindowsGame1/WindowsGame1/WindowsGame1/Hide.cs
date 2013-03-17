@@ -60,6 +60,11 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            Console.WriteLine(FrameColumn);
+            Console.WriteLine(WidthSprite);
+            Console.WriteLine(FrameLine);
+            Console.WriteLine(HeightSprite);
+            Console.WriteLine("---------------------------");
             spriteBatch.Draw(this._text, this._hitBox, new Rectangle((this.FrameColumn * WidthSprite), (this.FrameLine * HeightSprite), WidthSprite, HeightSprite), Color.White, 0f, new Vector2(0, 0), this.Effect, 0f);
         }
 

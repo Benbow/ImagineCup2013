@@ -28,6 +28,7 @@ namespace WindowsGame1
         int showCount = 0;
         int showTimer = 0;
         Puzzle puzzle = null;
+        public Launch cible = new Launch(0,0,Direction.Right);
 
         int accelTimer;
 
@@ -76,7 +77,8 @@ namespace WindowsGame1
 
                 futurePos = player.HitBox;
 
-                player.CheckMove();
+                if(!player.IsAttacking)
+                    player.CheckMove();
                 // Animation des blocs mouvants
                 foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
                 {
@@ -99,7 +101,7 @@ namespace WindowsGame1
                 }
                 else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
                 {
-                    if (player.CanMove)
+                    if (player.CanMove && player.EndAttack)
                     {
                         this.SetPlayerAccelMode(gameTime, player);
                         this.Move(Keys.Left, player);
@@ -107,7 +109,7 @@ namespace WindowsGame1
                 }
                 else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                 {
-                    if (player.CanMove)
+                    if (player.CanMove && player.EndAttack)
                     {
                         this.SetPlayerAccelMode(gameTime, player);
                         this.Move(Keys.Right, player);
@@ -202,7 +204,7 @@ namespace WindowsGame1
 
                 if (pad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A) && !player.IsJumping)
                 {
-                    if (player.Statut)
+                    if (player.Statut && player.EndAttack)
                     {
                         if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
                             jumpInitKey = Keys.Left;
@@ -250,33 +252,17 @@ namespace WindowsGame1
                     player.IsActiveVision = !player.IsActiveVision;
                 }
 
-                if (player.IsAttacking)
+
+                if ((pad.IsButtonDown(Buttons.RightTrigger) || pad.IsButtonDown(Buttons.LeftTrigger)) && oldPad.IsButtonUp(Buttons.RightTrigger) && oldPad.IsButtonUp(Buttons.LeftTrigger))
                 {
-                    player.Attack();
-                    player.BlockPLayer();
+                    player.Speed = 5;
+                    player.IsSpriting = true;
+                }
 
-                    if (player.DirectionPlayer == Direction.Left)
-                    {
-                        futurePos.X -= 14;
-                    }
-                    else if (player.DirectionPlayer == Direction.Right)
-                    {
-                        futurePos.X += 14;
-                    }
-
-                    /*
-                     * Test de collision quand on attaque sur les blocs grimpable
-                     */
-                    foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
-                    {
-                        if (block.HitBox.Intersects(futurePos))
-                        {
-                            if (block.IsBreakable && player.HitAttack)
-                            {
-                                player.destroy(block);
-                            }
-                        }
-                    }
+                if (player.IsSpriting && pad.IsButtonUp(Buttons.RightTrigger) && pad.IsButtonUp(Buttons.LeftTrigger))
+                {
+                    player.Speed = 3;
+                    player.IsSpriting = false;
                 }
 
                 if (pad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B))
@@ -302,6 +288,42 @@ namespace WindowsGame1
                     }
                 }
 
+
+                if (pad.IsButtonDown(Buttons.Y) && oldPad.IsButtonUp(Buttons.Y))
+                {
+                    if (!player.Statut)
+                    {
+                        player.IsActiveObject = !player.IsActiveObject;
+                    }
+                }
+
+
+                if (pad.IsButtonDown(Buttons.X) && oldPad.IsButtonUp(Buttons.X))
+                {
+                    if (!player.Statut)
+                    {
+                        if (!player.IsThrowing)
+                        {
+                            if (player.DirectionPlayer == Direction.Left)
+                                cible = new Launch((player.HitBox.X - 50), (player.HitBox.Y + 56), Direction.Left);
+                            else if (player.DirectionPlayer == Direction.Right)
+                                cible = new Launch((player.HitBox.X + 50), (player.HitBox.Y + 56), Direction.Right);
+
+                            player.IsThrowing = true;
+                            player.BlockPLayer();
+                            player.CanMove = false;
+                        }
+                        else
+                        {
+                            player.IsThrowing = false;
+                            cible.IsItemThrow = true;
+                        }
+                    }
+                }
+
+                /**
+                 * Statut des actions
+                 */
                 if (player.IsHiding)
                 {
                     foreach (HidingBlock block in HidingBlock.HidingBlockList)
@@ -313,12 +335,46 @@ namespace WindowsGame1
                     }
                 }
 
-                if (pad.IsButtonDown(Buttons.Y) && oldPad.IsButtonUp(Buttons.Y))
+                if (player.IsAttacking)
                 {
-                    if (!player.Statut)
+                    player.AttackAnime();
+                    player.Speed = 0;
+
+                    if (player.DirectionPlayer == Direction.Left)
                     {
-                        player.IsActiveObject = !player.IsActiveObject;
+                        futurePos.X -= 14;
                     }
+                    else if (player.DirectionPlayer == Direction.Right)
+                    {
+                        futurePos.X += 14;
+                    }
+
+                    /*
+                     * Test de collision quand on attaque sur les blocs grimpable
+                     */
+                    foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                    {
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            if (block.IsBreakable && player.HitAttack)
+                            {
+                                player.destroy(block);
+                            }
+                        }
+                    }
+                }
+
+                if (player.IsJumping)
+                {
+                    player.JumpAnime();
+                }
+
+                if (player.IsThrowing)
+                {
+                    player.BlockPLayer();
+                    player.CanMove = false;
+                    player.Speed = 0;
+                    player.throwItem(cible, pad);
                 }
 
             }
@@ -356,6 +412,18 @@ namespace WindowsGame1
                     }
                 }
             }
+
+            if (player.IsThrowing)
+            {
+                spriteBatch.Draw(cible.Texture, cible.HitBox, Color.White);
+            }
+
+            if (cible.IsItemThrow)
+            {
+                spriteBatch.Draw(Ressources.TextureList[0], cible.ItemBox, Color.White);
+                cible.CheckMove();
+            }
+
             if (puzzle != null)
             {
                 puzzle.Draw(spriteBatch);
@@ -364,20 +432,40 @@ namespace WindowsGame1
 
         public void SetPlayerAccelMode(GameTime gameTime, Player player)
         {
-            if (!player.IsJumping && player.Speed <= 5)
-                player.Speed += 0.01f;
+            if (player.Statut)
+            {
+                if (!player.IsJumping && !player.IsAttacking && player.CanMove && player.Speed <= 3)
+                    player.Speed += 0.01f;
 
-            if (player.Speed <= 2)
-            {
-                player.AccelMode = 1;
+
+                if (player.Speed <= 2)
+                {
+                    player.AccelMode = 1;
+                }
+                else if (player.Speed > 2 && player.Speed <= 3.1f)
+                {
+                    player.AccelMode = 2;
+                }
+                else if (player.Speed == 5)
+                {
+                    player.AccelMode = 3;
+                }
             }
-            else if (player.Speed > 2 && player.Speed <= 4)
+            else
             {
-                player.AccelMode = 2;
-            }
-            else if (player.Speed > 4)
-            {
-                player.AccelMode = 3;
+                if (player.CanMove && player.Speed <= 3)
+                    player.Speed += 0.01f;
+
+
+                if (player.Speed <= 2)
+                {
+                    player.AccelMode = 1;
+                }
+                else if (player.Speed > 2 && player.Speed <= 3)
+                {
+                    player.AccelMode = 2;
+                }
+                
             }
         }
 
@@ -464,25 +552,23 @@ namespace WindowsGame1
                     }
                 }
             }
-            if (blockMove)
+            foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
             {
-                foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
+                if (block.IsCollidable && block.IsActive)
                 {
-                    if (block.IsCollidable && block.IsActive)
+                    if (block.HitBox.Intersects(futurePos))
                     {
-                        if (block.HitBox.Intersects(futurePos))
-                        {
-                            if (player.FallingSpeed < 0 && player.AccelMode != 1)
-                                player.FallingSpeed = 0;
-                            blockMove = false;
-                            player.AccelMode = 1;
-                            accelTimer = 0;
+                        if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                            player.FallingSpeed = 0;
+                        blockMove = false;
+                        player.AccelMode = 1;
+                        accelTimer = 0;
 
-                            break;
-                        }
+                        break;
                     }
                 }
             }
+
             if (blockMove)
             {
                 playerMove = false;
