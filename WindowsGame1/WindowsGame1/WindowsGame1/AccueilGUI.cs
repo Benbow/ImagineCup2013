@@ -28,12 +28,13 @@ namespace WindowsGame1
         {
             _bg = new Rectangle(0, 0, FirstGame.W, FirstGame.H);
             _text = Ressources.accueil_bg;
+            //bouton1 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 472, (FirstGame.H / 2) - (80 / 2) - 53, bouton1_text.Width, bouton1_text.Height);
+            //bouton2 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 325, (FirstGame.H / 2) - (80 / 2) + 67, bouton2_text.Width, bouton2_text.Height);
+            //bouton3 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 523, (FirstGame.H / 2) - (80 / 2) + 187, bouton3_text.Width, bouton3_text.Height);
+            
             bouton1_text = Ressources.a_bouton1;
             bouton2_text = Ressources.a_bouton2;
             bouton3_text = Ressources.a_bouton3;
-            bouton1 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 472, (FirstGame.H / 2) - (80 / 2) - 53, bouton1_text.Width, bouton1_text.Height);
-            bouton2 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 325, (FirstGame.H / 2) - (80 / 2) + 67, bouton2_text.Width, bouton2_text.Height);
-            bouton3 = new Rectangle((FirstGame.W / 2) - (350 / 2) + 523, (FirstGame.H / 2) - (80 / 2) + 187, bouton3_text.Width, bouton3_text.Height);
             current = 1;
             current_text = Ressources.menu_current;
             current_rec = new Rectangle(bouton1.X, bouton1.Y, bouton1_text.Width, bouton1_text.Height);
@@ -48,15 +49,15 @@ namespace WindowsGame1
             switch (current)
             {
                 case 1:
-                    current_rec = new Rectangle(bouton1.X, bouton1.Y, bouton1_text.Width, bouton1_text.Height);
+                    current_rec = new Rectangle(bouton1.X-72, bouton1.Y, FirstGame.W, FirstGame.H);
                     spriteBatch.Draw(this.bouton1_text, this.current_rec, Color.White);
                     break;
                 case 2:
-                    current_rec = new Rectangle(bouton2.X, bouton2.Y, bouton2_text.Width, bouton2_text.Height);
+                    current_rec = new Rectangle(bouton2.X - 72, bouton2.Y, FirstGame.W, FirstGame.H);
                     spriteBatch.Draw(this.bouton2_text, this.current_rec, Color.White);
                     break;
                 case 3:
-                    current_rec = new Rectangle(bouton3.X, bouton3.Y, bouton3_text.Width, bouton3_text.Height);
+                    current_rec = new Rectangle(bouton3.X - 72, bouton3.Y, FirstGame.W, FirstGame.H);
                     spriteBatch.Draw(this.bouton3_text, this.current_rec, Color.White);
                     break;
 

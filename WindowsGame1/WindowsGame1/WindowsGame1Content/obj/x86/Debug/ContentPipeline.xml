@@ -629,7 +629,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Credits.xnb</Output>
-      <Time>2013-03-16T16:24:33.8009544-04:00</Time>
+      <Time>2013-03-16T20:02:03.7593694-04:00</Time>
     </Item>
     <Item>
       <Source>Exit.png</Source>
@@ -638,7 +638,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Exit.xnb</Output>
-      <Time>2013-03-16T16:24:37.080142-04:00</Time>
+      <Time>2013-03-16T20:02:03.7603694-04:00</Time>
     </Item>
     <Item>
       <Source>Play.png</Source>
@@ -647,7 +647,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Play.xnb</Output>
-      <Time>2013-03-16T16:24:39.7672957-04:00</Time>
+      <Time>2013-03-16T20:02:03.7643696-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

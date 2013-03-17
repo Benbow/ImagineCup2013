@@ -153,7 +153,6 @@ namespace WindowsGame1
                 {
                     this.coeff += 1;
                     this.rotation += 0.01f * this._speed;
-                    Console.WriteLine(coeff + " " + verify);
                     if (coeff == 0 || coeff == verify - 1)
                     {
                         changeSide = !changeSide;
