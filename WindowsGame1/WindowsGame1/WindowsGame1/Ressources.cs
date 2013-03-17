@@ -43,7 +43,11 @@ namespace WindowsGame1
         public static Texture2D box;
         public static Texture2D boxH;
         public static Texture2D menu_bg;
+
         public static Texture2D accueil_bg;
+        public static Texture2D a_bouton1;
+        public static Texture2D a_bouton2;
+        public static Texture2D a_bouton3;
 
         //home
         public static Texture2D menu_bouton1;
@@ -97,6 +101,10 @@ namespace WindowsGame1
         public static void LoadContent(ContentManager Content)
         {
             accueil_bg = Content.Load<Texture2D>("accueil");
+            a_bouton1 = Content.Load<Texture2D>("Play");
+            a_bouton2 = Content.Load<Texture2D>("Credits");
+            a_bouton3 = Content.Load<Texture2D>("Exit");
+            
 
             font1 = Content.Load<SpriteFont>("SpriteFont1");
             cmpTitle = Content.Load<SpriteFont>("cmpTitle");

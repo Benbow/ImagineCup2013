@@ -611,7 +611,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\spot.xnb</Output>
-      <Time>2013-03-16T12:41:04.7551864-04:00</Time>
+      <Time>2013-03-16T16:16:58.155893-04:00</Time>
     </Item>
     <Item>
       <Source>camera.png</Source>
@@ -620,7 +620,34 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\camera.xnb</Output>
-      <Time>2013-03-16T12:48:38.6218436-04:00</Time>
+      <Time>2013-03-16T16:16:58.1468925-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Credits.png</Source>
+      <Name>Credits</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Credits.xnb</Output>
+      <Time>2013-03-16T16:24:33.8009544-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Exit.png</Source>
+      <Name>Exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Exit.xnb</Output>
+      <Time>2013-03-16T16:24:37.080142-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Play.png</Source>
+      <Name>Play</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Play.xnb</Output>
+      <Time>2013-03-16T16:24:39.7672957-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

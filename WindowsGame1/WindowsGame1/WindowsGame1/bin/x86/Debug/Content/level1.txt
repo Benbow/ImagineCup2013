@@ -19,4 +19,4 @@
 
 1 500 500 0 1 0 4 5 2 true false false
 
-9 500 250 false true 1 2 1 50 12
+9 500 250 false true 2 200 25 50 12

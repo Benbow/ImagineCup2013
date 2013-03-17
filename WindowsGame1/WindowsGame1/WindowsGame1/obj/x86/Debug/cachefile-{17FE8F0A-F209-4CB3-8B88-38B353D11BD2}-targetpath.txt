@@ -67,3 +67,6 @@ Content\puzzle0.xnb
 Content\win.xnb
 Content\spot.xnb
 Content\camera.xnb
+Content\Credits.xnb
+Content\Exit.xnb
+Content\Play.xnb
