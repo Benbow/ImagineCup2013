@@ -49,15 +49,15 @@ namespace WindowsGame1
             switch (current)
             {
                 case 1:
-                    current_rec = new Rectangle(bouton1.X-72, bouton1.Y, FirstGame.W, FirstGame.H);
+                    current_rec = new Rectangle(bouton1.X, bouton1.Y, FirstGame.W, FirstGame.H);
                     spriteBatch.Draw(this.bouton1_text, this.current_rec, Color.White);
                     break;
                 case 2:
-                    current_rec = new Rectangle(bouton2.X - 72, bouton2.Y, FirstGame.W, FirstGame.H);
+                    current_rec = new Rectangle(bouton2.X, bouton2.Y, FirstGame.W, FirstGame.H);
                     spriteBatch.Draw(this.bouton2_text, this.current_rec, Color.White);
                     break;
                 case 3:
-                    current_rec = new Rectangle(bouton3.X - 72, bouton3.Y, FirstGame.W, FirstGame.H);
+                    current_rec = new Rectangle(bouton3.X, bouton3.Y, FirstGame.W, FirstGame.H);
                     spriteBatch.Draw(this.bouton3_text, this.current_rec, Color.White);
                     break;
 

@@ -440,7 +440,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\accueil.xnb</Output>
-      <Time>2013-03-15T20:26:17.7753298-04:00</Time>
+      <Time>2013-03-17T13:03:05.1593973-04:00</Time>
     </Item>
     <Item>
       <Source>hide_punch.png</Source>
@@ -629,7 +629,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Credits.xnb</Output>
-      <Time>2013-03-16T20:02:03.7593694-04:00</Time>
+      <Time>2013-03-17T13:03:05.1183949-04:00</Time>
     </Item>
     <Item>
       <Source>Exit.png</Source>
@@ -638,7 +638,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Exit.xnb</Output>
-      <Time>2013-03-16T20:02:03.7603694-04:00</Time>
+      <Time>2013-03-17T13:03:05.1213951-04:00</Time>
     </Item>
     <Item>
       <Source>Play.png</Source>
@@ -647,7 +647,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Play.xnb</Output>
-      <Time>2013-03-16T20:02:03.7643696-04:00</Time>
+      <Time>2013-03-17T13:03:05.1233952-04:00</Time>
     </Item>
     <Item>
       <Source>enemy attack.png</Source>
@@ -656,7 +656,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemy attack.xnb</Output>
-      <Time>2013-03-17T10:51:16.5940532-04:00</Time>
+      <Time>2013-03-17T13:03:07.6705409-04:00</Time>
     </Item>
     <Item>
       <Source>Ennemy Walk.PNG</Source>
@@ -665,7 +665,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Ennemy Walk.xnb</Output>
-      <Time>2013-03-17T12:05:42.5744927-04:00</Time>
+      <Time>2013-03-17T13:03:07.6645405-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
