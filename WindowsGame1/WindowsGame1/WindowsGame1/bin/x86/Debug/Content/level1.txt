@@ -15,8 +15,10 @@
 
 7 1000 445 0 11
 
-8 800 400 false true false 10
+8 500 400 false true false 10
 
-1 500 500 0 1 0 4 5 2 true false false
+8 470 400 false true false 10
 
-9 500 250 false true 2 200 25 50 12
+8 530 400 false true false 10
+
+1 1500 465 0 0 1 2 2 2 true true false

@@ -57,8 +57,7 @@ namespace WindowsGame1
             {
                 if (player.GetType() == typeof(Jekyll))
                 {
-                    foreach (InteractZoneBlockWithPuzzle interBlock in InteractZoneBlockWithPuzzle.InteractZoneBlockList
-                        )
+                    foreach (InteractZoneBlockWithPuzzle interBlock in InteractZoneBlockWithPuzzle.InteractZoneBlockList)
                     {
                         if (player.HitBox.Intersects(interBlock.HitBox))
                         {
@@ -82,6 +81,11 @@ namespace WindowsGame1
                                 if (puzzle0 != null && !puzzle0.Status)
                                 {
                                     interBlock.IsActivate = false;
+                                    if (puzzle0.Success)
+                                    {
+                                        MovableNeutralBlock.MovableNeutralList[0].Activate = true;
+                                    }
+
                                     puzzle0 = null;
                                     puzzle1 = null;
                                     GameMain.Status = "on";
@@ -125,6 +129,17 @@ namespace WindowsGame1
                     }
                 }
 
+                foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
+                {
+                    Rectangle futurPos = player.HitBox;
+                    futurPos.Y++;
+                    if (futurPos.Intersects(block.HitBox) && block.IsActive)
+                    {
+                        Console.WriteLine("TRUE");
+                        player.takeElevators(block);
+                    }
+                }
+
                 foreach (Camera cam in Camera.CamerasBlockList)
                 {
                     cam.Update(gameTime);
@@ -133,7 +148,8 @@ namespace WindowsGame1
                         FirstGame.reload = true;
                     }
                 }
-                
+
+
                 //Déplacements joueurs/cartes
 
                 if (pad.IsButtonUp(Buttons.LeftThumbstickLeft) && pad.IsButtonUp(Buttons.LeftThumbstickRight) && !player.IsJumping)
@@ -404,7 +420,7 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
-            
+
 
             foreach (Blocks block in Blocks.BlockList)
             {
@@ -435,7 +451,7 @@ namespace WindowsGame1
                     }
                 }
 
-                
+
             }
             foreach (Camera cam in Camera.CamerasBlockList)
             {

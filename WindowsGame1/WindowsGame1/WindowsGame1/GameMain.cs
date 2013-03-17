@@ -191,9 +191,9 @@ namespace WindowsGame1
                         float waitT = Convert.ToSingle(words[8]);
                         bool anim = Convert.ToBoolean(words[9]);
                         bool reverse = Convert.ToBoolean(words[10]);
-                        bool gravity = Convert.ToBoolean(words[11]);
+                        bool activate = Convert.ToBoolean(words[11]);
 
-                        new MovableNeutralBlock(x, y, text, vec, speed, animT, waitT, anim, reverse, gravity);
+                        new MovableNeutralBlock(x, y, text, vec, speed, animT, waitT, anim, reverse, activate);
                     }
                     else if (words.Length == 15) // complet
                     {
@@ -212,9 +212,9 @@ namespace WindowsGame1
                         float waitT = Convert.ToSingle(words[11]);
                         bool anim = Convert.ToBoolean(words[12]);
                         bool reverse = Convert.ToBoolean(words[13]);
-                        bool gravity = Convert.ToBoolean(words[14]);
+                        bool activate = Convert.ToBoolean(words[14]);
 
-                        new MovableNeutralBlock(x, y, text, breakable, colidable, health, vec, speed, animT, waitT, anim, reverse, gravity);
+                        new MovableNeutralBlock(x, y, text, breakable, colidable, health, vec, speed, animT, waitT, anim, reverse, activate);
                     }
 
                 }

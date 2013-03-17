@@ -999,5 +999,11 @@ namespace WindowsGame1
             get { return this.status; }
             set { this.status = value; }
         }
+
+        public bool Success
+        {
+            get { return this.success; }
+            set { this.success = value; }
+        }
     }
 }

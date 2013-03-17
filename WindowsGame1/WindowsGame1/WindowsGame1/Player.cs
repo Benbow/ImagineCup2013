@@ -244,6 +244,19 @@ namespace WindowsGame1
                 }
             }
 
+            foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
+            {
+                if (futurPos.Intersects(block.HitBox) && block.IsActive)
+                {
+                    colide = true;
+                    if (this._fallingSpeed > 0 || this._lookUpDownPhase)
+                    {
+                        this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
+                    }
+                    break;
+                }
+            }
+
             if (!colide)
             {
                 bool lad = false;
@@ -458,6 +471,12 @@ namespace WindowsGame1
                 if (block.Health <= 0)
                     block.IsActive = false;
             }
+        }
+
+        public void takeElevators(MovableNeutralBlock block)
+        {
+            //Console.WriteLine(bl);
+            this._hitBox.Y = block.HitBox.Y - 50 - block.HitBox.Height;
         }
 
         public bool CheckMove()
