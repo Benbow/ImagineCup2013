@@ -34,8 +34,16 @@ namespace WindowsGame1
             //// Création Joueur + Carte
             MyMap = new Map(2000, 480);
             statut_player = false;
-            LocalJekyll = new Jekyll(115, 100);
-            LocalHide = new Hide(115, 100);
+            if (!FirstGame.checkpoint)
+            {
+                LocalJekyll = new Jekyll(115, 100);
+                LocalHide = new Hide(115, 100);
+            }
+            else
+            {
+                LocalJekyll = new Jekyll(FirstGame.W/2-72, 100);
+                LocalHide = new Hide(FirstGame.W-72 / 2, 100); 
+            }
             Status = "on";
 
         }

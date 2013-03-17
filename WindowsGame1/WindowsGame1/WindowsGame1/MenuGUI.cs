@@ -135,6 +135,22 @@ namespace WindowsGame1
             current_text = Ressources.menu_current;
             current_rec = new Rectangle(bouton1.X - 10, bouton1.Y - 10, 370, 100);
             status = "home";
+
+            //if (FirstGame.checkpoint)
+            //{
+            //    j_cmp1_status = true;
+            //    j_cmp2_status = true;
+            //    j_cmp3_status = true;
+            //    j_cmp4_status = true;
+            //    j_cmp5_status = false;
+            //    h_cmp1_status = true;
+            //    h_cmp2_status = true;
+            //    h_cmp3_status = true;
+            //    h_cmp4_status = true;
+            //    h_cmp5_status = false;
+            //    _hbias = 0;
+            //    _jbias = 5;
+            //}
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -31,6 +31,8 @@ namespace WindowsGame1
         Puzzle0 puzzle0 = null;
         Puzzle1 puzzle1 = null;
 
+        bool slide = false;
+
         int accelTimer;
 
         public Map(int x, int y)
@@ -45,6 +47,12 @@ namespace WindowsGame1
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
         {
+            if (FirstGame.checkpoint && !slide)
+            {
+                this.Slide(600, player);
+                slide = true;
+            }
+
             if (GameMain.Status != "inventory")
             {
                 if (player.GetType() == typeof(Jekyll))
@@ -632,6 +640,25 @@ namespace WindowsGame1
                         }
                     }
                 }
+            }
+        }
+
+
+        public void Slide(int i, Player player)
+        {
+            foreach (Blocks block in Blocks.BlockList)
+            {
+                if (player.IsJumping)
+                    block.DecreaseCoordBlockX(i);
+                else
+                    block.DecreaseCoordBlockX(i);
+            }
+            foreach (Camera cam in Camera.CamerasBlockList)
+            {
+                if (player.IsJumping)
+                    cam.DecreaseSpotCoordBlockX(i);
+                else
+                    cam.DecreaseSpotCoordBlockX(i);
             }
         }
     }

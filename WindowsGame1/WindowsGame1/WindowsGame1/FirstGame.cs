@@ -21,6 +21,7 @@ namespace WindowsGame1
         public static bool start = false;
         public static bool exit = false;
         public static bool reload = false;
+        public static bool checkpoint = false;
         public static int W;
         public static int H;
 
@@ -106,7 +107,7 @@ namespace WindowsGame1
             MovableEnnemyBlock.MovableEnnemyList.Clear();
             MovableNeutralBlock.MovableNeutralList.Clear();
             Puzzle.PuzzleList.Clear();
-
+            StaticNeutralBlock.StaticNeutralList.Clear();
             Main = new GameMain();
             reload = false;
         }
