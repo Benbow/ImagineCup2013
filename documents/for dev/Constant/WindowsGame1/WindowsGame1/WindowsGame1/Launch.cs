@@ -19,7 +19,8 @@ namespace WindowsGame1
         private Rectangle ob;
         private float _fspeed = 0;
         private float _speedInAir = 0;
-        private Direction sens;
+        private int _vit = 0;
+        public Direction sens;
 
         private bool _isItemThrow = false;
 
@@ -108,17 +109,16 @@ namespace WindowsGame1
                     this._fspeed += 0.15f*(5/4);
                 else
                     this._fspeed += 0.10f*(5/4);
-                
 
                 if (sens == Direction.Left)
                 {
                     if(ob.X > _cible.X)
-                        this.ob.X--;
+                        this.ob.X -= _vit;
                 }
                 else if (sens == Direction.Right)
                 {
                     if (ob.X < _cible.X)
-                        this.ob.X++;
+                        this.ob.X += _vit;
                 }
 
                 int diff = this.ob.Y - futurPos.Y;
@@ -127,6 +127,7 @@ namespace WindowsGame1
             else
             {
                 this._fspeed = 0;
+                this._isItemThrow = false;
             }
         }
 
@@ -164,6 +165,12 @@ namespace WindowsGame1
         {
             get { return _speedInAir; }
             set { _speedInAir = value; }
+        }
+
+        public int Vitesse
+        {
+            get { return _vit; }
+            set { _vit = value; }
         }
     }
 }

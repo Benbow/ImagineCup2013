@@ -316,6 +316,42 @@ namespace WindowsGame1
                         else
                         {
                             player.IsThrowing = false;
+                            if (cible.sens == Direction.Left)
+                            {
+                                int distance = player.HitBox.X - cible.HitBox.X;
+                                Console.WriteLine(distance);
+                                if (distance <= 200)
+                                    cible.Vitesse = 1;
+                                else
+                                {
+                                    cible.Vitesse = 2;
+                                }
+
+                                cible.FSpeed = -5;
+
+                            }
+                            else if (cible.sens == Direction.Right)
+                            {
+                                int distance = cible.HitBox.X - player.HitBox.X;
+                                int ratio = 0;
+                                if (distance <= 100)
+                                {
+                                    cible.Vitesse = 1;
+                                    ratio = 3;
+                                }
+                                else if (distance > 100 && distance <= 300)
+                                {
+                                    cible.Vitesse = 2;
+                                    ratio = 2;
+                                }
+                                else if (distance > 300 && distance <= 410)
+                                    cible.Vitesse = 3;
+
+
+                                cible.FSpeed = distance * 8f / 400 * -1 - ratio;
+                                Console.WriteLine(distance);
+                                Console.WriteLine(cible.FSpeed);
+                            }
                             cible.IsItemThrow = true;
                         }
                     }
