@@ -97,7 +97,6 @@ namespace WindowsGame1
             {
 
                 futurePos = player.HitBox;
-
                 player.CheckMove();
                 // Animation des blocs mouvants
                 foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
@@ -121,7 +120,12 @@ namespace WindowsGame1
                 foreach (Camera cam in Camera.CamerasBlockList)
                 {
                     cam.Update(gameTime);
+                    if (!player.Statut && !player.IsHiding && player.HitBox.Intersects(cam.Spot_rec))
+                    {
+                        FirstGame.reload = true;
+                    }
                 }
+                
                 //Déplacements joueurs/cartes
 
                 if (pad.IsButtonUp(Buttons.LeftThumbstickLeft) && pad.IsButtonUp(Buttons.LeftThumbstickRight) && !player.IsJumping)

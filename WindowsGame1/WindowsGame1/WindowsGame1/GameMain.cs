@@ -21,8 +21,6 @@ namespace WindowsGame1
         Jekyll LocalJekyll;
         Hide LocalHide;
         AlignementGUI alignement = new AlignementGUI(50, 30);
-        Puzzle0 puzzle = new Puzzle0();
-        Puzzle1 puzzle1 = new Puzzle1();
         MenuGUI menu = new MenuGUI();
         InventoryGUI inventory = new InventoryGUI();
         

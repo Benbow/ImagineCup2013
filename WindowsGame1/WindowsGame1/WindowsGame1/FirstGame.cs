@@ -20,9 +20,9 @@ namespace WindowsGame1
 
         public static bool start = false;
         public static bool exit = false;
+        public static bool reload = false;
         public static int W;
         public static int H;
-
 
         GameMain Main;
         AccueilGUI Accueil;
@@ -65,8 +65,14 @@ namespace WindowsGame1
                 this.Exit();
             if(exit)
                 this.Exit();
-            if(start)
+            if (start)
+            {
+                if (reload)
+                {
+                    this.Reload();
+                }
                 Main.Update(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One), Mouse.GetState(), gameTime);
+            }
             else
                 Accueil.Update(GamePad.GetState(PlayerIndex.One));
             base.Update(gameTime);
@@ -83,6 +89,26 @@ namespace WindowsGame1
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public void Reload()
+        {
+            Blocks.BlockList.Clear();
+            Camera.CamerasBlockList.Clear();
+            ClimbableBlock.ClimbableBlockList.Clear();
+            DelimiterZone.DelimiterZoneList.Clear();
+            GUI.GUIList.Clear();
+            HidingBlock.HidingBlockList.Clear();
+            InteractZoneBlockWithPuzzle.InteractZoneBlockList.Clear();
+            InventoryCase.InventoryCaseList.Clear();
+            ItemBlock.ItemBlockList.Clear();
+            Ladder.LadderList.Clear();
+            MovableEnnemyBlock.MovableEnnemyList.Clear();
+            MovableNeutralBlock.MovableNeutralList.Clear();
+            Puzzle.PuzzleList.Clear();
+
+            Main = new GameMain();
+            reload = false;
         }
     }
 }
