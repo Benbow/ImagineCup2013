@@ -649,6 +649,24 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Play.xnb</Output>
       <Time>2013-03-16T20:02:03.7643696-04:00</Time>
     </Item>
+    <Item>
+      <Source>enemy attack.png</Source>
+      <Name>enemy attack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemy attack.xnb</Output>
+      <Time>2013-03-17T10:51:16.5940532-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Ennemy Walk.PNG</Source>
+      <Name>Ennemy Walk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Ennemy Walk.xnb</Output>
+      <Time>2013-03-17T12:05:42.5744927-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

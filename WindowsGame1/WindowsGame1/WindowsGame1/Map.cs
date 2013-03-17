@@ -118,6 +118,10 @@ namespace WindowsGame1
                 foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
                 {
                     block.Update(gameTime, player, keyboard);
+                    if (player.HitBox.Intersects(block.SpotZone))
+                    {
+                        block.HaveSpotted = true;
+                    }
                 }
 
                 foreach (ItemBlock item in ItemBlock.ItemBlockList)
@@ -135,7 +139,6 @@ namespace WindowsGame1
                     futurPos.Y++;
                     if (futurPos.Intersects(block.HitBox) && block.IsActive)
                     {
-                        Console.WriteLine("TRUE");
                         player.takeElevators(block);
                     }
                 }
@@ -457,6 +460,11 @@ namespace WindowsGame1
             {
                 cam.Draw(spriteBatch);
             }
+            foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+            {
+                block.Draw(spriteBatch);
+            }
+
             if (puzzle0 != null)
                 puzzle0.Draw(spriteBatch);
             else if (puzzle1 != null)

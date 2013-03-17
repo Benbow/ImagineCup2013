@@ -475,7 +475,6 @@ namespace WindowsGame1
 
         public void takeElevators(MovableNeutralBlock block)
         {
-            //Console.WriteLine(bl);
             this._hitBox.Y = block.HitBox.Y - 50 - block.HitBox.Height;
         }
 

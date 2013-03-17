@@ -97,6 +97,10 @@ namespace WindowsGame1
         public static Texture2D delimiterleftright;
         public static Texture2D delimiterupdown;
 
+        //ennmy
+        public static Texture2D ennemySimple;
+        public static Texture2D ennemySprite;
+
         //Load Content
         public static void LoadContent(ContentManager Content)
         {
@@ -193,6 +197,10 @@ namespace WindowsGame1
             TextureList.Add(item_masque);
             camera = Content.Load<Texture2D>("camera"); // 12
             TextureList.Add(camera);
+            ennemySimple = Content.Load<Texture2D>("enemy attack"); //13
+            TextureList.Add(ennemySimple);
+            ennemySprite = Content.Load<Texture2D>("Ennemy Walk"); //14
+            TextureList.Add(ennemySprite);
         }
     }
 }
