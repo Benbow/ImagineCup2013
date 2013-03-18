@@ -53,7 +53,7 @@ namespace WindowsGame1
         {
             bool prec_statut = statut_player;
 
-            if (!LocalHide.IsJumping)
+            if (!LocalHide.IsJumping && !LocalJekyll.IsThrowing)
                 statut_player = LocalJekyll.Switch(pad);
 
             LocalJekyll.Statut = statut_player;

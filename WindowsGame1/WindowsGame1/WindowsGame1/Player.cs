@@ -524,9 +524,10 @@ namespace WindowsGame1
         /**
          * Fonction pour se dissimuler derriere une caisse
          */
-        public void hide(Blocks block, int sens)
+        public void hide(HidingBlock block, int sens)
         {
-            this._isHiding = sens == 0 ? true : false;
+            this._hidingBlock = sens == 0 ? block : null;
+            this._isHiding = sens == 0;
             this._text = sens == 0 ? Ressources.Jekyll_Dissi : (this._statut == true ? Ressources.Hide : Ressources.Jekyll);
         }
 

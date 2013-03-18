@@ -368,15 +368,6 @@ namespace WindowsGame1
                     player.AttackAnime();
                     player.BlockPLayer();
 
-                    if (player.DirectionPlayer == Direction.Left)
-                    {
-                        futurePos.X -= 14;
-                    }
-                    else if (player.DirectionPlayer == Direction.Right)
-                    {
-                        futurePos.X += 14;
-                    }
-
                     /*
                      * Test de collision quand on attaque sur les blocs grimpables
                      */
@@ -405,14 +396,20 @@ namespace WindowsGame1
 
                 if ((pad.IsButtonDown(Buttons.RightTrigger) || pad.IsButtonDown(Buttons.LeftTrigger)) && oldPad.IsButtonUp(Buttons.RightTrigger) && oldPad.IsButtonUp(Buttons.LeftTrigger))
                 {
-                    player.Speed = 5;
-                    player.IsSpriting = true;
+                    if (player.Statut)
+                    {
+                        player.Speed = 5;
+                        player.IsSpriting = true;
+                    }
                 }
 
                 if (player.IsSpriting && pad.IsButtonUp(Buttons.RightTrigger) && pad.IsButtonUp(Buttons.LeftTrigger))
                 {
-                    player.Speed = 3;
-                    player.IsSpriting = false;
+                    if (player.Statut)
+                    {
+                        player.Speed = 3;
+                        player.IsSpriting = false;
+                    }
                 }
 
 
@@ -442,13 +439,8 @@ namespace WindowsGame1
 
                 if (player.IsHiding)
                 {
-                    foreach (HidingBlock block in HidingBlock.HidingBlockList)
-                    {
-                        if (!block.HitBox.Intersects(futurePos) && player.IsHiding)
-                        {
-                            player.hide(block, 1);
-                        }
-                    }
+                    if (!player.HideBlock.HitBox.Intersects(futurePos) && player.IsHiding)
+                        player.hide(player.HideBlock, 1);
                 }
 
                 if (pad.IsButtonDown(Buttons.Y) && oldPad.IsButtonUp(Buttons.Y))
