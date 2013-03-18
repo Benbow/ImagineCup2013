@@ -64,7 +64,7 @@ namespace WindowsGame1
         protected KeyboardState oldKeyboard;
         protected GamePadState oldPad;
 
-
+        bool decale = false;
 
         public void Animate()
         {
@@ -475,12 +475,14 @@ namespace WindowsGame1
 
         public void takeElevators(MovableNeutralBlock blocks, DelimiterZone down, DelimiterZone up)
         {
+            
             if (blocks.Activate)
             {
                 if (!this._hitBox.Intersects(down.HitBox) || this._hitBox.Intersects(up.HitBox))
                 {
-                    if (blocks.Reverse)
+                    if (blocks.Reverse && blocks.IsAnimate)
                     {
+                        decale = false;
                         int i = (int) -blocks.Speed;
                         foreach (Blocks block in Blocks.BlockList)
                         {

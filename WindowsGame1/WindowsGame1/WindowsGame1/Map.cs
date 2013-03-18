@@ -32,6 +32,7 @@ namespace WindowsGame1
         Puzzle1 puzzle1 = null;
 
         bool slide = false;
+        bool decale = false;
 
         int accelTimer;
 
@@ -42,7 +43,7 @@ namespace WindowsGame1
             _leftSide = new DelimiterZone(0, 0, FirstGame.W / 2, _height, Ressources.invisible);
             _rightSide = new DelimiterZone(_width - FirstGame.W / 2, 0, FirstGame.W / 2, _height, Ressources.invisible);
             _upSide = new DelimiterZone(0, 0, _width, FirstGame.H / 2, Ressources.invisible);
-            _downSide = new DelimiterZone(0, _height - FirstGame.H / 2, _width, FirstGame.H / 2, Ressources.invisible);
+            _downSide = new DelimiterZone(0, _height - FirstGame.H, _width, FirstGame.H, Ressources.invisible);
         }
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
@@ -442,14 +443,15 @@ namespace WindowsGame1
                     }
                 }
 
-                foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
+                foreach (MovableNeutralBlock blocks in MovableNeutralBlock.MovableNeutralList)
                 {
                     Rectangle futurPos = player.HitBox;
                     futurPos.Y++;
-                    if (futurPos.Intersects(block.HitBox) && block.IsActive)
+                    if (futurPos.Intersects(blocks.HitBox) && blocks.IsActive)
                     {
-                        player.takeElevators(block, _downSide, _upSide);
+                        player.takeElevators(blocks, _downSide, _upSide);
                     }
+                    
                 }
 
             }
