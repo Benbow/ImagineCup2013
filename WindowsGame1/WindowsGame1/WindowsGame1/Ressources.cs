@@ -77,6 +77,7 @@ namespace WindowsGame1
         public static Texture2D h_cmp4;
         public static Texture2D h_cmp5;
         public static Texture2D current2;
+        public static Texture2D cible;
         
         //enigmes 1
         public static Texture2D imgA;
@@ -168,6 +169,7 @@ namespace WindowsGame1
             h_cmp4 = Content.Load<Texture2D>("h_cmp4");
             h_cmp5 = Content.Load<Texture2D>("h_cmp5");
             current2 = Content.Load<Texture2D>("current2");
+            cible = Content.Load<Texture2D>("cible");
 
             inventory_bg = Content.Load<Texture2D>("inventory_bg");
             inventory_case = Content.Load<Texture2D>("inventory_case");
