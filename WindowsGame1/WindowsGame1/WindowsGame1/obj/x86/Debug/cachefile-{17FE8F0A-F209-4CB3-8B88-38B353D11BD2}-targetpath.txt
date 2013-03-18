@@ -84,3 +84,5 @@ Content\wallMaison3.xnb
 Content\cible.xnb
 Content\infected.xnb
 Content\elevators2.xnb
+Content\bottle.xnb
+Content\bottle_crash.xnb
