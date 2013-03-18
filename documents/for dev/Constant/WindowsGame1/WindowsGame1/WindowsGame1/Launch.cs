@@ -15,14 +15,17 @@ namespace WindowsGame1
         private int decalage = 0;
         private int x_ini;
         private Texture2D _text = Ressources.cible;
-        private Texture2D _text_ob = Ressources.TextureList[0];
+        private Texture2D _text_ob = Ressources.bottle;
         private Rectangle ob;
         private float _fspeed = 0;
         private float _speedInAir = 0;
         private int _vit = 0;
         public Direction sens;
+        private int _col = 0;
+        private int _timer = 0;
 
         private bool _isItemThrow = false;
+        private bool _isItemCrash = false;
 
         public Launch(int x, int y, Direction dir)
         {
@@ -35,7 +38,7 @@ namespace WindowsGame1
                 this.x_ini = x - 50;
 
             this._cible = new Rectangle(x, y, _text.Width, _text.Height);
-            this.ob = new Rectangle(x_ini, y - 20, _text_ob.Width, _text_ob.Height);
+            this.ob = new Rectangle(x_ini, y - 20, 15, _text_ob.Height);
             this._fspeed -= 7;
         }
 
@@ -127,7 +130,10 @@ namespace WindowsGame1
             else
             {
                 this._fspeed = 0;
-                this._isItemThrow = false;
+                if(!this._isItemCrash)
+                    this._col = 0;
+                this._isItemCrash = true;
+                this._text_ob = Ressources.bottle_crash;
             }
         }
 
@@ -171,6 +177,24 @@ namespace WindowsGame1
         {
             get { return _vit; }
             set { _vit = value; }
+        }
+
+        public int ItemColumn
+        {
+            get { return _col; }
+            set { _col = value; }
+        }
+
+        public int TimerThrow
+        {
+            get { return _timer; }
+            set { _timer = value; }
+        }
+
+        public bool IsItemCrash
+        {
+            get { return _isItemCrash; }
+            set { _isItemCrash = value; }
         }
     }
 }

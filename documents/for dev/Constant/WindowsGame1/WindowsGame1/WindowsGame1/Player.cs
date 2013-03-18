@@ -30,6 +30,7 @@ namespace WindowsGame1
         protected int Timer;
         protected int TimerAttack;
         protected int TimerJump;
+        protected int TimerCrouch;
         protected int TimerMax;
         protected bool _isJumping = false;
         protected bool _isSpriting = false;
@@ -48,6 +49,7 @@ namespace WindowsGame1
         protected bool _isActiveObject = false;
         protected bool _canMove = true;
         protected bool _isThrowing = false;
+        protected bool _isSwitch = false;
 
         protected float _speed = 1.5f;
         protected float _poids;
@@ -69,14 +71,17 @@ namespace WindowsGame1
 
         public void Animate()
         {
-            this.Timer++;
-            if (this.Timer == this.TimerMax)
+            if (!this._isCrouch && !this._isJumping && !this._isAttacking)
             {
-                this.Timer = 0;
-                this.FrameColumn++;
-                if (this.FrameColumn > 11)
+                this.Timer++;
+                if (this.Timer == this.TimerMax)
                 {
-                    this.FrameColumn = 0;
+                    this.Timer = 0;
+                    this.FrameColumn++;
+                    if (this.FrameColumn > 11)
+                    {
+                        this.FrameColumn = 0;
+                    }
                 }
             }
         }
@@ -124,6 +129,23 @@ namespace WindowsGame1
                             this._hitBox.X += 14;
                         }
                     }
+                }
+            }
+        }
+
+        public void CrouchAnime()
+        {
+            if (this._isCrouch)
+            {
+                this.FrameLine = 1;
+
+                this.TimerCrouch++;
+                if (this.TimerCrouch == 4)
+                {
+                    this.TimerCrouch = 0;
+                    if (this.FrameColumn < 2)
+                        this.FrameColumn++;
+
                 }
             }
         }
@@ -183,7 +205,6 @@ namespace WindowsGame1
 
                 }*/
 
-
                 this.WidthSprite = 48;
                 this._hitBox.Width = 48;
                 this.FrameColumn = 2;
@@ -196,9 +217,7 @@ namespace WindowsGame1
             if (GameMain.Status == "on"){
                 if (pad.IsButtonDown(Buttons.LeftShoulder) && oldPad.IsButtonUp(Buttons.LeftShoulder))
                 {
-                    if (this._isCrouch)
-                        this.stoop(0);
-
+                    this._isSwitch = true;
                     if (_statut)
                         this._hitBox.Y += 20;
                     else
@@ -263,7 +282,7 @@ namespace WindowsGame1
 
         public void BlockPLayer()
         {
-            if (!this._isAttacking && !this._isJumping && this._statut)
+            if (!this._isAttacking && !this._isJumping && !this._isCrouch && this._statut)
             {
                 this.FrameColumn = 4;
                 this.FrameLine = 0;
@@ -377,13 +396,16 @@ namespace WindowsGame1
             {
                 this._isFalling = false;
 
-                if (this._isJumping && this._fallingSpeed >= 0)
-                {
-                    this.FrameColumn = 4;
-                    this.FrameLine = 0;
-                }
                 if (this._fallingSpeed >= 0)
+                {
+                    if (_statut)
+                    {
+                        this.FrameLine = 0;
+                        this._hitBox.Width = 42;
+                        this.WidthSprite = 42;
+                    }
                     this._isJumping = false;
+                }
 
                 this._fallingSpeed = 0;
             }
@@ -477,18 +499,17 @@ namespace WindowsGame1
             {
                 if (!this._isCrouch)
                 {
-                    this._hitBox.Y += this._hitBox.Height / 2;
-                    this._hitBox.Height /= 2;
                     this._isCrouch = true;
+                    this.FrameColumn = 0;
                 }
             }
             else if (step == 0)
             {
                 if (this._isCrouch)
                 {
-                    this._hitBox.Y -= this._hitBox.Height + 1;
-                    this._hitBox.Height = Ressources.Jekyll.Height /2;
                     this._isCrouch = false;
+                    this.FrameColumn = 4;
+                    this.FrameLine = 0;
                 }
             }
         }
@@ -711,6 +732,12 @@ namespace WindowsGame1
         {
             get { return this._isThrowing; }
             set { this._isThrowing = value; }
+        }
+
+        public bool IsSwitch
+        {
+            get { return this._isSwitch; }
+            set { this._isSwitch = value; }
         }
 
         public HidingBlock HideBlock

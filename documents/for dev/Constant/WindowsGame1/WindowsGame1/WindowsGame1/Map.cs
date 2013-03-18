@@ -378,11 +378,16 @@ namespace WindowsGame1
                         player.hide(player.HideBlock, 1);
                 }
 
+                if (player.IsCrouch)
+                {
+                    player.CrouchAnime();
+
+                }
+
                 if (player.IsAttacking)
                 {
                     player.AttackAnime();
-                    player.Speed = 0;
-
+                    futurePos.Width = 70;
                     /*
                      * Test de collision quand on attaque sur les blocs grimpable
                      */
@@ -401,6 +406,20 @@ namespace WindowsGame1
                 if (player.IsJumping)
                 {
                     player.JumpAnime();
+                }
+
+                if (player.IsSwitch)
+                {
+                    if(player.IsCrouch)
+                        player.stoop(0);
+
+                    if (player.IsThrowing)
+                    {
+                        cible.IsItemThrow = false;
+                        player.IsThrowing = false;
+                    }
+
+                    player.IsSwitch = false;
                 }
 
                 if (player.IsThrowing)
@@ -454,7 +473,31 @@ namespace WindowsGame1
 
             if (cible.IsItemThrow)
             {
-                spriteBatch.Draw(Ressources.TextureList[0], cible.ItemBox, Color.White);
+                cible.TimerThrow++;
+
+                if (cible.TimerThrow == 4)
+                {
+                    cible.TimerThrow = 0;
+                    if (!cible.IsItemCrash)
+                    {
+                        if (cible.ItemColumn < 7)
+                            cible.ItemColumn++;
+                        else
+                            cible.ItemColumn = 0;
+                    }
+                    else
+                    {
+                        Console.WriteLine(cible.ItemColumn);
+                        if (cible.ItemColumn < 1)
+                            cible.ItemColumn++;
+                        else
+                            cible.IsItemThrow = false;
+                    }
+                }
+                Texture2D text;
+                text = cible.IsItemCrash ? Ressources.bottle_crash : Ressources.bottle;
+
+                spriteBatch.Draw(text, cible.ItemBox, new Rectangle((cible.ItemColumn * 15), 0, 15, 15), Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0f);
                 cible.CheckMove();
             }
 
