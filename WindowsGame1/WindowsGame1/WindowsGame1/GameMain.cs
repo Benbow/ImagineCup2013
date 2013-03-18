@@ -32,7 +32,7 @@ namespace WindowsGame1
             this.LoadMap();
             
             //// Création Joueur + Carte
-            MyMap = new Map(10000, 1000);
+            MyMap = new Map(5100, 1000);
             statut_player = false;
             if (!FirstGame.checkpoint)
             {
@@ -356,6 +356,19 @@ namespace WindowsGame1
                         Texture2D text = Ressources.TextureList[param];
 
                         new Camera(x, y, hv, jv, speed, waitTime, animTime, health, text);
+                    }
+                }
+
+                else if (words[0] == "10") // Inefected Zone Block
+                {
+                    if (words.Length == 4) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new InfectedZoneBlock(x, y, text);
                     }
                 }
             }

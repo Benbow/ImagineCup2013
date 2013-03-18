@@ -757,6 +757,24 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cible.xnb</Output>
       <Time>2013-03-17T22:35:52.3730894-04:00</Time>
     </Item>
+    <Item>
+      <Source>infected.png</Source>
+      <Name>infected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\infected.xnb</Output>
+      <Time>2013-03-18T13:31:30.8633036-04:00</Time>
+    </Item>
+    <Item>
+      <Source>elevators2.png</Source>
+      <Name>elevators2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\elevators2.xnb</Output>
+      <Time>2013-03-18T13:44:05.1454461-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

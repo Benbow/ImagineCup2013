@@ -156,17 +156,33 @@ namespace WindowsGame1
             {
                 if (_reverse)
                 {
-                    this._hitBox.X -= (int)_dir.X * (int)this._speed;
-                    this._hitBox.Y -= (int)_dir.Y * (int)this._speed;
+                    this._hitBox.X -= (int) _dir.X*(int) this._speed;
+                    this._hitBox.Y -= (int) _dir.Y*(int) this._speed;
                     this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
-                    this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
+                    this.spotted_zone.Y -= (int) _dir.Y*(int) this._speed;
                     this.Effects = SpriteEffects.FlipHorizontally;
-                    
+
                 }
                 else
                 {
-                    this._hitBox.X += (int)_dir.X * (int)this._speed;
-                    this._hitBox.Y += (int)_dir.Y * (int)this._speed;
+                    this._hitBox.X += (int) _dir.X*(int) this._speed;
+                    this._hitBox.Y += (int) _dir.Y*(int) this._speed;
+                    this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                    this.spotted_zone.Y += (int) _dir.Y*(int) this._speed;
+                    this.Effects = SpriteEffects.None;
+                }
+            }
+            else
+            {
+                if (_reverse)
+                {
+                    this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                    this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
+                    this.Effects = SpriteEffects.FlipHorizontally;
+
+                }
+                else
+                {
                     this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
                     this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
                     this.Effects = SpriteEffects.None;
@@ -176,6 +192,20 @@ namespace WindowsGame1
 
         public void AnimateAlert(GameTime gameTime, Player player)
         {
+            if (_reverse)
+            {
+                this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
+                this.Effects = SpriteEffects.FlipHorizontally;
+
+            }
+            else
+            {
+                this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
+                this.Effects = SpriteEffects.None;
+            }
+
             if (!player.HitBox.Intersects(this.spotted_zone))
             {
                 time3 += gameTime.ElapsedGameTime.Milliseconds;

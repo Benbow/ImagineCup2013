@@ -124,9 +124,10 @@ namespace WindowsGame1
                     if (block.IsActive)
                     {
                         block.Update(gameTime, player, keyboard);
-                        if (player.HitBox.Intersects(block.SpotZone))
+                        if (player.HitBox.Intersects(block.SpotZone) && !player.IsHiding)
                         {
-                            block.HaveSpotted = true;
+                            block.HaveSpotted = true
+                                ;
                         }
                     }
                 }
@@ -166,6 +167,26 @@ namespace WindowsGame1
                         if (!player.Statut && !player.IsHiding && player.HitBox.Intersects(cam.Spot_rec))
                         {
                             FirstGame.reload = true;
+                        }
+                    }
+                }
+
+                foreach (InfectedZoneBlock zone in InfectedZoneBlock.InfectedZoneBlockList)
+                {
+                    Console.WriteLine(player.IsActiveObject);
+                    if (player.HitBox.Intersects(zone.HitBox))
+                    {
+                        if (player.Statut)
+                        {
+                            player.Health--;
+                            if (player.Health <= 0)
+                                FirstGame.reload = true;
+                        }
+                        else if(!player.Statut && (!InventoryCase.InventoryCaseList[0].Status || !player.IsActiveObject))
+                        {
+                            player.Health--;
+                            if (player.Health <= 0)
+                                FirstGame.reload = true;
                         }
                     }
                 }

@@ -82,3 +82,5 @@ Content\wall2Maison1.xnb
 Content\platform.xnb
 Content\wallMaison3.xnb
 Content\cible.xnb
+Content\infected.xnb
+Content\elevators2.xnb

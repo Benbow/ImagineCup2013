@@ -109,6 +109,7 @@ namespace WindowsGame1
             Puzzle.PuzzleList.Clear();
             StaticNeutralBlock.StaticNeutralList.Clear();
             BulletBlock.BulletBlockList.Clear();
+            InfectedZoneBlock.InfectedZoneBlockList.Clear();
             Main = new GameMain();
             reload = false;
         }

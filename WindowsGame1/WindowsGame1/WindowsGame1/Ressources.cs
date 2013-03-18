@@ -52,6 +52,8 @@ namespace WindowsGame1
         public static Texture2D plafondMaison2;
         public static Texture2D platform;
         public static Texture2D wallMaison3;
+        public static Texture2D infected;
+        public static Texture2D elevator2;
 
         public static Texture2D accueil_bg;
         public static Texture2D a_bouton1;
@@ -231,6 +233,10 @@ namespace WindowsGame1
             TextureList.Add(platform);
             wallMaison3 = Content.Load<Texture2D>("wallMaison3"); //22
             TextureList.Add(wallMaison3);
+            infected = Content.Load<Texture2D>("infected"); //23
+            TextureList.Add(infected);
+            elevator2 = Content.Load<Texture2D>("elevators2"); //24
+            TextureList.Add(elevator2);
         }
     }
 }
