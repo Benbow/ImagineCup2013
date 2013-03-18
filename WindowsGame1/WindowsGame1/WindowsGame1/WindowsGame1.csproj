@@ -92,6 +92,8 @@
     <Compile Include="ItemBlock.cs" />
     <Compile Include="Jekyll.cs" />
     <Compile Include="Ladder.cs" />
+    <Compile Include="Launch.cs" />
+    <Compile Include="LaunchableBlock.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapOld.cs" />
     <Compile Include="MenuGUI.cs" />

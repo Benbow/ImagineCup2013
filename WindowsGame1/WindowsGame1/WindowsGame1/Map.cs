@@ -365,7 +365,7 @@ namespace WindowsGame1
 
                 if (player.IsAttacking)
                 {
-                    player.Attack();
+                    player.AttackAnime();
                     player.BlockPLayer();
 
                     if (player.DirectionPlayer == Direction.Left)
@@ -611,11 +611,6 @@ namespace WindowsGame1
             {
                 spriteBatch.Draw(Ressources.TextureList[0], cible.ItemBox, Color.White);
                 cible.CheckMove();
-            }
-
-            if (puzzle != null)
-            {
-                puzzle.Draw(spriteBatch);
             }
         }
 

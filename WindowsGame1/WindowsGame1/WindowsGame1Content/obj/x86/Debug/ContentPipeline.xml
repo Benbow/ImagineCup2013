@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall.xnb</Output>
-      <Time>2013-03-17T19:33:02.9356735-04:00</Time>
+      <Time>2013-03-17T21:02:38.5181392-04:00</Time>
     </Item>
     <Item>
       <Source>sol.png</Source>
@@ -359,7 +359,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\jekyll.xnb</Output>
-      <Time>2013-03-15T20:05:41.0615187-04:00</Time>
+      <Time>2013-03-17T22:36:21.0427293-04:00</Time>
     </Item>
     <Item>
       <Source>jekyll_dissi.png</Source>
@@ -683,7 +683,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wallMaison1.xnb</Output>
-      <Time>2013-03-17T19:35:09.7609275-04:00</Time>
+      <Time>2013-03-17T21:02:38.5211394-04:00</Time>
     </Item>
     <Item>
       <Source>wallMaison2.png</Source>
@@ -692,7 +692,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wallMaison2.xnb</Output>
-      <Time>2013-03-17T19:50:01.4669302-04:00</Time>
+      <Time>2013-03-17T21:02:38.5221395-04:00</Time>
     </Item>
     <Item>
       <Source>elevators.png</Source>
@@ -710,7 +710,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\plafondMaison1.xnb</Output>
-      <Time>2013-03-17T19:41:47.9767041-04:00</Time>
+      <Time>2013-03-17T21:02:38.514139-04:00</Time>
     </Item>
     <Item>
       <Source>plafondMaison2.png</Source>
@@ -719,7 +719,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\plafondMaison2.xnb</Output>
-      <Time>2013-03-17T19:44:52.2192422-04:00</Time>
+      <Time>2013-03-17T21:02:38.5151391-04:00</Time>
     </Item>
     <Item>
       <Source>wall2Maison1.png</Source>
@@ -728,7 +728,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall2Maison1.xnb</Output>
-      <Time>2013-03-17T19:51:50.4601642-04:00</Time>
+      <Time>2013-03-17T21:02:38.5201394-04:00</Time>
     </Item>
     <Item>
       <Source>platform.png</Source>
@@ -737,7 +737,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\platform.xnb</Output>
-      <Time>2013-03-17T20:01:49.9994559-04:00</Time>
+      <Time>2013-03-17T21:02:38.5161391-04:00</Time>
     </Item>
     <Item>
       <Source>wallMaison3.png</Source>
@@ -746,7 +746,16 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wallMaison3.xnb</Output>
-      <Time>2013-03-17T20:35:41.2226352-04:00</Time>
+      <Time>2013-03-17T21:02:38.5231395-04:00</Time>
+    </Item>
+    <Item>
+      <Source>cible.png</Source>
+      <Name>cible</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cible.xnb</Output>
+      <Time>2013-03-17T22:35:52.3730894-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
