@@ -34,6 +34,8 @@ namespace WindowsGame1
         bool slide = false;
         bool decale = false;
 
+        private int grueTimer = 0;
+
         public Launch cible = new Launch(0, 0, Direction.Right);
         int accelTimer;
 
@@ -173,7 +175,6 @@ namespace WindowsGame1
 
                 foreach (InfectedZoneBlock zone in InfectedZoneBlock.InfectedZoneBlockList)
                 {
-                    Console.WriteLine(player.IsActiveObject);
                     if (player.HitBox.Intersects(zone.HitBox))
                     {
                         if (player.Statut)
@@ -191,6 +192,16 @@ namespace WindowsGame1
                     }
                 }
 
+                if (!ClimbableBlock.ClimbableBlockList[0].IsActive && !ClimbableBlock.ClimbableBlockList[1].IsActive)
+                {
+                    grueTimer++;
+                    Console.WriteLine(grueTimer);
+                    if (grueTimer < 240/3)
+                    {
+                        StaticNeutralBlock.StaticNeutralList[0].Y -= 3;
+                        StaticNeutralBlock.StaticNeutralList[1].Y+=3;
+                    }
+                }
 
                 //Déplacements joueurs/cartes
 
@@ -657,7 +668,6 @@ namespace WindowsGame1
                     }
                     else
                     {
-                        Console.WriteLine(cible.ItemColumn);
                         if (cible.ItemColumn < 1)
                             cible.ItemColumn++;
                         else

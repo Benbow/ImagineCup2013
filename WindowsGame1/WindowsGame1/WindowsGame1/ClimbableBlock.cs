@@ -14,7 +14,7 @@ namespace WindowsGame1
 
         public ClimbableBlock(int x, int y, bool hv, bool jv, bool cl, bool co, int he, Texture2D text)
         {
-            this._isBreakable = cl != true;
+            this._isBreakable = true;
             this._isCollidable = co;
             this._isActive = true;
             this._isClimbable = cl;

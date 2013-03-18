@@ -115,8 +115,6 @@ namespace WindowsGame1
         {
             if (this._isAttacking)
             {
-                if (this._beginAttack)
-                    this._hitBox.X -= 14;
                 this._beginAttack = false;
                 this.FrameLine = 1;
                 this.WidthSprite = 70;
