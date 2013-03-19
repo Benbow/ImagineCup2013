@@ -91,3 +91,6 @@ Content\bonus.xnb
 Content\enigme_depart.xnb
 Content\spot_zone_ennemy.xnb
 Content\attach_cords.xnb
+Content\Wallpaper1.xnb
+Content\Wallpaper2.xnb
+Content\Wallpaper3.xnb

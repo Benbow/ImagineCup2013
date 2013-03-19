@@ -17,6 +17,7 @@ namespace WindowsGame1
     {
         //FIELDS
         public static List<Texture2D> TextureList = new List<Texture2D>();
+       
 
         public static SpriteFont font1;
         public static SpriteFont cmpTitle;
@@ -44,6 +45,9 @@ namespace WindowsGame1
         public static Texture2D boxH;
         public static Texture2D menu_bg;
         public static Texture2D endzone;
+        public static Texture2D wallpaper1;
+        public static Texture2D wallpaper2;
+        public static Texture2D wallpaper3;
 
         public static Texture2D wallMaison1;
         public static Texture2D wallMaison2;
@@ -128,7 +132,10 @@ namespace WindowsGame1
             a_bouton1 = Content.Load<Texture2D>("Play");
             a_bouton2 = Content.Load<Texture2D>("Credits");
             a_bouton3 = Content.Load<Texture2D>("Exit");
-            
+
+            wallpaper1 = Content.Load<Texture2D>("Wallpaper1");
+            wallpaper2 = Content.Load<Texture2D>("Wallpaper2");
+            wallpaper3 = Content.Load<Texture2D>("Wallpaper3");
 
             font1 = Content.Load<SpriteFont>("SpriteFont1");
             cmpTitle = Content.Load<SpriteFont>("cmpTitle");
@@ -254,6 +261,12 @@ namespace WindowsGame1
             TextureList.Add(bonus);
             attach_cords = Content.Load<Texture2D>("attach_cords"); //27
             TextureList.Add(attach_cords);
+            wallpaper1 = Content.Load<Texture2D>("Wallpaper1"); //28/
+            TextureList.Add(wallpaper1);
+            wallpaper2 = Content.Load<Texture2D>("Wallpaper2"); //29
+            TextureList.Add(wallpaper2);
+            wallpaper3 = Content.Load<Texture2D>("Wallpaper3");//30
+            TextureList.Add(wallpaper3);
         }
     }
 }

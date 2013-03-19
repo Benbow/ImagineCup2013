@@ -818,7 +818,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigme_depart.xnb</Output>
-      <Time>2013-03-19T12:06:00.0271093-04:00</Time>
+      <Time>2013-03-19T13:41:22.5624196-04:00</Time>
     </Item>
     <Item>
       <Source>spot_zone_ennemy.png</Source>
@@ -837,6 +837,33 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\attach_cords.xnb</Output>
       <Time>2013-03-19T12:45:33.3198539-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Wallpaper1.png</Source>
+      <Name>Wallpaper1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Wallpaper1.xnb</Output>
+      <Time>2013-03-19T13:42:59.4659622-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Wallpaper2.png</Source>
+      <Name>Wallpaper2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Wallpaper2.xnb</Output>
+      <Time>2013-03-19T13:42:59.4699624-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Wallpaper3.png</Source>
+      <Name>Wallpaper3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Wallpaper3.xnb</Output>
+      <Time>2013-03-19T13:42:59.4739626-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
