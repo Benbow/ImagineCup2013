@@ -42,6 +42,7 @@ namespace WindowsGame1
         public static Texture2D enigmes_fond1;
         public static Texture2D LadderTest;
         public static Texture2D Ladder1;
+        public static Texture2D Ladder2;
         public static Texture2D box;
         public static Texture2D boxH;
         public static Texture2D menu_bg;
@@ -277,6 +278,8 @@ namespace WindowsGame1
             TextureList.Add(hidingBox);
             Ladder1 = Content.Load<Texture2D>("ladder1"); // 32
             TextureList.Add(Ladder1);
+            Ladder2 = Content.Load<Texture2D>("ladder2"); // 33
+            TextureList.Add(Ladder2);
         }
     }
 }

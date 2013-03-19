@@ -901,6 +901,15 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder1.xnb</Output>
       <Time>2013-03-19T16:58:20.0383405-04:00</Time>
     </Item>
+    <Item>
+      <Source>ladder2.png</Source>
+      <Name>ladder2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder2.xnb</Output>
+      <Time>2013-03-19T17:09:46.1545842-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
