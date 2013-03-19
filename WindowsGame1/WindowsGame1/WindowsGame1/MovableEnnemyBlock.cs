@@ -407,33 +407,6 @@ namespace WindowsGame1
                 this._hitBox = new Rectangle(this._hitBox.X, this._hitBox.Y, this.SpriteWidth, this.SpriteHeight);
                 spritebatch.Draw(this._texture, this._hitBox, null, Color.White, 0f, new Vector2(0, 0), this.Effects, 0f);
             }
-            //if (_reverse)
-            //{
-            //    if (IsOnAlert)
-            //    {
-            //        if (Side)
-
-            //        else
-            //    }
-            //    else
-            //    {
-                    
-            //    }
-            //}
-            //else
-            //{
-            //   if (IsOnAlert)
-            //    {
-            //        if (Side)
-
-            //        else
-            //    }
-            //   else
-            //   {
-                   
-            //   }
-            //}
-            //spritebatch.Draw(this.spotted_text, this.spotted_zone, Color.White);  
             spritebatch.Draw(this.spotted_text, this.spotted_zone, null, Color.White, 0f, new Vector2(0, 0), this.Effects, 0f);
         }
 
