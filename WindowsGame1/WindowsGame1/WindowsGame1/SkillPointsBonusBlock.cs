@@ -20,6 +20,8 @@ namespace WindowsGame1
             this._hitBox = new Rectangle(x, y, text.Width, text.Height);
             this._isBreakable = false;
             this._isCollidable = false;
+            this._isHideVisible = true;
+            this._isJekyllVisible = true;
             this.value = value;
             this.status = status;
 

@@ -19,7 +19,7 @@ namespace WindowsGame1
             this._isCollidable = false;
             this._isActive = true;
             this._isHideVisible = false;
-            this._isJekyllVisible = false;
+            this._isJekyllVisible = true;
             this._hitBox = rec;
             this._texture = text;
             BlockList.Add(this);

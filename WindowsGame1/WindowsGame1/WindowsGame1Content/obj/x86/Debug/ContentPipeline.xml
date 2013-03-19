@@ -854,7 +854,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Wallpaper2.xnb</Output>
-      <Time>2013-03-19T14:39:38.6293832-04:00</Time>
+      <Time>2013-03-19T15:19:07.6708846-04:00</Time>
     </Item>
     <Item>
       <Source>Wallpaper3.png</Source>
@@ -864,6 +864,15 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Wallpaper3.xnb</Output>
       <Time>2013-03-19T13:42:59.4739626-04:00</Time>
+    </Item>
+    <Item>
+      <Source>box_hidding.png</Source>
+      <Name>box_hidding</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\box_hidding.xnb</Output>
+      <Time>2013-03-19T15:24:18.5196641-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
