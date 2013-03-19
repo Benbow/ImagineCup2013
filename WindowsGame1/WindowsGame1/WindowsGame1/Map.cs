@@ -117,6 +117,17 @@ namespace WindowsGame1
                 if (!player.IsAttacking)
                     player.CheckMove();
                 // Animation des blocs mouvants
+                foreach (EndZoneBlock endzone in EndZoneBlock.EndZoneBlockList)
+                {
+                    if (player.HitBox.Intersects(endzone.HitBox))
+                    {
+                        FirstGame.start = false;
+                        FirstGame.end = true;
+                        FirstGame.Hp = AlignementGUI._value/4;
+                        FirstGame.Jp = 100 - FirstGame.Hp;
+                    }
+                }
+
                 foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
                 {
                     if (block.IsActive)
@@ -129,8 +140,7 @@ namespace WindowsGame1
                         block.Update(gameTime, player, keyboard);
                         if (player.HitBox.Intersects(block.SpotZone) && !player.IsHiding)
                         {
-                            block.HaveSpotted = true
-                                ;
+                            block.HaveSpotted = true;
                         }
                     }
                 }

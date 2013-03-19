@@ -793,6 +793,15 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bottle_crash.xnb</Output>
       <Time>2013-03-18T14:57:38.8698967-04:00</Time>
     </Item>
+    <Item>
+      <Source>endzone.png</Source>
+      <Name>endzone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\endzone.xnb</Output>
+      <Time>2013-03-18T23:06:48.811105-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

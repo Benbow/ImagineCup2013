@@ -371,6 +371,19 @@ namespace WindowsGame1
                         new InfectedZoneBlock(x, y, text);
                     }
                 }
+
+                else if (words[0] == "11") // End Zone Block
+                {
+                    if (words.Length == 4) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new EndZoneBlock(x, y, text);
+                    }
+                }
             }
         }
     }

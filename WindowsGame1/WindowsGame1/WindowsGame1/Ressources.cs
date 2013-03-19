@@ -43,6 +43,7 @@ namespace WindowsGame1
         public static Texture2D box;
         public static Texture2D boxH;
         public static Texture2D menu_bg;
+        public static Texture2D endzone;
 
         public static Texture2D wallMaison1;
         public static Texture2D wallMaison2;
@@ -241,6 +242,8 @@ namespace WindowsGame1
             TextureList.Add(infected);
             elevator2 = Content.Load<Texture2D>("elevators2"); //24
             TextureList.Add(elevator2);
+            endzone = Content.Load<Texture2D>("endzone"); //25
+            TextureList.Add(endzone);
         }
     }
 }

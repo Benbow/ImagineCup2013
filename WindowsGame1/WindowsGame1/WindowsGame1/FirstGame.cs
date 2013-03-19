@@ -19,14 +19,18 @@ namespace WindowsGame1
         SpriteBatch spriteBatch;
 
         public static bool start = false;
+        public static bool end = false;
         public static bool exit = false;
         public static bool reload = false;
         public static bool checkpoint = false;
+        public static double Jp;
+        public static double Hp;
         public static int W;
         public static int H;
 
         GameMain Main;
         AccueilGUI Accueil;
+        EndGUI EndScreen;
 
         public FirstGame()
         {
@@ -51,6 +55,7 @@ namespace WindowsGame1
             Ressources.LoadContent(Content);
             Accueil = new AccueilGUI();
             Main = new GameMain();
+            EndScreen = new EndGUI();
             
         }
 
@@ -61,6 +66,7 @@ namespace WindowsGame1
 
         protected override void Update(GameTime gameTime)
         {
+            Console.WriteLine(Hp);
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -74,6 +80,10 @@ namespace WindowsGame1
                 }
                 Main.Update(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One), Mouse.GetState(), gameTime);
             }
+            else if (end)
+            {
+                EndScreen.Update(GamePad.GetState(PlayerIndex.One));
+            }
             else
                 Accueil.Update(GamePad.GetState(PlayerIndex.One));
             base.Update(gameTime);
@@ -85,6 +95,10 @@ namespace WindowsGame1
             spriteBatch.Begin();
                 if(start)
                     Main.Draw(spriteBatch);
+                else if (end)
+                {
+                    EndScreen.Draw(spriteBatch);
+                }
                 else
                     Accueil.Draw(spriteBatch);
             spriteBatch.End();

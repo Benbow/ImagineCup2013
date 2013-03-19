@@ -67,6 +67,7 @@
 8 4330 930 false true false 10
 6 4800 930 true false true true 100 10
 
+11 1000 930 25
 
 
 

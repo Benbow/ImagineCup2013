@@ -13,7 +13,7 @@ namespace WindowsGame1
         private Texture2D text_barre;
         private Rectangle _jauge;
         private Texture2D text_jauge;
-        private double _value;
+        public static double _value;
 
         public AlignementGUI(int x1, int y1)
         {
@@ -29,8 +29,8 @@ namespace WindowsGame1
         {
             //double jekyll_pourcent = (j / (j + h)) * 100;
             double hide_pourcent = (h / (j + h)) * 100;
-            this._value = hide_pourcent * 4;
-            this._jauge.X = (int) this._value;
+            _value = hide_pourcent * 4;
+            this._jauge.X = (int) _value;
             this._jauge.X += 50 - (text_jauge.Width / 2);
         }
 
