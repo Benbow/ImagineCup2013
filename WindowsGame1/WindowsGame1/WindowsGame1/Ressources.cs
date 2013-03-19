@@ -61,6 +61,7 @@ namespace WindowsGame1
         public static Texture2D elevator2;
         public static Texture2D attach_cords;
         public static Texture2D bonus;
+        public static Texture2D hidingBox;
 
         public static Texture2D accueil_bg;
         public static Texture2D a_bouton1;
@@ -267,6 +268,8 @@ namespace WindowsGame1
             TextureList.Add(wallpaper2);
             wallpaper3 = Content.Load<Texture2D>("Wallpaper3");//30
             TextureList.Add(wallpaper3);
+            hidingBox = Content.Load<Texture2D>("box_hidding");//31
+            TextureList.Add(hidingBox);
         }
     }
 }
