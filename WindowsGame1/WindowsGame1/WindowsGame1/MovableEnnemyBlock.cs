@@ -323,6 +323,10 @@ namespace WindowsGame1
                 if (this.waitAlert > 0)
                 {
                     this.waitAlert--;
+                    if (Side)
+                        this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                    else
+                        this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
                 }
                 if (this.waitAlert == 0)
                 {
