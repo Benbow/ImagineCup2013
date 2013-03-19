@@ -24,6 +24,9 @@ namespace WindowsGame1
         private int _col = 0;
         private int _timer = 0;
 
+        private Rectangle effectZone;
+        private Texture2D effect_text;
+
         private bool _isItemThrow = false;
         private bool _isItemCrash = false;
 
@@ -147,6 +150,12 @@ namespace WindowsGame1
         {
             get { return ob; }
             set { ob = value; }
+        }
+
+        public Rectangle EffetZone
+        {
+            get { return effectZone; }
+            set { effectZone = value; }
         }
 
         public Texture2D Texture

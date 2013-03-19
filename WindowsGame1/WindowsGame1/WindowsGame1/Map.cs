@@ -37,6 +37,7 @@ namespace WindowsGame1
         private int grueTimer = 0;
 
         public Launch cible = new Launch(0, 0, Direction.Right);
+        int throwcount = 0;
         int accelTimer;
 
         public Map(int x, int y)
@@ -195,7 +196,6 @@ namespace WindowsGame1
                 if (!ClimbableBlock.ClimbableBlockList[0].IsActive && !ClimbableBlock.ClimbableBlockList[1].IsActive)
                 {
                     grueTimer++;
-                    Console.WriteLine(grueTimer);
                     if (grueTimer < 240/3)
                     {
                         StaticNeutralBlock.StaticNeutralList[0].Y -= 3;
@@ -582,13 +582,39 @@ namespace WindowsGame1
                 {
                     player.JumpAnime();
                 }
+                if (cible.IsItemThrow && cible.IsItemCrash)
+                {
+                    throwcount++;
+                    if (throwcount >= 6)
+                    {
+                        throwcount = 0;
+                        cible.EffetZone = new Rectangle(cible.HitBox.X-250, cible.HitBox.Y-50, 500, 50);
+                        foreach (MovableEnnemyBlock ennemy in MovableEnnemyBlock.MovableEnnemyList)
+                        {
+                            if (ennemy.HitBox.Intersects(cible.EffetZone) && !ennemy.IsOnAlert)
+                            {
+                                ennemy.IsOnAlert = true;
+                                int distance = ennemy.HitBox.X - cible.HitBox.X;
+                                Console.WriteLine(cible.IsItemThrow + " " + cible.IsItemCrash);
+                                if (distance > 0)
+                                    ennemy.Side = true;
+                                else
+                                    ennemy.Side = false;
+                                distance = Math.Abs(distance);
+                                ennemy.initDistance = distance;
+                                ennemy.Distance = distance;
+                            }
+                        }
 
+                    }
+                }
                 if (player.IsThrowing)
                 {
                     player.BlockPLayer();
                     player.CanMove = false;
                     player.Speed = 0;
                     player.throwItem(cible, pad);
+                    
                 }
 
             }
