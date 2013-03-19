@@ -385,7 +385,7 @@ namespace WindowsGame1
                     }
                 }
 
-                else if (words[0] == "12") // End Zone Block
+                else if (words[0] == "12") // Bonus
                 {
                     if (words.Length == 6) //basic
                     {

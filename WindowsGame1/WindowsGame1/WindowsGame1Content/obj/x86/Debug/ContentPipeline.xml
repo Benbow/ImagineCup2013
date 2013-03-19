@@ -827,7 +827,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\spot_zone_ennemy.xnb</Output>
-      <Time>2013-03-19T13:51:25.2318903-04:00</Time>
+      <Time>2013-03-19T16:03:40.6077678-04:00</Time>
     </Item>
     <Item>
       <Source>attach_cords.png</Source>
@@ -845,7 +845,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Wallpaper1.xnb</Output>
-      <Time>2013-03-19T14:39:38.6183826-04:00</Time>
+      <Time>2013-03-19T16:03:40.5727658-04:00</Time>
     </Item>
     <Item>
       <Source>Wallpaper2.png</Source>
@@ -881,7 +881,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\door_close.xnb</Output>
-      <Time>2013-03-19T15:38:06.3400128-04:00</Time>
+      <Time>2013-03-19T16:03:42.7518905-04:00</Time>
     </Item>
     <Item>
       <Source>door_open.png</Source>
@@ -890,7 +890,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\door_open.xnb</Output>
-      <Time>2013-03-19T15:38:06.3350125-04:00</Time>
+      <Time>2013-03-19T16:05:44.5628577-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

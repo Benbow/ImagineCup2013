@@ -397,7 +397,7 @@ namespace WindowsGame1
                             }
                         }
                     }
-                    else if (!player.Statut)
+                    else
                     {
                         if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                         {
@@ -422,7 +422,7 @@ namespace WindowsGame1
                                 {
                                     block.IsOpen = true;
                                     block.Texture = Ressources.door_open;
-                                    block.HitBox = new Rectangle(block.HitBox.X + 10, block.HitBox.Y, 64, 100);
+                                    block.HitBox = new Rectangle(block.HitBox.X + 10, block.HitBox.Y, block.Texture.Width, block.Texture.Height);
                                     block.IsCollidable = false;
                                 }
                             }
