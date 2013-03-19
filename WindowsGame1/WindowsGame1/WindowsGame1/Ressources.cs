@@ -43,6 +43,7 @@ namespace WindowsGame1
         public static Texture2D LadderTest;
         public static Texture2D Ladder1;
         public static Texture2D Ladder2;
+        public static Texture2D Ladder3;
         public static Texture2D box;
         public static Texture2D boxH;
         public static Texture2D menu_bg;
@@ -50,6 +51,7 @@ namespace WindowsGame1
         public static Texture2D wallpaper1;
         public static Texture2D wallpaper2;
         public static Texture2D wallpaper3;
+        public static Texture2D warning;
 
         public static Texture2D wallMaison1;
         public static Texture2D wallMaison2;
@@ -58,6 +60,7 @@ namespace WindowsGame1
         public static Texture2D plafondMaison1;
         public static Texture2D plafondMaison2;
         public static Texture2D platform;
+        public static Texture2D platform2;
         public static Texture2D wallMaison3;
         public static Texture2D infected;
         public static Texture2D elevator2;
@@ -280,6 +283,12 @@ namespace WindowsGame1
             TextureList.Add(Ladder1);
             Ladder2 = Content.Load<Texture2D>("ladder2"); // 33
             TextureList.Add(Ladder2);
+            Ladder3 = Content.Load<Texture2D>("ladder3"); // 34
+            TextureList.Add(Ladder3);
+            platform2 = Content.Load<Texture2D>("platform2"); // 35
+            TextureList.Add(platform2);
+            warning = Content.Load<Texture2D>("warning"); // 35
+            TextureList.Add(warning);
         }
     }
 }

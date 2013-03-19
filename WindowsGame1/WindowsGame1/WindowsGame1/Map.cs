@@ -51,6 +51,7 @@ namespace WindowsGame1
 
             StaticNeutralBlock.StaticNeutralList[1].IsCollidable = false;
             StaticNeutralBlock.StaticNeutralList[3].IsCollidable = false;
+            StaticNeutralBlock.StaticNeutralList[4].IsCollidable = false;
         }
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
