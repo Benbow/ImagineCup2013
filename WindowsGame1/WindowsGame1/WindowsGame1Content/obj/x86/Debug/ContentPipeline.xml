@@ -802,6 +802,15 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\endzone.xnb</Output>
       <Time>2013-03-18T23:06:48.811105-04:00</Time>
     </Item>
+    <Item>
+      <Source>bonus.png</Source>
+      <Name>bonus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bonus.xnb</Output>
+      <Time>2013-03-19T08:59:33.2199487-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
