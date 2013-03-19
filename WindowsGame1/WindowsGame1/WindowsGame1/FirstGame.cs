@@ -66,7 +66,6 @@ namespace WindowsGame1
 
         protected override void Update(GameTime gameTime)
         {
-            Console.WriteLine(Hp);
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -126,6 +125,8 @@ namespace WindowsGame1
             InfectedZoneBlock.InfectedZoneBlockList.Clear();
             Main = new GameMain();
             reload = false;
+            Jekyll._jskillsPoints = 70;
+            Hide._hskillPoints = 110;
         }
     }
 }

@@ -128,6 +128,18 @@ namespace WindowsGame1
                     }
                 }
 
+                foreach (SkillPointsBonusBlock bonus in SkillPointsBonusBlock.SkillPointsBonusList)
+                {
+                    if (bonus.HitBox.Intersects(player.HitBox) && bonus.IsActive)
+                    {
+                        bonus.IsActive = false;
+                        if (bonus.Status)
+                            Hide._hskillPoints += bonus.Value;
+                        else
+                            Jekyll._jskillsPoints += bonus.Value;
+                    }
+                }
+
                 foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
                 {
                     if (block.IsActive)
@@ -606,7 +618,6 @@ namespace WindowsGame1
                             {
                                 ennemy.IsOnAlert = true;
                                 int distance = ennemy.HitBox.X - cible.HitBox.X;
-                                Console.WriteLine(cible.IsItemThrow + " " + cible.IsItemCrash);
                                 if (distance > 0)
                                     ennemy.Side = true;
                                 else

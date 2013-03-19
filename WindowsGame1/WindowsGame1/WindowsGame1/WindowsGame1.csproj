@@ -111,6 +111,7 @@
     <Compile Include="Puzzle0.cs" />
     <Compile Include="Puzzle1.cs" />
     <Compile Include="Ressources.cs" />
+    <Compile Include="SkillPointsBonusBlock.cs" />
     <Compile Include="StaticEnnemyBlock.cs" />
     <Compile Include="StaticNeutralBlock.cs" />
   </ItemGroup>

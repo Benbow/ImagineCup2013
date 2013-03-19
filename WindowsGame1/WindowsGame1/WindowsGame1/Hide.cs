@@ -12,7 +12,7 @@ namespace WindowsGame1
     {
         private int _adrenaline;
         private double _hideBias;
-        private double _hskillPoints = 110;
+        public static double _hskillPoints = 110;
 
         public Hide(int x, int y)
         {
@@ -76,16 +76,16 @@ namespace WindowsGame1
             }
         }
 
-        public double HSkillPoints
-        {
-            get
-            {
-                return this._hskillPoints;
-            }
-            set
-            {
-                this._hskillPoints = value;
-            }
-        }
+        //public double HSkillPoints
+        //{
+        //    get
+        //    {
+        //        return this._hskillPoints;
+        //    }
+        //    set
+        //    {
+        //        this._hskillPoints = value;
+        //    }
+        //}
     }
 }

@@ -67,7 +67,6 @@
 8 4330 930 false true false 10
 6 4800 930 true false true true 100 10
 
-11 1000 930 25
+11 4850 686 25
 
-
-
+12 3320 985 26 20 false
