@@ -78,7 +78,7 @@ namespace WindowsGame1
             this.FrameColumn = 1;
 
 
-            this.spotted_zone = new Rectangle(this._hitBox.X + this.SpriteWidth, this.HitBox.Y, 200, this._hitBox.Height);
+            this.spotted_zone = new Rectangle(this._hitBox.X + this.SpriteWidth, this.HitBox.Y, 190, this._hitBox.Height);
             this.spotted_text = Ressources.spot_zone;
 
             MovableEnnemyList.Add(this);
@@ -407,8 +407,34 @@ namespace WindowsGame1
                 this._hitBox = new Rectangle(this._hitBox.X, this._hitBox.Y, this.SpriteWidth, this.SpriteHeight);
                 spritebatch.Draw(this._texture, this._hitBox, null, Color.White, 0f, new Vector2(0, 0), this.Effects, 0f);
             }
+            //if (_reverse)
+            //{
+            //    if (IsOnAlert)
+            //    {
+            //        if (Side)
 
-            spritebatch.Draw(this.spotted_text, this.spotted_zone, Color.White);
+            //        else
+            //    }
+            //    else
+            //    {
+                    
+            //    }
+            //}
+            //else
+            //{
+            //   if (IsOnAlert)
+            //    {
+            //        if (Side)
+
+            //        else
+            //    }
+            //   else
+            //   {
+                   
+            //   }
+            //}
+            //spritebatch.Draw(this.spotted_text, this.spotted_zone, Color.White);  
+            spritebatch.Draw(this.spotted_text, this.spotted_zone, null, Color.White, 0f, new Vector2(0, 0), this.Effects, 0f);
         }
 
         public Rectangle SpotZone

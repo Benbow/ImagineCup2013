@@ -80,7 +80,7 @@ namespace WindowsGame1
         {
            
             spritebatch.Draw(this._spot_text, new Vector2(this._spot_zone.X, this._spot_zone.Y), null, Color.PaleTurquoise, this.rotation, this.rotationOrigin, 1f, SpriteEffects.None, 0);
-            spritebatch.Draw(this._invisible_spot_rec, this._spot_rec, Color.Red);
+            //spritebatch.Draw(this._invisible_spot_rec, this._spot_rec, Color.Red);
         }
 
         public void Animate(GameTime gametime)

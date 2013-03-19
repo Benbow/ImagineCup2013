@@ -36,7 +36,7 @@
 0 1300 400 15
 0 1300 400 18
 
-5 1338 900 100 100 0 false false 8
+5 1338 900 60 100 0 false true 8
 1 1318 1000 17 0 1 2 4 2 true true false
 
 0 1425 500 16
@@ -44,7 +44,7 @@
 8 1550 930 false true false 10
 8 1750 930 false true false 10
 8 1925 930 false true false 10
-3 1500 930 14 true true 100 1 0 2 12 false 3 2 true false true 13
+3 1650 930 14 true true 100 1 0 2 12 false 2 2 true false true 13
 0 2140 500 16
 
 0 2150 500 21
