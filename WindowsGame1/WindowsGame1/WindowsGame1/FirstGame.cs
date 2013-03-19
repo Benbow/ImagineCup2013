@@ -90,7 +90,7 @@ namespace WindowsGame1
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
                 if(start)
                     Main.Draw(spriteBatch);
