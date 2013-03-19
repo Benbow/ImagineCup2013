@@ -34,12 +34,14 @@
 8 1100 930 false true false 31
 
 0 1300 400 15
+14 1300 900
 0 1300 400 18
 
 5 1338 900 60 100 0 false true 8
 1 1318 1000 17 0 1 2 4 2 true true false
 
 0 1425 500 16
+14 1425 900
 0 1425 500 19
 8 1550 930 false true false 31
 8 1750 930 false true false 31

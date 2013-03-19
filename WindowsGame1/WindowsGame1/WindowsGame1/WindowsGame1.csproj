@@ -82,6 +82,7 @@
     <Compile Include="Camera.cs" />
     <Compile Include="ClimbableBlock.cs" />
     <Compile Include="DelimiterZone.cs" />
+    <Compile Include="Door.cs" />
     <Compile Include="EndGUI.cs" />
     <Compile Include="EndZoneBlock.cs" />
     <Compile Include="GameMain.cs" />

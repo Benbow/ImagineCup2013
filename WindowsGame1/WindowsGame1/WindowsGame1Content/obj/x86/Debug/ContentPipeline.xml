@@ -874,6 +874,24 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\box_hidding.xnb</Output>
       <Time>2013-03-19T15:24:18.5196641-04:00</Time>
     </Item>
+    <Item>
+      <Source>door_close.png</Source>
+      <Name>door_close</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\door_close.xnb</Output>
+      <Time>2013-03-19T15:38:06.3400128-04:00</Time>
+    </Item>
+    <Item>
+      <Source>door_open.png</Source>
+      <Name>door_open</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\door_open.xnb</Output>
+      <Time>2013-03-19T15:38:06.3350125-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

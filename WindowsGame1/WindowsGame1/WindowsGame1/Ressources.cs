@@ -62,6 +62,8 @@ namespace WindowsGame1
         public static Texture2D attach_cords;
         public static Texture2D bonus;
         public static Texture2D hidingBox;
+        public static Texture2D door_open;
+        public static Texture2D door_close;
 
         public static Texture2D accueil_bg;
         public static Texture2D a_bouton1;
@@ -205,6 +207,8 @@ namespace WindowsGame1
 
             bullet = Content.Load<Texture2D>("bullet");
             spot_zone = Content.Load<Texture2D>("spot_zone_ennemy");
+            door_open = Content.Load<Texture2D>("door_open");
+            door_close = Content.Load<Texture2D>("door_close");
 
             Player = Content.Load<Texture2D>("tile"); // 0
             TextureList.Add(Player);

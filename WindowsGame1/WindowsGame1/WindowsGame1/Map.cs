@@ -397,6 +397,37 @@ namespace WindowsGame1
                             }
                         }
                     }
+                    else if (!player.Statut)
+                    {
+                        if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
+                        {
+                            futurePos.X += (int)player.Speed;
+                            foreach (Door block in Door.DoorList)
+                            {
+                                if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
+                                {
+                                    block.IsOpen = true;
+                                    block.Texture = Ressources.door_open;
+                                    block.HitBox = new Rectangle(block.HitBox.X+10, block.HitBox.Y, block.Texture.Width, block.Texture.Height);
+                                    block.IsCollidable = false;
+                                }
+                            }
+                        }
+                        else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+                        {
+                            futurePos.X -= (int)player.Speed;
+                            foreach (Door block in Door.DoorList)
+                            {
+                                if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
+                                {
+                                    block.IsOpen = true;
+                                    block.Texture = Ressources.door_open;
+                                    block.HitBox = new Rectangle(block.HitBox.X + 10, block.HitBox.Y, 64, 100);
+                                    block.IsCollidable = false;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 if (pad.IsButtonDown(Buttons.RightShoulder) && oldPad.IsButtonUp(Buttons.RightShoulder))
@@ -878,6 +909,25 @@ namespace WindowsGame1
                 foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                 {
                     if (block.IsCollidable && block.IsActive)
+                    {
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                                player.FallingSpeed = 0;
+                            blockMove = false;
+                            player.AccelMode = 1;
+                            accelTimer = 0;
+
+                            break;
+                        }
+                    }
+                }
+            }
+            if (blockMove)
+            {
+                foreach (Door block in Door.DoorList)
+                {
+                    if (block.IsCollidable && block.IsActive && !block.IsOpen)
                     {
                         if (block.HitBox.Intersects(futurePos))
                         {

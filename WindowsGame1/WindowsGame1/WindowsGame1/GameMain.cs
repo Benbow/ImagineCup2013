@@ -400,7 +400,7 @@ namespace WindowsGame1
                     }
                 }
 
-                else if (words[0] == "13") // End Zone Block
+                else if (words[0] == "13") // Wallpaper
                 {
                     if (words.Length == 6) //basic
                     {
@@ -411,6 +411,17 @@ namespace WindowsGame1
                         int param = Convert.ToInt32(words[5]);
                         Texture2D text = Ressources.TextureList[param];
                         new WallPaperBlock(x, y, w, h,text);
+                    }
+                }
+
+                else if (words[0] == "14") // Doors
+                {
+                    if (words.Length == 3) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        
+                        new Door(x, y);
                     }
                 }
             }
