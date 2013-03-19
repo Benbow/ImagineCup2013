@@ -118,6 +118,7 @@ namespace WindowsGame1
         public static Texture2D ennemySimple;
         public static Texture2D ennemySprite;
         public static Texture2D bullet;
+        public static Texture2D spot_zone;
 
         //Load Content
         public static void LoadContent(ContentManager Content)
@@ -194,6 +195,7 @@ namespace WindowsGame1
             delimiterupdown = Content.Load<Texture2D>("updown");
 
             bullet = Content.Load<Texture2D>("bullet");
+            spot_zone = Content.Load<Texture2D>("spot_zone_ennemy");
 
             Player = Content.Load<Texture2D>("tile"); // 0
             TextureList.Add(Player);

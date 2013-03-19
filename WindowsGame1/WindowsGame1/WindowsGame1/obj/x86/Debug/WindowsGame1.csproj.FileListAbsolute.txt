@@ -191,3 +191,4 @@ C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGam
 C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\endzone.xnb
 C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bonus.xnb
 C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigme_depart.xnb
+C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\spot_zone_ennemy.xnb

@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\InteractZone.xnb</Output>
-      <Time>2013-03-15T20:05:40.9275111-04:00</Time>
+      <Time>2013-03-19T11:44:19.4817224-04:00</Time>
     </Item>
     <Item>
       <Source>enigmes_fond.png</Source>
@@ -819,6 +819,15 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigme_depart.xnb</Output>
       <Time>2013-03-19T11:17:51.1458747-04:00</Time>
+    </Item>
+    <Item>
+      <Source>spot_zone_ennemy.png</Source>
+      <Name>spot_zone_ennemy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\spot_zone_ennemy.xnb</Output>
+      <Time>2013-03-19T11:53:15.4933805-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

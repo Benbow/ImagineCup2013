@@ -78,8 +78,8 @@ namespace WindowsGame1
             this.FrameColumn = 1;
 
 
-            this.spotted_zone = new Rectangle(this._hitBox.X + this.SpriteWidth, this.HitBox.Y, 4 * this._hitBox.Width, this._hitBox.Height);
-            this.spotted_text = Ressources.Ennemy;
+            this.spotted_zone = new Rectangle(this._hitBox.X + this.SpriteWidth, this.HitBox.Y, 200, this._hitBox.Height);
+            this.spotted_text = Ressources.spot_zone;
 
             MovableEnnemyList.Add(this);
             //BlockList.Add(this);
