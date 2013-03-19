@@ -399,6 +399,20 @@ namespace WindowsGame1
                         new SkillPointsBonusBlock(x, y, text, value, status);
                     }
                 }
+
+                else if (words[0] == "13") // End Zone Block
+                {
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int w = Convert.ToInt32(words[3]);
+                        int h = Convert.ToInt32(words[4]);
+                        int param = Convert.ToInt32(words[5]);
+                        Texture2D text = Ressources.TextureList[param];
+                        new WallPaperBlock(x, y, w, h,text);
+                    }
+                }
             }
         }
     }

@@ -49,9 +49,8 @@ namespace WindowsGame1
             _upSide = new DelimiterZone(0, 0, _width, FirstGame.H / 2, Ressources.invisible);
             _downSide = new DelimiterZone(0, _height - FirstGame.H, _width, FirstGame.H, Ressources.invisible);
 
-            StaticNeutralBlock.StaticNeutralList[0].IsCollidable = false;
-            StaticNeutralBlock.StaticNeutralList[2].IsCollidable = false;
-            StaticNeutralBlock.StaticNeutralList[4].IsCollidable = false;
+            StaticNeutralBlock.StaticNeutralList[1].IsCollidable = false;
+            StaticNeutralBlock.StaticNeutralList[3].IsCollidable = false;
         }
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
@@ -224,10 +223,10 @@ namespace WindowsGame1
                     grueTimer++;
                     if (grueTimer < 240/3)
                     {
+                        StaticNeutralBlock.StaticNeutralList[0].Y -= 2;
                         StaticNeutralBlock.StaticNeutralList[1].Y -= 2;
-                        StaticNeutralBlock.StaticNeutralList[2].Y -= 2;
+                        StaticNeutralBlock.StaticNeutralList[2].Y += 3;
                         StaticNeutralBlock.StaticNeutralList[3].Y += 3;
-                        StaticNeutralBlock.StaticNeutralList[4].Y += 3;
                         player.DecreaseCoordY(2);
                     }
                 }

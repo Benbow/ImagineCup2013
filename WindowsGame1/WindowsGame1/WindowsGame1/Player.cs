@@ -319,7 +319,7 @@ namespace WindowsGame1
             futurPos.Y += 1 + (int)this._fallingSpeed;
             foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
             {
-                if (futurPos.Intersects(block.HitBox) && block.IsActive)
+                if (futurPos.Intersects(block.HitBox) && block.IsActive && block.IsCollidable)
                 {
                     colide = true;
                     if (this._fallingSpeed > 0 || this._lookUpDownPhase)
@@ -452,6 +452,11 @@ namespace WindowsGame1
                         this._impulsion = 9f;
                         this.TimerMax = 6;
                         break;
+                    case 3:
+                        this._speedInAir = 8f;
+                        this._impulsion = 7.5f;
+                        this.TimerMax = 5;
+                        break;
                 }
             }
             else
@@ -468,12 +473,6 @@ namespace WindowsGame1
                         this._speedInAir = 0f;
                         this._impulsion = 0f;
                         this.TimerMax = 6;
-                        break;
-
-                    case 3:
-                        this._speedInAir = 0f;
-                        this._impulsion = 0f;
-                        this.TimerMax = 5;
                         break;
                 }
             }
