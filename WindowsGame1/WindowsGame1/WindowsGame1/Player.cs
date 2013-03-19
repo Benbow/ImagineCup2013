@@ -563,7 +563,9 @@ namespace WindowsGame1
             {
                 block.Health -= this._strength;
                 if (block.Health <= 0)
+                {
                     block.IsActive = false;
+                }
             }
         }
 

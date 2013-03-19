@@ -70,3 +70,5 @@
 11 4850 686 25
 
 12 3320 985 26 20 false
+
+spriteBatch.Draw(Ressources.begin, new Rectangle(this._x+40, this._y+40, Ressources.begin.Width, Ressources.begin.Height), Color.White);
