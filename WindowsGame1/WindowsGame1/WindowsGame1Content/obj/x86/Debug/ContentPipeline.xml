@@ -892,6 +892,15 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\door_open.xnb</Output>
       <Time>2013-03-19T16:05:44.5628577-04:00</Time>
     </Item>
+    <Item>
+      <Source>ladder1.png</Source>
+      <Name>ladder1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder1.xnb</Output>
+      <Time>2013-03-19T16:58:20.0383405-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

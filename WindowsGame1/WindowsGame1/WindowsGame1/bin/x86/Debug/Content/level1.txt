@@ -52,8 +52,8 @@
 
 0 2155 500 21
 0 2155 750 21
-4 2530 499 false true 7
-4 2255 749 false true 7
+4 2530 499 false false 32
+4 2255 749 false false 32
 7 2570 730 0 11
 
 0 2620 500 15
@@ -70,9 +70,9 @@
 14 4155 900
 0 4155 750 18
 0 5000 500 2
-3 4155 700 14 true true 100 1 0 2 12 false 4 20000000 false false true 13
+3 4155 700 14 true true 100 1 0 0 12 false 2 2 false false true 13
 
-4 4800 749 false true 7
+4 4800 749 false false 7
 9 4355 785 false true 2 150 25 50 12
 8 4330 930 false true false 10
 6 4800 930 false false true true 10000 10
