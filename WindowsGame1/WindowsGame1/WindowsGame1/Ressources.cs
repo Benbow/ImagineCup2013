@@ -55,6 +55,7 @@ namespace WindowsGame1
         public static Texture2D wallMaison3;
         public static Texture2D infected;
         public static Texture2D elevator2;
+        public static Texture2D attach_cords;
         public static Texture2D bonus;
 
         public static Texture2D accueil_bg;
@@ -251,6 +252,8 @@ namespace WindowsGame1
             TextureList.Add(endzone);
             bonus = Content.Load<Texture2D>("bonus"); //26
             TextureList.Add(bonus);
+            attach_cords = Content.Load<Texture2D>("attach_cords"); //27
+            TextureList.Add(attach_cords);
         }
     }
 }

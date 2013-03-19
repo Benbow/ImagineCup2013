@@ -829,6 +829,15 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\spot_zone_ennemy.xnb</Output>
       <Time>2013-03-19T11:53:15.4933805-04:00</Time>
     </Item>
+    <Item>
+      <Source>attach_cords.png</Source>
+      <Name>attach_cords</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\attach_cords.xnb</Output>
+      <Time>2013-03-19T12:45:33.3198539-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
