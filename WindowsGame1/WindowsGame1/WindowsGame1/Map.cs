@@ -198,8 +198,9 @@ namespace WindowsGame1
                     grueTimer++;
                     if (grueTimer < 240/3)
                     {
-                        StaticNeutralBlock.StaticNeutralList[0].Y -= 3;
-                        StaticNeutralBlock.StaticNeutralList[1].Y+=3;
+                        StaticNeutralBlock.StaticNeutralList[0].Y -= 2;
+                        StaticNeutralBlock.StaticNeutralList[1].Y += 3;
+                        player.DecreaseCoordY(2);
                     }
                 }
 

@@ -214,16 +214,53 @@ namespace WindowsGame1
         {
             if (_reverse)
             {
-                this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
-                this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
-                this.Effects = SpriteEffects.FlipHorizontally;
+                if (IsOnAlert)
+                {
+                    if (Side)
+                    {
+                        this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                        this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
+                        this.Effects = SpriteEffects.None;
+                    }
+                    else
+                    {
+                        this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                        this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
+                        this.Effects = SpriteEffects.FlipHorizontally;
+                    }
+                }
+                else
+                {
+                    this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                    this.spotted_zone.Y -= (int) _dir.Y*(int) this._speed;
+                    this.Effects = SpriteEffects.FlipHorizontally;
+                }
 
             }
             else
             {
-                this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
-                this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
-                this.Effects = SpriteEffects.None;
+                if (IsOnAlert)
+                {
+                    if (Side)
+                    {
+                        this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                        this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
+                        this.Effects = SpriteEffects.None;
+                    }
+                    else
+                    {
+                        this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                        this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
+                        this.Effects = SpriteEffects.FlipHorizontally;
+                    }
+                }
+                else
+                {
+                    this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                    this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
+                    this.Effects = SpriteEffects.None;
+                }
+                
             }
 
             if (!player.HitBox.Intersects(this.spotted_zone))
@@ -242,11 +279,17 @@ namespace WindowsGame1
                 time4 = 0;
                 if (this._reverse)
                 {
-                    new BulletBlock(this._hitBox.X, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(-1, 0), this._strength / 5);
+                    if(this._isOnAlert && this.side)
+                        new BulletBlock(this._hitBox.X + this._hitBox.Width, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(1, 0), this._strength / 5);
+                    else
+                        new BulletBlock(this._hitBox.X, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(-1, 0), this._strength / 5);
                 }
                 else
                 {
-                    new BulletBlock(this._hitBox.X + this._hitBox.Width, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(1, 0), this._strength / 5);
+                    if (this._isOnAlert && !this.side)
+                        new BulletBlock(this._hitBox.X, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(-1, 0), this._strength / 5);
+                    else
+                        new BulletBlock(this._hitBox.X + this._hitBox.Width, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(1, 0), this._strength / 5);
                 }
             }
         }
@@ -255,8 +298,6 @@ namespace WindowsGame1
         {
             if (this._isOnAlert && !this._isReturn)
             {
-                
-
                 if (Side)
                 {
                     this._hitBox.X -= (int)this._speed;
@@ -363,7 +404,7 @@ namespace WindowsGame1
                 spritebatch.Draw(this._texture, this._hitBox, null, Color.White, 0f, new Vector2(0, 0), this.Effects, 0f);
             }
 
-            //spritebatch.Draw(this.spotted_text, this.spotted_zone, Color.White);
+            spritebatch.Draw(this.spotted_text, this.spotted_zone, Color.White);
         }
 
         public Rectangle SpotZone
