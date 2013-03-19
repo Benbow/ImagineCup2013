@@ -134,7 +134,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigmes_fond.xnb</Output>
-      <Time>2013-03-15T20:05:40.9675134-04:00</Time>
+      <Time>2013-03-19T11:17:41.4253188-04:00</Time>
     </Item>
     <Item>
       <Source>enigmes_fond1.png</Source>
@@ -179,7 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\menu_bg.xnb</Output>
-      <Time>2013-03-15T20:05:41.0675191-04:00</Time>
+      <Time>2013-03-19T11:17:41.7023346-04:00</Time>
     </Item>
     <Item>
       <Source>bouton1.png</Source>
@@ -188,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton1.xnb</Output>
-      <Time>2013-03-15T20:05:40.944512-04:00</Time>
+      <Time>2013-03-19T11:17:41.2983115-04:00</Time>
     </Item>
     <Item>
       <Source>bouton2.png</Source>
@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton2.xnb</Output>
-      <Time>2013-03-15T20:05:40.9455121-04:00</Time>
+      <Time>2013-03-19T11:17:41.3023117-04:00</Time>
     </Item>
     <Item>
       <Source>bouton3.png</Source>
@@ -206,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton3.xnb</Output>
-      <Time>2013-03-15T20:05:40.9475122-04:00</Time>
+      <Time>2013-03-19T11:17:41.3053119-04:00</Time>
     </Item>
     <Item>
       <Source>current.png</Source>
@@ -215,7 +215,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\current.xnb</Output>
-      <Time>2013-03-15T20:05:40.9655132-04:00</Time>
+      <Time>2013-03-19T11:17:41.3903168-04:00</Time>
     </Item>
     <Item>
       <Source>comp_bg.png</Source>
@@ -413,7 +413,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\masque.xnb</Output>
-      <Time>2013-03-15T20:05:41.065519-04:00</Time>
+      <Time>2013-03-19T11:17:41.6733329-04:00</Time>
     </Item>
     <Item>
       <Source>masque_big.png</Source>
@@ -458,7 +458,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\imgA.xnb</Output>
-      <Time>2013-03-15T20:05:41.0225165-04:00</Time>
+      <Time>2013-03-19T11:17:41.4943227-04:00</Time>
     </Item>
     <Item>
       <Source>imgB.png</Source>
@@ -467,7 +467,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\imgB.xnb</Output>
-      <Time>2013-03-15T20:05:41.0235166-04:00</Time>
+      <Time>2013-03-19T11:17:41.500323-04:00</Time>
     </Item>
     <Item>
       <Source>imgDown.png</Source>
@@ -476,7 +476,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\imgDown.xnb</Output>
-      <Time>2013-03-15T20:36:12.6479907-04:00</Time>
+      <Time>2013-03-19T11:17:41.5103236-04:00</Time>
     </Item>
     <Item>
       <Source>imgLEFT.png</Source>
@@ -485,7 +485,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\imgLEFT.xnb</Output>
-      <Time>2013-03-15T20:36:12.6519909-04:00</Time>
+      <Time>2013-03-19T11:17:41.5833278-04:00</Time>
     </Item>
     <Item>
       <Source>imgRIGHT.png</Source>
@@ -494,7 +494,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\imgRIGHT.xnb</Output>
-      <Time>2013-03-15T20:36:12.6549911-04:00</Time>
+      <Time>2013-03-19T11:17:41.5903282-04:00</Time>
     </Item>
     <Item>
       <Source>imgUP.png</Source>
@@ -503,7 +503,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\imgUP.xnb</Output>
-      <Time>2013-03-15T20:36:12.6579913-04:00</Time>
+      <Time>2013-03-19T11:17:41.6003288-04:00</Time>
     </Item>
     <Item>
       <Source>imgX.png</Source>
@@ -512,7 +512,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\imgX.xnb</Output>
-      <Time>2013-03-15T20:05:41.0275168-04:00</Time>
+      <Time>2013-03-19T11:17:41.6523317-04:00</Time>
     </Item>
     <Item>
       <Source>imgY.png</Source>
@@ -521,7 +521,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\imgY.xnb</Output>
-      <Time>2013-03-15T20:05:41.0295169-04:00</Time>
+      <Time>2013-03-19T11:17:41.6583321-04:00</Time>
     </Item>
     <Item>
       <Source>ready.png</Source>
@@ -530,7 +530,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ready.xnb</Output>
-      <Time>2013-03-15T20:05:41.0945206-04:00</Time>
+      <Time>2013-03-19T11:17:41.7713385-04:00</Time>
     </Item>
     <Item>
       <Source>go.png</Source>
@@ -539,7 +539,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\go.xnb</Output>
-      <Time>2013-03-15T20:05:40.9685134-04:00</Time>
+      <Time>2013-03-19T11:17:41.4283189-04:00</Time>
     </Item>
     <Item>
       <Source>reload.png</Source>
@@ -548,7 +548,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\reload.xnb</Output>
-      <Time>2013-03-15T20:05:41.0955207-04:00</Time>
+      <Time>2013-03-19T11:17:41.7723386-04:00</Time>
     </Item>
     <Item>
       <Source>FontScore.spritefont</Source>
@@ -602,7 +602,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\win.xnb</Output>
-      <Time>2013-03-15T23:56:22.9996089-04:00</Time>
+      <Time>2013-03-19T11:17:41.8373423-04:00</Time>
     </Item>
     <Item>
       <Source>spot.png</Source>
@@ -611,7 +611,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\spot.xnb</Output>
-      <Time>2013-03-16T16:16:58.155893-04:00</Time>
+      <Time>2013-03-19T11:17:41.7773389-04:00</Time>
     </Item>
     <Item>
       <Source>camera.png</Source>
@@ -620,7 +620,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\camera.xnb</Output>
-      <Time>2013-03-16T16:16:58.1468925-04:00</Time>
+      <Time>2013-03-19T11:17:41.3863165-04:00</Time>
     </Item>
     <Item>
       <Source>Credits.png</Source>
@@ -674,7 +674,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2013-03-17T13:26:22.8423401-04:00</Time>
+      <Time>2013-03-19T11:17:41.3833163-04:00</Time>
     </Item>
     <Item>
       <Source>wallMaison1.png</Source>
@@ -683,7 +683,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wallMaison1.xnb</Output>
-      <Time>2013-03-17T21:02:38.5211394-04:00</Time>
+      <Time>2013-03-19T11:17:41.7813391-04:00</Time>
     </Item>
     <Item>
       <Source>wallMaison2.png</Source>
@@ -692,7 +692,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wallMaison2.xnb</Output>
-      <Time>2013-03-17T21:02:38.5221395-04:00</Time>
+      <Time>2013-03-19T11:17:41.7843393-04:00</Time>
     </Item>
     <Item>
       <Source>elevators.png</Source>
@@ -701,7 +701,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\elevators.xnb</Output>
-      <Time>2013-03-17T18:29:46.4075245-04:00</Time>
+      <Time>2013-03-19T11:17:41.3923169-04:00</Time>
     </Item>
     <Item>
       <Source>plafondMaison1.png</Source>
@@ -710,7 +710,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\plafondMaison1.xnb</Output>
-      <Time>2013-03-17T21:02:38.514139-04:00</Time>
+      <Time>2013-03-19T11:17:41.7633381-04:00</Time>
     </Item>
     <Item>
       <Source>plafondMaison2.png</Source>
@@ -719,7 +719,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\plafondMaison2.xnb</Output>
-      <Time>2013-03-17T21:02:38.5151391-04:00</Time>
+      <Time>2013-03-19T11:17:41.7673383-04:00</Time>
     </Item>
     <Item>
       <Source>wall2Maison1.png</Source>
@@ -728,7 +728,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wall2Maison1.xnb</Output>
-      <Time>2013-03-17T21:02:38.5201394-04:00</Time>
+      <Time>2013-03-19T11:17:41.779339-04:00</Time>
     </Item>
     <Item>
       <Source>platform.png</Source>
@@ -737,7 +737,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\platform.xnb</Output>
-      <Time>2013-03-17T21:02:38.5161391-04:00</Time>
+      <Time>2013-03-19T11:17:41.7703385-04:00</Time>
     </Item>
     <Item>
       <Source>wallMaison3.png</Source>
@@ -746,7 +746,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\wallMaison3.xnb</Output>
-      <Time>2013-03-17T21:02:38.5231395-04:00</Time>
+      <Time>2013-03-19T11:17:41.7853393-04:00</Time>
     </Item>
     <Item>
       <Source>cible.png</Source>
@@ -764,7 +764,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\infected.xnb</Output>
-      <Time>2013-03-18T14:25:33.6537806-04:00</Time>
+      <Time>2013-03-19T11:17:41.6653325-04:00</Time>
     </Item>
     <Item>
       <Source>elevators2.png</Source>
@@ -818,7 +818,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigme_depart.xnb</Output>
-      <Time>2013-03-19T10:04:41.5104902-04:00</Time>
+      <Time>2013-03-19T11:17:51.1458747-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

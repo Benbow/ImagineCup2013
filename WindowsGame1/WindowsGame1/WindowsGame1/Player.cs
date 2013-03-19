@@ -115,6 +115,8 @@ namespace WindowsGame1
         {
             if (this._isAttacking)
             {
+                if (this.BeginAttack)
+                    this._hitBox.X -= 14;
                 this._beginAttack = false;
                 this.FrameLine = 1;
                 this.WidthSprite = 70;
@@ -301,7 +303,6 @@ namespace WindowsGame1
             if (this._beginAttack)
             {
                 this.FrameColumn = 0;
-                this._hitBox.X -= 14;
             }
 
             this._dir = Vector2.Zero;
@@ -451,12 +452,6 @@ namespace WindowsGame1
                         this._impulsion = 9f;
                         this.TimerMax = 6;
                         break;
-
-                    case 3:
-                        this._speedInAir = 8f;
-                        this._impulsion = 7.5f;
-                        this.TimerMax = 5;
-                        break;
                 }
             }
             else
@@ -563,9 +558,7 @@ namespace WindowsGame1
             {
                 block.Health -= this._strength;
                 if (block.Health <= 0)
-                {
                     block.IsActive = false;
-                }
             }
         }
 

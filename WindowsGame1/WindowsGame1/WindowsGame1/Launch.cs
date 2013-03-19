@@ -104,7 +104,7 @@ namespace WindowsGame1
                 if (futurPos.Intersects(block.HitBox))
                 {
                     colide = true;
-                    this.ob.Y = block.HitBox.Y - block.HitBox.Height;
+                    this.ob.Y = block.HitBox.Y - ob.Height;
                     break;
                 }
             }
@@ -118,12 +118,12 @@ namespace WindowsGame1
 
                 if (sens == Direction.Left)
                 {
-                    if(ob.X > _cible.X)
+                    //if(ob.X > _cible.X)
                         this.ob.X -= _vit;
                 }
                 else if (sens == Direction.Right)
                 {
-                    if (ob.X < _cible.X)
+                    //if (ob.X < _cible.X)
                         this.ob.X += _vit;
                 }
 

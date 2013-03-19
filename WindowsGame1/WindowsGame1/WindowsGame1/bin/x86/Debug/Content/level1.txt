@@ -65,10 +65,8 @@
 4 4800 749 false true 7
 9 4355 785 false true 2 150 25 50 12
 8 4330 930 false true false 10
-6 4800 930 true false true true 100 10
+6 4800 930 true false true true 10000 10
 
 11 4850 686 25
 
 12 3320 985 26 20 false
-
-spriteBatch.Draw(Ressources.begin, new Rectangle(this._x+40, this._y+40, Ressources.begin.Width, Ressources.begin.Height), Color.White);
