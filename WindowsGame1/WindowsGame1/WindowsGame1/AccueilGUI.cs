@@ -86,6 +86,10 @@ namespace WindowsGame1
                 {
                     FirstGame.start = true;
                 }
+                else if (current == 2)
+                {
+                    FirstGame.credits = true;
+                }
                 else if (current == 3)
                 {
                     FirstGame.exit = true;

@@ -23,6 +23,7 @@ namespace WindowsGame1
         public static bool exit = false;
         public static bool reload = false;
         public static bool checkpoint = false;
+        public static bool credits = false;
         public static double Jp;
         public static double Hp;
         public static int W;
@@ -31,6 +32,7 @@ namespace WindowsGame1
         GameMain Main;
         AccueilGUI Accueil;
         EndGUI EndScreen;
+        GamePadState oldPad;
 
         public FirstGame()
         {
@@ -83,8 +85,17 @@ namespace WindowsGame1
             {
                 EndScreen.Update(GamePad.GetState(PlayerIndex.One));
             }
+            else if(credits)
+            {
+                if ((GamePad.GetState(PlayerIndex.One).IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A)) || (GamePad.GetState(PlayerIndex.One).IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B)))
+                {
+                    credits = false;
+                }
+            }
             else
                 Accueil.Update(GamePad.GetState(PlayerIndex.One));
+
+            oldPad = GamePad.GetState(PlayerIndex.One);
             base.Update(gameTime);
         }
 
@@ -97,6 +108,10 @@ namespace WindowsGame1
                 else if (end)
                 {
                     EndScreen.Draw(spriteBatch);
+                }
+                else if(credits)
+                {
+                    spriteBatch.Draw(Ressources.accueil_bg, new Rectangle(0,0, FirstGame.W, FirstGame.H), Color.Turquoise);
                 }
                 else
                     Accueil.Draw(spriteBatch);

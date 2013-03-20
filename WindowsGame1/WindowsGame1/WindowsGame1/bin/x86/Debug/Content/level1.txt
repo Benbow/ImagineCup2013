@@ -80,7 +80,7 @@
 4 4800 749 false false 7
 9 4355 785 false true 2 150 25 50 12
 8 4330 930 false true false 10
-6 4800 930 false false true true 10000 10
+6 4800 930 false false true true 10000 31
 
 11 4850 686 25
 
