@@ -127,7 +127,7 @@ namespace WindowsGame1
                     {
                         FirstGame.start = false;
                         FirstGame.end = true;
-                        FirstGame.Hp = AlignementGUI._value/4;
+                        FirstGame.Hp = AlignementGUI._value / 4;
                         FirstGame.Jp = 100 - FirstGame.Hp;
                     }
                 }
@@ -210,7 +210,7 @@ namespace WindowsGame1
                             if (player.Health <= 0)
                                 FirstGame.reload = true;
                         }
-                        else if(!player.Statut && (!InventoryCase.InventoryCaseList[0].Status || !player.IsActiveObject))
+                        else if (!player.Statut && (!InventoryCase.InventoryCaseList[0].Status || !player.IsActiveObject))
                         {
                             player.Health--;
                             if (player.Health <= 0)
@@ -222,7 +222,7 @@ namespace WindowsGame1
                 if (!ClimbableBlock.ClimbableBlockList[0].IsActive && !ClimbableBlock.ClimbableBlockList[1].IsActive)
                 {
                     grueTimer++;
-                    if (grueTimer < 240/3)
+                    if (grueTimer < 240 / 3)
                     {
                         StaticNeutralBlock.StaticNeutralList[0].Y -= 2;
                         StaticNeutralBlock.StaticNeutralList[1].Y -= 2;
@@ -398,34 +398,31 @@ namespace WindowsGame1
                             }
                         }
                     }
-                    else
+                    if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
                     {
-                        if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
+                        futurePos.X += (int)player.Speed;
+                        foreach (Door block in Door.DoorList)
                         {
-                            futurePos.X += (int)player.Speed;
-                            foreach (Door block in Door.DoorList)
+                            if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
                             {
-                                if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
-                                {
-                                    block.IsOpen = true;
-                                    block.Texture = Ressources.door_open;
-                                    block.HitBox = new Rectangle(block.HitBox.X+10, block.HitBox.Y, block.Texture.Width, block.Texture.Height);
-                                    block.IsCollidable = false;
-                                }
+                                block.IsOpen = true;
+                                block.Texture = Ressources.door_open;
+                                block.HitBox = new Rectangle(block.HitBox.X + 10, block.HitBox.Y, block.Texture.Width, block.Texture.Height);
+                                block.IsCollidable = false;
                             }
                         }
-                        else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+                    }
+                    else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+                    {
+                        futurePos.X -= (int)player.Speed;
+                        foreach (Door block in Door.DoorList)
                         {
-                            futurePos.X -= (int)player.Speed;
-                            foreach (Door block in Door.DoorList)
+                            if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
                             {
-                                if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
-                                {
-                                    block.IsOpen = true;
-                                    block.Texture = Ressources.door_open;
-                                    block.HitBox = new Rectangle(block.HitBox.X + 10, block.HitBox.Y, block.Texture.Width, block.Texture.Height);
-                                    block.IsCollidable = false;
-                                }
+                                block.IsOpen = true;
+                                block.Texture = Ressources.door_open;
+                                block.HitBox = new Rectangle(block.HitBox.X + 10, block.HitBox.Y, block.Texture.Width, block.Texture.Height);
+                                block.IsCollidable = false;
                             }
                         }
                     }
@@ -648,7 +645,7 @@ namespace WindowsGame1
                     if (throwcount >= 6)
                     {
                         throwcount = 0;
-                        cible.EffetZone = new Rectangle(cible.HitBox.X-250, cible.HitBox.Y-50, 500, 50);
+                        cible.EffetZone = new Rectangle(cible.HitBox.X - 250, cible.HitBox.Y - 50, 500, 50);
                         foreach (MovableEnnemyBlock ennemy in MovableEnnemyBlock.MovableEnnemyList)
                         {
                             if (ennemy.HitBox.Intersects(cible.EffetZone) && !ennemy.IsOnAlert)
@@ -673,7 +670,7 @@ namespace WindowsGame1
                     player.CanMove = false;
                     player.Speed = 0;
                     player.throwItem(cible, pad);
-                    
+
                 }
 
             }
