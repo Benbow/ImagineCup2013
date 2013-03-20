@@ -881,7 +881,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\door_close.xnb</Output>
-      <Time>2013-03-19T16:03:42.7518905-04:00</Time>
+      <Time>2013-03-19T19:44:13.9724674-04:00</Time>
     </Item>
     <Item>
       <Source>door_open.png</Source>
@@ -890,7 +890,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\door_open.xnb</Output>
-      <Time>2013-03-19T16:05:44.5628577-04:00</Time>
+      <Time>2013-03-19T19:44:13.9774677-04:00</Time>
     </Item>
     <Item>
       <Source>ladder1.png</Source>
@@ -908,7 +908,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder2.xnb</Output>
-      <Time>2013-03-19T18:34:04.5106999-04:00</Time>
+      <Time>2013-03-19T19:44:13.983468-04:00</Time>
     </Item>
     <Item>
       <Source>ladder3.png</Source>
@@ -917,7 +917,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ladder3.xnb</Output>
-      <Time>2013-03-19T18:46:06.2789827-04:00</Time>
+      <Time>2013-03-19T19:44:13.9864682-04:00</Time>
     </Item>
     <Item>
       <Source>platform2.png</Source>

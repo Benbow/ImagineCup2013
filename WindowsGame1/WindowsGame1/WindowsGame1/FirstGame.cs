@@ -123,6 +123,13 @@ namespace WindowsGame1
             StaticNeutralBlock.StaticNeutralList.Clear();
             BulletBlock.BulletBlockList.Clear();
             InfectedZoneBlock.InfectedZoneBlockList.Clear();
+            Door.DoorList.Clear();
+            EndZoneBlock.EndZoneBlockList.Clear();
+            InfectedZoneBlock.InfectedZoneBlockList.Clear();
+            LaunchableBlock.LaunchableBlockList.Clear();
+            Puzzle.PuzzleList.Clear();
+            SkillPointsBonusBlock.SkillPointsBonusList.Clear();
+            WallPaperBlock.WallPaperBlockList.Clear();
             Main = new GameMain();
             reload = false;
             Jekyll._jskillsPoints = 70;
