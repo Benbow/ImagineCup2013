@@ -324,7 +324,6 @@ namespace WindowsGame1
                     colide = true;
                     if (this._fallingSpeed > 0 || this._lookUpDownPhase)
                     {
-                        Console.WriteLine(this._fallingSpeed);
                         this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
                         if (!this._statut && this._fallingSpeed > 7.5)
                         {

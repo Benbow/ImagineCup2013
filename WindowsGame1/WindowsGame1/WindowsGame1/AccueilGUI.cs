@@ -85,6 +85,8 @@ namespace WindowsGame1
                 if (current == 1)
                 {
                     FirstGame.start = true;
+                    FirstGame.reloadCount = 0;
+                    FirstGame.checkpoint = false;
                 }
                 else if (current == 2)
                 {

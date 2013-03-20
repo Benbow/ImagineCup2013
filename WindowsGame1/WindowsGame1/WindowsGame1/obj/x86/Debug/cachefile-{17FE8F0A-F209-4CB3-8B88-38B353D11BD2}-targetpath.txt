@@ -104,3 +104,5 @@ Content\platform2.xnb
 Content\warning.xnb
 Content\credits_bg.xnb
 Content\checkpoint.xnb
+Content\end_bg.xnb
+Content\SpriteFont2.xnb

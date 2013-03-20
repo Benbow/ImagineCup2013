@@ -18,7 +18,7 @@ namespace WindowsGame1
         public EndGUI ()
         {
             this.hitbox = new Rectangle(0, 0, FirstGame.W, FirstGame.H);
-            this.text = Ressources.endzone;
+            this.text = Ressources.end_bg;
         }
 
         public void Update(GamePadState pad)
@@ -28,16 +28,15 @@ namespace WindowsGame1
                 FirstGame.end = false;
                 FirstGame.reload = true;
             }
-
             oldPad = pad;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this.text, this.hitbox, Color.White);
-            spriteBatch.DrawString(Ressources.puzzle0Lose, "You WIN THEIS GAME", new Vector2(FirstGame.W/2 - 800, FirstGame.H/2), Color.Black);
-            spriteBatch.DrawString(Ressources.puzzle0Lose, "Scientist Skill Points : " + Math.Ceiling((FirstGame.Jp / 100) * 1500), new Vector2(FirstGame.W / 2 - 800, FirstGame.H / 2 + 100), Color.Black);
-            spriteBatch.DrawString(Ressources.puzzle0Lose, "Monster Skill Points : " + Math.Ceiling((FirstGame.Hp / 100) * 1500), new Vector2(FirstGame.W / 2 - 800, FirstGame.H / 2 +200), Color.Black);
+            spriteBatch.DrawString(Ressources.puzzle0Lose, "Level Complete !", new Vector2(FirstGame.W/2 - 340, FirstGame.H/2 - 200), Color.Black);
+            spriteBatch.DrawString(Ressources.font2, "Scientist Skill Points : " + Math.Ceiling((FirstGame.Jp / 100) * 1500), new Vector2(FirstGame.W / 2 - 280, FirstGame.H / 2), Color.Black);
+            spriteBatch.DrawString(Ressources.font2, "Monster Skill Points : " + Math.Ceiling((FirstGame.Hp / 100) * 1500), new Vector2(FirstGame.W / 2 - 280, FirstGame.H / 2 + 100), Color.Black);
         }
 
     }

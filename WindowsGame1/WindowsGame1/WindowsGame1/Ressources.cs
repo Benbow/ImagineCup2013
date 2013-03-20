@@ -23,6 +23,7 @@ namespace WindowsGame1
         public static SpriteFont cmpTitle;
         public static SpriteFont cmpContent;
         public static SpriteFont puzzle0Lose;
+        public static SpriteFont font2;
 
         public static Texture2D Player;
         public static Texture2D Wall;
@@ -73,6 +74,7 @@ namespace WindowsGame1
         public static Texture2D checkpoint;
 
         public static Texture2D accueil_bg;
+        public static Texture2D end_bg;
         public static Texture2D a_bouton1;
         public static Texture2D a_bouton2;
         public static Texture2D a_bouton3;
@@ -139,6 +141,7 @@ namespace WindowsGame1
         public static void LoadContent(ContentManager Content)
         {
             accueil_bg = Content.Load<Texture2D>("accueil");
+            end_bg = Content.Load<Texture2D>("end_bg");
             a_bouton1 = Content.Load<Texture2D>("Play");
             a_bouton2 = Content.Load<Texture2D>("Credits");
             a_bouton3 = Content.Load<Texture2D>("Exit");
@@ -148,6 +151,7 @@ namespace WindowsGame1
             wallpaper3 = Content.Load<Texture2D>("Wallpaper3");
 
             font1 = Content.Load<SpriteFont>("SpriteFont1");
+            font2 = Content.Load<SpriteFont>("SpriteFont2");
             cmpTitle = Content.Load<SpriteFont>("cmpTitle");
             cmpContent = Content.Load<SpriteFont>("cmpContent");
             puzzle0Lose = Content.Load<SpriteFont>("puzzle0");
