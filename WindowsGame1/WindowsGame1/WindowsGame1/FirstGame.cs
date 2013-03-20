@@ -24,6 +24,7 @@ namespace WindowsGame1
         public static bool reload = false;
         public static bool checkpoint = false;
         public static bool credits = false;
+        public static int reloadCount = 0;
         public static double Jp;
         public static double Hp;
         public static int W;
@@ -150,6 +151,7 @@ namespace WindowsGame1
             reload = false;
             Jekyll._jskillsPoints = 70;
             Hide._hskillPoints = 110;
+            reloadCount++;
         }
     }
 }

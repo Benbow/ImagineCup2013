@@ -809,7 +809,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bonus.xnb</Output>
-      <Time>2013-03-19T08:59:33.2199487-04:00</Time>
+      <Time>2013-03-20T15:28:31.3289367-04:00</Time>
     </Item>
     <Item>
       <Source>enigme_depart.png</Source>
@@ -936,6 +936,24 @@
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\warning.xnb</Output>
       <Time>2013-03-20T14:49:47.7888391-04:00</Time>
+    </Item>
+    <Item>
+      <Source>credits_bg.png</Source>
+      <Name>credits_bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\credits_bg.xnb</Output>
+      <Time>2013-03-20T15:28:33.6620701-04:00</Time>
+    </Item>
+    <Item>
+      <Source>checkpoint.png</Source>
+      <Name>checkpoint</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\checkpoint.xnb</Output>
+      <Time>2013-03-20T15:46:29.4115336-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -56,9 +56,9 @@ namespace WindowsGame1
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
         {
-            if (FirstGame.checkpoint && !slide)
+            if (FirstGame.checkpoint && !slide && FirstGame.reloadCount != 0)
             {
-                this.Slide(600, player);
+                this.Slide(1800, player);
                 slide = true;
             }
 

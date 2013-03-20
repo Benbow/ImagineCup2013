@@ -70,6 +70,7 @@ namespace WindowsGame1
         public static Texture2D hidingBox;
         public static Texture2D door_open;
         public static Texture2D door_close;
+        public static Texture2D checkpoint;
 
         public static Texture2D accueil_bg;
         public static Texture2D a_bouton1;
@@ -288,8 +289,10 @@ namespace WindowsGame1
             TextureList.Add(Ladder3);
             platform2 = Content.Load<Texture2D>("platform2"); // 35
             TextureList.Add(platform2);
-            warning = Content.Load<Texture2D>("warning"); // 35
+            warning = Content.Load<Texture2D>("warning"); // 36
             TextureList.Add(warning);
+            checkpoint = Content.Load<Texture2D>("checkpoint"); // 37
+            TextureList.Add(checkpoint);
 
         }
     }

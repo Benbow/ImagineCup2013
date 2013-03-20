@@ -41,8 +41,8 @@ namespace WindowsGame1
             }
             else
             {
-                LocalJekyll = new Jekyll(FirstGame.W/2 - 72, 500);
-                LocalHide = new Hide(FirstGame.W - 72/2, 500);
+                LocalJekyll = new Jekyll(FirstGame.W/2 - 72, 386);
+                LocalHide = new Hide(FirstGame.W - 72/2, 386);
             }
             MyMap.SlideY(1000-FirstGame.H+72);
             Status = "on";
