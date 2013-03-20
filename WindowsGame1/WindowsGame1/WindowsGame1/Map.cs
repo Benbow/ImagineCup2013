@@ -219,6 +219,14 @@ namespace WindowsGame1
                     }
                 }
 
+                foreach (CheckpointBlock check in CheckpointBlock.CheckpointBlockList)
+                {
+                    if (player.HitBox.Intersects(check.HitBox))
+                    {
+                        FirstGame.checkpoint = true;
+                    }
+                }
+
                 if (!ClimbableBlock.ClimbableBlockList[0].IsActive && !ClimbableBlock.ClimbableBlockList[1].IsActive)
                 {
                     grueTimer++;

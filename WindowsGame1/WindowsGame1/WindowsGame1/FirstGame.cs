@@ -111,7 +111,7 @@ namespace WindowsGame1
                 }
                 else if(credits)
                 {
-                    spriteBatch.Draw(Ressources.accueil_bg, new Rectangle(0,0, FirstGame.W, FirstGame.H), Color.Turquoise);
+                    spriteBatch.Draw(Ressources.credits_bg, new Rectangle(0,0, FirstGame.W, FirstGame.H), Color.Turquoise);
                 }
                 else
                     Accueil.Draw(spriteBatch);
@@ -145,6 +145,7 @@ namespace WindowsGame1
             Puzzle.PuzzleList.Clear();
             SkillPointsBonusBlock.SkillPointsBonusList.Clear();
             WallPaperBlock.WallPaperBlockList.Clear();
+            CheckpointBlock.CheckpointBlockList.Clear();
             Main = new GameMain();
             reload = false;
             Jekyll._jskillsPoints = 70;

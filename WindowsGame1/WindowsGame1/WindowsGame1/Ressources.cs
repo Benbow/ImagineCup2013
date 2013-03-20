@@ -47,6 +47,7 @@ namespace WindowsGame1
         public static Texture2D box;
         public static Texture2D boxH;
         public static Texture2D menu_bg;
+        public static Texture2D credits_bg;
         public static Texture2D endzone;
         public static Texture2D wallpaper1;
         public static Texture2D wallpaper2;
@@ -205,7 +206,7 @@ namespace WindowsGame1
 
             spot = Content.Load<Texture2D>("spot");
 
-
+            credits_bg = Content.Load<Texture2D>("credits_bg");
             
             delimiterleftright = Content.Load<Texture2D>("leftright");
             delimiterupdown = Content.Load<Texture2D>("updown");
@@ -289,6 +290,7 @@ namespace WindowsGame1
             TextureList.Add(platform2);
             warning = Content.Load<Texture2D>("warning"); // 35
             TextureList.Add(warning);
+
         }
     }
 }

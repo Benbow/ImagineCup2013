@@ -41,8 +41,8 @@ namespace WindowsGame1
             }
             else
             {
-                LocalJekyll = new Jekyll(FirstGame.W/2 - 72, 600);
-                LocalHide = new Hide(FirstGame.W - 72/2, 600);
+                LocalJekyll = new Jekyll(FirstGame.W/2 - 72, 500);
+                LocalHide = new Hide(FirstGame.W - 72/2, 500);
             }
             MyMap.SlideY(1000-FirstGame.H+72);
             Status = "on";
@@ -422,6 +422,19 @@ namespace WindowsGame1
                         int y = Convert.ToInt32(words[2]);
                         
                         new Door(x, y);
+                    }
+                }
+
+                else if (words[0] == "15") // Checkpoint Block
+                {
+                    if (words.Length == 4) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new CheckpointBlock(x, y, text);
                     }
                 }
             }
