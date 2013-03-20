@@ -9,6 +9,8 @@ namespace WindowsGame1
 {
     class MovableNeutralBlock : Blocks
     {
+        public static int count ;
+
         private float _speed;
         private Vector2 _dir;
         private float _initAnimationTime;
@@ -17,7 +19,7 @@ namespace WindowsGame1
         private float _onAnimationTime;
         private bool _reverse;
         private bool _isAnimate;
-        private bool _isOnGravity;
+        private bool _activate;
        
 
         int time;
@@ -25,7 +27,7 @@ namespace WindowsGame1
         public static List<MovableNeutralBlock> MovableNeutralList = new List<MovableNeutralBlock>();
 
         //constructeur basique (indestructible et colidable)
-        public MovableNeutralBlock(int x, int y, Texture2D text, Vector2 dir, int speed, float animationTime, float waitTime, bool isAnimate, bool reverse, bool isOnGravity)
+        public MovableNeutralBlock(int x, int y, Texture2D text, Vector2 dir, int speed, float animationTime, float waitTime, bool isAnimate, bool reverse, bool activate)
         {
             this._texture = text;
             this._hitBox = new Rectangle(x, y, text.Width, text.Height);
@@ -39,14 +41,15 @@ namespace WindowsGame1
             this._onAnimationTime = animationTime;
             this._isAnimate = isAnimate;
             this._reverse = reverse;
-            this._isOnGravity = isOnGravity;
+            this._activate = activate;
 
+            count++;
             MovableNeutralList.Add(this);
             BlockList.Add(this);
         }
 
         //constructeur complet
-        public MovableNeutralBlock(int x, int y, Texture2D text, bool isBreakable, bool isCollidable, int health, Vector2 dir, int speed, float animationTime, float waitTime, bool isAnimate, bool reverse, bool isOnGravity)
+        public MovableNeutralBlock(int x, int y, Texture2D text, bool isBreakable, bool isCollidable, int health, Vector2 dir, int speed, float animationTime, float waitTime, bool isAnimate, bool reverse, bool activate)
         {
             this._texture = text;
             this._hitBox = new Rectangle(x, y, text.Width, text.Height);
@@ -61,15 +64,17 @@ namespace WindowsGame1
             this._onAnimationTime = animationTime;
             this._isAnimate = isAnimate;
             this._reverse = reverse;
-            this._isOnGravity = isOnGravity;
+            this._activate = activate;
 
+            count++;
             MovableNeutralList.Add(this);
             BlockList.Add(this);
         }
 
         public void Update(GameTime gametime)
         {
-            this.Animate(gametime);
+            if(this._activate)
+                this.Animate(gametime);
         }
 
         public void Animate(GameTime gametime)
@@ -113,6 +118,30 @@ namespace WindowsGame1
                     this._hitBox.Y += (int)_dir.Y * (int)this._speed;
                 }
             }
+        }
+
+        public bool Activate
+        {
+            get { return this._activate; }
+            set { this._activate = value; }
+        }
+
+        public float Speed
+        {
+            get { return this._speed; }
+            set { this._speed = value; }
+        }
+
+        public bool Reverse
+        {
+            get { return this._reverse; }
+            set { this._reverse = value; }
+        }
+
+        public bool IsAnimate
+        {
+            get { return this._isAnimate; }
+            set { this._isAnimate = value; }
         }
     }
 }

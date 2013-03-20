@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace WindowsGame1
 {
@@ -15,10 +16,5 @@ namespace WindowsGame1
         protected Rectangle _hitBox;
 
         public static List<Puzzle> PuzzleList = new List<Puzzle>();
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(this._text, this._hitBox, Color.White);
-        }
     }
 }

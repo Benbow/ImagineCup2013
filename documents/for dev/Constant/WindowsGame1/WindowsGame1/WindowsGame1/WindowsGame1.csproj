@@ -66,25 +66,37 @@
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccueilGUI.cs" />
     <Compile Include="AlignementGUI.cs" />
     <Compile Include="BlockOld.cs" />
     <Compile Include="Blocks.cs" />
+    <Compile Include="BulletBlock.cs" />
+    <Compile Include="Camera.cs" />
     <Compile Include="ClimbableBlock.cs" />
-    <Compile Include="Launch.cs" />
     <Compile Include="DelimiterZone.cs" />
+    <Compile Include="Door.cs" />
+    <Compile Include="EndGUI.cs" />
+    <Compile Include="EndZoneBlock.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Hide.cs" />
     <Compile Include="HidingBlock.cs" />
+    <Compile Include="InfectedZoneBlock.cs" />
     <Compile Include="InteractZoneBlockWithPuzzle.cs" />
+    <Compile Include="InventoryGUI.cs" />
+    <Compile Include="InventoryCase.cs" />
+    <Compile Include="ItemBlock.cs" />
     <Compile Include="Jekyll.cs" />
     <Compile Include="Ladder.cs" />
+    <Compile Include="Launch.cs" />
     <Compile Include="LaunchableBlock.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapOld.cs" />
@@ -100,8 +112,10 @@
     <Compile Include="Puzzle0.cs" />
     <Compile Include="Puzzle1.cs" />
     <Compile Include="Ressources.cs" />
+    <Compile Include="SkillPointsBonusBlock.cs" />
     <Compile Include="StaticEnnemyBlock.cs" />
     <Compile Include="StaticNeutralBlock.cs" />
+    <Compile Include="WallPaperBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

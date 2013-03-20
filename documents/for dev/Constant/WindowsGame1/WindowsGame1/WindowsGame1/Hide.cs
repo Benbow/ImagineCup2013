@@ -12,22 +12,23 @@ namespace WindowsGame1
     {
         private int _adrenaline;
         private double _hideBias;
-        private double _hskillPoints = 110;
+        public static double _hskillPoints = 110;
 
         public Hide(int x, int y)
         {
             this.WidthSprite = 42;
             this.HeightSprite = 84;
-            this._hitBox = new Rectangle(x, y, WidthSprite, HeightSprite);
+            this._hitBox = new Rectangle(x, y, this.WidthSprite, this.HeightSprite);
             this._text = Ressources.Hide;
             this._pos = new Vector2(this._hitBox.X, this._hitBox.Y);
             this._dir = Vector2.Zero;
-            this._health = 100;
+            this._health = 110;
             this._strength = 20;
             this._poids = 9;
             this._accelMode = 1;
             this._adrenaline = 0;
             this._hideBias = 0;
+            
 
             this.FrameColumn = 4;
             this.FrameLine = 0;
@@ -75,16 +76,16 @@ namespace WindowsGame1
             }
         }
 
-        public double HSkillPoints
-        {
-            get
-            {
-                return this._hskillPoints;
-            }
-            set
-            {
-                this._hskillPoints = value;
-            }
-        }
+        //public double HSkillPoints
+        //{
+        //    get
+        //    {
+        //        return this._hskillPoints;
+        //    }
+        //    set
+        //    {
+        //        this._hskillPoints = value;
+        //    }
+        //}
     }
 }

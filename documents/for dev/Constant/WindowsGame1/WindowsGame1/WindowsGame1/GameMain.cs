@@ -21,9 +21,8 @@ namespace WindowsGame1
         Jekyll LocalJekyll;
         Hide LocalHide;
         AlignementGUI alignement = new AlignementGUI(50, 30);
-        Puzzle0 puzzle = new Puzzle0();
-        Puzzle1 puzzle1 = new Puzzle1();
         MenuGUI menu = new MenuGUI();
+        InventoryGUI inventory = new InventoryGUI();
         
 
         public static string Status;
@@ -33,10 +32,19 @@ namespace WindowsGame1
             this.LoadMap();
             
             //// Création Joueur + Carte
-            MyMap = new Map(1200, 480);
+            MyMap = new Map(5100, 1000);
             statut_player = false;
-            LocalJekyll = new Jekyll(15, 100);
-            LocalHide = new Hide(15, 100);
+            if (!FirstGame.checkpoint)
+            {
+                LocalJekyll = new Jekyll(115, 500);
+                LocalHide = new Hide(115, 500);
+            }
+            else
+            {
+                LocalJekyll = new Jekyll(FirstGame.W/2-72, 100);
+                LocalHide = new Hide(FirstGame.W-72 / 2, 100); 
+            }
+            MyMap.SlideY(1000-FirstGame.H+72);
             Status = "on";
 
         }
@@ -44,13 +52,23 @@ namespace WindowsGame1
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime)
         {
             bool prec_statut = statut_player;
-            if(!LocalHide.IsJumping && !LocalJekyll.IsThrowing)
+
+            if (!LocalHide.IsJumping && !LocalJekyll.IsThrowing)
                 statut_player = LocalJekyll.Switch(pad);
 
             LocalJekyll.Statut = statut_player;
             LocalHide.Statut = statut_player;
+            bool canopen = true;
 
-            menu.Update(pad, LocalJekyll, LocalHide);
+            foreach (InteractZoneBlockWithPuzzle intblock in InteractZoneBlockWithPuzzle.InteractZoneBlockList)
+            {
+                if (intblock.IsActivate)
+                    canopen = false;
+
+            }
+            if(canopen)
+                menu.Update(pad, LocalJekyll, LocalHide);
+            
            
             if (GameMain.Status != "menu")
             {
@@ -62,6 +80,8 @@ namespace WindowsGame1
                             LocalJekyll.InitChange(LocalHide.HitBox.X, LocalHide.HitBox.Y, LocalHide.DirectionPlayer);
                         LocalJekyll.Update(mouse, keyboard);
                     }
+                    if(canopen)
+                        inventory.Update(pad);
                     MyMap.Update(keyboard, pad, mouse, gameTime, LocalJekyll);
 
                 }
@@ -95,15 +115,22 @@ namespace WindowsGame1
                 if (!statut_player)
                 {
                     MyMap.Draw(spriteBatch, LocalJekyll);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalJekyll.Health.ToString(), new Vector2(FirstGame.W-300, 30), Color.White);
                     LocalJekyll.Draw(spriteBatch);
+                    if (GameMain.Status == "inventory")
+                    {
+                        inventory.Draw(spriteBatch);
+                    }
                 }
                 else
                 {
                     MyMap.Draw(spriteBatch, LocalHide);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalHide.Health.ToString(), new Vector2(FirstGame.W - 300, 30), Color.White);
                     LocalHide.Draw(spriteBatch);
                 }
 
                 alignement.Draw(spriteBatch);
+                
             }
         }
 
@@ -165,9 +192,9 @@ namespace WindowsGame1
                         float waitT = Convert.ToSingle(words[8]);
                         bool anim = Convert.ToBoolean(words[9]);
                         bool reverse = Convert.ToBoolean(words[10]);
-                        bool gravity = Convert.ToBoolean(words[11]);
+                        bool activate = Convert.ToBoolean(words[11]);
 
-                        new MovableNeutralBlock(x, y, text, vec, speed, animT, waitT, anim, reverse, gravity);
+                        new MovableNeutralBlock(x, y, text, vec, speed, animT, waitT, anim, reverse, activate);
                     }
                     else if (words.Length == 15) // complet
                     {
@@ -186,9 +213,9 @@ namespace WindowsGame1
                         float waitT = Convert.ToSingle(words[11]);
                         bool anim = Convert.ToBoolean(words[12]);
                         bool reverse = Convert.ToBoolean(words[13]);
-                        bool gravity = Convert.ToBoolean(words[14]);
+                        bool activate = Convert.ToBoolean(words[14]);
 
-                        new MovableNeutralBlock(x, y, text, breakable, colidable, health, vec, speed, animT, waitT, anim, reverse, gravity);
+                        new MovableNeutralBlock(x, y, text, breakable, colidable, health, vec, speed, animT, waitT, anim, reverse, activate);
                     }
 
                 }
@@ -267,7 +294,7 @@ namespace WindowsGame1
                         new InteractZoneBlockWithPuzzle(x, y, w, h, id, hv, jv, text);
                     }
                 }
-                else if (words[0] == "6")
+                else if (words[0] == "6") // climbable block
                 {
                     if (words.Length == 9) //basic
                     {
@@ -284,7 +311,21 @@ namespace WindowsGame1
                         new ClimbableBlock(x, y, hv, jv, cl, co, he, text);
                     }
                 }
-                else if (words[0] == "7")
+                else if (words[0] == "7") // Item
+                {
+                    
+                    if (words.Length == 5) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int id = Convert.ToInt32(words[3]);
+                        int param = Convert.ToInt32(words[4]);
+                        Texture2D text = Ressources.TextureList[param];
+                        new ItemBlock(id, new Rectangle(x, y, text.Width, text.Height), text);
+                        
+                    }
+                }
+                else if (words[0] == "8") // Hiding block
                 {
                     if (words.Length == 7) //basic
                     {
@@ -297,6 +338,107 @@ namespace WindowsGame1
                         Texture2D text = Ressources.TextureList[param];
 
                         new HidingBlock(x, y, hv, jv, hi, text);
+                    }
+                }
+                else if (words[0] == "9") // Camera
+                {
+                    if (words.Length == 10) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        int speed = Convert.ToInt32(words[5]);
+                        int waitTime = Convert.ToInt32(words[6]);
+                        int animTime = Convert.ToInt32(words[7]);
+                        int health = Convert.ToInt32(words[8]);
+                        int param = Convert.ToInt32(words[9]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new Camera(x, y, hv, jv, speed, waitTime, animTime, health, text);
+                    }
+                }
+
+                else if (words[0] == "10") // Inefected Zone Block
+                {
+                    if (words.Length == 4) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new InfectedZoneBlock(x, y, text);
+                    }
+                }
+
+                else if (words[0] == "11") // End Zone Block
+                {
+                    if (words.Length == 4) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new EndZoneBlock(x, y, text);
+                    }
+                }
+
+                else if (words[0] == "12") // Bonus
+                {
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+                        int value = Convert.ToInt32(words[4]);
+                        bool status = Convert.ToBoolean(words[5]);
+
+                        new SkillPointsBonusBlock(x, y, text, value, status);
+                    }
+                }
+
+                else if (words[0] == "13") // Wallpaper
+                {
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int w = Convert.ToInt32(words[3]);
+                        int h = Convert.ToInt32(words[4]);
+                        int param = Convert.ToInt32(words[5]);
+                        Texture2D text = Ressources.TextureList[param];
+                        new WallPaperBlock(x, y, w, h,text);
+                    }
+                }
+
+                else if (words[0] == "14") // Doors
+                {
+                    if (words.Length == 3) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        
+                        new Door(x, y);
+                    }
+                }
+
+
+
+                else if (words[0] == "15") // LaunchableBlock
+                {
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        int param = Convert.ToInt32(words[5]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new LaunchableBlock(x, y, hv, jv, text);
                     }
                 }
             }

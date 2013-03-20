@@ -12,17 +12,17 @@ namespace WindowsGame1
     {
         private int _adrenaline;
         private double _jekyllBias;
-        private double _jskillsPoints = 70;
+        public static double _jskillsPoints = 70;
 
         public Jekyll(int x, int y)
         {
             this.WidthSprite = 32;
             this.HeightSprite = 64;
-            this._hitBox = new Rectangle(x, y, WidthSprite, HeightSprite);
+            this._hitBox = new Rectangle(x, y, this.WidthSprite, this.HeightSprite);
             this._text = Ressources.Jekyll;
             this._pos = new Vector2(this._hitBox.X, this._hitBox.Y);
             this._dir = Vector2.Zero;
-            this._health = 100;
+            this._health = 1;
             this._poids = 9;
             this._accelMode = 1;
             this._adrenaline = 0;
@@ -73,16 +73,16 @@ namespace WindowsGame1
             }
         }
 
-        public double JSkillPoints
-        {
-            get
-            {
-                return this._jskillsPoints;
-            }
-            set
-            {
-                this._jskillsPoints = value;
-            }
-        }
+        //public double JSkillPoints
+        //{
+        //    get
+        //    {
+        //        return this._jskillsPoints;
+        //    }
+        //    set
+        //    {
+        //        this._jskillsPoints = value;
+        //    }
+        //}
     }
 }
