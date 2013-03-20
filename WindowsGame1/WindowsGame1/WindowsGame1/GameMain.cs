@@ -36,13 +36,13 @@ namespace WindowsGame1
             statut_player = false;
             if (!FirstGame.checkpoint)
             {
-                LocalJekyll = new Jekyll(115, 500);
-                LocalHide = new Hide(115, 500);
+                LocalJekyll = new Jekyll(115, 600);
+                LocalHide = new Hide(115, 600);
             }
             else
             {
-                LocalJekyll = new Jekyll(FirstGame.W/2-72, 100);
-                LocalHide = new Hide(FirstGame.W-72 / 2, 100); 
+                LocalJekyll = new Jekyll(FirstGame.W/2 - 72, 600);
+                LocalHide = new Hide(FirstGame.W - 72/2, 600);
             }
             MyMap.SlideY(1000-FirstGame.H+72);
             Status = "on";

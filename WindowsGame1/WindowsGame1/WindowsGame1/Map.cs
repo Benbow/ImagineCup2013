@@ -360,6 +360,7 @@ namespace WindowsGame1
                 {
                     if (player.Statut && player.CanJump && player.EndAttack)
                     {
+                        bool ok = true;
                         if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
                             jumpInitKey = Keys.Left;
                         else if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
@@ -368,8 +369,15 @@ namespace WindowsGame1
                             jumpInitKey = 0;
                         else
                             jumpInitKey = 0;
-
-                        player.JumpPlayer();
+                        foreach (Door block in Door.DoorList)
+                        {
+                            if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
+                            {
+                                ok = false;
+                            }
+                        }
+                        if(ok)
+                            player.JumpPlayer();
                     }
                     else if (!player.Statut && player.CanClimb)
                     {
