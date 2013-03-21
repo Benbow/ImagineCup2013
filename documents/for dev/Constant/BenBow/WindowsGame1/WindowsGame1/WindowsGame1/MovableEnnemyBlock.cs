@@ -15,6 +15,12 @@ namespace WindowsGame1
         private int _strength;
         private bool _haveSpotted;
 
+        private bool _isOnAlert;
+        private int distance = 0;
+        private int init_distance = 0;
+        private bool _isReturn = false;
+        private bool side;
+
         private float _initAnimationTime;
         private float _initWaitTime;
         private float _waitTime;
@@ -25,6 +31,7 @@ namespace WindowsGame1
 
         private Rectangle spotted_zone;
         private Texture2D spotted_text;
+
 
         private bool _isFalling = false;
         private float _fallingSpeed = 0;
@@ -37,13 +44,14 @@ namespace WindowsGame1
         private int SpriteHeight;
 
         bool down = false;
-        
+
         public static List<MovableEnnemyBlock> MovableEnnemyList = new List<MovableEnnemyBlock>();
 
         int time;
         int time2;
         int time3;
         int time4;
+        int waitAlert;
 
         //constructeur complet
         public MovableEnnemyBlock(int x, int y, Texture2D text, bool isBreakable, bool isCollidable, int health, Vector2 dir, int speed, int strength, bool haveSpotted, float animationTime, float waitTime, bool isAnimate, bool reverse, bool isOnGravity, float poids)
@@ -70,8 +78,8 @@ namespace WindowsGame1
             this.FrameColumn = 1;
 
 
-            this.spotted_zone = new Rectangle(this._hitBox.X + this.SpriteWidth, this.HitBox.Y, 4 * this._hitBox.Width, this._hitBox.Height);
-            this.spotted_text = Ressources.Ennemy;
+            this.spotted_zone = new Rectangle(this._hitBox.X + this.SpriteWidth, this.HitBox.Y, 190, this._hitBox.Height);
+            this.spotted_text = Ressources.spot_zone;
 
             MovableEnnemyList.Add(this);
             //BlockList.Add(this);
@@ -87,25 +95,37 @@ namespace WindowsGame1
 
             if (!this._isFalling)
             {
+
                 if (this._haveSpotted)
                 {
                     this.AnimateAlert(gameTime, player);
+                }
+                else if (this.IsOnAlert)
+                {
+                    this.AnimateOnAlert(gameTime);
                 }
                 else
                 {
                     this.AnimateNormal(gameTime);
                 }
+
             }
             else if (this._isJumping)
             {
+
                 if (this._haveSpotted)
                 {
                     this.AnimateAlert(gameTime, player);
+                }
+                else if (this.IsOnAlert)
+                {
+                    this.AnimateOnAlert(gameTime);
                 }
                 else
                 {
                     this.AnimateNormal(gameTime);
                 }
+
             }
         }
 
@@ -113,7 +133,7 @@ namespace WindowsGame1
         {
             time += gameTime.ElapsedGameTime.Milliseconds;
             time2 += gameTime.ElapsedGameTime.Milliseconds;
-            if (time2 > 500/this._speed)
+            if (time2 > 500 / this._speed)
             {
                 time2 = 0;
                 if (_isAnimate)
@@ -156,19 +176,19 @@ namespace WindowsGame1
             {
                 if (_reverse)
                 {
-                    this._hitBox.X -= (int) _dir.X*(int) this._speed;
-                    this._hitBox.Y -= (int) _dir.Y*(int) this._speed;
+                    this._hitBox.X -= (int)_dir.X * (int)this._speed;
+                    this._hitBox.Y -= (int)_dir.Y * (int)this._speed;
                     this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
-                    this.spotted_zone.Y -= (int) _dir.Y*(int) this._speed;
+                    this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
                     this.Effects = SpriteEffects.FlipHorizontally;
 
                 }
                 else
                 {
-                    this._hitBox.X += (int) _dir.X*(int) this._speed;
-                    this._hitBox.Y += (int) _dir.Y*(int) this._speed;
+                    this._hitBox.X += (int)_dir.X * (int)this._speed;
+                    this._hitBox.Y += (int)_dir.Y * (int)this._speed;
                     this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
-                    this.spotted_zone.Y += (int) _dir.Y*(int) this._speed;
+                    this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
                     this.Effects = SpriteEffects.None;
                 }
             }
@@ -194,16 +214,53 @@ namespace WindowsGame1
         {
             if (_reverse)
             {
-                this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
-                this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
-                this.Effects = SpriteEffects.FlipHorizontally;
+                if (IsOnAlert)
+                {
+                    if (Side)
+                    {
+                        this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                        this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
+                        this.Effects = SpriteEffects.None;
+                    }
+                    else
+                    {
+                        this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                        this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
+                        this.Effects = SpriteEffects.FlipHorizontally;
+                    }
+                }
+                else
+                {
+                    this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                    this.spotted_zone.Y -= (int) _dir.Y*(int) this._speed;
+                    this.Effects = SpriteEffects.FlipHorizontally;
+                }
 
             }
             else
             {
-                this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
-                this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
-                this.Effects = SpriteEffects.None;
+                if (IsOnAlert)
+                {
+                    if (Side)
+                    {
+                        this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                        this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
+                        this.Effects = SpriteEffects.None;
+                    }
+                    else
+                    {
+                        this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                        this.spotted_zone.Y -= (int)_dir.Y * (int)this._speed;
+                        this.Effects = SpriteEffects.FlipHorizontally;
+                    }
+                }
+                else
+                {
+                    this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                    this.spotted_zone.Y += (int)_dir.Y * (int)this._speed;
+                    this.Effects = SpriteEffects.None;
+                }
+                
             }
 
             if (!player.HitBox.Intersects(this.spotted_zone))
@@ -222,19 +279,83 @@ namespace WindowsGame1
                 time4 = 0;
                 if (this._reverse)
                 {
-                    new BulletBlock(this._hitBox.X, this.HitBox.Y + (this._hitBox.Height)/3, new Vector2(-1, 0), this._strength/5);
+                    if(this._isOnAlert && this.side)
+                        new BulletBlock(this._hitBox.X + this._hitBox.Width, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(1, 0), this._strength / 5);
+                    else
+                        new BulletBlock(this._hitBox.X, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(-1, 0), this._strength / 5);
                 }
                 else
                 {
-                    new BulletBlock(this._hitBox.X + this._hitBox.Width, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(1, 0), this._strength / 5);
+                    if (this._isOnAlert && !this.side)
+                        new BulletBlock(this._hitBox.X, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(-1, 0), this._strength / 5);
+                    else
+                        new BulletBlock(this._hitBox.X + this._hitBox.Width, this.HitBox.Y + (this._hitBox.Height) / 3, new Vector2(1, 0), this._strength / 5);
                 }
             }
+        }
 
-
+        public void AnimateOnAlert(GameTime gameTime)
+        {
+            if (this._isOnAlert && !this._isReturn)
+            {
+                if (Side)
+                {
+                    this._hitBox.X -= (int)this._speed;
+                    this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                    this.Effects = SpriteEffects.FlipHorizontally;
+                }
+                else
+                {
+                    this._hitBox.X += (int)this._speed;
+                    this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                    this.Effects = SpriteEffects.None;
+                }
+                this.distance -= (int)this._speed;
+                if (this.distance <= 0)
+                {
+                    this._isReturn = true;
+                    this.distance = initDistance;
+                    this.waitAlert = 100;
+                }
+            }
+            else if (this._isOnAlert && this._isReturn)
+            {
+                if (this.waitAlert > 0)
+                {
+                    this.waitAlert--;
+                    if (Side)
+                        this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                    else
+                        this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                }
+                if (this.waitAlert == 0)
+                {
+                    if (Side)
+                    {
+                        this._hitBox.X += (int) this._speed;
+                        this.spotted_zone.X = this._hitBox.X + this._hitBox.Width;
+                        this.Effects = SpriteEffects.None;
+                    }
+                    else
+                    {
+                        this._hitBox.X -= (int) this._speed;
+                        this.spotted_zone.X = this._hitBox.X - this.spotted_zone.Width;
+                        this.Effects = SpriteEffects.FlipHorizontally;
+                    }
+                    this.distance -= (int) this._speed;
+                    if (this.distance <= 0)
+                    {
+                        this._isReturn = false;
+                        this.IsOnAlert = false;
+                        this.initDistance = 0;
+                        this.distance = 0;
+                    }
+                }
+            }
         }
 
         public void CheckGravity(GameTime gameTime)
-        {   
+        {
             if (this.IsCollidable)
             {
                 bool colide = false;
@@ -286,11 +407,10 @@ namespace WindowsGame1
                 this._hitBox = new Rectangle(this._hitBox.X, this._hitBox.Y, this.SpriteWidth, this.SpriteHeight);
                 spritebatch.Draw(this._texture, this._hitBox, null, Color.White, 0f, new Vector2(0, 0), this.Effects, 0f);
             }
-
-                //spritebatch.Draw(this.spotted_text, this.spotted_zone, Color.White);
+            spritebatch.Draw(this.spotted_text, this.spotted_zone, null, Color.White, 0f, new Vector2(0, 0), this.Effects, 0f);
         }
 
-        public Rectangle SpotZone 
+        public Rectangle SpotZone
         {
             get { return this.spotted_zone; }
             set { this.spotted_zone = value; }
@@ -302,9 +422,33 @@ namespace WindowsGame1
             set { this._haveSpotted = value; }
         }
 
-        public  int Strength
+        public int Strength
         {
             get { return this._strength; }
+        }
+
+        public int Distance
+        {
+            get { return this.distance; }
+            set { this.distance = value; }
+        }
+
+        public int initDistance
+        {
+            get { return this.init_distance; }
+            set { this.init_distance = value; }
+        }
+
+        public bool IsOnAlert
+        {
+            get { return this._isOnAlert; }
+            set { this._isOnAlert = value; }
+        }
+
+        public bool Side
+        {
+            get { return this.side; }
+            set { this.side = value; }
         }
     }
 }

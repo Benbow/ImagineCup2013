@@ -17,6 +17,7 @@ namespace WindowsGame1
     {
         //FIELDS
         public static List<Texture2D> TextureList = new List<Texture2D>();
+       
 
         public static SpriteFont font1;
         public static SpriteFont cmpTitle;
@@ -40,9 +41,17 @@ namespace WindowsGame1
         public static Texture2D enigmes_fond;
         public static Texture2D enigmes_fond1;
         public static Texture2D LadderTest;
+        public static Texture2D Ladder1;
+        public static Texture2D Ladder2;
+        public static Texture2D Ladder3;
         public static Texture2D box;
         public static Texture2D boxH;
         public static Texture2D menu_bg;
+        public static Texture2D endzone;
+        public static Texture2D wallpaper1;
+        public static Texture2D wallpaper2;
+        public static Texture2D wallpaper3;
+        public static Texture2D warning;
 
         public static Texture2D wallMaison1;
         public static Texture2D wallMaison2;
@@ -51,9 +60,15 @@ namespace WindowsGame1
         public static Texture2D plafondMaison1;
         public static Texture2D plafondMaison2;
         public static Texture2D platform;
+        public static Texture2D platform2;
         public static Texture2D wallMaison3;
         public static Texture2D infected;
         public static Texture2D elevator2;
+        public static Texture2D attach_cords;
+        public static Texture2D bonus;
+        public static Texture2D hidingBox;
+        public static Texture2D door_open;
+        public static Texture2D door_close;
 
         public static Texture2D accueil_bg;
         public static Texture2D a_bouton1;
@@ -96,6 +111,7 @@ namespace WindowsGame1
         public static Texture2D go;
         public static Texture2D reload;
         public static Texture2D win;
+        public static Texture2D begin;
 
         //Inventory Jekyll
         public static Texture2D inventory_bg;
@@ -115,6 +131,7 @@ namespace WindowsGame1
         public static Texture2D ennemySimple;
         public static Texture2D ennemySprite;
         public static Texture2D bullet;
+        public static Texture2D spot_zone;
 
         //Load Content
         public static void LoadContent(ContentManager Content)
@@ -123,7 +140,10 @@ namespace WindowsGame1
             a_bouton1 = Content.Load<Texture2D>("Play");
             a_bouton2 = Content.Load<Texture2D>("Credits");
             a_bouton3 = Content.Load<Texture2D>("Exit");
-            
+
+            wallpaper1 = Content.Load<Texture2D>("Wallpaper1");
+            wallpaper2 = Content.Load<Texture2D>("Wallpaper2");
+            wallpaper3 = Content.Load<Texture2D>("Wallpaper3");
 
             font1 = Content.Load<SpriteFont>("SpriteFont1");
             cmpTitle = Content.Load<SpriteFont>("cmpTitle");
@@ -153,6 +173,7 @@ namespace WindowsGame1
             go = Content.Load<Texture2D>("go");
             reload = Content.Load<Texture2D>("reload");
             win = Content.Load<Texture2D>("win");
+            begin = Content.Load<Texture2D>("enigme_depart");
 
 
             menu_bg = Content.Load<Texture2D>("menu_bg");
@@ -190,6 +211,9 @@ namespace WindowsGame1
             delimiterupdown = Content.Load<Texture2D>("updown");
 
             bullet = Content.Load<Texture2D>("bullet");
+            spot_zone = Content.Load<Texture2D>("spot_zone_ennemy");
+            door_open = Content.Load<Texture2D>("door_open");
+            door_close = Content.Load<Texture2D>("door_close");
 
             Player = Content.Load<Texture2D>("tile"); // 0
             TextureList.Add(Player);
@@ -241,6 +265,30 @@ namespace WindowsGame1
             TextureList.Add(infected);
             elevator2 = Content.Load<Texture2D>("elevators2"); //24
             TextureList.Add(elevator2);
+            endzone = Content.Load<Texture2D>("endzone"); //25
+            TextureList.Add(endzone);
+            bonus = Content.Load<Texture2D>("bonus"); //26
+            TextureList.Add(bonus);
+            attach_cords = Content.Load<Texture2D>("attach_cords"); //27
+            TextureList.Add(attach_cords);
+            wallpaper1 = Content.Load<Texture2D>("Wallpaper1"); //28/
+            TextureList.Add(wallpaper1);
+            wallpaper2 = Content.Load<Texture2D>("Wallpaper2"); //29
+            TextureList.Add(wallpaper2);
+            wallpaper3 = Content.Load<Texture2D>("Wallpaper3");//30
+            TextureList.Add(wallpaper3);
+            hidingBox = Content.Load<Texture2D>("box_hidding");//31
+            TextureList.Add(hidingBox);
+            Ladder1 = Content.Load<Texture2D>("ladder1"); // 32
+            TextureList.Add(Ladder1);
+            Ladder2 = Content.Load<Texture2D>("ladder2"); // 33
+            TextureList.Add(Ladder2);
+            Ladder3 = Content.Load<Texture2D>("ladder3"); // 34
+            TextureList.Add(Ladder3);
+            platform2 = Content.Load<Texture2D>("platform2"); // 35
+            TextureList.Add(platform2);
+            warning = Content.Load<Texture2D>("warning"); // 35
+            TextureList.Add(warning);
         }
     }
 }

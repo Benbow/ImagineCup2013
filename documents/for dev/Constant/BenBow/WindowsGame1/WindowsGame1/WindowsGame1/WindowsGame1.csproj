@@ -82,6 +82,9 @@
     <Compile Include="Camera.cs" />
     <Compile Include="ClimbableBlock.cs" />
     <Compile Include="DelimiterZone.cs" />
+    <Compile Include="Door.cs" />
+    <Compile Include="EndGUI.cs" />
+    <Compile Include="EndZoneBlock.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Hide.cs" />
@@ -109,8 +112,10 @@
     <Compile Include="Puzzle0.cs" />
     <Compile Include="Puzzle1.cs" />
     <Compile Include="Ressources.cs" />
+    <Compile Include="SkillPointsBonusBlock.cs" />
     <Compile Include="StaticEnnemyBlock.cs" />
     <Compile Include="StaticNeutralBlock.cs" />
+    <Compile Include="WallPaperBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

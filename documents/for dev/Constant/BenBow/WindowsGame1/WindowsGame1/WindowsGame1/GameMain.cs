@@ -371,6 +371,74 @@ namespace WindowsGame1
                         new InfectedZoneBlock(x, y, text);
                     }
                 }
+
+                else if (words[0] == "11") // End Zone Block
+                {
+                    if (words.Length == 4) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new EndZoneBlock(x, y, text);
+                    }
+                }
+
+                else if (words[0] == "12") // Bonus
+                {
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int param = Convert.ToInt32(words[3]);
+                        Texture2D text = Ressources.TextureList[param];
+                        int value = Convert.ToInt32(words[4]);
+                        bool status = Convert.ToBoolean(words[5]);
+
+                        new SkillPointsBonusBlock(x, y, text, value, status);
+                    }
+                }
+
+                else if (words[0] == "13") // Wallpaper
+                {
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        int w = Convert.ToInt32(words[3]);
+                        int h = Convert.ToInt32(words[4]);
+                        int param = Convert.ToInt32(words[5]);
+                        Texture2D text = Ressources.TextureList[param];
+                        new WallPaperBlock(x, y, w, h,text);
+                    }
+                }
+
+                else if (words[0] == "14") // Doors
+                {
+                    if (words.Length == 3) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        
+                        new Door(x, y);
+                    }
+                }
+
+                else if (words[0] == "15") // LaunchableBlock
+                {
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        int param = Convert.ToInt32(words[5]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new LaunchableBlock(x, y, hv, jv, text);
+                    }
+                }
             }
         }
     }

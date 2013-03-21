@@ -37,6 +37,7 @@ namespace WindowsGame1
         private int grueTimer = 0;
 
         public Launch cible = new Launch(0, 0, Direction.Right);
+        int throwcount = 0;
         int accelTimer;
 
         public Map(int x, int y)
@@ -47,6 +48,10 @@ namespace WindowsGame1
             _rightSide = new DelimiterZone(_width - FirstGame.W / 2, 0, FirstGame.W / 2, _height, Ressources.invisible);
             _upSide = new DelimiterZone(0, 0, _width, FirstGame.H / 2, Ressources.invisible);
             _downSide = new DelimiterZone(0, _height - FirstGame.H, _width, FirstGame.H, Ressources.invisible);
+
+            StaticNeutralBlock.StaticNeutralList[1].IsCollidable = false;
+            StaticNeutralBlock.StaticNeutralList[3].IsCollidable = false;
+            StaticNeutralBlock.StaticNeutralList[4].IsCollidable = false;
         }
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
@@ -116,6 +121,29 @@ namespace WindowsGame1
                 if (!player.IsAttacking)
                     player.CheckMove();
                 // Animation des blocs mouvants
+                foreach (EndZoneBlock endzone in EndZoneBlock.EndZoneBlockList)
+                {
+                    if (player.HitBox.Intersects(endzone.HitBox))
+                    {
+                        FirstGame.start = false;
+                        FirstGame.end = true;
+                        FirstGame.Hp = AlignementGUI._value / 4;
+                        FirstGame.Jp = 100 - FirstGame.Hp;
+                    }
+                }
+
+                foreach (SkillPointsBonusBlock bonus in SkillPointsBonusBlock.SkillPointsBonusList)
+                {
+                    if (bonus.HitBox.Intersects(player.HitBox) && bonus.IsActive)
+                    {
+                        bonus.IsActive = false;
+                        if (bonus.Status)
+                            Hide._hskillPoints += bonus.Value;
+                        else
+                            Jekyll._jskillsPoints += bonus.Value;
+                    }
+                }
+
                 foreach (MovableNeutralBlock block in MovableNeutralBlock.MovableNeutralList)
                 {
                     if (block.IsActive)
@@ -128,8 +156,7 @@ namespace WindowsGame1
                         block.Update(gameTime, player, keyboard);
                         if (player.HitBox.Intersects(block.SpotZone) && !player.IsHiding)
                         {
-                            block.HaveSpotted = true
-                                ;
+                            block.HaveSpotted = true;
                         }
                     }
                 }
@@ -183,7 +210,7 @@ namespace WindowsGame1
                             if (player.Health <= 0)
                                 FirstGame.reload = true;
                         }
-                        else if(!player.Statut && (!InventoryCase.InventoryCaseList[0].Status || !player.IsActiveObject))
+                        else if (!player.Statut && (!InventoryCase.InventoryCaseList[0].Status || !player.IsActiveObject))
                         {
                             player.Health--;
                             if (player.Health <= 0)
@@ -195,11 +222,14 @@ namespace WindowsGame1
                 if (!ClimbableBlock.ClimbableBlockList[0].IsActive && !ClimbableBlock.ClimbableBlockList[1].IsActive)
                 {
                     grueTimer++;
-                    Console.WriteLine(grueTimer);
-                    if (grueTimer < 240/3)
+                    if (grueTimer < 240 / 3)
                     {
-                        StaticNeutralBlock.StaticNeutralList[0].Y -= 3;
-                        StaticNeutralBlock.StaticNeutralList[1].Y+=3;
+                        StaticNeutralBlock.StaticNeutralList[0].Y -= 2;
+                        StaticNeutralBlock.StaticNeutralList[1].Y -= 2;
+                        StaticNeutralBlock.StaticNeutralList[2].Y += 3;
+                        StaticNeutralBlock.StaticNeutralList[3].Y += 3;
+                        player.DecreaseCoordY(2);
+                        LaunchableBlock.LaunchableBlockList[0].Y += 3;
                     }
                 }
 
@@ -369,6 +399,37 @@ namespace WindowsGame1
                             }
                         }
                     }
+                    else
+                    {
+                        if (pad.IsButtonDown(Buttons.LeftThumbstickRight))
+                        {
+                            futurePos.X += (int)player.Speed;
+                            foreach (Door block in Door.DoorList)
+                            {
+                                if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
+                                {
+                                    block.IsOpen = true;
+                                    block.Texture = Ressources.door_open;
+                                    block.HitBox = new Rectangle(block.HitBox.X + 10, block.HitBox.Y, block.Texture.Width, block.Texture.Height);
+                                    block.IsCollidable = false;
+                                }
+                            }
+                        }
+                        else if (pad.IsButtonDown(Buttons.LeftThumbstickLeft))
+                        {
+                            futurePos.X -= (int)player.Speed;
+                            foreach (Door block in Door.DoorList)
+                            {
+                                if (block.HitBox.Intersects(futurePos) && !block.IsOpen)
+                                {
+                                    block.IsOpen = true;
+                                    block.Texture = Ressources.door_open;
+                                    block.HitBox = new Rectangle(block.HitBox.X + 10, block.HitBox.Y, block.Texture.Width, block.Texture.Height);
+                                    block.IsCollidable = false;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 if (pad.IsButtonDown(Buttons.RightShoulder) && oldPad.IsButtonUp(Buttons.RightShoulder))
@@ -398,14 +459,17 @@ namespace WindowsGame1
                 if (player.IsCrouch)
                 {
                     player.CrouchAnime();
+
                 }
 
                 if (player.IsAttacking)
                 {
                     player.AttackAnime();
+                    //player.BlockPLayer();
                     futurePos.Width = 70;
+
                     /*
-                     * Test de collision quand on attaque sur les blocs grimpable
+                     * Test de collision quand on attaque sur les blocs grimpables
                      */
                     foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                     {
@@ -418,6 +482,7 @@ namespace WindowsGame1
                         }
                     }
 
+                    
                     foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
                     {
                         if (block.HitBox.Intersects(futurePos))
@@ -429,7 +494,6 @@ namespace WindowsGame1
                         }
                     }
                 }
-                
 
                 if (player.IsSwitch)
                 {
@@ -515,6 +579,7 @@ namespace WindowsGame1
 
                             player.IsThrowing = true;
                             player.BlockPLayer();
+                            player.ThrowId = 1;
                             player.CanMove = false;
                         }
                         else
@@ -564,6 +629,46 @@ namespace WindowsGame1
                             cible.IsItemThrow = true;
                         }
                     }
+                    else
+                    {
+                        futurePos = player.HitBox;
+                        futurePos.X = (int)(player.DirectionPlayer == Direction.Left
+                                                 ? futurePos.X - player.Speed
+                                                 : futurePos.X + player.Speed);
+
+                        if (!player.IsThrowing)
+                        {
+                            foreach (LaunchableBlock block in LaunchableBlock.LaunchableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
+                                {
+                                    if (block.IsActive)
+                                    {
+                                        if (player.DirectionPlayer == Direction.Left)
+                                            cible = new Launch((player.HitBox.X - 50), (player.HitBox.Y + 56),
+                                                               Direction.Left);
+                                        else if (player.DirectionPlayer == Direction.Right)
+                                            cible = new Launch((player.HitBox.X + 50), (player.HitBox.Y + 56),
+                                                               Direction.Right);
+
+                                        block.IsActive = false;
+
+                                        player.ThrowId = 2;
+
+                                        cible.IsBoxThrow = true;
+
+                                        player.BlockLaunch = block;
+                                        player.IsThrowBox = true;
+
+                                        player.throwBox(block, pad);
+
+                                        cible.Vitesse = 5;
+                                        cible.FSpeed = 370 * 6f / 400 * -1;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
                 foreach (MovableNeutralBlock blocks in MovableNeutralBlock.MovableNeutralList)
@@ -576,18 +681,57 @@ namespace WindowsGame1
                     }
 
                 }
-
                 if (player.IsJumping)
                 {
                     player.JumpAnime();
                 }
 
+                if (!cible.IsBoxCrash && cible.IsBoxThrow)
+                {
+                    player.LaunchAnime(cible);
+                }
+
+                if (cible.IsItemThrow && cible.IsItemCrash)
+                {
+                    throwcount++;
+                    if (throwcount >= 6)
+                    {
+                        throwcount = 0;
+                        cible.EffetZone = new Rectangle(cible.HitBox.X - 250, cible.HitBox.Y - 50, 500, 50);
+                        foreach (MovableEnnemyBlock ennemy in MovableEnnemyBlock.MovableEnnemyList)
+                        {
+                            if (ennemy.HitBox.Intersects(cible.EffetZone) && !ennemy.IsOnAlert)
+                            {
+                                ennemy.IsOnAlert = true;
+                                int distance = ennemy.HitBox.X - cible.HitBox.X;
+                                if (distance > 0)
+                                    ennemy.Side = true;
+                                else
+                                    ennemy.Side = false;
+                                distance = Math.Abs(distance);
+                                ennemy.initDistance = distance;
+                                ennemy.Distance = distance;
+                            }
+                        }
+
+                    }
+                }
                 if (player.IsThrowing)
                 {
-                    player.BlockPLayer();
-                    player.CanMove = false;
-                    player.Speed = 0;
-                    player.throwItem(cible, pad);
+                    if (player.ThrowId == 1)
+                    {
+                        player.throwItem(cible, pad);
+                        player.BlockPLayer();
+                        player.CanMove = false;
+                        player.Speed = 0;
+                    }
+                    else if (player.ThrowId == 2)
+                    {
+                        player.throwBox(LaunchableBlock.LaunchableBlockList[0], pad);
+                        player.BlockPLayer();
+                        player.CanMove = false;
+                        player.Speed = 0;
+                    }
                 }
 
             }
@@ -648,7 +792,8 @@ namespace WindowsGame1
 
             if (player.IsThrowing)
             {
-                spriteBatch.Draw(cible.Texture, cible.HitBox, Color.White);
+                if (player.ThrowId == 1)
+                    spriteBatch.Draw(cible.Texture, cible.HitBox, Color.White);
             }
 
             if (cible.IsItemThrow)
@@ -675,8 +820,19 @@ namespace WindowsGame1
                 }
                 Texture2D text;
                 text = cible.IsItemCrash ? Ressources.bottle_crash : Ressources.bottle;
+
                 spriteBatch.Draw(text, cible.ItemBox, new Rectangle((cible.ItemColumn * 15), 0, 15, 15), Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0f);
                 cible.CheckMove();
+            }
+
+            if (cible.IsBoxThrow)
+            {
+                if (!cible.IsBoxCrash && cible.IsBoxLaunch)
+                {
+                    Texture2D text = Ressources.boxH;
+                    spriteBatch.Draw(text, cible.BoxBox, new Rectangle(0, 0, 40, 70), Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    cible.CheckBoxMove();
+                }
             }
         }
 
@@ -823,6 +979,44 @@ namespace WindowsGame1
                 foreach (ClimbableBlock block in ClimbableBlock.ClimbableBlockList)
                 {
                     if (block.IsCollidable && block.IsActive)
+                    {
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                                player.FallingSpeed = 0;
+                            blockMove = false;
+                            player.AccelMode = 1;
+                            accelTimer = 0;
+
+                            break;
+                        }
+                    }
+                }
+            }
+            if (blockMove)
+            {
+                foreach (LaunchableBlock block in LaunchableBlock.LaunchableBlockList)
+                {
+                    if (block.IsCollidable && block.IsActive)
+                    {
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                                player.FallingSpeed = 0;
+                            blockMove = false;
+                            player.AccelMode = 1;
+                            accelTimer = 0;
+
+                            break;
+                        }
+                    }
+                }
+            }
+            if (blockMove)
+            {
+                foreach (Door block in Door.DoorList)
+                {
+                    if (block.IsCollidable && block.IsActive && !block.IsOpen)
                     {
                         if (block.HitBox.Intersects(futurePos))
                         {

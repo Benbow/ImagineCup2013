@@ -422,7 +422,8 @@ namespace WindowsGame1
                 }
                 else if (home)
                 {
-                    spriteBatch.Draw(this.win, this.ImgRec, Color.White);
+
+                    spriteBatch.Draw(Ressources.begin, new Rectangle(this._x + 40, this._y + 40, Ressources.begin.Width, Ressources.begin.Height), Color.White);
                 }
             }
 

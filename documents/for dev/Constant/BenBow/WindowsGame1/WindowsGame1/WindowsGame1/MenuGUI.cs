@@ -413,8 +413,8 @@ namespace WindowsGame1
 
         public void Update(GamePadState pad, Jekyll jekyll, Hide hide)
         {
-            this._jbias = jekyll.JSkillPoints;
-            this._hbias = hide.HSkillPoints;
+            this._jbias = Jekyll._jskillsPoints;
+            this._hbias = Hide._hskillPoints;
 
             if (pad.IsButtonDown(Buttons.Start) && oldPad.IsButtonUp(Buttons.Start))
             {
@@ -507,7 +507,7 @@ namespace WindowsGame1
                                 case 1:
                                     if (!j_cmp1_status && (_jbias - j_cmp1_price >= 0))
                                     {
-                                        jekyll.JSkillPoints -= j_cmp1_price;
+                                        Jekyll._jskillsPoints -= j_cmp1_price;
                                         j_cmp1_status = true;
                                         jekyll.CanClimb = true;
                                     }
@@ -515,7 +515,7 @@ namespace WindowsGame1
                                 case 2:
                                     if (!j_cmp2_status && (_jbias - j_cmp2_price >= 0))
                                     {
-                                        jekyll.JSkillPoints -= j_cmp2_price;
+                                        Jekyll._jskillsPoints -= j_cmp2_price;
                                         j_cmp2_status = true;
                                         jekyll.CanJVision = true;
                                     }
@@ -523,7 +523,7 @@ namespace WindowsGame1
                                 case 3:
                                     if (!j_cmp3_status && (_jbias - j_cmp3_price >= 0))
                                     {
-                                        jekyll.JSkillPoints -= j_cmp3_price;
+                                        Jekyll._jskillsPoints -= j_cmp3_price;
                                         j_cmp3_status = true;
                                         jekyll.CanHide = true;
                                     }
@@ -531,7 +531,7 @@ namespace WindowsGame1
                                 case 4:
                                     if (!j_cmp4_status && (_jbias - j_cmp4_price >= 0))
                                     {
-                                        jekyll.JSkillPoints -= j_cmp4_price;
+                                        Jekyll._jskillsPoints -= j_cmp4_price;
                                         j_cmp4_status = true;
                                     }
                                     break;
@@ -544,7 +544,7 @@ namespace WindowsGame1
                                 case 1:
                                     if (!h_cmp1_status && (_hbias - h_cmp1_price >= 0))
                                     {
-                                        hide.HSkillPoints -= h_cmp1_price;
+                                        Hide._hskillPoints -= h_cmp1_price;
                                         h_cmp1_status = true;
                                         hide.CanJump = true;
                                     }
@@ -552,7 +552,7 @@ namespace WindowsGame1
                                 case 2:
                                     if (!h_cmp2_status && (_hbias - h_cmp2_price >= 0))
                                     {
-                                        hide.HSkillPoints -= h_cmp2_price;
+                                        Hide._hskillPoints -= h_cmp2_price;
                                         h_cmp2_status = true;
                                         hide.CanHVision = true;
                                     }
@@ -560,14 +560,14 @@ namespace WindowsGame1
                                 case 3:
                                     if (!h_cmp3_status && (_hbias - h_cmp3_price >= 0))
                                     {
-                                        hide.HSkillPoints -= h_cmp3_price;
+                                        Hide._hskillPoints -= h_cmp3_price;
                                         h_cmp3_status = true;
                                     }
                                     break;
                                 case 4:
                                     if (!h_cmp4_status && (_hbias - h_cmp4_price >= 0))
                                     {
-                                        hide.HSkillPoints -= h_cmp4_price;
+                                        Hide._hskillPoints -= h_cmp4_price;
                                         h_cmp4_status = true;
                                         hide.Health = 120;
                                     }
