@@ -289,12 +289,12 @@ namespace WindowsGame1
                     }
                     if (!lad && !player.PlayerMove)
                     {
-                        this.LookUp(true, gameTime, player);
+                        //this.LookUp(true, gameTime, player);
                     }
                 }
                 else if (pad.IsButtonUp(Buttons.LeftThumbstickUp) && showCount > 0)
                 {
-                    this.LookUp(false, gameTime, player);
+                    //this.LookUp(false, gameTime, player);
                     player.LookUpDownPhase = true;
                 }
                 else if (pad.IsButtonDown(Buttons.LeftThumbstickUp))

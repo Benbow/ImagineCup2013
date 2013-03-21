@@ -8,7 +8,7 @@
 0 3500 60 27
 6 3250 440 true false true true 40 10
 6 3350 440 true false true true 40 10
-16 3380 180 true false 10
+16 3630 240 true false 10
 
 0 2790 468 36
 
@@ -40,7 +40,7 @@
 14 1300 900
 0 1300 400 18
 
-5 1308 900 60 100 0 false true 8
+5 1328 900 60 100 0 false true 8
 1 1318 1000 17 0 1 2 4 2 true true false
 
 0 1425 500 16

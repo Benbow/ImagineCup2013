@@ -16,7 +16,6 @@ namespace WindowsGame1
     class GameMain
     {
         Map MyMap;
-
         bool statut_player;
         Jekyll LocalJekyll;
         Hide LocalHide;

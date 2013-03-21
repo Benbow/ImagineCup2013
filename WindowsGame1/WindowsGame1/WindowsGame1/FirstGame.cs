@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+
 namespace WindowsGame1
 {
 
@@ -17,6 +18,7 @@ namespace WindowsGame1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
 
         public static bool start = false;
         public static bool end = false;
@@ -34,6 +36,8 @@ namespace WindowsGame1
         AccueilGUI Accueil;
         EndGUI EndScreen;
         GamePadState oldPad;
+
+
 
         public FirstGame()
         {
