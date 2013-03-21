@@ -18,6 +18,7 @@ namespace WindowsGame1
         protected Rectangle _hitBox;
         protected Vector2 _pos;
         protected Vector2 _dir;
+        protected LaunchableBlock _blockLaunch;
 
         protected Direction Direction;
         protected bool FrameAttackSens = true;
@@ -32,6 +33,8 @@ namespace WindowsGame1
         protected int TimerJump;
         protected int TimerMax;
         protected int TimerCrouch;
+        protected int TimerLaunch;
+        protected int _throwId;
         protected bool _isSpriting = false;
         protected bool _isJumping = false;
         protected bool _isCrouch = false;
@@ -50,6 +53,7 @@ namespace WindowsGame1
         protected bool _canMove = true;
         protected bool _isThrowing = false;
         protected bool _isSwitch = false;
+        protected bool _isThrowBox = false;
 
         //link competences
         protected bool _canClimb = false;
@@ -79,7 +83,7 @@ namespace WindowsGame1
 
         public void Animate()
         {
-            if (!this._isCrouch && !this._isJumping && !this._isAttacking)
+            if (!this._isCrouch && !this._isJumping && !this._isAttacking && !this._isThrowBox)
             {
                 this.Timer++;
                 if (this.Timer == this.TimerMax)
@@ -156,6 +160,38 @@ namespace WindowsGame1
                     }
                 }
             }
+        }
+
+        public void LaunchAnime(Launch cible)
+        {
+            if (!cible.IsBoxCrash && this._isThrowBox)
+            {
+                this.FrameLine = 0;
+
+                this.TimerLaunch++;
+                if (this.TimerLaunch == 4)
+                {
+                    this.TimerLaunch = 0;
+
+                    if (this.FrameColumn < 3)
+                        this.FrameColumn++;
+
+                    if (FrameColumn == 1)
+                    {
+                        this._blockLaunch.IsActive = false;
+                        cible.IsBoxLaunch = true;
+                    }
+
+                    if (FrameColumn == 3)
+                    {
+                        this.FrameLine = 0;
+                        this.FrameColumn = 0;
+                        this._isThrowBox = false;
+                    }
+
+                }
+            }
+
         }
 
         public void JumpAnime()
@@ -293,7 +329,7 @@ namespace WindowsGame1
 
         public void BlockPLayer()
         {
-            if (!this._isAttacking && !this._isJumping && !this._isCrouch && this._statut)
+            if (!this._isAttacking && !this._isJumping && !this._isCrouch && this._statut && !this._isThrowBox)
             {
                 this.FrameColumn = 4;
                 this.FrameLine = 0;
@@ -467,7 +503,7 @@ namespace WindowsGame1
                     case 3:
                         this._speedInAir = 8f;
                         this._impulsion = 7.5f;
-                        this.TimerMax = 5;
+                        this.TimerMax = 6;
                         break;
                 }
             }
@@ -614,6 +650,14 @@ namespace WindowsGame1
             }
         }
 
+        /**
+       * Fonctions pour lancer une box pour Hide
+       */
+
+        public void throwBox(LaunchableBlock cible, GamePadState pad)
+        {
+            this.FrameColumn = 0;
+        }
         public bool CheckMove()
         {
             bool value = true;
@@ -837,6 +881,24 @@ namespace WindowsGame1
         {
             get { return this._hidingBlock; }
             set { this._hidingBlock = value; }
+        }
+
+        public int ThrowId
+        {
+            get { return this._throwId; }
+            set { this._throwId = value; }
+        }
+
+        public LaunchableBlock BlockLaunch
+        {
+            get { return this._blockLaunch; }
+            set { this._blockLaunch = value; }
+        }
+
+        public bool IsThrowBox
+        {
+            get { return this._isThrowBox; }
+            set { this._isThrowBox = value; }
         }
     }
 }

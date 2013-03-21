@@ -12,6 +12,7 @@ namespace WindowsGame1
     {
         private Rectangle _cible;
         private Rectangle futurCible;
+        private Rectangle box;
         private int decalage = 0;
         private int x_ini;
         private Texture2D _text = Ressources.cible;
@@ -29,6 +30,9 @@ namespace WindowsGame1
 
         private bool _isItemThrow = false;
         private bool _isItemCrash = false;
+        private bool _isBoxCrash = false;
+        private bool _isBoxThrow = false;
+        private bool _isBoxLaunch = false;
 
         public Launch(int x, int y, Direction dir)
         {
@@ -42,6 +46,7 @@ namespace WindowsGame1
 
             this._cible = new Rectangle(x, y, _text.Width, _text.Height);
             this.ob = new Rectangle(x_ini, y - 20, 15, _text_ob.Height);
+            this.box = new Rectangle(x_ini + 5, y - 50, Ressources.boxH.Width, Ressources.boxH.Height);
             this._fspeed -= 7;
         }
 
@@ -140,6 +145,58 @@ namespace WindowsGame1
             }
         }
 
+        public void CheckBoxMove()
+        {
+            bool colide = false;
+            Rectangle futurPos = this.box;
+            futurPos.Y += 1 + (int)this._fspeed;
+            foreach (StaticNeutralBlock block in StaticNeutralBlock.StaticNeutralList)
+            {
+                if (block != StaticNeutralBlock.StaticNeutralList[0] && block != StaticNeutralBlock.StaticNeutralList[1] &&
+                    block != StaticNeutralBlock.StaticNeutralList[2] && block != StaticNeutralBlock.StaticNeutralList[3])
+                {
+                    if (futurPos.Intersects(block.HitBox))
+                    {
+                        colide = true;
+                        this.box.Y = block.HitBox.Y - box.Height;
+                        break;
+                    }
+                }
+            }
+
+            if (!colide)
+            {
+                if (this._fspeed >= 0)
+                    this._fspeed += 0.15f * (5 / 4);
+                else
+                    this._fspeed += 0.10f * (5 / 4);
+
+                if (sens == Direction.Left)
+                {
+                    this.box.X -= _vit;
+                }
+                else if (sens == Direction.Right)
+                {
+                    this.box.X += _vit;
+                }
+
+                int diff = this.box.Y - futurPos.Y;
+                this.box.Y -= diff;
+            }
+            else
+            {
+                this._fspeed = 0;
+                foreach (MovableEnnemyBlock block in MovableEnnemyBlock.MovableEnnemyList)
+                {
+                    if (block.HitBox.Intersects(this.box))
+                    {
+                        block.IsActive = false;
+                    }
+                }
+                this._isBoxCrash = true;
+                this._isBoxThrow = false;
+            }
+        }
         public Rectangle HitBox
         {
             get { return _cible; }
@@ -204,6 +261,30 @@ namespace WindowsGame1
         {
             get { return _isItemCrash; }
             set { _isItemCrash = value; }
+        }
+
+        public bool IsBoxLaunch
+        {
+            get { return _isBoxLaunch; }
+            set { _isBoxLaunch = value; }
+        }
+
+        public bool IsBoxThrow
+        {
+            get { return _isBoxThrow; }
+            set { _isBoxThrow = value; }
+        }
+
+        public Rectangle BoxBox
+        {
+            get { return box; }
+            set { box = value; }
+        }
+
+        public bool IsBoxCrash
+        {
+            get { return _isBoxCrash; }
+            set { _isBoxCrash = value; }
         }
     }
 }

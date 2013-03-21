@@ -437,6 +437,21 @@ namespace WindowsGame1
                         new CheckpointBlock(x, y, text);
                     }
                 }
+
+                else if (words[0] == "16") // LaunchableBlock
+                {
+                    if (words.Length == 6) //basic
+                    {
+                        int x = Convert.ToInt32(words[1]);
+                        int y = Convert.ToInt32(words[2]);
+                        bool hv = Convert.ToBoolean(words[3]);
+                        bool jv = Convert.ToBoolean(words[4]);
+                        int param = Convert.ToInt32(words[5]);
+                        Texture2D text = Ressources.TextureList[param];
+
+                        new LaunchableBlock(x, y, hv, jv, text);
+                    }
+                }
             }
         }
     }

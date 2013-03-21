@@ -237,6 +237,7 @@ namespace WindowsGame1
                         StaticNeutralBlock.StaticNeutralList[2].Y += 3;
                         StaticNeutralBlock.StaticNeutralList[3].Y += 3;
                         player.DecreaseCoordY(2);
+                        LaunchableBlock.LaunchableBlockList[0].Y += 3;
                     }
                 }
 
@@ -590,6 +591,7 @@ namespace WindowsGame1
 
                             player.IsThrowing = true;
                             player.BlockPLayer();
+                            player.ThrowId = 1;
                             player.CanMove = false;
                         }
                         else
@@ -639,6 +641,46 @@ namespace WindowsGame1
                             cible.IsItemThrow = true;
                         }
                     }
+                    else
+                    {
+                        futurePos = player.HitBox;
+                        futurePos.X = (int)(player.DirectionPlayer == Direction.Left
+                                                 ? futurePos.X - player.Speed
+                                                 : futurePos.X + player.Speed);
+
+                        if (!player.IsThrowing)
+                        {
+                            foreach (LaunchableBlock block in LaunchableBlock.LaunchableBlockList)
+                            {
+                                if (block.HitBox.Intersects(futurePos))
+                                {
+                                    if (block.IsActive)
+                                    {
+                                        if (player.DirectionPlayer == Direction.Left)
+                                            cible = new Launch((player.HitBox.X - 50), (player.HitBox.Y + 56),
+                                                               Direction.Left);
+                                        else if (player.DirectionPlayer == Direction.Right)
+                                            cible = new Launch((player.HitBox.X + 50), (player.HitBox.Y + 56),
+                                                               Direction.Right);
+
+                                        block.IsActive = false;
+
+                                        player.ThrowId = 2;
+
+                                        cible.IsBoxThrow = true;
+
+                                        player.BlockLaunch = block;
+                                        player.IsThrowBox = true;
+
+                                        player.throwBox(block, pad);
+
+                                        cible.Vitesse = 5;
+                                        cible.FSpeed = 370 * 6f / 400 * -1;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
                 foreach (MovableNeutralBlock blocks in MovableNeutralBlock.MovableNeutralList)
@@ -654,6 +696,10 @@ namespace WindowsGame1
                 if (player.IsJumping)
                 {
                     player.JumpAnime();
+                }
+                if (!cible.IsBoxCrash && cible.IsBoxThrow)
+                {
+                    player.LaunchAnime(cible);
                 }
                 if (cible.IsItemThrow && cible.IsItemCrash)
                 {
@@ -682,11 +728,20 @@ namespace WindowsGame1
                 }
                 if (player.IsThrowing)
                 {
-                    player.BlockPLayer();
-                    player.CanMove = false;
-                    player.Speed = 0;
-                    player.throwItem(cible, pad);
-
+                    if (player.ThrowId == 1)
+                    {
+                        player.throwItem(cible, pad);
+                        player.BlockPLayer();
+                        player.CanMove = false;
+                        player.Speed = 0;
+                    }
+                    else if (player.ThrowId == 2)
+                    {
+                        player.throwBox(LaunchableBlock.LaunchableBlockList[0], pad);
+                        player.BlockPLayer();
+                        player.CanMove = false;
+                        player.Speed = 0;
+                    }
                 }
 
             }
@@ -747,7 +802,8 @@ namespace WindowsGame1
 
             if (player.IsThrowing)
             {
-                spriteBatch.Draw(cible.Texture, cible.HitBox, Color.White);
+                if (player.ThrowId == 1)
+                    spriteBatch.Draw(cible.Texture, cible.HitBox, Color.White);
             }
 
             if (cible.IsItemThrow)
@@ -777,6 +833,15 @@ namespace WindowsGame1
 
                 spriteBatch.Draw(text, cible.ItemBox, new Rectangle((cible.ItemColumn * 15), 0, 15, 15), Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0f);
                 cible.CheckMove();
+            }
+            if (cible.IsBoxThrow)
+            {
+                if (!cible.IsBoxCrash && cible.IsBoxLaunch)
+                {
+                    Texture2D text = Ressources.boxH;
+                    spriteBatch.Draw(text, cible.BoxBox, new Rectangle(0, 0, 40, 70), Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    cible.CheckBoxMove();
+                }
             }
         }
 
@@ -942,6 +1007,25 @@ namespace WindowsGame1
                 foreach (Door block in Door.DoorList)
                 {
                     if (block.IsCollidable && block.IsActive && !block.IsOpen)
+                    {
+                        if (block.HitBox.Intersects(futurePos))
+                        {
+                            if (player.FallingSpeed < 0 && player.AccelMode != 1)
+                                player.FallingSpeed = 0;
+                            blockMove = false;
+                            player.AccelMode = 1;
+                            accelTimer = 0;
+
+                            break;
+                        }
+                    }
+                }
+            }
+            if (blockMove)
+            {
+                foreach (LaunchableBlock block in LaunchableBlock.LaunchableBlockList)
+                {
+                    if (block.IsCollidable && block.IsActive)
                     {
                         if (block.HitBox.Intersects(futurePos))
                         {
