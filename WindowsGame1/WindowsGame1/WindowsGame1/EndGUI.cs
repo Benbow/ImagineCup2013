@@ -34,10 +34,10 @@ namespace Overload
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this.text, this.hitbox, Color.White);
-            spriteBatch.DrawString(Ressources.puzzle0Lose, "Level Complete !", new Vector2(FirstGame.W/2 - 340, FirstGame.H/2 - 200), Color.Black);
-            spriteBatch.DrawString(Ressources.font2, "You gain 1500 skill points !", new Vector2(FirstGame.W / 2 - 280, FirstGame.H / 2 - 120), Color.Black);
-            spriteBatch.DrawString(Ressources.font2, "Scientist Skill Points : " + Math.Ceiling((FirstGame.Jp / 100) * 1500), new Vector2(FirstGame.W / 2 - 280, FirstGame.H / 2), Color.Black);
-            spriteBatch.DrawString(Ressources.font2, "Monster Skill Points : " + Math.Ceiling((FirstGame.Hp / 100) * 1500), new Vector2(FirstGame.W / 2 - 280, FirstGame.H / 2 + 100), Color.Black);
+            spriteBatch.DrawString(Ressources.puzzle0Lose, "Level Complete !", new Vector2(FirstGame.W/2 - 300, FirstGame.H/2 - 200), Color.Black);
+            spriteBatch.DrawString(Ressources.font2, "You gain 1500 skill points !", new Vector2(FirstGame.W / 2 - 240, FirstGame.H / 2 - 120), Color.Black);
+            spriteBatch.DrawString(Ressources.font2, "Scientist Skill Points : " + Math.Ceiling((FirstGame.Jp / 100) * 1500), new Vector2(FirstGame.W / 2 - 240, FirstGame.H / 2), Color.Black);
+            spriteBatch.DrawString(Ressources.font2, "Monster Skill Points : " + Math.Ceiling((FirstGame.Hp / 100) * 1500), new Vector2(FirstGame.W / 2 - 240, FirstGame.H / 2 + 100), Color.Black);
         }
 
     }
