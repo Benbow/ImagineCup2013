@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace WindowsGame1
+namespace Overload
 {
     class GameMain
     {
@@ -25,6 +25,9 @@ namespace WindowsGame1
         
 
         public static string Status;
+        private string[] Message = new string[20];
+        private int count = 0;
+        private int id_message = 0;
 
         public GameMain()
         {
@@ -45,12 +48,44 @@ namespace WindowsGame1
             }
             MyMap.SlideY(1000-FirstGame.H+72);
             Status = "on";
+            Message[0] = "Use the Left Thumbstick to move your player";
+            Message[1] = "Press Start to open Menu and check your skills";
+            Message[2] = "If you have unlock it, press Right Shouder to activate your special vision";
+            Message[3] = "Each vision help you to find interactive object, for each character";
+            Message[4] = "Press Left Shoulder to transform yourself, in Scientist or Monster";
+            Message[5] = "On Scientist, press B to hide you behind metal box, and avoids guards and cameras";
+            Message[6] = "If you are spotted by cameras, the base is on alert and you restart";
+            Message[7] = "Walk on a door an press A to open it";
+            Message[8] = "On Monster, press B to attack guards or to destroy some blocks";
+            Message[9] = "On Scientist, press X to aim and X again to launch an object who can disturb guards";
+            Message[10] = "On Scientist, press A on a computer to try to hack it";
+            Message[11] = "If you are spotted by guards, they will open fire !!!";
+            Message[12] = "You can't pass through the Radioactive zone without your Mask (use Vision to find it)";
+            Message[13] = "On Monster, press A to jump";
+            Message[14] = "On Scientist, open you inventory with the Up Arrow";
+            Message[15] = "In inventory, you can select your current object by press A on it";
+            Message[16] = "To use your current object, press Y, and Y again to retire it";
+            Message[17] = "To use the Hoist, maybe must you destroy box on it first";
+            Message[18] = "On Monster, press X to Grab and Launch an Box on ennemies, if you can";
+            Message[19] = "On scientist, Walk on a wood box and Press A to climb on it";
+
 
         }
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime)
         {
             bool prec_statut = statut_player;
+
+            count++;
+            if (count > 350)
+            {
+                count = 0;
+                id_message++;
+                if (id_message > 19)
+                {
+                    id_message = 0;
+                }
+            }
 
             if (!LocalHide.IsJumping && !LocalJekyll.IsThrowing)
                 statut_player = LocalJekyll.Switch(pad);
@@ -73,6 +108,7 @@ namespace WindowsGame1
             {
                 if (!statut_player)
                 {
+
                     if (GameMain.Status == "on")
                     {
                         if (prec_statut != statut_player)
@@ -114,6 +150,7 @@ namespace WindowsGame1
                 if (!statut_player)
                 {
                     MyMap.Draw(spriteBatch, LocalJekyll);
+                    
                     spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalJekyll.Health.ToString(), new Vector2(FirstGame.W-300, 30), Color.White);
                     LocalJekyll.Draw(spriteBatch);
                     if (GameMain.Status == "inventory")
@@ -124,10 +161,10 @@ namespace WindowsGame1
                 else
                 {
                     MyMap.Draw(spriteBatch, LocalHide);
-                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalHide.Health.ToString(), new Vector2(FirstGame.W - 300, 30), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalHide.Health.ToString(), new Vector2(FirstGame.W - 220, 30), Color.White);
                     LocalHide.Draw(spriteBatch);
                 }
-
+                spriteBatch.DrawString(Ressources.cmpTitle, Message[id_message], new Vector2(470, 30), Color.LightCoral);
                 alignement.Draw(spriteBatch);
                 
             }
@@ -138,8 +175,10 @@ namespace WindowsGame1
             List<string> lines = new List<string>();
             char[] delimiter = { ' ' };
             int count = 0;
+            System.IO.Stream stream = TitleContainer.OpenStream("Content/level1.txt");
 
-            using (StreamReader reader = new StreamReader("Content/level1.txt"))
+
+            using (StreamReader reader = new StreamReader(stream))
             {
                 string line = reader.ReadLine();
                 while (line != null)

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WindowsGame1
+namespace Overload
 {
     public enum Direction
     {
@@ -56,11 +56,11 @@ namespace WindowsGame1
         protected bool _isThrowBox = false;
 
         //link competences
-        protected bool _canClimb = false;
+        protected bool _canClimb = true;
         protected bool _canJVision = false;
         protected bool _canHVision = false;
-        protected bool _canHide = false;
-        protected bool _canJump = false;
+        protected bool _canHide = true;
+        protected bool _canJump = true;
 
         protected float _speed = 1.5f;
         protected float _poids;
@@ -363,7 +363,7 @@ namespace WindowsGame1
                         this._hitBox.Y = block.HitBox.Y - this._hitBox.Height;
                         if (!this._statut && this._fallingSpeed > 7.5)
                         {
-                            FirstGame.reload = true;
+                            FirstGame.FallDeath = true;
                         }
                     }
                     break;
@@ -381,7 +381,7 @@ namespace WindowsGame1
                     }
                     if (!this._statut && this._fallingSpeed > 7.5)
                     {
-                        FirstGame.reload = true;
+                        FirstGame.FallDeath = true;
                     }
                     break;
                 }
@@ -398,7 +398,7 @@ namespace WindowsGame1
                     }
                     if (!this._statut && this._fallingSpeed > 7.5)
                     {
-                        FirstGame.reload = true;
+                        FirstGame.FallDeath = true;
                     }
                     break;
                 }

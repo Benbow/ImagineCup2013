@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace WindowsGame1
+namespace Overload
 {
     class AccueilGUI
     {
@@ -66,14 +66,14 @@ namespace WindowsGame1
 
         public void Update(GamePadState pad)
         {
-            if (pad.IsButtonDown(Buttons.LeftThumbstickDown) && !oldPad.IsButtonDown(Buttons.LeftThumbstickDown))
+            if ((pad.IsButtonDown(Buttons.LeftThumbstickDown) && !oldPad.IsButtonDown(Buttons.LeftThumbstickDown)) || (pad.IsButtonDown(Buttons.DPadDown)) && oldPad.IsButtonUp(Buttons.DPadDown))
             {
                 if (current < 3)
                 {
                     current++;
                 }
             }
-            if (pad.IsButtonDown(Buttons.LeftThumbstickUp) && !oldPad.IsButtonDown(Buttons.LeftThumbstickUp))
+            if ((pad.IsButtonDown(Buttons.LeftThumbstickUp) && !oldPad.IsButtonDown(Buttons.LeftThumbstickUp)) || (pad.IsButtonDown(Buttons.DPadUp) && oldPad.IsButtonUp(Buttons.DPadUp)))
             {
                 if (current > 1)
                 {

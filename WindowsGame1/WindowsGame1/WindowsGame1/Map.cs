@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace WindowsGame1
+namespace Overload
 {
     class Map
     {
@@ -56,7 +56,7 @@ namespace WindowsGame1
 
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime, Player player)
         {
-            if (FirstGame.checkpoint && !slide && FirstGame.reloadCount != 0)
+            if (FirstGame.checkpoint && !slide && FirstGame.reloadCount != 0 && FirstGame.canCheck)
             {
                 this.Slide(1800, player);
                 slide = true;
@@ -169,7 +169,7 @@ namespace WindowsGame1
                         player.Health -= bullet.Strength + 1;
                         if (player.Health <= 0)
                         {
-                            FirstGame.reload = true;
+                            FirstGame.NoLifeDeath = true;
                         }
                     }
                 }
@@ -193,9 +193,9 @@ namespace WindowsGame1
                     if (cam.IsActive)
                     {
                         cam.Update(gameTime);
-                        if (!player.Statut && !player.IsHiding && player.HitBox.Intersects(cam.Spot_rec))
+                        if (!player.IsHiding && player.HitBox.Intersects(cam.Spot_rec))
                         {
-                            FirstGame.reload = true;
+                            FirstGame.SpottedDeath = true;
                         }
                     }
                 }
@@ -208,13 +208,13 @@ namespace WindowsGame1
                         {
                             player.Health--;
                             if (player.Health <= 0)
-                                FirstGame.reload = true;
+                                FirstGame.NoLifeDeath = true;
                         }
                         else if (!player.Statut && (!InventoryCase.InventoryCaseList[0].Status || !player.IsActiveObject))
                         {
                             player.Health--;
                             if (player.Health <= 0)
-                                FirstGame.reload = true;
+                                FirstGame.NoLifeDeath = true;
                         }
                     }
                 }

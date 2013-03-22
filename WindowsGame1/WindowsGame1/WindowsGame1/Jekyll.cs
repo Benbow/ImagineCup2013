@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WindowsGame1
+namespace Overload
 {
     class Jekyll : Player
     {
         private int _adrenaline;
         private double _jekyllBias;
-        public static double _jskillsPoints = 70;
+        public static double _jskillsPoints = 50;
 
         public Jekyll(int x, int y)
         {

@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace WindowsGame1
+namespace Overload
 {
     class Ressources
     {
@@ -54,6 +54,9 @@ namespace WindowsGame1
         public static Texture2D wallpaper2;
         public static Texture2D wallpaper3;
         public static Texture2D warning;
+        public static Texture2D FallDeath;
+        public static Texture2D SpottedDeath;
+        public static Texture2D NoLifeDeath;
 
         public static Texture2D wallMaison1;
         public static Texture2D wallMaison2;
@@ -149,6 +152,10 @@ namespace WindowsGame1
             wallpaper1 = Content.Load<Texture2D>("Wallpaper1");
             wallpaper2 = Content.Load<Texture2D>("Wallpaper2");
             wallpaper3 = Content.Load<Texture2D>("Wallpaper3");
+
+            FallDeath = Content.Load<Texture2D>("FallDeath");
+            NoLifeDeath = Content.Load<Texture2D>("NoLifeDeath");
+            SpottedDeath = Content.Load<Texture2D>("SpottedDeath");
 
             font1 = Content.Load<SpriteFont>("SpriteFont1");
             font2 = Content.Load<SpriteFont>("SpriteFont2");

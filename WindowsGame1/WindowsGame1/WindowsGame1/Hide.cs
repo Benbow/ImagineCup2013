@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WindowsGame1
+namespace Overload
 {
     class Hide : Player
     {
         private int _adrenaline;
         private double _hideBias;
-        public static double _hskillPoints = 110;
+        public static double _hskillPoints = 90;
 
         public Hide(int x, int y)
         {

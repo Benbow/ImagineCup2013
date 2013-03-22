@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace WindowsGame1
+namespace Overload
 {
     class MenuGUI : GUI
     {
@@ -29,14 +29,14 @@ namespace WindowsGame1
 
         //competences
         private Texture2D cmp_bg = Ressources.cmp_bg;
-        private Rectangle cmp_rec = new Rectangle((FirstGame.W / 2) - (796 / 2), (FirstGame.H / 2) - (480/2), 796, 480);
+        private Rectangle cmp_rec = new Rectangle((FirstGame.W / 2) - (796 / 2), (FirstGame.H / 2) - (480 / 2), 796, 480);
 
         private Texture2D current2_text = Ressources.current2;
         private Rectangle current2_rec = new Rectangle((FirstGame.W / 2) - (350 / 2), (FirstGame.H / 2) - (80 / 2) - 150, 350, 80);
 
         private int side = 0;
 
-        private Rectangle j_cmp1 = new Rectangle((FirstGame.W / 2) - (796 / 2), (FirstGame.H / 2) - (480/2) + 61, 398, 100);
+        private Rectangle j_cmp1 = new Rectangle((FirstGame.W / 2) - (796 / 2), (FirstGame.H / 2) - (480 / 2) + 61, 398, 100);
         private Texture2D j_cmp1_text = Ressources.comp_bg;
         private Rectangle j_cmp1_img_rec = new Rectangle((FirstGame.W / 2) - (796 / 2) + 10, (FirstGame.H / 2) - (480 / 2) + 71, 91, 80);
         private Texture2D j_cmp1_img = Ressources.j_cmp1;
@@ -125,7 +125,7 @@ namespace WindowsGame1
         {
             _bg = new Rectangle(0, 0, FirstGame.W, FirstGame.H);
             _text = Ressources.menu_bg;
-            bouton1 = new Rectangle((FirstGame.W/2)-(350/2), (FirstGame.H/2) - (80/2) - 150, 350, 80);
+            bouton1 = new Rectangle((FirstGame.W / 2) - (350 / 2), (FirstGame.H / 2) - (80 / 2) - 150, 350, 80);
             bouton2 = new Rectangle((FirstGame.W / 2) - (350 / 2), (FirstGame.H / 2) - (80 / 2), 350, 80);
             bouton3 = new Rectangle((FirstGame.W / 2) - (350 / 2), (FirstGame.H / 2) - (80 / 2) + 150, 350, 80);
             bouton1_text = Ressources.menu_bouton1;
@@ -136,21 +136,20 @@ namespace WindowsGame1
             current_rec = new Rectangle(bouton1.X - 10, bouton1.Y - 10, 370, 100);
             status = "home";
 
-            //if (FirstGame.checkpoint)
-            //{
-            //    j_cmp1_status = true;
-            //    j_cmp2_status = true;
-            //    j_cmp3_status = true;
-            //    j_cmp4_status = true;
-            //    j_cmp5_status = false;
-            //    h_cmp1_status = true;
-            //    h_cmp2_status = true;
-            //    h_cmp3_status = true;
-            //    h_cmp4_status = true;
-            //    h_cmp5_status = false;
-            //    _hbias = 0;
-            //    _jbias = 5;
-            //}
+
+            j_cmp1_status = true;
+            j_cmp2_status = false;
+            j_cmp3_status = true;
+            j_cmp4_status = false;
+            j_cmp5_status = false;
+            h_cmp1_status = true;
+            h_cmp2_status = false;
+            h_cmp3_status = true;
+            h_cmp4_status = false;
+            h_cmp5_status = false;
+            _hbias = 0;
+            _jbias = 5;
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -435,7 +434,7 @@ namespace WindowsGame1
                     {
                         GameMain.Status = "on";
                     }
-                    else if(this.status == "competences")
+                    else if (this.status == "competences")
                     {
                         current = 1;
                         this.status = "home";

@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 
-namespace WindowsGame1
+namespace Overload
 {
 
     public class FirstGame : Microsoft.Xna.Framework.Game
@@ -25,12 +25,17 @@ namespace WindowsGame1
         public static bool exit = false;
         public static bool reload = false;
         public static bool checkpoint = false;
+        public static bool canCheck = false;
         public static bool credits = false;
         public static int reloadCount = 0;
         public static double Jp;
         public static double Hp;
         public static int W;
         public static int H;
+
+        public static bool FallDeath = false;
+        public static bool SpottedDeath = false;
+        public static bool NoLifeDeath = false;
 
         GameMain Main;
         AccueilGUI Accueil;
@@ -74,8 +79,8 @@ namespace WindowsGame1
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            //    this.Exit();
             if(exit)
                 this.Exit();
             if (start)
@@ -84,7 +89,18 @@ namespace WindowsGame1
                 {
                     this.Reload();
                 }
-                Main.Update(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One), Mouse.GetState(), gameTime);
+                if (FallDeath || NoLifeDeath || SpottedDeath)
+                {
+                    if (GamePad.GetState(PlayerIndex.One).IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A))
+                    {
+                        FallDeath = false;
+                        NoLifeDeath = false;
+                        SpottedDeath = false;
+                        reload = true;
+                    }
+                }
+                else
+                    Main.Update(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One), Mouse.GetState(), gameTime);
             }
             else if (end)
             {
@@ -108,18 +124,27 @@ namespace WindowsGame1
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-                if(start)
-                    Main.Draw(spriteBatch);
-                else if (end)
-                {
-                    EndScreen.Draw(spriteBatch);
-                }
-                else if(credits)
-                {
-                    spriteBatch.Draw(Ressources.credits_bg, new Rectangle(0,0, FirstGame.W, FirstGame.H), Color.Turquoise);
-                }
-                else
-                    Accueil.Draw(spriteBatch);
+            if (start)
+            {
+                Main.Draw(spriteBatch);
+                if(FallDeath)
+                    spriteBatch.Draw(Ressources.FallDeath, new Rectangle(FirstGame.W / 2 - Ressources.FallDeath.Width / 2, FirstGame.H / 2 - Ressources.FallDeath.Height / 2, Ressources.FallDeath.Width, Ressources.FallDeath.Height), Color.White);
+                else if(NoLifeDeath)
+                    spriteBatch.Draw(Ressources.NoLifeDeath, new Rectangle(FirstGame.W / 2 - Ressources.NoLifeDeath.Width / 2, FirstGame.H / 2 - Ressources.NoLifeDeath.Height / 2, Ressources.NoLifeDeath.Width, Ressources.NoLifeDeath.Height), Color.White);
+                else if (SpottedDeath)
+                    spriteBatch.Draw(Ressources.SpottedDeath, new Rectangle(FirstGame.W / 2 - Ressources.SpottedDeath.Width / 2, FirstGame.H / 2 - Ressources.SpottedDeath.Height / 2, Ressources.SpottedDeath.Width, Ressources.SpottedDeath.Height), Color.White);
+            
+            }
+            else if (end)
+            {
+                EndScreen.Draw(spriteBatch);
+            }
+            else if (credits)
+            {
+                spriteBatch.Draw(Ressources.credits_bg, new Rectangle(0, 0, FirstGame.W, FirstGame.H), Color.White);
+            }
+            else
+                Accueil.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -156,6 +181,8 @@ namespace WindowsGame1
             Jekyll._jskillsPoints = 70;
             Hide._hskillPoints = 110;
             reloadCount++;
+            if (checkpoint)
+                canCheck = true;
         }
     }
 }

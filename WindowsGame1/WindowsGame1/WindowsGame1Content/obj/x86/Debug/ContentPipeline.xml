@@ -973,6 +973,42 @@
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpriteFont2.xnb</Output>
       <Time>2013-03-20T16:10:54.0883083-04:00</Time>
     </Item>
+    <Item>
+      <Source>FallDeath.png</Source>
+      <Name>FallDeath</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FallDeath.xnb</Output>
+      <Time>2013-03-21T23:58:29.7967915-04:00</Time>
+    </Item>
+    <Item>
+      <Source>NoLifeDeath.png</Source>
+      <Name>NoLifeDeath</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\NoLifeDeath.xnb</Output>
+      <Time>2013-03-21T23:58:29.8217929-04:00</Time>
+    </Item>
+    <Item>
+      <Source>SpottedDeath.png</Source>
+      <Name>SpottedDeath</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpottedDeath.xnb</Output>
+      <Time>2013-03-21T23:58:29.805792-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Controls.png</Source>
+      <Name>Controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Controls.xnb</Output>
+      <Time>2013-03-22T00:11:37.9168693-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
