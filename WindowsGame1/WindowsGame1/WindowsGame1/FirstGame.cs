@@ -47,8 +47,8 @@ namespace Overload
         public FirstGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            //graphics.PreferredBackBufferWidth = 796;
-            //graphics.PreferredBackBufferHeight = 480;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.PreferredBackBufferHeight = 768;
             this.graphics.IsFullScreen = true;
             W = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
             H = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;

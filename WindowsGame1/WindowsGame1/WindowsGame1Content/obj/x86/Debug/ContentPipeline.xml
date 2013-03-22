@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bouton2.xnb</Output>
-      <Time>2013-03-19T11:17:41.3023117-04:00</Time>
+      <Time>2013-03-22T19:17:41.0332026-04:00</Time>
     </Item>
     <Item>
       <Source>bouton3.png</Source>
@@ -530,7 +530,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ready.xnb</Output>
-      <Time>2013-03-19T13:51:25.2248899-04:00</Time>
+      <Time>2013-03-22T19:17:41.0942061-04:00</Time>
     </Item>
     <Item>
       <Source>go.png</Source>
@@ -539,7 +539,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\go.xnb</Output>
-      <Time>2013-03-19T11:17:41.4283189-04:00</Time>
+      <Time>2013-03-22T19:17:41.0612042-04:00</Time>
     </Item>
     <Item>
       <Source>reload.png</Source>
@@ -818,7 +818,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enigme_depart.xnb</Output>
-      <Time>2013-03-19T13:41:22.5624196-04:00</Time>
+      <Time>2013-03-22T19:17:41.058204-04:00</Time>
     </Item>
     <Item>
       <Source>spot_zone_ennemy.png</Source>
@@ -980,7 +980,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FallDeath.xnb</Output>
-      <Time>2013-03-21T23:58:29.7967915-04:00</Time>
+      <Time>2013-03-22T19:17:40.9751993-04:00</Time>
     </Item>
     <Item>
       <Source>NoLifeDeath.png</Source>
@@ -989,7 +989,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\NoLifeDeath.xnb</Output>
-      <Time>2013-03-21T23:58:29.8217929-04:00</Time>
+      <Time>2013-03-22T19:17:41.0082011-04:00</Time>
     </Item>
     <Item>
       <Source>SpottedDeath.png</Source>
@@ -998,7 +998,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpottedDeath.xnb</Output>
-      <Time>2013-03-21T23:58:29.805792-04:00</Time>
+      <Time>2013-03-22T19:17:41.0272022-04:00</Time>
     </Item>
     <Item>
       <Source>Controls.png</Source>

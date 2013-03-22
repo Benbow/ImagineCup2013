@@ -48,7 +48,7 @@ namespace Overload
                 LocalJekyll = new Jekyll(FirstGame.W/2 - 72, 386);
                 LocalHide = new Hide(FirstGame.W - 72/2, 386);
             }
-            MyMap.SlideY(1000-FirstGame.H+72);
+            MyMap.SlideY(1000-FirstGame.H+45);
             Status = "on";
             Message[0] = "Press BACK to show the next tips";
             Message[1] = "Use the Left Thumbstick to move your player";
@@ -179,7 +179,7 @@ namespace Overload
                     spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalHide.Health.ToString(), new Vector2(FirstGame.W - 220, 30), Color.White);
                     LocalHide.Draw(spriteBatch);
                 }
-                spriteBatch.DrawString(Ressources.cmpTitle, Message[id_message], new Vector2(470, 30), Color.LightCoral);
+                spriteBatch.DrawString(Ressources.cmpTitle, Message[id_message], new Vector2(470, 60), Color.LightCoral);
                 alignement.Draw(spriteBatch);
                 
             }
