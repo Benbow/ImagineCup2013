@@ -25,7 +25,7 @@ namespace Overload
         
 
         public static string Status;
-        private string[] Message = new string[20];
+        private string[] Message = new string[21];
         private int count = 0;
         private int id_message = 0;
 
