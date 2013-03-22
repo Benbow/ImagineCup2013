@@ -408,6 +408,10 @@ namespace Overload
                     }
                 }
             }
+            else if (this.status == "controls")
+            {
+                spriteBatch.Draw(Ressources.Controls, new Rectangle(100, 100, Ressources.Controls.Width, Ressources.Controls.Height), Color.White );
+            }
         }
 
         public void Update(GamePadState pad, Jekyll jekyll, Hide hide)
@@ -439,6 +443,11 @@ namespace Overload
                         current = 1;
                         this.status = "home";
                     }
+                    else if (this.status == "controls")
+                    {
+                        current = 2;
+                        this.status = "home";
+                    }
                 }
             }
             if (GameMain.Status == "menu")
@@ -463,6 +472,10 @@ namespace Overload
                     {
                         if (current == 1)
                             this.status = "competences";
+                        else if (current == 2)
+                        {
+                            this.status = "controls";
+                        }
                         else if (current == 3)
                             FirstGame.exit = true;
                     }

@@ -57,6 +57,7 @@ namespace Overload
         public static Texture2D FallDeath;
         public static Texture2D SpottedDeath;
         public static Texture2D NoLifeDeath;
+        public static Texture2D Controls;
 
         public static Texture2D wallMaison1;
         public static Texture2D wallMaison2;
@@ -156,6 +157,7 @@ namespace Overload
             FallDeath = Content.Load<Texture2D>("FallDeath");
             NoLifeDeath = Content.Load<Texture2D>("NoLifeDeath");
             SpottedDeath = Content.Load<Texture2D>("SpottedDeath");
+            Controls = Content.Load<Texture2D>("Controls");
 
             font1 = Content.Load<SpriteFont>("SpriteFont1");
             font2 = Content.Load<SpriteFont>("SpriteFont2");
