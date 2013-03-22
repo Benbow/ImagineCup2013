@@ -944,7 +944,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\credits_bg.xnb</Output>
-      <Time>2013-03-20T22:03:00.8729445-04:00</Time>
+      <Time>2013-03-22T19:42:38.7474508-04:00</Time>
     </Item>
     <Item>
       <Source>checkpoint.png</Source>
@@ -962,7 +962,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Benbow\Documents\GitHub\SupMTL2013\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\end_bg.xnb</Output>
-      <Time>2013-03-20T16:06:55.5706659-04:00</Time>
+      <Time>2013-03-22T19:42:38.7524511-04:00</Time>
     </Item>
     <Item>
       <Source>SpriteFont2.spritefont</Source>
