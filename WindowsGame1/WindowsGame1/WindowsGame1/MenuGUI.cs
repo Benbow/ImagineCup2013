@@ -410,7 +410,7 @@ namespace Overload
             }
             else if (this.status == "controls")
             {
-                spriteBatch.Draw(Ressources.Controls, new Rectangle(100, 100, Ressources.Controls.Width, Ressources.Controls.Height), Color.White );
+                spriteBatch.Draw(Ressources.Controls, new Rectangle(FirstGame.W / 2 - Ressources.Controls.Width / 2 -72, Ressources.Controls.Height/2 -72, Ressources.Controls.Width, Ressources.Controls.Height), Color.White);
             }
         }
 

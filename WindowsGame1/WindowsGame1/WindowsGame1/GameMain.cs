@@ -29,6 +29,8 @@ namespace Overload
         private int count = 0;
         private int id_message = 0;
 
+        private GamePadState oldPad;
+
         public GameMain()
         {
             this.LoadMap();
@@ -48,26 +50,27 @@ namespace Overload
             }
             MyMap.SlideY(1000-FirstGame.H+72);
             Status = "on";
-            Message[0] = "Use the Left Thumbstick to move your player";
-            Message[1] = "Press Start to open Menu and check your skills";
-            Message[2] = "If you have unlock it, press Right Shouder to activate your special vision";
-            Message[3] = "Each vision help you to find interactive object, for each character";
-            Message[4] = "Press Left Shoulder to transform yourself, in Scientist or Monster";
-            Message[5] = "On Scientist, press B to hide you behind metal box, and avoids guards and cameras";
-            Message[6] = "If you are spotted by cameras, the base is on alert and you restart";
-            Message[7] = "Walk on a door an press A to open it";
-            Message[8] = "On Monster, press B to attack guards or to destroy some blocks";
-            Message[9] = "On Scientist, press X to aim and X again to launch an object who can disturb guards";
-            Message[10] = "On Scientist, press A on a computer to try to hack it";
-            Message[11] = "If you are spotted by guards, they will open fire !!!";
-            Message[12] = "You can't pass through the Radioactive zone without your Mask (use Vision to find it)";
-            Message[13] = "On Monster, press A to jump";
-            Message[14] = "On Scientist, open you inventory with the Up Arrow";
-            Message[15] = "In inventory, you can select your current object by press A on it";
-            Message[16] = "To use your current object, press Y, and Y again to retire it";
-            Message[17] = "To use the Hoist, maybe must you destroy box on it first";
-            Message[18] = "On Monster, press X to Grab and Launch an Box on ennemies, if you can";
-            Message[19] = "On scientist, Walk on a wood box and Press A to climb on it";
+            Message[0] = "Press BACK to show the next tips";
+            Message[1] = "Use the Left Thumbstick to move your player";
+            Message[2] = "Press Start to open Menu and check your skills";
+            Message[3] = "If you have unlock it, press Right Shouder to activate your special vision";
+            Message[4] = "Each vision help you to find interactive object, for each character";
+            Message[5] = "Press Left Shoulder to transform yourself, in Scientist or Monster";
+            Message[6] = "On Scientist, press B to hide you behind metal box, and avoids guards and cameras";
+            Message[7] = "If you are spotted by cameras, the base is on alert and you restart";
+            Message[8] = "Walk on a door an press A to open it";
+            Message[9] = "On Monster, press B to attack guards or to destroy some blocks";
+            Message[10] = "On Scientist, press X to aim and X again to launch an object who can disturb guards";
+            Message[11] = "On Scientist, press A on a computer to try to hack it";
+            Message[12] = "If you are spotted by guards, they will open fire !!!";
+            Message[13] = "You can't pass through the Radioactive zone without your Mask (use Vision to find it)";
+            Message[14] = "On Monster, press A to jump";
+            Message[15] = "On Scientist, open you inventory with the Up Arrow";
+            Message[16] = "In inventory, you can select your current object by press A on it";
+            Message[17] = "On scientist, To use your current object, press Y, and Y again to retire it";
+            Message[18] = "To use the Hoist, maybe must you destroy box on it first";
+            Message[19] = "On Monster, press X to Grab and Launch an Box on ennemies, if you can";
+            Message[20] = "On scientist, Walk on a wood box and Press A to climb on it";
 
 
         }
@@ -75,17 +78,29 @@ namespace Overload
         public void Update(KeyboardState keyboard, GamePadState pad, MouseState mouse, GameTime gameTime)
         {
             bool prec_statut = statut_player;
-
-            count++;
-            if (count > 350)
+            if (GameMain.Status == "on")
+            {
+                count++;
+                if (count > 480)
+                {
+                    count = 0;
+                    id_message++;
+                    if (id_message > 20)
+                    {
+                        id_message = 0;
+                    }
+                }
+            }
+            if (pad.IsButtonDown(Buttons.Back) && oldPad.IsButtonUp(Buttons.Back))
             {
                 count = 0;
                 id_message++;
-                if (id_message > 19)
+                if (id_message > 20)
                 {
                     id_message = 0;
                 }
             }
+               
 
             if (!LocalHide.IsJumping && !LocalJekyll.IsThrowing)
                 statut_player = LocalJekyll.Switch(pad);
@@ -136,7 +151,7 @@ namespace Overload
                 alignement.Update(LocalJekyll.JekyllBias, LocalHide.HideBias);
             }
 
-
+            oldPad = pad;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -151,7 +166,7 @@ namespace Overload
                 {
                     MyMap.Draw(spriteBatch, LocalJekyll);
                     
-                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalJekyll.Health.ToString(), new Vector2(FirstGame.W-300, 30), Color.White);
+                    spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalJekyll.Health.ToString(), new Vector2(FirstGame.W-220, 30), Color.White);
                     LocalJekyll.Draw(spriteBatch);
                     if (GameMain.Status == "inventory")
                     {
