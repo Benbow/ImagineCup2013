@@ -179,7 +179,7 @@ namespace Overload
                     spriteBatch.DrawString(Ressources.cmpTitle, "Life :" + LocalHide.Health.ToString(), new Vector2(FirstGame.W - 220, 30), Color.White);
                     LocalHide.Draw(spriteBatch);
                 }
-                spriteBatch.DrawString(Ressources.cmpTitle, Message[id_message], new Vector2(470, 60), Color.LightCoral);
+                spriteBatch.DrawString(Ressources.cmpTitle, Message[id_message], new Vector2(470, 60), Color.White);
                 alignement.Draw(spriteBatch);
                 
             }

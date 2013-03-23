@@ -736,13 +736,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="overload.xap">
-      <Name>overload</Name>
-      <Importer>XactImporter</Importer>
-      <Processor>XactProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="level1.txt">
       <Name>level1</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

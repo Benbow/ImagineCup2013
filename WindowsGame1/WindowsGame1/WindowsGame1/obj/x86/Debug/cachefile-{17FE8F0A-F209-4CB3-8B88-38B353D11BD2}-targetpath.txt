@@ -110,7 +110,4 @@ Content\FallDeath.xnb
 Content\NoLifeDeath.xnb
 Content\SpottedDeath.xnb
 Content\Controls.xnb
-Content\overload.xgs
-Content\Wave Bank.xwb
-Content\Sound Bank.xsb
 Content\level1.txt
